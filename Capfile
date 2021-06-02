@@ -12,6 +12,6 @@ require "capistrano/rails/migrations"
 require 'capistrano/sitemap_generator'
 
 require 'capistrano/puma'
-install_plugin Capistrano::Puma, load_hooks: false
+install_plugin Capistrano::Puma
 
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
