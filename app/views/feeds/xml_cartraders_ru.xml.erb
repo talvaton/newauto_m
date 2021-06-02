@@ -1,0 +1,66 @@
+<xml>
+  <trader>
+    <logo title="URL логотипа">https://www.carso.ru/assets/img/logo.svg</logo>
+    <name title="Название автосалона"> Автосалон Авиньон </name>
+    <description title="Описание автосалона">Автосалон «Авиньон» в Москве — это выгодные цены на новые и подержанные авто! Благодаря нашему сервису любой клиент всегда сможет подобрать именно тот автомобиль, который соответствует всем его требованиям, начиная от комплектации и заканчивая ценой. Наши менеджеры предложат Вам как новые модели, так и подержанные авто с большими скидками, а также кредит на отличных условиях. У нас Вы с легкостью сможете обменять свою старую машину на современную, свежую модель 2017/2018 года выпуска. Ну и конечно, Вас ожидает широкий выбор подержанных автомобилей (б/у) самого разного ценового диапазона, пробега и года выпуска. Для того чтобы забронировать любую машину на нашем сайте, просто воспользуйтесь специальной формой оценки и через некоторое время наши менеджеры назовут объективную цену Вашего авто. Останется лишь приехать к нам, оформить договор и уехать на новеньком автомобиле!</description>
+    <realname title="Юридические название"> ООО "АЦ-Бренд" </realname>
+    <address title="Фактический адрес автосалона">г.Москва, Дмитровское ш. 157, стр. 4</address>
+    <phones title="Номера телефонов в международном формате: +7ХХХХХХХХХХ">
+      <phone>+74995201887</phone>
+      <phone>+78001000157</phone>
+    </phones>
+    <site title="URL адрес сайта, указывается с протоколом">https://www.carso.ru</site>
+    <email title="Адрес электронной почты">info@carso.ru</email>
+    <shelude title="График работы">с 9:00 до 21:00 ежедневно</shelude>
+    <latitude title="GPS координаты (для метки на карте)">55.899523</latitude>
+    <longitude title="GPS координаты (для метки на карте)">37.542334</longitude>
+    <city title="Город">Москва</city>
+    <images title="Фотографии для страницы об автосалоне">
+      <image>https://www.carso.ru/assets/img/logo.svg</image>
+      <image>https://www.carso.ru/assets/img/logo.svg</image>
+      <image>https://www.carso.ru/assets/img/logo.svg</image>
+    </images>
+  </trader>
+  <cars>
+    <% @used.each do |used_car| %>
+    <car>
+      <id title="Уникальный ID авто"><% used_car.id %></id>
+      <type title="Тип кузова"><% used_car.car_type %></type>
+      <brand title="Бренд"><% used_car.brand.title %></brand>
+      <model title="Модель"><%= used_car.name %></model>
+      <modification title="Модификация"></modification>
+      <color title="Цвет"><%= used_car.color %></color>
+      <kpp title="Тип КПП"><%= used_car.transmission %></kpp>
+      <driving title="Привод"><%= used_car.drive %></driving>
+      <engine title="Объем двигателя"><%= used_car.volume %></engine>
+      <engine_power title="Л.С."><%= used_car.power %></engine_power>
+      <engine_type title="Тип двигателя"></engine_type>
+      <run title="Пробег"><%= used_car.odometer %></run>
+      <run_type title="Пробег в чем"> км </run_type>
+      <year title="Год выпуска"><%= used_car.year %></year>
+      <owners title="Кол-во владельцев"><%= used_car.owners %></owners>
+      <document title="Тип ПТС (оригинал, дубликат)"> Оригинал </document>
+      <status title="Состояние автомобиля"><%= used_car.condition %></status>
+      <price title="Стоимость"><%= used_car.price %></price>
+      <old_price title="Старая стоимость"><%= used_car.price %></old_price>
+      <currency title="Валюта"> RUR </currency>
+      <complectation title="Комплектация (Преимущества)">
+        <% used_car.complectation.each do |complectation| %>
+        <item><%= complectation %></item>
+        <% end %>
+      </complectation>
+      <description title="Описание"></description>
+      <url title="Ссылка"><%= request.base_url %>/brand/<%= used_car.brand.url %>/<%= used_car.url %></url>
+      <images title="Фотографии автомобиля">
+        <% used_car.images.each do |image| %>
+        <image>
+          <%= request.base_url %>/<%= image.url %>
+        </image>
+        <% end %>
+      </images>
+      <availability title="Наличие (3 - ожидается, 2 - в резерве, 1 - В наличии, 0 - продана)"> 1 </availability>
+      <defects title="Найденые дефекты"/>
+    </car>
+    <% end %>
+  </cars>
+</xml>

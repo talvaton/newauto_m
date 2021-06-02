@@ -1,0 +1,13 @@
+<div class="columns__column-2">
+  <div class="newsblock">
+    <div class="newsblock__img-wrapper">
+      <%= image_tag catalog_single_blog.images[0].thumb.url, class: 'newsblock__img', alt:'', title:'' %>
+    </div>
+    <div class="newsblock__inner">
+      <%= link_to catalog_single_blog.new_car.name, blog_car_path(catalog_single_blog.brand,catalog_single_blog.new_car.url), class: 'newsblock__title' %>
+      <div class="newsblock__text">
+        <%= truncate(catalog_single_blog.description['intro_text'],:length => 400, :separator => ' ') %>
+      </div>
+    </div>
+  </div>
+</div>

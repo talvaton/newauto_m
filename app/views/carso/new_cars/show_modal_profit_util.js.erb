@@ -1,0 +1,13 @@
+$.fancybox.open('<%= escape_javascript (render partial:'new_cars/modal_profit_util', :object => @car) %>',
+    {
+        touch: false,
+        animationDuration: 500,
+        animationEffect: "fade",
+        afterLoad: function(){
+            $('#profit__util').css('display', 'inline-block');
+        },
+        afterShow: function(){
+            DISABLE_FANCYBOX = false;
+        }
+    }
+);

@@ -1,0 +1,95 @@
+
+// CREDIT LIGHT FORM
+.credit-light {
+  width: 100%;
+  margin: 70px 0;
+  background-color: $white;
+  position: relative;
+  @media #{$media_xxl} {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 300px;
+    padding: 20px 200px 20px 20px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.12), 0px 12px 16px rgba(0, 0, 0, 0.08);
+  }
+  @media #{$media_xxxl} {
+    padding: 50px 380px 60px 120px;
+  }
+}
+.credit-light__inner {
+  width: 100%;
+  padding: 20px 10px;
+  &:nth-child(2) {
+    width: 300px;
+    margin: 0 auto;
+    @media #{$media_m} {
+      margin: 0;
+    }
+    @media #{$media_l} {
+      margin: 0 auto;
+    }
+    @media #{$media_xxl} {
+      width: 320px;
+      min-width: 320px;
+      max-width: 320px;
+    }
+  }
+}
+.credit-light__title {
+  padding-bottom: 30px;
+  font-size: 36px;
+  font-weight: 700;
+  color: $contrast_credit;
+}
+.credit-light__list {
+  @include list_reset;
+  display: flex;
+  @media #{$media_m} {
+    font-size: 16px;
+  }
+}
+.credit-light__list-item {
+  width: 33.3333%;
+  padding-right: 15px;
+  @media #{$media_xxl} {
+    padding-right: 50px;
+  }
+}
+.credit-light__list-name {
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 16px;
+  color: $contrast_main;
+  @media #{$media_m} {
+    font-size: 24px;
+  }
+}
+.credit-light__form {
+  .button {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+.credit-light__form-title {
+  padding-bottom: 10px;
+  font-size: 24px;
+  font-weight: 700;
+}
+.credit-light__img {
+  display: none;
+  @media #{$media_m} {
+    display: block;
+    height: 250px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  @media #{$media_xxl} {
+    height: 200px;
+  }
+  @media #{$media_xxxl} {
+    height: auto;
+  }
+}
+// CREDIT LIGHT FORM end

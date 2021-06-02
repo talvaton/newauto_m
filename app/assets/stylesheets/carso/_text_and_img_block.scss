@@ -1,0 +1,36 @@
+.textimg-block {
+  position: relative;
+  margin: 40px 0;
+  padding: 0;
+  font-size: 16px;
+}
+.textimg-block__text {
+  padding: 30px 10px;
+  background-color: $background-sm;
+  border-radius: 8px;
+  z-index: 1;
+  position: relative;
+  margin: 0 10px;
+  @media #{$media_xxl} {
+    position: absolute;
+    left: 0;
+    top: 40px;
+    width: 50%;
+    height: 520px;
+    padding: 70px 60px 40px 0;
+    background-color: $background;
+  }
+}
+.textimg-block__img {
+  display: block;
+  height: 600px;
+  width: 100%;
+  border-radius: 8px;
+  margin-top: -300px;
+  @include object_fit(cover, center);
+  @media #{$media_xxl} {
+    width: 75%;
+    margin: 0 0 0 auto;
+    transform: none;
+  }
+}

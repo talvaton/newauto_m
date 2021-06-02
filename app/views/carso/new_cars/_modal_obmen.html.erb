@@ -1,0 +1,72 @@
+<aside class="modal modal--credit-car" id="car-obmen-modal">
+  <div class="modal__top">
+    <button type="button" class="modal__close-btn" data-fancybox-close>
+      <%= svg_tag 'carso/icons.svg','svg-close',40,40,id:'nav-close',class:'' %>
+    </button>
+
+    <div class="modal__title">
+      <div class="modal__title-name">
+        Обмен вашего авто на <%= @car.menutitle %>
+      </div>
+      <p class="modal__title-additional">Введите свой номер телефона и узнайте условия обмена вашего старого авто!</p>
+      <p class="modal__title-additional">Наши менеджеры перезвонят вам в течение 10 минут!</p>
+    </div>
+  </div>
+
+  <div class="modal__inner">
+
+    <div class="modal__inner-top">
+      <ul class="singlecar__common">
+        <li class="singlecar__common-item">
+          <span class="singlecar__common-item-text">Объём</span>
+          <span class="singlecar__common-item-main volume"><%= (@equip.specification.volume / 1000.to_f).round(1) %> л.</span>
+        </li>
+
+        <li class="singlecar__common-item">
+          <span class="singlecar__common-item-text">КПП</span>
+          <span class="singlecar__common-item-main kpp"><%= @equip.specification.shorttransmission %></span>
+        </li>
+
+        <li class="singlecar__common-item">
+          <span class="singlecar__common-item-text">Цена</span>
+          <span class="singlecar__common-item-main old_price nowrap-text" data-role="old-price"><%= number_with_delimiter(@equip.price,delimeter: ' ') %>₽</span>
+        </li>
+
+        <li class="singlecar__common-item">
+          <span class="singlecar__common-item-text">Новая цена</span>
+          <%
+            if (@car.discount_count(@equip) + @region_discount) < @equip.price*4/10
+              discount = @car.discount_count(@equip) + @region_discount
+            else
+              discount = @equip.price*4/10
+            end
+          %>
+          <span class="singlecar__common-item-main new_price nowrap-text" data-role="new-price"><%= number_with_delimiter(@equip.price - discount,delimeter: ' ') %>₽</span>
+        </li>
+
+      </ul>
+    </div>
+
+    <div>
+      <%= form_for Ticket.new,url: {action:'create',controller:'tickets' },remote:true,validate:true,:html => {:class => 'form',:name=>'new_obmen_modal'},:namespace => 'new_obmen_modal' do |f| %>
+        <%# f.invisible_captcha :ticket_text %>
+        <%= f.hidden_field :form_name, value:'trade_in' %>
+
+        <%= hidden_field_tag 'ticket[other][model]',@car.id, id:'new_credit_modal_ticket_other_model' %>
+        <%= hidden_field_tag 'ticket[other][equipment]',@equip.id, id:'new_credit_modal_ticket_other_equipment' %>
+
+        <%= hidden_field_tag 'ticket[other][ttype]',1,id:'credit_ticket_other_ttype' %>
+
+        <div class="form__component">
+          <%= f.text_field :name,class:'input', placeholder:'Ваше имя' %>
+        </div>
+        <div class="form__component">
+          <%= f.phone_field :phone,class:'input',data:{:role=>'phone'}, placeholder:'Номер телефона' %>
+        </div>
+
+        <%= f.button 'Отправить', class: "button" %>
+      <% end %>
+    </div>
+
+  </div>
+</aside>

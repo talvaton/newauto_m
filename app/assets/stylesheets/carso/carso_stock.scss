@@ -1,0 +1,208 @@
+@import '_vars';
+
+@import '_common_top';
+@import '_banks_list';
+
+.header_sitebar{
+ @media (max-width: 1280px) {
+  padding: 0 20px !important;
+ }
+}
+.main{
+ @media (max-width: 1280px) {
+  padding: 0 20px !important;
+ }
+}
+.breadcrumbs{
+ @media (max-width: 1280px) {
+  padding: 10px 20px !important;
+ }
+}
+@media #{$media_xxl} {
+  .common-top__info {
+    margin-bottom: 100px;
+  }
+}
+
+.stock-block {
+  margin: 20px 0;
+  padding: 10px;
+  font-size: 16px;
+  @media #{$media_m} {
+    display: flex;
+  }
+  @media #{$media_xl} {
+    font-size: 20px;
+  }
+}
+.stock-block__img {
+  width: 100%;
+  height: 300px;
+  border-radius: 8px;
+  @include object_fit(cover, center);
+  @media #{$media_m} {
+    width: 300px;
+    margin-right: 40px;
+  }
+}
+.stock-block__img-lg {
+  width: 100%;
+  border-radius: 8px;
+  @include object_fit(cover, center);
+  @media #{$media_xxxl} {
+    height: 660px;
+    margin-right: 60px;
+  }
+}
+.stock-block__title {
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: 700;
+  color: $contrast_main;
+  @media #{$media_xl} {
+    margin-top: 50px;
+    font-size: 32px;
+  }
+}
+.stock-block__title-lg {
+  font-weight: 700;
+  color: $contrast_main;
+  font-size: 30px;
+  @media #{$media_xl} {
+    margin-top: 50px;
+    font-size: 40px;
+  }
+}
+
+.stock-block-columns {
+  flex-wrap: wrap;
+  margin-top: 20px;
+  font-size: 16px;
+  @media #{$media_xxl} {
+    flex-wrap: nowrap;
+    margin-top: 50px;
+    font-size: 20px;
+  }
+}
+@media only screen and (max-width: 1350px) {
+  .stock-block__title,
+  .stock-block__title-lg {
+    font-size: 21px;
+  }
+  .stock-block,
+  .stock-block-columns {
+    font-size: 17px;
+  }
+  .stock-block__img {
+    margin-right: 10px;
+  }
+}
+@media only screen and (max-width: 1120px) {
+  .stock-block__title {
+    font-size: 19px;
+  }
+}
+.gift__cr_bl .bng-title {
+  width: 400px;
+  @media only screen and (max-width: 600px) {
+    width: 100% !important;
+    padding: 15px 10px 15px 10px;
+  }
+}
+.gift__cr_bl .bng-title i {
+  font-size: 16px;
+  line-height: 20px;
+}
+.gift__cr_bl .bng-title span {
+  font-size: 16px;
+  line-height: 18px;
+  padding: 5px 5px 0 0;
+  text-align: justify;
+}
+
+.gift__cr_bl .bng-block {
+  @media only screen and (max-width: 600px) {
+    width: 100% !important;
+  }
+}
+.bng-mainn {
+  background: #f0f3f675;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+  padding: 15px 36px 15px 36px;
+  @media only screen and (max-width: 600px) {
+    padding: 0;
+  }
+}
+.act_bl{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  @media only screen and (max-width: 1100px) {
+    flex-wrap: wrap;
+  }
+}
+
+.act_bl.ord .act_txt{
+  @media only screen and (max-width: 1100px) {
+    order: 2;
+  }
+}
+.act_img{
+  cursor: pointer;
+}
+.act_bl.ord .act_img{
+  @media only screen and (max-width: 1100px) {
+    order: 1;
+  }
+}
+
+.act_img img{
+  @media only screen and (max-width: 1100px) {
+    display: block;
+    margin: 0 auto;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+  }
+}
+.act_txt{
+  @media only screen and (max-width: 1100px) {
+    display: block;
+    width: 700px;
+    margin: 0 auto;
+  }
+  @media only screen and (max-width: 700px) {
+    width: 100%;
+  }
+}
+.act_txt span{
+  width: 320px;
+  display: block;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 120%;
+  text-transform: uppercase;
+  color: #222222;
+  @media only screen and (max-width: 1100px) {
+    width: 100%;
+  }
+}
+.act_txt p{
+  width: 450px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 150%;
+  color: #222222;
+  @media only screen and (max-width: 1100px) {
+    width: 100%;
+    font-size: 18px;
+  }
+  @media only screen and (max-width: 600px) {
+    font-size: 14px;
+  }
+}

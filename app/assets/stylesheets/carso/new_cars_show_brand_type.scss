@@ -1,0 +1,25 @@
+@import "_vars";
+.main h1 {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 34px;
+  color: #343F4B;
+  margin: 20px 0 20px 0;
+  position: relative;
+  left: initial;
+  top: initial;
+  width: initial;
+}
+.main .cr_tr_hr a {
+  text-decoration: initial;
+}
+
+.main .cr_tr_url span {
+  width: auto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  color: #343F4B;
+  padding: 0 0 0 10px;
+}

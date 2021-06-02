@@ -1,0 +1,11 @@
+<% provide :title,'500' %>
+<% provide :description,'500' %>
+<h1 class="title-h1">Внутренняя ошибка сервера.</h1>
+<div class="row">
+  <div class="content">
+    <p class="text">Для дальнейшей работы с сайтом предлагаем перейти на
+      <%=link_to 'главную страницу', root_url, class: 'text-link' %>
+      или в раздел <%=link_to 'каталог новых авто', newauto_path, class: 'text-link' %>.</p>
+  </div>
+</div>
+

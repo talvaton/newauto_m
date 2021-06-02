@@ -1,0 +1,26 @@
+$.fancybox.open('<%= escape_javascript (render partial:'new_cars/modal_features', :object => @car) %>',
+    {
+        touch: false,
+        animationDuration: 500,
+        animationEffect: "fade",
+        afterLoad: function(){
+            $('#car-features-modal').css('display', 'inline-block');
+//            init_labels('#car-colors-modal .input, #car-colors-modal .select');
+        },
+        afterShow: function(){
+            disableFormBtn();
+            $('#new_tradein_modal_plus_new_ticket').enableClientSideValidations();
+            $('#model-features_new_ticket').enableClientSideValidations();
+            init_phone_mask();
+            $('#new_tradein_modal_plus_new_ticket .input, .select').on('focus', function(){
+                $(this).removeClass('input--error');
+                $(this).siblings('.form__error').slideUp();
+            });
+            $('#model-features_new_ticket .input, .select').on('focus', function(){
+                $(this).removeClass('input--error');
+                $(this).siblings('.form__error').slideUp();
+            });
+            DISABLE_FANCYBOX = false;
+        }
+    }
+);

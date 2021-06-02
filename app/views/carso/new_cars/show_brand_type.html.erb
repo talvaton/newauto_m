@@ -1,0 +1,45 @@
+<%
+  case @title
+  when 'Внедорожники'
+    type_multiply = 'внедорожников'
+    type_multiply_ck = 'Внедорожники'
+  when 'Хэтчбеки'
+    type_multiply = 'хэтчбеков'
+    type_multiply_ck = 'Хэтчбеки'
+  when 'Лифтбеки'
+    type_multiply = 'лифтбеков'
+    type_multiply_ck = 'Лифтбеки'
+  when 'Универсалы'
+    type_multiply = 'Универсалы'
+    type_multiply_ck = 'Универсалы'
+  when 'Седаны'
+    type_multiply = 'седанов'
+    type_multiply_ck = 'Седаны'
+  when 'Минивэны'
+    type_multiply = 'минивэнов'
+    type_multiply_ck = 'Минивэны'
+  when 'Пикапы'
+    type_multiply = 'пикапов'
+    type_multiply_ck = 'Пикапы'
+  when 'Фургоны'
+    type_multiply = 'фургонов'
+    type_multiply_ck = 'Фургоны'
+  when 'Купе'
+    type_multiply = 'купе'
+    type_multiply_ck = 'Купе'
+  end
+%>
+
+<% provide :title,"Купить новый #{@name} #{@brand.title} 🚗 цены и модельный ряд, продажа #{type_multiply} #{@brand.menutitle} в " + @current_region.sklon3 %>
+<% provide :description,"Новые #{type_multiply_ck} #{@brand.menutitle} 2020-2021 года по выгодным ценам у официального дилера в #{@current_region.sklon3}! Скидки и спецпредложения на все модели #{type_multiply} #{@brand.title}!" %>
+
+
+
+
+
+<h1><%= @title %> <%= @brand.title %> от официального дилера</h1>
+<div class="row justify-content-center cr_tr_url">
+  <div class="cr_tr_hr right row justify-content-center">
+    <%= render partial:'new_cars/small_new_cars', collection: @cars, locals: {:show_brand => true, :credit_flag => false} %>
+  </div>
+</div>

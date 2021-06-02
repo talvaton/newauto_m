@@ -1,0 +1,73 @@
+<%
+  region = false
+  unless @current_region.id == 57
+    region = true
+  end
+%>
+
+<% t_mos = "Купить авто #{@year} года с пробегом, БУ автомобили #{@year} г., продажа подержанных машин в #{@current_region.sklon3} (автосалон)" %>
+<% t_reg = "Авто #{@year} года с пробегом,купить БУ автомобили #{@year} г. в #{@current_region.sklon3} (цены), продажа подержанных машин" %>
+<% d_mos = "Продажа БУ авто #{@year} года выпуска. Рассрочка, трейд-ин, кредит под низкий процент! Купить автомобиль с пробегом #{@year} г. в автосалоне, #{@current_region.sklon1}" %>
+<% d_reg = "Купить БУ авто #{@year} года выпуска в #{@current_region.sklon3}. Рассрочка, трейд-ин, кредит на выгодных условиях! Подержанные автомобили с пробегом #{@year} г., продажа в автосалоне" %>
+
+
+<% unless region %>
+  <% provide :title,t_mos %>
+  <% provide :description,d_mos %>
+<% else %>
+  <% provide :title,t_reg %>
+  <% provide :description,d_reg %>
+<% end %>
+
+<div class="inner">
+
+  <div class="content-xs">
+    <h1 class="title-h1">Автомобили <%= @year %> года с пробегом</h1>
+
+    <%= render 'carso/used_cars/filter_links' %>
+
+    <% if (@seo_text.present? && @seo_text['used_seotext_upper'].present?) %>
+      <div class="text"><%=@seo_text['used_seotext_upper'].html_safe %></div>
+    <% end %>
+  </div>
+
+  <div class="content">
+    <div class="card-list">
+      <%= render partial:'partials/carso/used_car', collection: UsedCar.where(year: @year) %>
+    </div>
+    <%= link_to sprobegom_path, class:'btn-link', target:'_blank' do %>
+      <%= svg_tag 'carso/icons.svg','svg-loader',24,6,class:'' %>
+      <span>Все автомобили БУ</span>
+    <% end %>
+  </div>
+
+  <div class="content-xs">
+    <h2 class="title">Другие авто с пробегом</h2>
+  </div>
+  <div class="content">
+    <div class="card-list">
+      <%= render partial:'partials/carso/used_car', collection: UsedCar.used_cars(12).order(id: :desc) %>
+    </div>
+
+    <%= link_to sprobegom_path, class:'btn-link', target:'_blank' do %>
+      <%= svg_tag 'carso/icons.svg','svg-loader',24,6,class:'' %>
+      <span>Все автомобили с пробегом</span>
+    <% end %>
+  </div>
+
+
+  <% if (@seo_text.present? && @seo_text['used_seotext_lower'].present?) %>
+    <div class="content-xs text"><%=@seo_text['used_seotext_lower'].html_safe %></div>
+  <% end %>
+
+</div>
+
+
+<%= render partial:'carso/carso/bottom_banner' %>
+
+
+<% content_for :rails_to_js_variables do %>
+  <script>
+      var url = '<%= @year %>';
+  </script>
+<% end %>

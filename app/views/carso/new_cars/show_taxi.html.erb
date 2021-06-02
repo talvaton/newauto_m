@@ -1,0 +1,501 @@
+<%
+  max_price_e = @car.equipments.where(hide:0).order(price: :desc).first
+  if (@car.discount_count(max_price_e) + @region_discount) < max_price_e.price*4/10
+    max_discount_e = @car.discount_count(max_price_e) + @region_discount
+  else
+    max_discount_e = max_price_e.price*4/10
+  end
+
+  if (@car.discount_count + @region_discount) < @car.equipments.where(hide:0).minimum(:price)*4/10
+    min_discount_e = @car.discount_count + @region_discount
+  else
+    min_discount_e = @car.equipments.where(hide:0).minimum(:price)*4/10
+  end
+  min_price = @car.equipments.where(hide:0).minimum(:price) - min_discount_e
+%>
+<%
+  region = false
+  unless @current_region.id == 57
+    region = true
+  end
+  t_mos = "#{@car.russian_name} #{@car.old ? (Time.current - 2.year).year.to_s : (Time.current - 1.year).year.to_s} для такси у официального дилера купить новый #{@car.menutitle} #{@car.old ? (Time.current - 1.year).year.to_s : Time.current.year.to_s} для работы в такси в автосалоне, #{@current_region.sklon1}"
+  t_reg = "Купите #{@car.menutitle} #{@car.old ? (Time.current - 2.year).year.to_s : (Time.current - 1.year).year.to_s}, цена на #{'новый' unless @car.old} #{@car.russian_name} #{@car.old ? (Time.current - 1.year).year.to_s : Time.current.year.to_s} у официального дилера, #{@current_region.sklon1}"
+
+  d_mos = "#{@car.russian_name}  для работы в такси по специальной цене ✅ Кредит от 1.9%! Все комплектации в наличии! 🚘 Купить новый автомобиль #{@car.menutitle} #{@car.old ? (Time.current - 2.year).year.to_s : (Time.current - 1.year).year.to_s + '-' + Time.current.year.to_s} года! 💣 Скидка до #{number_with_delimiter(max_discount_e,delimeter:' ')} рублей у официального дилера в #{@current_region.sklon3}."
+  d_reg = "Продажа #{@car.russian_name} в #{@current_region.sklon3} 🚘 Скидка до #{number_with_delimiter(max_discount_e,delimeter:' ')} рублей! 💣 Экспресс кредит 1,9% ✅ Рассрочка 0% ✅ trade-in 🎁 #{'Новый ' unless @car.old}#{@car.menutitle} #{@car.old ? (Time.current - 2.year).year.to_s : (Time.current - 1.year).year.to_s + '-' + Time.current.year.to_s} всех комплектаций у официального дилера."
+
+  o_mos = "Купить #{'новый' unless @car.old} #{@car.russian_name} в #{@current_region.sklon3}. Скидка до #{number_with_delimiter(max_discount_e,delimeter:' ')} рублей! Экспресс кредит от 1.9%, Рассрочка 0%, Trade-in. Продажа #{@car.menutitle} #{@car.old ? (Time.current - 2.year).year.to_s : (Time.current - 1.year).year.to_s + '-' + Time.current.year.to_s} года, все комплектации в наличии у официального дилера."
+  o_reg = "Продажа #{@car.russian_name} в #{@current_region.sklon3}. Скидка до #{number_with_delimiter(max_discount_e,delimeter:' ')} рублей! Экспресс кредит 1,9%, Рассрочка 0%, trade-in. #{'Новый ' unless @car.old}#{@car.menutitle} #{@car.old ? (Time.current - 2.year).year.to_s : (Time.current - 1.year).year.to_s + '-' + Time.current.year.to_s} всех комплектаций у официального дилера."
+
+  if !region
+    provide :title,t_mos
+    provide :description,d_mos
+    ogdesc = o_mos
+  else
+    provide :title,t_reg
+    provide :description,d_reg
+    ogdesc = o_reg
+  end
+
+  if @car.colors[0].present?
+    pimage = @car.colors[0].url
+  end
+
+  provide :og_tags,"<meta property='og:type' content='article'>
+  <meta property='og:site_name' content='Автосалон Авиньон'>
+  <meta property='og:url' content='#{request.original_url}'>
+  <meta property='og:title' content='#{@car.name}'>
+  <meta property='og:description' content='#{ogdesc}'>
+  <meta property='og:locale' content='ru_RU'>
+  <meta property='og:image' content='#{pimage}'>".html_safe
+
+%>
+
+<%
+  if @car.colors.length > 2
+    colors_swaped = @car.colors.swap(0,1)
+    color_options_swaped =  @car.color_options.swap(0,1)
+  else
+    colors_swaped = @car.colors
+    color_options_swaped = @car.color_options
+  end
+%>
+
+<% if @car.archive
+     if @car.url.include? '-old'
+       model = @car.url[0...-4]
+     else
+       model = @car.url
+     end
+
+     if UsedCar.used_cars.where(brand_id: @car.brand_id, url: model).present?
+       name = @car.menutitle
+     else
+       name = @car.brand.title
+     end
+   end
+%>
+
+<div class="h_block">
+  <div>
+    <h1 itemprop="name">Новый <%= @car.brand.title %> <%= @car.name %><span class="h_slog"> Для такси</span></h1>
+  </div>
+  <div class="sale_h"><span>Акция в <%= @current_region.sklon3 %>!</span> <i>скидки на все комплектации <%= @car.brand.title %> <%= @car.name %><br> (кредит 1,9%, trade-in, рассрочка, подарки)</i></div>
+  <div class="sale_h_pr"><div><span>Получи скидку</span> <i><%= number_with_delimiter(max_discount_e,delimeter:' ') %> ₽ </i></div>
+    <a href="#" class="button sale_bn" data-show-new-ajax="car-credit-modal" data-eq_id="" rel="nofollow">Получить</a>
+  </div>
+</div>
+<div class="url_ank">
+  <% unless !@car.available %>
+    <a href="#compl_t" rel="nofollow" data-role="page-navigation-link"><svg width="5" height="8" viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.200012 0.5L4.20001 4.00001L0.200024 7.5L0.200012 0.5Z" fill="#6AD1A6"/></svg>Комплектации и цены</a><% end %>
+  <a href="#car-features" rel="nofollow" data-role="page-navigation-link">  <svg width="5" height="8" viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.200012 0.5L4.20001 4.00001L0.200024 7.5L0.200012 0.5Z" fill="#6AD1A6"/></svg>Технические характеристики</a>
+  <% unless !@car.available %><a href="#filter_list" rel="nofollow" data-role="page-navigation-link">  <svg width="5" height="8" viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.200012 0.5L4.20001 4.00001L0.200024 7.5L0.200012 0.5Z" fill="#6AD1A6"/></svg>Автомобили в наличии</a><% end %>
+  <% if @car.description.present? && @car.description['text_lower'].present? %>
+    <a href="#car_seo" rel="nofollow" data-role="page-navigation-link">  <svg width="5" height="8" viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.200012 0.5L4.20001 4.00001L0.200024 7.5L0.200012 0.5Z" fill="#6AD1A6"/></svg>Описание <%= @car.brand.title %> <%= @car.name %></a><% end %>
+  <% if @car.images.present? %>
+    <a href="#photo_car" rel="nofollow"><svg width="5" height="8" viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.200012 0.5L4.20001 4.00001L0.200024 7.5L0.200012 0.5Z" fill="#6AD1A6"/></svg>Фото и видео</a><% end %>
+
+</div>
+
+<div class="str_credit stb-n justify-content-between">
+  <div class="img_col_block">
+    <div class="grlp">Гарантия лучшей цены</div>
+    <div class="img-comp-container" data-content="car-colors-list">
+      <% if @car.img_taxi.present? %>
+        <div class="img-comp-img">
+          <img src="/<%= @car.img_taxi %>" alt="">
+        </div>
+      <% else %>
+        <% colors_swaped[0..1].each_with_index do |c,index| %>
+          <div class="img-comp-img">
+            <%#= image_tag "#{c.largecard.url}",class:'', alt:'', data:{:altsrc=>"#{c.largecard.url}",:image_index=>index} %>
+            <%= image_tag c.largecard.url, class:'', alt:'', data:{:altsrc=>"#{c.largecard.url}",:image_index=>index} %>
+          </div>
+        <% end %>
+      <% end %>
+
+    </div>
+    <div class="singlecar__colors-wrapper" data-content="choose-right-color">
+      <div class="singlecar__colors">
+
+      </div>
+      <div class="row justify-content-between">
+        <div class="sbc-item">
+          <span class="sbc-i-text"><%= @car.specifications.joins(:equipment).where('`equipment`.`hide` = 0').maximum(:power) %> л.с.</span>
+          <span class="sbc-i-title">Мощность</span>
+        </div>
+        <% min_acc = @car.specifications.joins(:equipment).where('`equipment`.`hide` = 0').minimum(:acceleration) %>
+        <% if min_acc.present? %>
+          <div class="sbc-item">
+            <span class="sbc-i-text"><%= @car.specifications.joins(:equipment).where('`equipment`.`hide` = 0').minimum(:acceleration).round(1) %> с</span>
+            <span class="sbc-i-title">Разгон до 100 км/ч</span>
+          </div>
+        <% end %>
+        <%
+          min_fh = @car.specifications.joins(:equipment).where('`equipment`.`hide` = 0').minimum(:fuelhigh)
+          min_fc = @car.specifications.joins(:equipment).where('`equipment`.`hide` = 0').minimum(:fuelcity)
+          min_fm = @car.specifications.joins(:equipment).where('`equipment`.`hide` = 0').minimum(:fuelmix)
+          unless min_fc.nil? || min_fh.nil? || min_fm.nil?
+
+            if (min_fc.nil? || min_fh.nil?) && min_fm.present?
+              fuel = min_fm.round(1)
+            else
+              fuel = "#{min_fh.round(1)}"
+            end
+        %>
+          <div class="sbc-item">
+            <span class="sbc-i-text"><%= fuel %> л</span>
+            <span class="sbc-i-title">Расход на 100 км</span>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form_block-right row justify-content-between">
+    <div class="s__block__center">
+      <div class="sale-date">До <%= l(SALE_DATE, format: :next_monday) %> скидка <span><%= "#{number_with_delimiter(max_discount_e,delimeter:' ')}" %> руб </span></div>
+      <div class="sale-from">от <% snc_price = @car.equipments.where(hide:0).minimum(:price) - max_discount_e %><%= number_with_delimiter(count_price(snc_price,PERCENT,MONTH), delimiter: " ") %> ₽ / мес</div>
+      <div class="row justify-content-between opif_cr">
+        <div class="row"><b>1.9%</b><span>годовых, минимальная реальная ставка</span></div>
+        <div class="row"><b>98%</b><span>одобрение кредита для наших клиентов</span></div>
+        <div class="row"><b>26</b><span>банков-партнеров и кредитных программ</span></div>
+        <div class="row"><b>0%</b><span>первоначальный взнос от суммы кредитования</span></div>
+      </div>
+
+    </div>
+
+    <div class="form_block credit">
+      <span class="fprm_gos_pa">Госпрограмма -10%</span>
+      <% unless @car.available %>
+        <span class="singlecar__form-discount" id="discount" data-real-discount="<%=@car.discount_count(max_price_e) + @region_discount %>">
+          Скоро в продаже
+        </span>
+      <% else %>
+        <% unless @car.archive %>
+          <div class="form-sale-info">
+            <div class="form-credit-info">Заявка на кредит со скидкой</div>
+            <span class="form-sp">Кредитный менеджер свяжется с Вами в течении 5 минут</span>
+          </div>
+        <% end %>
+      <% end %>
+
+      <%= form_for Ticket.new,url: {action:"create",controller:"tickets" },remote:true,validate:true,:html => {:class => "form",:name=>"newcarreq"},:namespace => "newcarreq" do |f| %>
+        <%= hidden_field_tag 'ticket[other][model]',@car.id, id:'newcarreq_ticket_other_model' %>
+        <%= f.hidden_field :form_name, value:"express" %>
+        <div class="form_input">
+          <%= f.text_field :name,class:"input",placeholder:"Ваше имя" %>
+        </div>
+        <div class="form_input">
+          <%= f.phone_field :phone,class:"input",data:{:role=>"phone"},placeholder:"Номер телефона"  %>
+        </div>
+        <%= f.button do %>
+          <%#= svg_tag 'carso/icons.svg','svg-phone',14,14,class:'' %>
+          <% unless @car.available %>
+            <span>Предзаказ</span>
+          <% else %>
+            <span>Отправить и получить скидку</span>
+          <% end %>
+        <% end %>
+        <div class="secur_f">мы гарантируем конфиденциальность и защиту введённых данных</div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<div class="pr_slog_b">
+  <div><%= image_tag "carso/icons/casco.svg", alt:'' %>
+    <span>Бесплатное <br> КАСКО</span>
+  </div>
+  <div><%= image_tag "carso/icons/tire.svg", alt:'' %>
+    <span>Зимняя резина в <br> подарок</span>
+  </div>
+  <div><%= image_tag "carso/icons/gospr.svg", alt:'' %>
+    <span>Госпрограммы: <br> -10% на любое авто</span>
+  </div>
+  <div><%= image_tag "carso/icons/route.svg", alt:'' %>
+    <span>Оплата проезда <br> до автосалона</span>
+  </div>
+</div>
+
+<h2>Государственные программы</h2>
+<div class="gos_prb">
+  <div>
+    <b>-10%</b>
+    <a href="/banks/programma-pervyy-avtomobil" title=""><%= image_tag "carso/png/fpr.png", alt:'' %></a>
+    <span>
+     <i>Первый автомобиль</i>
+     <p>Особенностью программы «Первый автомобиль» является то, что при покупке автомобиля – значительную часть кредитной нагрузки на себя берёт Государство, оставляя заёмщику на погашение лишь остаток. Таким образом создаются очень лояльные и привлекательные условия для покупки автомобиля посредством автокредита.</p>
+    </span>
+  </div>
+  <div>
+    <b>-10%</b>
+    <a href="/banks/programma-semeynyy-avtomobil" title=""><%= image_tag "carso/png/fmpr.png", alt:'' %></a>
+    <span>
+     <i>Семейный автомобиль</i>
+     <p>Основной целью это программы является предоставление возможности покупки автомобиля многодетным семьям. К тому же, одним из дополнительных условий должно быть, что приобретаемая машина должна быть или какой-либо российской марки, или зарубежного автомобильного бренда, но собранного на территории России.</p>
+    </span>
+  </div>
+  <div>
+    <b>-10%</b>
+    <a href="/banks/programma-medical" title=""><%= image_tag "carso/png/mpr.png", alt:'' %></a>
+    <span>
+     <i>Для медработников</i>
+     <p>Особенностью программы «Первый автомобиль» является то, что при покупке автомобиля – значительную</p>
+    </span>
+  </div>
+  <div>
+    <b>-10%</b>
+    <a href="/tradein" title=""><%= image_tag "carso/png/trpr.png", alt:'' %></a>
+    <span>
+     <i>Автомобиль в Трейд-ин</i>
+     <p>Особенностью программы «Первый автомобиль» является то, что при покупке автомобиля – значительную</p>
+    </span>
+  </div>
+
+</div>
+
+
+<div class="bank_block">
+  <h2>Банки партнеры</h2>
+  <div class="banks__main">
+    <%= render partial:'partials/carso/bank', collection: Bank.all %>
+  </div>
+</div>
+
+
+<%# if region %>
+<%#= render partial: 'new_cars/region_form' %>
+<%# end %>
+
+<div class="discount__block">
+  <span class="sale-calc-t">Выберите подходящие Вам варианты и получите максимальную скидку!</span>
+  <div class="row justify-content-between discount_block_lab">
+    <div class="disc_bl_lab_main">
+      <label id="spec_txt" class="row on" for="spec">
+        <div class="saleprice-check on">
+                   <span class="saleprice--lab">
+                    <input id="spec" class="checkbox" type="checkbox" value="<%=@car.discount %>" checked="checked">
+                   </span>
+        </div>
+        <div class="disc_bl_lab_ch">
+          <span class="lab_ch-title">Спецпредложение</span>
+          <span class="lab_ch-price" ><%= number_with_delimiter(@car.discount) %> руб</span>
+          <span class="lab_ch-text">Специальное предложение от автосалона</span>
+        </div>
+      </label>
+    </div>
+    <div class="disc_bl_lab_main">
+      <label id="credit_txt" class="row on" for="credit">
+        <div class="saleprice-check on">
+                   <span class="saleprice--lab">
+                    <input id="credit" class="checkbox" type="checkbox" value="<%= @car.discount_credit %>" checked="checked">
+                   </span>
+        </div>
+        <div class="disc_bl_lab_ch">
+          <span class="lab_ch-title">В кредит</span>
+          <span class="lab_ch-price" ><%= number_with_delimiter(@car.discount_credit) %> &#8381;</span>
+          <span class="lab_ch-text">Дополнительная скидка на автомобиль при оформлении в кредит</span>
+        </div>
+      </label>
+    </div>
+    <div class="disc_bl_lab_main">
+      <label id="ten_perc_txt" class="row on" for="ten_perc">
+        <div class="saleprice-check on">
+                   <span class="saleprice--lab">
+                    <input id="ten_perc" class="checkbox" data-check-status=""  type="checkbox" value="40000" checked="checked">
+                   </span>
+        </div>
+        <div class="disc_bl_lab_ch">
+          <span class="lab_ch-title">Программа лояльности</span>
+          <span class="lab_ch-price">40 000 руб</span>
+          <span class="lab_ch-text">Дополнительная скидка при прохождении ТО в нашем сервис-центре</span>
+        </div>
+      </label>
+    </div>
+
+    <div class="disc_bl_lab_main">
+      <label id="trade_in_3y_txt" class="row on" for="trade_in_3y">
+        <div class="saleprice-check on">
+                   <span class="saleprice--lab">
+                    <input id="trade_in_3y" class="checkbox" type="checkbox" value="<%=@car.discount_tradein %>" checked="checked">
+                  </span>
+        </div>
+        <div class="disc_bl_lab_ch">
+          <span class="lab_ch-title">Trade-in</span>
+          <span class="lab_ch-price"><%= number_with_delimiter(@car.discount_tradein) %> руб</span>
+          <span class="lab_ch-text">Дополнительная скидка при приеме вашего старого авто в счет покупки</span>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <div class="row justify-content-between total__discount__bl">
+    <div class="row align-items-end">
+      <%= image_tag "carso/icons/ei_like.svg", alt:'' %>
+      <div class="total__discount">
+        <span>Сумма скидки:</span>
+        <div class="row discount-pr-w">
+          <div id="discount-counted" data-real-discount="<%=@car.discount_count(max_price_e) + @region_discount %>" class="redtext"><%= "#{number_with_delimiter(max_discount_e,delimeter:' ')}" %></div>
+          <div class="discount-r">&nbsp;руб</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row align-items-end disc_bl_lab_main">
+      <label class="row on">
+        <div class="saleprice-check on">
+                   <span class="saleprice--lab">
+                    <input class="checkbox" type="checkbox" checked="checked">
+                  </span>
+        </div>
+        <div class="disc_bl_lab_ch">
+          <span class="lab_ch-title">КАСКО в подарок</span>
+          <span class="lab_ch-text">на 1 год при покупке<br> до <%= l(SALE_DATE, format: :next_monday) %></span>
+        </div>
+      </label>
+    </div>
+
+    <button name="button" data-show-new-ajax="car-details-modal" data-eq_id="<%= @car.id %>"><span>Узнать подробнее о скидке</span></button>
+  </div>
+
+</div>
+
+
+
+<% if region %>
+  <%#= render partial:'new_cars/region_reasons' %>
+<% end %>
+
+<% unless !@car.available %>
+  <%# unless @car.archive %>
+  <div class="complectation">
+
+
+    <div class="row" id="compl_t">
+      <h2 class="title">Комплектации и цены <%= @car.russian_name %></h2>
+    </div>
+    <div class="table-main">
+      <% spec = Specification.select('specifications.*,MIN(equipment.price) AS min_price')
+          .joins(:equipment)
+          .where('`specifications`.`new_car_id` = ?', @car.id).where('`equipment`.`hide` = 0').group('specifications.id').order('min_price') %>
+      <table class="table">
+        <thead>
+        <tr class="t-header">
+          <th>Комплектация</th>
+          <th class="mn">КПП</th>
+          <th class="mn">Объём</th>
+          <th class="mn">Мощность</th>
+          <th class="mn">Цена </th>
+          <th class="mn">Цена со скидкой</th>
+          <th class="v__cr">В кредит</th>
+          <th class="mn_n"></th>
+          <th class="mn_n"></th>
+          <th class="mn_n"></th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <% spec.each_with_index do |cs,index_spec| %>
+          <tr class="compl_gr_title"><td><% if cs.volume.present? %><%= "#{(cs.volume / 1000.to_f).round(1)} л. #{cs.drive == 'Полный' ? '4WD' : '2WD'} "%> <% end %> <% "#{cs.shorttransmission}" %></td></tr>
+          <% cs.equipment.where('`equipment`.`hide` = 0').order(:price).each_with_index do |e,index| %>
+            <%
+              real_discount = @car.discount_count(e) + @region_discount
+              if (@car.discount_count(e) + @region_discount) < e.price*4/10
+                max_discount = @car.discount_count(e) + @region_discount
+              else
+                max_discount = e.price*4/10
+              end
+              price_with_disount = e.price - max_discount
+            %>
+
+            <tr class="tr" data-action="show-table-row-description" data-url="<%= row_description_path(@brand.url,@car.url,e.id) %>">
+              <th class="row justify-content-between align-items-center">
+                <span><%= e.equipment_description.name %> <%= e.suffix %></span>
+                <span class="mn_s"><%= e.specification.power %> л.с, <%= e.specification.shorttransmission %></span>
+                <i></i>
+              </th>
+              <td class="mn kpp"><%= e.specification.transmission.gsub('Механическая','Механика').gsub('5-ступенчатая механическая','Механика').gsub('5MT','').gsub('6МТ','').gsub('Автоматическая','Автомат').gsub('5-ступенчатая автоматическая','Автомат').gsub('4AT','') %> (<%= e.specification.shorttransmission %>)</td>
+              <td class="mn"><% if e.specification.volume.present? %><%= (e.specification.volume / 1000.to_f).round(1) %><% end %></td>
+              <td class="mn"><% if e.specification.power.present? %><%= e.specification.power %><% end %></td>
+
+              <td class="mn compl-price">
+                <span class="tablepricesale" data-role="base_price"><%= number_with_delimiter(e.price,delimiter: ' ') %></span> ₽
+              </td>
+
+              <td class="mn pr-sale compl-price-discount">
+                <span class="tablepricesale" data-role="discount_price" data-base-price="<%= e.price %>" data-real-price="<%= (e.price - real_discount) %>"><%= number_with_delimiter(e.price - real_discount,delimiter: ' ') %><%#= number_with_delimiter(price_with_disount,delimiter: ' ') %></span>
+                ₽
+              </td>
+              <td style="display: none" class="table__cell">
+                    <span class="table__cell-price bold redtext">
+                <span class="tablepricediscount" data-role="discount_sale" data-real-discount="<%=real_discount %>"><%= number_with_delimiter(max_discount,delimiter: ' ') %></span> ₽
+              </span>
+              </td>
+
+              <td class="pr-sale-desc">
+                    <span class="table__cell-price bold greentext">
+                   <span data-role="credit_price" class="tableprice" data-price="<%= price_with_disount %>"><%= number_with_delimiter(count_price(price_with_disount,PERCENT,MONTH)) %></span> ₽/мес
+              </span>
+              </td>
+              <td class="mn_b_cr"><a href="#" class="table__button  table__button--red creditcompl but_credit" data-show-new-ajax="car-credit-modal" data-eq_id="<%= e.id %>">В кредит</a></td>
+              <td class=""><a href="#" class="but_traid-in" data-show-new-ajax="car-details-modal" data-eq_id="<%= e.id %>">Trade-in</a></td>
+              <%
+                e_name = e.equipment_description.name.parameterize
+              %>
+              <td class="mn_b">
+                <%= link_to print_new_car_equipment_id_path(@brand.url,@car.url,e_name,e.id), class:'print', title:'Распечатать', target: '_blank' do %>
+                  <%= image_tag "carso/icons/print-icon.png", alt:'', lazy:true %>
+                <% end %>
+            </tr>
+            <%= '<!-- noindex -->'.html_safe if region %>
+            <tr class="compl-description" data-role="table-row-description">
+              <td colspan="9">
+                <div class="compl-description-content" id='equipment_<%= e.id %>_description'>
+                  <%# if index == 0 && index_spec == 0%>
+                  <% @equipment = e %>
+                  <%= render partial:'carso/new_cars/compl_description_content'  %>
+                  <%# end %>
+                </div>
+              </td>
+            </tr>
+            <tr class="tbm"><td></td></tr>
+            <%= '<!--/ noindex -->'.html_safe if region %>
+          <% end %>
+        <% end %>
+        </tbody>
+      </table>
+
+      <div class="row justify-content-end cr_tr_url">
+        <span>Подробнее: </span>
+        <div class="cr_tr_hr">
+          <%= link_to "#{@car.brand.title} #{@car.name} за наличные", new_car_path(@car.brand,@car)%>
+          <%= link_to "Трейд-ин на #{@car.brand.title} #{@car.name}", new_car_tradein_path(@car.brand,@car)%>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <%# end %>
+<% end %>
+
+
+
+<%= render 'partials/carso/credit_form' %>
+
+
+<% content_for :rails_to_js_variables do %>
+  <script>
+      var COMPL_GROUPS = <%= @compl_groups %>;
+      //  var COLOR_GROUPS = <%= @color_groups %>;
+  </script>
+<% end %>
+<% content_for :additional_javascript do %>
+
+  <script>
+      carid = '<%= @car.id %>';
+      car_url = '<%= @car.url %>';
+      car_brand = '<%= @car.brand.url %>';
+  </script>
+<% end %>

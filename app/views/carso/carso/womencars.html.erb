@@ -1,0 +1,10 @@
+<% provide :title,'Купить авто для женщин в автосалоне, акции на авто для женщин в ' + @current_region.sklon3 %>
+<% provide :description,'Продажа автомобилей для женщин в ' + @current_region.sklon3 + '. Наличные и безналичный расчет, кредит, рассрочка, trade-in 8(800)500-03-23' %>
+
+
+<h1 class="green">Каталог авто для женщин в <%= @current_region.sklon3 %></h1>
+  <div class="row justify-content-center cr_tr_url">
+    <div class="cr_tr_hr right row justify-content-center">
+      <%= render partial:'new_cars/small_new_cars', collection: NewCar.where(id: [247,289,2694,279,206,334,2697,2283,2336,1721,1377,2303]).where(hide: 0), locals: {:show_brand => true, :credit_flag => false} %>
+    </div>
+  </div>

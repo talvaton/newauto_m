@@ -1,0 +1,32 @@
+<section class="inner">
+  <div class="content-xs">
+    <h2 class="title">
+      Веские причины приехать к нам из <%= @current_region.sklon2 %>
+    </h2>
+  </div>
+
+  <div class="content">
+    <ul class="columns columns-features" data-role="columns">
+      <li class="columns__column-4">
+        <%= svg_tag 'carso/newcar/regions-sprite.svg','svg-dopskidki',68,80,class:'columns-features__img' %>
+        <span class="columns__title">Дополнительные скидки</span>
+        <p class="columns-features__text">Мы регулярно проводим скидочные акции на автомобили и поэтому имеем возможность предложить Вам авто по самой выгодной цене</p>
+      </li>
+      <li class="columns__column-4">
+        <%= svg_tag 'carso/newcar/regions-sprite.svg','svg-proezd',55,80,class:'columns-features__img' %>
+        <span class="columns__title">Компенсация проезда!</span>
+        <p class="columns-features__text">Мы компенсируем вам проезд из г. <%= @current_region.sklon2 %> до автосалона Авиньон в Москве в размере 10 000 ₽.</p>
+      </li>
+      <li class="columns__column-4">
+        <%= svg_tag 'carso/newcar/regions-sprite.svg','svg-bank',75,80,class:'columns-features__img' %>
+        <span class="columns__title">47 банков-партнёров</span>
+        <p class="columns-features__text">Большое количество банков-партнеров позволят Вам выбрать автокредит на подходящих условиях</p>
+      </li>
+      <li class="columns__column-4">
+        <%= svg_tag 'carso/newcar/regions-sprite.svg','svg-akzii',80,80,class:'columns-features__img' %>
+        <span class="columns__title">Дарим подарки!</span>
+        <p class="columns-features__text">Для всех, купивших автомобиль в нашем салоне мы приготовили подарки - комплект зимней резины с дисками или полный бак бензина на выбор</p>
+      </li>
+    </ul>
+  </div>
+</section>

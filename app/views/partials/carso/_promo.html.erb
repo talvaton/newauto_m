@@ -1,0 +1,25 @@
+<div class="promo-block">
+  <div class="promo-block__inner">
+    <%= image_tag "carso/promo/tires.png",class:'promo-block__img', alt:'' %>
+    <div class="promo-block__main">
+      <div class="promo-block__title">Зимняя резина в подарок</div>
+      <p>Каждый купивший авто в нашем салоне до <%= l(SALE_DATE, format: :next_monday) %> получает комплект зимней резины в подарок</p>
+    </div>
+
+  </div>
+
+  <% unless true %>
+    <%= form_for Ticket.new,url: {action:'create',controller:'tickets' },remote:true,validate:true,:html => {:class => 'form',:name=>'snowgift'},:namespace => 'snowgift' do |f| %>
+      <%= f.hidden_field :form_name, value:'credit' %>
+      <div class="form__component">
+        <%= f.phone_field :phone,class:'input',data:{:role=>'phone'},placeholder:'' %>
+        <%= f.label :phone, "Номер телефона", class:"label" %>
+      </div>
+
+      <div class="form__component">
+        <%= f.button 'Получить', class: "button button--simple modal__button" %>
+      </div>
+    <% end %>
+  <% end %>
+
+</div>

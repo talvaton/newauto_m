@@ -1,0 +1,35 @@
+<% price = @model.count_min_price(@region_discount) %>
+
+$('.config-car .config-car__title_left .config-car__title_model b').text("<%= @model.name %>");
+$('.config-car .config-car__title_left img').attr("src","<%= @model.brand.logo.url  %>");
+$('.config-car_img').attr("src","<%= @model.colors[0].card.url %>");
+$('.config-car_price b').text("<%=  number_with_delimiter(price, delimiter: " ") + " р." %>");
+$('.config-car_credit b').text("<%= number_with_delimiter(count_price(price,PERCENT,MONTH), delimiter: " ") + " р./мес."  %>")
+
+$('.config-complectblock input').checked = false;
+$('.config-car .config-car__title_right').text("");
+$('.config-engineblock input').checked = false;
+$('.config-car .config-car__inner .car__volume b').text("");
+$('.config-car .config-car__inner .car__power b').text("");
+$('.config-car .config-car__inner .car__transm b').text("");
+$('.config-car .config-car_color span b').text("");
+
+$('.config-car .config-car__inner .conf_about__link').attr("href", "/<%= @model.brand.url %>/<%= @model.url %>");
+
+// Комплектации
+<% @prev_compl = '' %>
+<% @prev_compl_params = [] %>
+<% cards = EquipmentDescription
+    .joins(:equipments)
+    .select('MIN(price) AS price,`equipment_descriptions`.`name`,`equipment_descriptions`.`description`, `equipment_descriptions`.`id`,`equipment_descriptions`.`new_car_id`, MIN(`equipment`.`id`) AS eq_id,`equipment_descriptions`.`compare`,`equipment_descriptions`.`comparedesc`')
+    .where('`equipment_descriptions`.`new_car_id` = ?', @model.id).where('`equipment`.`hide` = 0')
+    .group('`equipment`.`equipment_description_id`')
+    .order('price ASC')
+%>
+
+$('.config-complectblock').html("<%= j render partial:'configurator_equipments', collection: cards, as: :card %>");
+changeCompl();
+
+// Цвета
+$('.color__picker .modal__colors').html("<%= j render partial:'configurator_colors', collection: @model.colors, as: :color %>");
+changeColor();

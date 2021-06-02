@@ -1,0 +1,173 @@
+$button_shadow : 0 5px 7px -1px rgba(0, 0, 0, .24);
+$box_shadow : 0 12px 24px 0 rgba(#000, 0.25);
+
+@mixin shadow_card() {
+  box-shadow: 0 1px 4px 0 rgba(#000, 0.35);
+  &:hover {
+    box-shadow: $box_shadow;
+  }
+}
+
+
+$light_color : #ffffff;
+$font_color : #333333;
+$header_top_color : #555D68;
+$header_bottom_color : #3E454F;
+$red_color : #EB5757;
+$nav_font_color : #F2F2F2;
+
+$blue_color : #2D9CDB;
+
+$menu_font_color : #000;
+$menu_shadow : 0 24px 24px 0 rgba($menu_font_color, 0.25);
+
+$title_border_color : #B5C2D5;
+
+$card_line_color : #E0E0E0;
+
+
+$dark_gray : #828282;
+
+
+$smooth_color : 0.2s ease;
+$smooth_btn : 0.4s ease;
+
+$block_shadow : 0 12px 48px 0 rgba($font_color, 0.24);
+
+
+
+
+
+
+
+@mixin link_undecorated {
+  text-decoration: none;
+  outline: none;
+  &:hover, &:focus, &:active {
+    text-decoration: none;
+    outline: none;
+  }
+}
+
+@mixin link_color($a-color) {
+  color: $a-color;
+  &:hover, &:focus, &:active {
+    color: $a-color;
+  }
+}
+
+@mixin link_color_dark($a-color){
+  color: $a-color;
+  &:hover, &:focus, &:active {
+    color: lighten($a-color, 30%);
+  }
+}
+
+@mixin link_color_light($a-color) {
+  color: $a-color;
+  &:hover, &:focus, &:active {
+    color: darken($a-color, 20%);
+  }
+}
+
+@mixin link_color_contrast($a-color-1, $a-color-2) {
+  color: $a-color-1;
+  &:hover, &:focus, &:active {
+    color: $a-color-2;
+  }
+}
+
+@mixin button_unstyled {
+  outline: none;
+  text-shadow: none;
+  box-shadow: none;
+  border: none;
+  &:hover, &:focus, &:active {
+    outline: none;
+    text-shadow: none;
+    box-shadow: none;
+    border: none;
+  }
+}
+
+@mixin list_unstyled {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  list-style-position: outside;
+}
+
+@mixin flex_basis {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+@mixin flex_center {
+  @include flex_basis;
+  justify-content: center;
+}
+
+@mixin flex_between {
+  @include flex_basis;
+  justify-content: space-between;
+}
+
+@mixin flex_start {
+  @include flex_basis;
+  justify-content: flex-start;
+}
+
+@mixin flex_end {
+  @include flex_basis;
+  justify-content: flex-end;
+}
+
+@mixin flex_inline {
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex_column {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+@mixin title_font {
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+@mixin object_fit($name, $position){
+  object-fit: $name;
+  object-position: $position;
+  font-family :'object-fit: {$name}; object-position: {$position};';
+}
+
+
+// MEDIAS
+$max_width : 1320px;
+
+$xs_Width : 480px;
+$sm_Width : 640px;
+$m_Width : 768px;
+$l_Width : 1024px;
+$lg_Width : 1320px;
+
+$media_xs : "only screen and (max-width: " + $xs_Width + ")";
+$media_sm : "only screen and (max-width: " + $sm_Width + ")";
+$media_m  : "only screen and (max-width: " + $m_Width + ")";
+$media_l  : "only screen and (max-width: " + $l_Width + ")";
+$media_lg  : "only screen and (max-width: " + $lg_Width + ")";
+
+$media_lg_over  : "only screen and (min-width: " + $lg_Width + ")";
+
+$media_retina : "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)";
+
+$media_m_additional :  "only screen and (max-width: 760px)";

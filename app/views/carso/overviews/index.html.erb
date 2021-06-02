@@ -1,0 +1,17 @@
+<% provide :title,'Авто Блог Авиньон' %>
+<% provide :description,'Автомобильные обзоры о новых моделях, об авторынке, о дилерах, цены на авто - официальный дилер, Автосалон | Москва' %>
+
+
+<div class="row justify-content-between form__credit_p">
+  <div class="form__lt">
+      <h1>Авто Блог</h1>
+  </div>
+</div>
+
+
+
+<div class="row justify-content-between reviews_list">
+  <%= render partial:'overviews/overview', collection: @overviews %>
+</div>
+
+<%= render 'partials/carso/credit_form' %>

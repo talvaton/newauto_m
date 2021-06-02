@@ -1,0 +1,19 @@
+<!doctype html>
+  <html lang="ru" itemscope="" itemtype="http://schema.org/AutoDealer">
+  <head>
+    <%= render 'partials/carso/head' %>
+  </head>
+  <body>
+  <%#=<div class="container">%>
+      <%= render 'partials/carso/header' %>
+      <main class="main<% if main_page? %> main_h<% end %>">
+        <%= yield %>
+      </main>
+      <%= render 'partials/carso/footer' %>
+      <%= render 'partials/carso/modals' %>
+  <%#=</div>%>
+    <%= yield :rails_to_js_variables %>
+    <%= render 'partials/carso/before_end_body' %>
+    <%= yield :additional_javascript %>
+  </body>
+</html>

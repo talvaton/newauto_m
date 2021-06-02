@@ -1,0 +1,58 @@
+
+
+<aside class="modal modal--colors modal--car-info" id="car-features-modal2">
+
+  <div class="modal-tradein__inner modal-tradein__inner_desktop">
+    <div class="modal__top modal-tradein__top">
+
+      <ul class="features-list">
+        <li>
+          <%= svg_tag 'carso/newcar/modal-sprite.svg','svg-modal-guarantee',30,30,class:'' %>
+          <span>Гарантия лучшей цены</span>
+        </li>
+        <li>
+          <%= svg_tag 'carso/newcar/modal-sprite.svg','svg-modal-credit',30,30,class:'' %>
+          <span>Выгодный кредит 1.9%</span>
+        </li>
+        <li>
+          <%= svg_tag 'carso/newcar/modal-sprite.svg','svg-modal-present',30,30,class:'' %>
+          <span>Подарок при покупке</span>
+        </li>
+        <li>
+          <%= svg_tag 'carso/newcar/modal-sprite.svg','svg-modal-tradein',30,30,class:'' %>
+          <span>Зачёт Вашего авто в Трейд-ин</span>
+        </li>
+        <li> <%= svg_tag 'carso/newcar/modal-sprite.svg','svg-modal-fuel',30,30,class:'' %>
+          <span>Полный бак бензина покупателю</span>
+        </li>
+      </ul>
+
+    </div>
+
+    <div class="modal__inner">
+      <button type="button" class="modal__close-btn" data-fancybox-close>
+        <%= svg_tag 'carso/icons.svg','svg-close',40,40,id:'nav-close',class:'' %>
+      </button>
+      <div class="modal__title">
+        <div class="modal__title-name">Оставьте заявку до <%= l(SALE_DATE, format: :next_monday) %></div>
+        <p class="modal__title-additional">И получите все выгоды одновременно!</p>
+      </div>
+
+      <%= form_for Ticket.new,url: {action:'create',controller:'tickets' },remote:true,validate:true,:html => {:class => 'form-cl-b',:name=>'callback_bottom'},:namespace => 'callback_bottom' do |f| %>
+
+        <%= f.hidden_field :form_name, value:'callback' %>
+
+        <div class="form__component">
+          <%= f.text_field :name,class:'input', placeholder:'Ваше имя' %>
+        </div>
+        <div class="form__component">
+          <%= f.phone_field :phone,class:'input',data:{:role=>'phone'}, placeholder:'Номер телефона' %>
+        </div>
+        <%= f.button 'Отправить', class: "button button--simple modal__button" %>
+      <% end %>
+
+
+    </div>
+  </div>
+
+</aside>

@@ -1,0 +1,9 @@
+<% provide :title,'Автоблог автосалона Авиньон 🚘 все о автомобилях' %>
+<% provide :description,'Официальный автоблог автосалона Авиньон. Полезные статьи, сравнения и обзоры автомобилей всех известных брендов.' %>
+
+<section class="inner">
+  <%= render partial:'blog/catalog_blog', collection: Blog.select(:brand_id).select('brands.title').distinct.joins(:brand).order('brands.title') %>
+</section>
+
+
+<%= render partial:'carso/carso/bottom_banner' %>

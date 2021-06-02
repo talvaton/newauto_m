@@ -1,0 +1,6 @@
+<li class="menu-list__item <%= "menu-list__item_active" if params[:brand] == main_brands.url  %>">
+  <%= link_to(used_brand_path(main_brands.url), class:'menu-list__link',title:main_brands.title) do %>
+    <%= "#{main_brands.title}" %>
+    <span class="brands__count"><%= "#{main_brands.used_cars.where(hide:0, used: 1).length}" %></span>
+  <% end %>
+</li>

@@ -1,0 +1,41 @@
+<section class="inner">
+  <div class="credit-light">
+    <div class="credit-light__inner">
+      <h2 class="credit-light__title">Экспрес-кредит</h2>
+      <ul class="credit-light__list">
+        <li class="credit-light__list-item">
+          <div class="credit-light__list-name">Одобрение за 30 минут</div>
+          <p>Наверняка - 95% одобрения</p>
+        </li>
+        <li class="credit-light__list-item">
+          <div class="credit-light__list-name">Кредит от 1.9%</div>
+          <p>24 банка - партнера</p>
+        </li>
+        <li class="credit-light__list-item">
+          <div class="credit-light__list-name">Начальный взнос 0%</div>
+          <p>Возможность рассрочки</p>
+        </li>
+      </ul>
+    </div>
+    <div class="credit-light__inner">
+      <%= form_for Ticket.new,url: {action:'create',controller:'tickets' },remote:true,validate:true,:html => {:class => 'form credit-light__form',:name=>'expresscredit'},:namespace => 'expresscredit' do |f| %>
+
+      <%= f.hidden_field :form_name, value:'credit' %>
+      <%= hidden_field_tag 'ticket[other][ttype]',1,id:'credit_ticket_other_ttype' %>
+      <div class="credit-light__form-title">Заявка на кредит</div>
+      <div class="form__component">
+        <%= f.text_field :name,class:'input',placeholder:'Ваше имя' %>
+      </div>
+      <div class="form__component">
+        <%= f.phone_field :phone,class:'phonemask modalphone input',data:{:role=>'phone'},placeholder:'Номер телефона' %>
+      </div>
+      <div class="form__component form__component--credit">
+        <%= f.button 'Одобрить кредит', class: "button" %>
+
+      </div>
+      <% end %>
+
+    </div>
+    <%#= image_tag "carso/girl.png", title:"",alt:"", class:'credit-light__img'  %>
+  </div>
+</section>

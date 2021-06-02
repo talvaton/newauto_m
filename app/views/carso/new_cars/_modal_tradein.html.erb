@@ -1,0 +1,62 @@
+<aside class="modal modal--tradein-car modal-tradein" id="car-tradein-modal">
+  <div class="modal-tradein__inner">
+    <div class="modal__top modal-tradein__top">
+
+      <ul class="features-list">
+        <li>
+          <%= svg_tag 'carso/newcar/modal-sprite.svg','svg-modal-guarantee',30,30,class:'' %>
+          <span>Гарантия лучшей цены</span>
+        </li>
+        <li>
+          <%= svg_tag 'carso/newcar/modal-sprite.svg','svg-modal-credit',30,30,class:'' %>
+          <span>Выгодный кредит 1.9%</span>
+        </li>
+        <li>
+          <%= svg_tag 'carso/newcar/modal-sprite.svg','svg-modal-present',30,30,class:'' %>
+          <span>Подарок при покупке</span>
+        </li>
+        <li>
+          <%= svg_tag 'carso/newcar/modal-sprite.svg','svg-modal-tradein',30,30,class:'' %>
+          <span>Зачёт Вашего авто в Трейд-ин</span>
+        </li>
+        <li> <%= svg_tag 'carso/newcar/modal-sprite.svg','svg-modal-fuel',30,30,class:'' %>
+          <span>Полный бак бензина покупателю</span>
+        </li>
+      </ul>
+
+    </div>
+
+    <div class="modal__inner">
+      <button type="button" class="modal__close-btn" data-fancybox-close>
+        <%= svg_tag 'carso/icons.svg','svg-close',40,40,id:'nav-close',class:'' %>
+      </button>
+      <div class="modal__title">
+        <div class="modal__title-name">Лучшие условия по трейд-ин</div>
+        <p class="modal__title-additional">Мы компенсируем до 10% от стоимости нового авто!</p>
+        <p class="modal__title-additional">Оставьте заявку на новый <%= @car.menutitle %></p>
+      </div>
+
+      <%= form_for Ticket.new,url: {action:'create',controller:'tickets' },remote:true,validate:true,:html => {:class => 'modal__form',:name=>'new_tradein_modal'},:namespace => 'new_tradein_modal' do |f| %>
+
+        <%= f.hidden_field :form_name, value:'trade_in' %>
+        <%= hidden_field_tag 'ticket[other][model]',@car.id, id:'new_tradein_modal_ticket_other_model' %>
+
+        <div class="form__component">
+          <%= f.text_field :name,class:'input', placeholder:'Ваше имя' %>
+        </div>
+        <div class="form__component">
+          <%= f.phone_field :phone,class:'input',data:{:role=>'phone'}, placeholder:'Номер телефона' %>
+        </div>
+        <div class="form__component">
+          <%= text_field_tag 'ticket[other][marka]','',class:'input',id:'tradein_ticket_other_marka', placeholder:'Марка и модель' %>
+        </div>
+        <div class="form__component">
+          <%= text_field_tag 'ticket[other][year]','',class:'input',id:'tradein_ticket_other_year', placeholder:'Год выпуска' %>
+        </div>
+
+        <%= f.button 'Узнать выгоду', class: "button" %>
+      <% end %>
+    </div>
+  </div>
+
+</aside>

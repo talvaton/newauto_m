@@ -1,0 +1,419 @@
+@import '_vars';
+@import 'carso_credit';
+
+.form--credit {
+  width: 100%;
+  margin: 10px 0 0 10px;
+}
+.cr_vr {
+  width: 100%;
+}
+.main .form__credit_p {
+  margin: 0 0 0 0;
+}
+.green {
+  @media (max-width: 400px){
+    font-size: 26px;
+  }
+}
+/************tradein_form**************/
+.tradein_form{
+  margin: 40px 0 20px 0;
+}
+.tradein_form form{
+  display: flex;
+  justify-content: space-between;
+  @media (max-width: 1280px) {
+    flex-wrap: wrap;
+  }
+  @media (max-width: 900px) {
+    display: block;
+  }
+}
+.tr_flbl{
+  width: 100%;
+  padding: 30px 40px 0 40px;
+  background: #F7F7F7;
+  @media (max-width: 1280px) {
+    margin: 0 0 10px 0;
+  }
+  @media (max-width: 1180px) {
+    padding: 30px 15px 0 15px
+  }
+  @media (max-width: 1100px) {
+    margin: 0 auto;
+    width: 850px;
+  }
+  @media (max-width: 900px) {
+    width: 347px;
+    padding: 30px 15px 15px 15px;
+  }
+
+  @media (max-width: 400px) {
+    width: 100%;
+  }
+}
+.tr_flb{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @media (max-width: 1000px) {
+    flex-wrap: wrap;
+  }
+  @media (max-width: 400px) {
+    display: block;
+  }
+}
+.tr_frb{
+  padding: 40px;
+  background: #FFFFFF;
+  border: 1px solid #6AD1A6;
+  box-sizing: border-box;
+  @media (max-width: 1280px) {
+    margin: 0 auto;
+  }
+  @media (max-width: 1180px) {
+    padding: 40px 15px 15px 15px;
+  }
+  @media (max-width: 1000px) {
+    width: 347px;
+    margin: 0 auto;
+    padding: 15px;
+  }
+  @media (max-width: 400px) {
+    width: 100%;
+  }
+}
+.tr_fin{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 120%;
+  color: #222222;
+}
+.tr_fins{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 100%;
+  color: #222222;
+  @media (max-width: 1000px) {
+    margin: 15px 0 0 0;
+    display: block;
+  }
+}
+.tr_fh{
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 120%;
+  color: #222222;
+  padding: 0 0 10px 0;
+  display: block;
+  @media (max-width: 400px) {
+    font-size: 26px;
+  }
+}
+.tradein_form form input,.tradein_form form select{
+  background-color: #ffffff;
+  @media (max-width: 1050px) {
+    width: 100%;
+    max-width: 100%;
+    min-width: 280px;
+  }
+  @media (max-width: 1000px) {
+    width: 315px;
+    max-width: initial;
+    min-width: initial;
+  }
+  @media (max-width: 400px) {
+    width: 100%;
+  }
+}
+.tradein_form form button{
+  @media (max-width: 1050px) {
+    width: 100%;
+    max-width: 100%;
+    min-width: 280px;
+  }
+  @media (max-width: 1000px) {
+    width: 315px;
+    max-width: initial;
+    min-width: initial;
+  }
+  @media (max-width: 400px) {
+    width: 100%;
+  }
+}
+.secur_f {
+  @media (max-width: 400px) {
+    width: 100%;
+  }
+}
+.secur_f:before {
+  @media (max-width: 400px) {
+    width: 60px;
+  }
+}
+
+/************tradein_form**************/
+
+.form_cr_r {
+  padding: 0 0 30px 0;
+  @media (max-width: 900px) {
+    display: none;
+  }
+}
+.form_input {
+  padding: 15px 0 0 0;
+}
+.secur_f {
+  padding: 20px 0 0 0;
+}
+.car-credit__subtitle{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 120%;
+  color: #222222;
+}
+.form__component.cr_2 {
+  margin: 30px 0 0 0;
+}
+.tradein_form form .form_cr_r input,.tradein_form form .form_cr_r select{
+  width: 400px;
+}
+.tr_fins{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 120%;
+  color: #222222;
+}
+.tr_fin {
+  padding: 0 0 5px 0;
+  display: block;
+}
+/******************************/
+.gsp_in{
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 0 20px 0;
+  @media all and (max-width: 1100px) {
+    display: block;
+  }
+}
+.gsp_d{
+  border-right: 1px solid #CEE1F2;
+  padding: 0 25px 0 25px;
+  @media all and (max-width: 1280px) {
+    min-width: 210px;
+  }
+  @media all and (max-width: 1100px) {
+    min-width: 100%;
+    border-right: medium none;
+  }
+}
+.gsp_d:last-child{
+  border-right: medium none;
+}
+.gsp_d.gsp_txt span{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 120%;
+  color: #222222;
+  text-transform: initial;
+  display: grid;
+  padding: 0 0 15px 0;
+}
+.gsp_d span{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 120%;
+  text-transform: uppercase;
+  color: #222222;
+  display: grid;
+  padding: 0 0 15px 0;
+}
+.gsp_d.gsp_txt{
+  width: 450px;
+  min-width: 450px;
+  @media all and (max-width: 1280px) {
+    width: 340px;
+    min-width: 340px;
+  }
+  @media all and (max-width: 1100px) {
+    width: 100%;
+    min-width: 100%;
+  }
+  @media all and (max-width: 900px) {
+    padding: 0;
+  }
+}
+.gsp_d.gsp_bpdf{
+  width: 230px;
+  min-width: 230px;
+}
+.gsp_d div{}
+.gsp_d ul{
+  list-style-image: image-url('carso/icons/ok_inf.svg');
+  padding: 0 0 0 20px;
+}
+.gsp_d ul li svg{
+  margin: 0 10px 0 0;
+}
+.gsp_d ul li span{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 120%;
+  color: #222222;
+  text-transform: initial;
+  padding: 0 0 15px 5px;
+}
+.gsp_d p{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 140%;
+  color: #222222;
+}
+.gsp_pdf{}
+.gsp_pdf a{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 120%;
+  color: #1260B0;
+  display: flex;
+  align-items: center;
+  padding: 0 0 15px 0;
+}
+.gsp_pdf a b{
+  display: block;
+  width: 100px;
+}
+.gsp_pdf a img{
+  padding: 0 15px 0 0;
+}
+/******************************/
+
+.tradein_btt .credit_bp_txt{
+  display: none;
+  padding: 30px 0 30px 25px;
+  @media all and (max-width: 600px) {
+    padding: 10px 0 0 0;
+  }
+}
+.tradein_btt .credit_bp_txt.on{
+  display: flex;
+}
+
+.credit_bp_txt img{
+  padding: 0 0 10px 0;
+  @media all and (max-width: 400px) {
+    width: 100%;
+  }
+}
+.credit_bp_txt span{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 100%;
+  color: #222222;
+  display: block;
+  margin: 0;
+  @media all and (max-width: 600px) {
+    padding: 0 1px 15px 0;
+  }
+}
+.credit_bp_txt div{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: #2A2A30;
+  width: 900px;
+  min-width: 900px;
+  @media all and (max-width: 1000px) {
+    width: 100%;
+    min-width: 100%;
+  }
+  @media all and (max-width: 680px) {
+    padding: 0;
+  }
+}
+.credit_bp_txt p{
+  display: block;
+}
+.frm_tbank{
+  font-style: normal;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 24px;
+  color: #343F4B;
+  @media all and (max-width: 1300px) {
+    text-align: center;
+    display: block;
+    margin: 0 0 55px 0;
+  }
+}
+.tradein_tt{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 100%;
+  color: #222222;
+  justify-content: space-between;
+  display: flex;
+  background: #F7F7F7;
+  height: 50px;
+  padding: 0 20px;
+  align-items: center;
+  cursor: pointer;
+  margin: 0 0 2px 0;
+  @media all and (max-width: 400px) {
+    padding: 0 25px 0 10px;
+    position: relative;
+  }
+}
+.tradein_tt:after{
+  content: '';
+  background: image-url('carso/icons/t_str.svg') no-repeat 0 0 #F7F7F7;
+  width: 15px;
+  height: 12px;
+  transform: rotate(180deg);
+  @media (max-width: 400px) {
+    position: absolute;
+    right: 8px;
+  }
+}
+.tradein_tt.on:after{
+  transform: rotate(0);
+}
+.tradein_btt ul{
+  list-style-image: image-url('carso/icons/ok_inf.svg');
+  padding: 0 0 0 20px;
+}
+.tradein_btt ul li span{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 120%;
+  color: #222222;
+  display: block;
+  padding: 0 0 0 5px;
+
+}
+.tradein_btt ul li{
+  padding: 0 0 15px 0;
+}
+
+
+.bank_block {
+  @media (max-width: 600px){
+    margin: 20px 15px;
+  }
+}

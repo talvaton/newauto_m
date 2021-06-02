@@ -1,0 +1,7 @@
+{
+  "name": "salon_web",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^4.5.2"
+  }
+}

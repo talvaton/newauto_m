@@ -1,0 +1,43 @@
+ <div class="row justify-content-left align-items-center express_fbn_o">
+    <div class="ex_fbn_img">
+      <span class="ex_fbn_img_t"><b>Просто</b> обменяйте свой авто на новый <% if @car.name.present? %><%= @car.brand.title %> <%= @car.name %><% end %></span>
+       <% if @car %>
+        <%= image_tag @car.colors.first.largecard.url, alt:'',lazy:true %>
+      <% elsif @brand %>
+        <% if @brand.new_cars.where(hide: 0, archive: 0).present? %>
+          <%= image_tag @brand.new_cars.where(hide:0, archive: 0)[0].colors.first.largecard.url,class:'section-tradein__model', alt:'' %>
+        <% else %>
+          <%= image_tag @brand.new_cars.where(hide:0, archive: 1)[0].colors.first.largecard.url,class:'section-tradein__model', alt:'' %>
+        <% end %>
+
+      <% else %>
+        <%= image_tag NewCar.find(234).colors.first.largecard.url,class:'section-tradein__model', alt:'',lazy:true %>
+      <% end %>
+    </div>
+
+        <div class="ex_fbn_form">
+          <span class="ex_fbn_form_t">Оставьте контакт и менеджер по обмену свяжется и оценит Ваше авто за 10 минут</span>
+          <%= form_for Ticket.new,url: {action:'create',controller:'tickets' },remote:true,validate:true,:html => {:class => 'form section-tradein__form obm_new_ticket',:name=>'tradein'},:namespace => 'tradein' do |f| %>
+            <%= f.hidden_field :form_name, value:'trade_in' %>
+            <%= hidden_field_tag 'ticket[other][tradein_toggle]', '1' %>
+
+            <div class="form_input">
+              <%= f.text_field :name,class:'input',placeholder:'Ваше Имя' %>
+            </div>
+            <div class="form_input">
+              <%= f.phone_field :phone,class:'input',data:{:role=>'phone'},placeholder:'Номер телефона' %>
+            </div>
+
+            <div class="form_input">
+              <%= f.button do %>
+                <span>Рассчитать скидку за Трейд-ин</span>
+              <% end %>
+            </div>
+
+
+          <% end %>
+        </div>
+
+
+
+</div>

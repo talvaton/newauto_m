@@ -1,0 +1,89 @@
+<%
+  case @country
+    when 'china'
+      country_name = 'Китая'
+    when 'karya'
+      country_name = 'Кореи'
+    when 'germany'
+      country_name = 'Германии'
+    when 'france'
+      country_name = 'Франции'
+    when 'japan'
+      country_name = 'Японии'
+  end
+%>
+
+<% provide :title,"#{@title}  #{(Time.current - 1.year).year.to_s}-#{Time.current.year.to_s} у официального дилера, купить новые машины из #{country_name} в " + @current_region.sklon3 %>
+<% provide :description,"Продажа новых автомобилей из #{country_name}. Наличные и безналичный расчет, кредит, рассрочка, trade-in." %>
+
+
+<h1 class="green"><%= @title %> от официального дилера</h1>
+
+<div class="frm_banner">
+  <div>
+    <a href="/banks/vtb" class="banr_img">
+      <%= image_tag "carso/banners/ban_vtb.png", alt:'' %>
+    </a>
+  </div>
+  <div class="frm_bangr">
+    <div>
+      <a href="#" class="banr_img ism">
+        <%= image_tag "carso/banners/3pay-307x.png", alt:'' %>
+      </a>
+    </div>
+    <div>
+      <a href="#" class="banr_img ism">
+        <%= image_tag "carso/banners/casko-307x.png", alt:'' %>
+      </a>
+    </div>
+    <div>
+      <a href="/credit#gospr" class="banr_img ism">
+        <%= image_tag "carso/banners/gospr-307x.png", alt:'' %>
+      </a>
+    </div>
+    <div>
+      <a href="/tradein" class="banr_img ism">
+        <%= image_tag "carso/banners/tradein-307х.png", alt:'' %>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+    <div class="row anc_link">
+      <%# if @brands_country.new_cars.where(hide: 0, archive: 0).present? %>
+      <%# brand_car_types = NewCar.where(brand_id: @brand.id,hide: 0, archive: 0).distinct.pluck(:car_type) %>
+      <% @brands_country.each do |t| %>
+        <% if t.present? %>
+          <a href="#<%= t.pluralize(:ru) %>" rel="nofollow" data-role="page-navigation-link"><span><%= t.pluralize(:ru) %></span> <b>(<%= t.pluralize(:ru).length %>)</b></a>
+        <% end %>
+      <% end %>
+      <%# end %>
+
+    </div>
+
+
+
+
+
+
+  <% @brands_country.each do |brand| %>
+  <div class="row" id="<%= brand %>"><h2 class="title"><%= brand %></h2></div>
+  <div class="row justify-content-center cr_tr_url">
+      <div class="cr_tr_hr right row justify-content-center">
+        <% brand_id =  Brand.find_by(title: brand).id %>
+        <% new_car =  NewCar.where(brand_id: brand_id).where(hide: 0) %>
+        <%= render partial:'new_cars/new_cars', collection: new_car.where('`new_cars`.`hide` = 0').where('`new_cars`.`archive` = 0'), locals: {:show_brand => true, :credit_flag => false} %>
+      </div>
+    </div>
+  <% end %>
+
+<%= render 'partials/carso/credit_form' %>
+
+<% content_for :additional_javascript do %>
+
+  <script>
+      car_brand = '<%= @country %>';
+      carid = undefined;
+  </script>
+<% end %>

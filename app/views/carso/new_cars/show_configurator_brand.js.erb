@@ -1,0 +1,36 @@
+$('.config-car .config-car__title_left .config-car__title_brand').text("<%= @brand.title %>");
+$('.config-car .config-car__title_left img').attr("src","<%= @brand.logo.url %>");
+
+var model_select = $('.config-modelblock select');
+
+model_select.html("<%= j options_for_select(@models.where(available:1).map{|b| [b.name,b.id]}) %>");
+
+if ((typeof p_model != 'undefined')&&(firstload == true)) {
+//    changeBrand(p_brand);
+    changeModel(p_model);
+    $('#filter_brand').val(p_brand_id);
+    $('#modelblock_select').val(p_model);
+    firstload = false;
+
+}
+else if ((typeof p_model != 'undefined')&&(firstload == false)) {
+
+    changeModel(p_model);
+    changeModel(<%= @models.where(available:1).first.id %>);
+
+}
+else if ((typeof p_brand != 'undefined')&&(firstload == false)) {
+
+    $('#filter_brand').val(p_brand_id);
+    changeModel(<%= @models.where(available:1).first.id %>);
+    firstload = true;
+
+}
+else
+{
+    changeModel(<%= @models.where(available:1).first.id %>);
+}
+
+model_select.prop("disabled", false);
+
+$('.config-car .config-car_color span b').text("");

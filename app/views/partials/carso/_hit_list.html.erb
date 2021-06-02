@@ -1,0 +1,9 @@
+<li class="brand__list-item">
+  <%= link_to(new_car_path(hit_list.brand.url,hit_list.url), class:'brand__list-link') do %>
+    <%= image_tag hit_list.colors[0].topnav.url,class:"brand__list-img",alt:'',title:'' %>
+    <span class="brand__list-name"><%= hit_list.name %></span>
+    <% if hit_list.equipments.present? %>
+      <span class="brand__list-price">от <%= number_with_delimiter(hit_list.count_min_price(@region_discount), delimiter: " ") %>₽</span>
+    <% end %>
+  <% end %>
+</li>

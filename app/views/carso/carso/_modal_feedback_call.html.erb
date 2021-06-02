@@ -1,0 +1,25 @@
+<aside class="modal modal--callback" id="phone-request-modal">
+  <div class="modal__top">
+    <button type="button" class="modal__close-btn" data-fancybox-close>
+      <%= svg_tag 'carso/icons.svg','svg-close',40,40,id:'nav-close',class:'' %>
+    </button>
+    <div class="modal__title">
+      <div class="modal__title-name">Обратный звонок</div>
+      <p class="modal__title-additional">Оставьте номер и мы сами перезвоним вам!</p>
+    </div>
+  </div>
+  <div class="modal__inner">
+    <%= form_for Ticket.new,url: {action:'create',controller:'tickets' },remote:true,validate:true,:html => {:class => 'form-cl-b',:name=>'callback'},:namespace => 'callback' do |f| %>
+
+      <%= f.hidden_field :form_name, value:'callback' %>
+
+      <div class="form__component">
+        <%= f.text_field :name,class:'input', placeholder:'Ваше имя' %>
+      </div>
+      <div class="form__component">
+        <%= f.phone_field :phone,class:'input',data:{:role=>'phone'}, placeholder:'Номер телефона' %>
+      </div>
+      <%= f.button 'Отправить', class: "button button--simple modal__button" %>
+    <% end %>
+  </div>
+</aside>

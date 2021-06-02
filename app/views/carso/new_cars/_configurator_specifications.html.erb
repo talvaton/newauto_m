@@ -1,0 +1,14 @@
+<div class="container">
+  <input type="radio"  name="engine" value="<%= spec.e_id %>">
+    <div class="card__inner">
+      <div class="card__header">
+        <div class="card__title">
+         <span class="volume"><b><%= (spec.volume.to_f / 1000).round(1) %> л&nbsp;</b></span>
+         <span class="power"><b><%= spec.power %> л/с&nbsp;</b></span>
+         <span class="transm"><b><%= spec.shorttransmission %></b></span>
+        </div>
+      </div>
+      <span class="card__price"><%= number_with_delimiter(@model.count_price(spec.price,@region_discount), delimiter: ' ') %> ₽</span>
+      <span class="kfprsl">Выбрать</span>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<%# if finance.has_page? %>
+      <li><%= link_to finance_path(finance.url) do %>
+          <% if (finance.name.gsub(' finance','') == 'kia') ||
+              (finance.name.gsub(' finance','') == 'renault') ||
+              (finance.name.gsub(' finance','') == 'nissan') ||
+              (finance.name.gsub(' finance','') == 'lada') ||
+              (finance.name.gsub(' finance','') == 'skoda') ||
+              (finance.name.gsub(' finance','') == 'chevrolet') ||
+              (finance.name.gsub(' finance','') == 'mazda') ||
+              (finance.name.gsub(' finance','') == 'hyundai') ||
+              (finance.name.gsub(' finance','') == 'honda') ||
+              (finance.name.gsub(' finance','') == 'changan')%>Программа<% else %>Автокредит от <% end %><span>
+        <%= finance.name.gsub(' finance','') %> &nbsp;<i>
+         <% if (finance.name.gsub(' finance','') == 'kia') ||
+             (finance.name.gsub(' finance','') == 'renault') ||
+             (finance.name.gsub(' finance','') == 'nissan') ||
+             (finance.name.gsub(' finance','') == 'lada') ||
+             (finance.name.gsub(' finance','') == 'skoda') ||
+             (finance.name.gsub(' finance','') == 'chevrolet') ||
+             (finance.name.gsub(' finance','') == 'mazda') ||
+             (finance.name.gsub(' finance','') == 'hyundai') ||
+             (finance.name.gsub(' finance','') == 'honda') ||
+             (finance.name.gsub(' finance','') == 'changan')%>Finance<% else %> <% end %></i></span></li><% end %>
+<%# end %>
+

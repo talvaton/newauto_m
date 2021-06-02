@@ -1,0 +1,37 @@
+<aside class="modal modal--equipments" id="car-equipments-modal">
+  <div class="">
+    <button type="button" class="modal__close-btn" data-fancybox-close>
+      <%= svg_tag 'carso/icons.svg','svg-close',40,40,id:'nav-close',class:'' %>
+    </button>
+  </div>
+
+  <div class="modal__inner">
+
+    <div class="modal__equipments-wrapper">
+
+      <%
+        equipments = EquipmentDescription.joins(:equipments)
+            .select('`equipment_descriptions`.`name`, `equipment_descriptions`.`id`,`equipment_descriptions`.`new_car_id`')
+            .where('`equipment_descriptions`.`new_car_id` = ?', @car.id).where('`equipment`.`hide` = 0')
+            .group('`equipment`.`equipment_description_id`')
+            .order('price ASC')
+      %>
+      <ul class="modal__equipments">
+        <% equipments.each do |e| %>
+          <li class="modal__equipment">
+            <%= link_to new_car_equipment_path(Brand.find(@car.brand_id), @car, e.name.parameterize), class: 'modal__equipment-link' do %>
+              <%= e.name %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+
+      <button type="button" class="header__middle-btn modal__colors-arrow modal__colors-arrow--forward" data-action="show-nav">
+        Посмотреть
+      </button>
+    </div>
+
+
+
+  </div>
+</aside>

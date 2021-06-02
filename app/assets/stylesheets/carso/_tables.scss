@@ -1,0 +1,322 @@
+
+
+/***********tech table****************/
+.tech-table-head,.th-h2{
+  padding: 0 0 0 30px;
+}
+.th-h2{
+  padding: 0 0 15px 30px;
+  display: block;
+  @media all and (max-width: 600px) {
+    padding: 0 0 0 15px;
+  }
+}
+.tech-table-head .custom-checkbox{
+  padding: 0 40px 0 25px;
+  @media all and (max-width: 600px) {
+    padding: 0 25px 0 25px;
+  }
+}
+
+.m__ht_h{
+  display: none;
+  @media all and (max-width: 600px) {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    background: #e5e5e5;
+  }
+}
+
+.m__ht_h:before,.m__ht_h:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  display: block;
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  background:image-url('carso/icons/arrow-slide.svg')no-repeat center center;
+  width: 50px;
+  height: 100%;
+  z-index: 10;
+  opacity: 0;
+}
+.m__ht_h:before,.m__ht_h:after{
+  top: 15px;
+  height: 30px;
+  width: 15px;
+  border-radius: 50px;
+  opacity: 0.9;
+  right: 42px;
+}
+.m__ht_h:before {
+  left: initial;
+}
+.m__ht_h:after {
+  top: 15px;
+  right: 15px;
+  transform: scale(-1);
+  -webkit-transform: scale(-1);
+}
+/****************************/
+.table--features .table__header th.table__header-title.t_m span{
+  display: block;
+  position: absolute;
+  right: 30px;
+  top: 35px;
+}
+.table__header-title.t_m span:before,.table__header-title.t_m span:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  display: block;
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  background:image-url('carso/icons/arrow-slide-v.svg')no-repeat center center;
+  width: 50px;
+  height: 100%;
+  z-index: 10;
+  opacity: 0;
+}
+.table__header-title.t_m span:before,.table__header-title.t_m span:after{
+  top: -30px;
+  height: 30px;
+  width: 15px;
+  border-radius: 50px;
+  opacity: 0.9;
+}
+.table__header-title.t_m span:before {
+  left: 0;
+  top: -12px;
+}
+.table__header-title.t_m span:after {
+  top: -34px;
+  -webkit-transform: scale(-1);
+  transform: scale(-1);
+}
+
+
+
+.table-wrapper{
+  margin: 20px 0 0 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 525px;
+    @media all and (max-width: 600px) {
+      height: 525px;
+      overflow-y: auto;
+      overflow-x: auto;
+    }
+
+}
+.table--features .table__cell, .table--features .table__header .table__col-title{
+  @media all and (max-width: 600px) {
+    border-bottom: medium none;
+    border-top: medium none;
+    background-color: #f7f9fc;
+  }
+}
+
+.table--features th:first-child {
+  background-color: #0551a1fa;
+  border-bottom: 1px solid #0551a1fa;
+  color: #fff;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  vertical-align: middle;
+  width: 200px;
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+  @media all and (max-width: 600px) {
+    border-bottom: medium none;
+    border-top: medium none;
+    background-color: #0551a1;
+    min-width: 157px;
+    width: 157px;
+  }
+}
+.ct_features{
+  display: none;
+}
+.content__table{
+  position: relative;
+}
+.m__ht_h{
+  display: none;
+  @media all and (max-width: 600px) {
+   display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+.table--compare .table__cell {
+  background-color: #F7F9FC;
+  font-weight: 500;
+  font-size: 14px;
+  color: #2A2A30;
+}
+
+.table--features .table__header th.table__header-title {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  color: #FFFFFF;
+  background-color: #0551A1;
+  border-bottom: 1px solid #0551A1;
+  @media all and (max-width: 600px) {
+    border-bottom: medium none;
+  }
+}
+.table--features .table__header.t_mb{
+  display: none;
+  @media all and (max-width: 600px) {
+  display: contents;
+  }
+}
+
+.table--features .table__header.t_mb th{
+  @media all and (max-width: 600px) {
+    background-color: #0000001a;
+    height: 60px;
+  }
+}
+
+.table--features .table__header th.table__header-title span{
+  @media all and (max-width: 600px) {
+    display: none;
+  }
+}
+.table--features .table__header th.table__header-title.t_m{
+  display: none;
+  @media all and (max-width: 600px) {
+    display: block;
+    background-color: #0551a1;
+    min-width: 157px;
+    position: absolute;
+    z-index: 1;
+  }
+}
+
+.table--features .table__header th{
+  font-style: normal;
+  font-weight: 800;
+  font-size: 12px;
+  color: #0551A1;
+  background-color: #0000001a;
+  border-bottom: 2px solid #e5e5e5;
+}
+
+/***********tech table****************/
+
+
+.table--features {
+  font-size: 10px;
+  .table__cell,
+  .table__col-title {
+    padding: 10px;
+    vertical-align: middle;
+    text-overflow: ellipsis;
+    text-align: center;
+  }
+  .table__cell--center {
+    text-align: center;
+  }
+  @media #{$media_xl} {
+    font-size: 14px;
+  }
+
+  &:not(.table--compare) .table__cell {
+    text-align: center;
+  }
+
+  .table__col-title,
+  .table__cell {
+    display: none;
+    &:nth-of-type(1),
+    &:nth-of-type(2) {
+      display: table-cell;
+    }
+  }
+  .table__col-title:nth-of-type(3) {
+    display: table-cell;
+  }
+}
+
+  .table__row--opened .table__row-title:not(.compl-table)::before {
+    -webkit-transform: rotateZ(180deg);
+    transform: rotateZ(180deg);
+    -ms-transform: rotateZ(180deg);
+    top: 15px
+  }
+.table-sr{
+  display: none;
+}
+.table-sr .table--features th:first-child{
+
+}
+.table-sr .table__row-title{
+  font-size: 12px;
+}
+
+.fi-plus{
+  background-color: #F3F3F3;
+  &::after {
+    content: "+";
+    color: $contrast_main;
+  }
+}
+.fi-minus::after {
+  content: "-";
+}
+.fi-plus,
+.fi-minus{
+  &::after {
+    font-size: 15px;
+    @media #{$media_xxl} {
+      font-size: 22px;
+    }
+  }
+}
+.main .table-tab-title{
+  padding: 10px 20px 12px 20px;
+  margin: 0;
+  cursor: pointer;
+  @media all and (max-width: 600px) {
+    font-size: 16px;
+    line-height: 16px;
+  }
+}
+.main .table-tab-title--active{
+  background-color: #0551a1fa;
+  color: #fff;
+}
+.table-tab-titles{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin: 60px 0 30px;
+  border-bottom: 4px solid #0551a1fa;
+}
+.table-sr .table--features{
+  max-height: 450px;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+.table-sr .table--features{
+  margin: 10px 0 0 0;
+}
+.table .matched .table__cell{
+  background: rgba(204,33,40,.2);
+}

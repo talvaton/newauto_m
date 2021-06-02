@@ -1,0 +1,105 @@
+<section class="" data-role="used-cars-filters">
+
+  <div class="filter__text filter__text--dark">Фильтр</div>
+
+  <div class="used-filter">
+
+    <div class="used-filter__inputs">
+      <%#
+      <div class="label-feature-wrapper" id="used_brand_button">
+        <input type="radio" class="radio" id="used_brand_radio" name="used_switch" value="brand" checked="checked">
+        <label class="radio-label" for="used_brand_radio"> по марке</label>
+      </div> %>
+
+      <div class="label-feature-wrapper" id="used_year_button">
+        <input type="radio" class="radio" id="used_year_radio" name="used_switch" value="year" checked="checked">
+        <label class="radio-label" for="used_year_radio"> по году</label>
+      </div>
+
+      <div class="label-feature-wrapper" id="used_price_button">
+        <input type="radio" class="radio" id="used_price_radio" name="used_switch" value="price">
+        <label class="radio-label" for="used_price_radio"> по цене</label>
+      </div>
+
+      <div class="label-feature-wrapper" id="used_country_button">
+        <input type="radio" class="radio" id="used_country_radio" name="used_switch" value="country">
+        <label class="radio-label" for="used_country_radio"> по стране</label>
+      </div>
+      <div class="label-feature-wrapper" id="used_type_button">
+        <input type="radio" class="radio" id="used_type_radio" name="used_switch" value="type">
+        <label class="radio-label" for="used_type_radio"> по кузову</label>
+      </div>
+      <div class="label-feature-wrapper" id="used_transmission_button">
+        <input type="radio" class="radio" id="used_transmission_radio" name="used_switch" value="transmission">
+        <label class="radio-label" for="used_transmission_radio"> по трансмиссии</label>
+      </div>
+    </div>
+
+
+    <div class="used-filter__fields">
+
+
+
+      <div class="filter-panel__form" data-used-cars-filter data-role="year" id="used_year_container"
+           <% unless controller.action_name.include? "used_year" or
+                     controller.action_name == "used" or
+                     controller.action_name == "used_brand" or
+                     controller.action_name == "used_brand_year" or
+                     controller.action_name == "used_brand_model" or
+                     controller.action_name == "used_brand_model_year" %>style="display: none;"<% end %>>
+        <% years = [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018] %>
+        <select id="used_year_select" class="select" data-action="select-content">
+          <option value="/year/2004">2004</option>
+          <% years.each do |b| %>
+            <option value="/year/<%= b %>"><%= b %></option>
+          <% end %>
+        </select>
+        <a class="button" href="#" id="used_year_submit">Найти все авто до&nbsp;<span data-role="selected-content">2004</span>&nbsp; г.</a>
+      </div>
+      <div class="filter-panel__form" data-used-cars-filter data-role="price" id="used_price_container"
+           <% unless controller.action_name == "used_price" %>style="display: none;"<% end %>>
+        <% price = [150000,200000,250000,300000,350000,400000,450000,500000,550000,600000,700000,750000,800000,850000,900000,950000,1000000,1500000,2000000] %>
+        <select id="used_price_select" class="select" data-action="select-content">
+          <% price.each do |b| %>
+            <option value="/price/<%= b %>">до  <%= number_with_delimiter(b.to_s, delimiter: " ") %> ₽</option>
+          <% end %>
+        </select>
+        <a class="button" href="#" id="used_price_submit">Найти все авто &nbsp;<span data-role="selected-content">150 000 ₽</span></a>
+      </div>
+
+      <div class="filter-panel__form" data-used-cars-filter data-role="country" id="used_country_container" <% unless controller.action_name == "used_country" %>style="display: none;"<% end %>>
+        <%= select_tag 'country', raw('<option value="/sprobegom/kitayskie-avtomobili">Китайские</option>
+    <option value="/sprobegom/korejskie-avtomobili">Корейские</option>
+    <option value="/sprobegom/nemeczkie-avtomobili">Немецкие</option>
+    <option value="/sprobegom/russkie-avtomobili">Российские</option>
+    <option value="/sprobegom/franczuzskie-avtomobili">Французские</option>
+    <option value="/sprobegom/yaponskie-avtomobili">Японские</option>
+    <option value="/sprobegom/amerikanskie-avtomobili">Американские (США)</option>'),class:'select',id:'used_country_select', 'data-action':"select-content"%>
+        <a class="button" href="#" id="used_country_submit">Найти все&nbsp;<span data-role="selected-content">Китайские</span>&nbsp;авто</a>
+      </div>
+      <div class="filter-panel__form" data-used-cars-filter data-role="type" id="used_type_container" <% unless controller.action_name == "used_type" %>style="display: none;"<% end %>>
+        <%= select_tag 'type', raw('<option value="/sprobegom/vnedorozhniki">Внедорожники</option>
+    <option value="/sprobegom/xetchbeki">Хэтчбеки</option>
+    <option value="/sprobegom/liftbeki">Лифтбеки</option>
+    <option value="/sprobegom/universalyi">Универсалы</option>
+    <option value="/sprobegom/sedanyi">Седаны</option>
+    <option value="/sprobegom/minivenyi">Минивэны</option>
+    <option value="/sprobegom/pikapyi">Пикапы</option>
+    <option value="/sprobegom/furgonyi">Фургоны</option>
+    <option value="/sprobegom/kupe">Купе</option>'),class:'select',id:'used_type_select', 'data-action':"select-content"%>
+        <a class="button" href="#" id="used_type_submit">Найти все &nbsp;<span data-role="selected-content">Внедорожники</span></a>
+      </div>
+
+      <div class="filter-panel__form" data-used-cars-filter data-role="transmission" id="used_transmission_container" <% unless controller.action_name == "used_transmission" %>style="display: none;"<% end %>>
+        <%= select_tag 'transmission', raw("<option value='/sprobegom/mkpp' data-text='МКПП'>Механическая</option>
+    <option value='/sprobegom/akpp' data-text='АКПП'>Автоматическая</option>
+    <option value='/sprobegom/variator' data-text='вариатором'>Вариатор</option>"),class:'select',id:'used_transmission_select','data-action':"select-content" %>
+        <a class="button" href="#" id="used_transmission_submit">Найти все авто с&nbsp;<span data-role="selected-content">МКПП</span></a>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</section>

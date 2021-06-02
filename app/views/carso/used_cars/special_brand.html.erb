@@ -1,0 +1,122 @@
+<%
+  region = false
+  unless @current_region.id == 57
+    region = true
+  end
+%>
+
+<% t_mos = "Акции на #{@brand.menutitle} #{(Time.current - 2.year).year.to_s}-#{(Time.current - 1.year).year.to_s}🚗 распродажа и скидки на #{@brand.title} с ПТС в наличии, #{@current_region.sklon1}" %>
+<% t_reg = "Распродажа и скидки на #{@brand.menutitle} с ПТС в наличии 🚗 акции на #{@brand.title} #{(Time.current - 2.year).year.to_s}-#{(Time.current - 1.year).year.to_s} в #{@current_region.sklon3}" %>
+<% d_mos = "Акции и скидки на автомобили #{@brand.title} #{(Time.current - 2.year).year.to_s}-#{(Time.current - 1.year).year.to_s} года ✔ распродажа #{@brand.menutitle} с ПТС спецпредложения у официального дилера в #{@current_region.sklon3}" %>
+<% d_reg = "Акции и скидки на автомобили #{@brand.title} #{(Time.current - 2.year).year.to_s}-#{(Time.current - 1.year).year.to_s} года ✔ спецпредложения у официального дилера в #{@current_region.sklon3} распродажа #{@brand.menutitle} с ПТС" %>
+
+<% if @model.present? %>
+  <% t_mos = "Распродажа #{@model.menutitle} #{(Time.current - 2.year).year.to_s}-#{(Time.current - 1.year).year.to_s} по акции 🚗 цены и скидки на #{@brand.title} #{@model.name} в наличии с ПТС в #{@current_region.sklon3}" %>
+  <% t_reg = "Цены и скидки на #{@model.menutitle} с ПТС в #{@current_region.sklon3} 🚗 распродажа #{@brand.title} #{@model.name} #{(Time.current - 2.year).year.to_s}-#{(Time.current - 1.year).year.to_s} по акции в наличии" %>
+  <% d_mos = "Распродажа и акции на #{@model.menutitle} в #{@current_region.sklon3} ✔ скидки и спецпредложения от автосалона новые автомобили #{@brand.title} #{@model.name} #{(Time.current - 2.year).year.to_s}-#{(Time.current - 1.year).year.to_s} года с ПТС" %>
+  <% d_reg = "Новые автомобили #{@model.menutitle} #{(Time.current - 2.year).year.to_s}-#{(Time.current - 1.year).year.to_s} года с ПТС ✔ скидки и спецпредложения от автосалона Акции на #{@brand.title} #{@model.name} в #{@current_region.sklon3}" %>
+<% end %>
+
+<% # SPECIAL FOR FORD %>
+<% if @brand.title == 'Ford' && !@model.present? %>
+  <% t_mos = "Акция на #{@brand.menutitle} #{(Time.current - 1.year).year.to_s}-#{(Time.current).year.to_s} 🚗 распродажа и скидки на новые автомобили #{@brand.title}, #{@current_region.sklon1}" %>
+  <% t_reg = "Распродажа и скидки на #{@brand.menutitle} 🚗 акции на новые автомобили #{@brand.title} в #{@current_region.sklon3}" %>
+  <% d_mos = "Акции и скидки на  новые автомобили #{@brand.title} #{(Time.current - 1.year).year.to_s}-#{(Time.current).year.to_s} года ✔️ распродажа #{@brand.menutitle} с ПТС, спецпредложения у официального дилера в  #{@current_region.sklon1}" %>
+  <% d_reg = "Акции и скидки на автомобили #{@brand.title} #{(Time.current - 1.year).year.to_s}-#{(Time.current).year.to_s} года ✔ спецпредложения у официального дилера в #{@current_region.sklon3}. Распродажа #{@brand.menutitle} с ПТС" %>
+<% end %>
+
+<% unless region %>
+  <% provide :title,t_mos %>
+  <% provide :description,d_mos %>
+<% else %>
+  <% provide :title,t_reg %>
+  <% provide :description,d_reg %>
+<% end %>
+
+
+
+<div class="inner">
+
+  <div class="content-xs">
+
+    <h1 class="title-h1">Спецпредложения на автомобили <%= @brand.title %><%= " #{@model.name}" if @model.present? %></h1>
+
+    <h2 class="title">Марки авто</h2>
+
+    <ul class="menu-list brandlist menu-list--simple">
+      <% brands = [] %>
+      <% UsedCar.special_cars.select("DISTINCT(brand_id)").each do |c| %>
+        <% brands.push(c.brand_id) %>
+      <% end %>
+      <%= render partial:'used_cars/used_brands', collection: Brand.where(id: brands) %>
+    </ul>
+
+    <button class="btn-link" data-action="" id="showall__brands">
+      <%= svg_tag "carso/icons.svg", 'svg-loader',24,6 %>
+      <span>Показать ещё</span>
+    </button>
+
+
+    <h2 class="title">Модели бренда</h2>
+    <div class="buttons-list">
+      <% models = [] %>
+      <% @cars.select("DISTINCT(url),name").each do |c| %>
+        <% models.push(c)  %>
+      <% end %>
+
+      <% models.each do |model| %>
+
+        <% if params[:model].present? && @model.url == model['url'] %>
+          <span class="button button--active"><%= model['name'] %></span>
+        <% else %>
+          <%= link_to "#{model['name']}",special_model_path(@brand.url,model['url']),class:'button' %>
+        <% end %>
+
+      <% end %>
+    </div>
+
+  </div>
+
+
+  <div class="content">
+    <div class="card-list">
+      <% cars_to_show = @cars %>
+      <% if @model.present? %>
+        <% cars_to_show = @cars.where(url: params[:model]) %>
+      <% end %>
+      <%= render partial:'partials/carso/special_offer', collection: cars_to_show.order(id: :desc) %>
+    </div>
+  </div>
+
+
+</div>
+
+
+<%= render 'carso/brands/credit_light_form' %>
+
+
+<section id="banks" class="inner">
+  <div class="content-xs">
+    <h2 class="title">Банки партнеры</h2>
+  </div>
+  <div class="partners partners_slider">
+      <%= render partial:'partials/carso/bank', collection: Bank.all %>
+  </div>
+</section>
+
+
+
+<section class="inner">
+  <div class="content-xs">
+    <h2 class="title">Новые автомобили <span><%= @brand.title %></span> в наличии</h2>
+  </div>
+  <div class="content">
+    <div class="card-list">
+      <%= render partial:'new_cars/new_cars', collection: @brand.new_cars.where(hide: 0).min_price_ordered, locals: {:hits => false} %>
+    </div>
+  </div>
+</section>
+
+
+
+<%= render partial:'carso/carso/bottom_banner' %>

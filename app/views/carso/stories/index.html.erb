@@ -1,0 +1,21 @@
+<% provide :title,'Новости - свежая актуальная информация | Официальный дилер "Авиньон" в ' + @current_region.sklon3 %>
+<% provide :description,'Новости официального дилера "Авиньон" в ' + @current_region.sklon3 + '  - свежая и актуальная информация, обновления компании.' %>
+
+<section class="inner">
+  <div class="content-xs">
+    <h1 class="title-h1">Новости на авторынке</h1>
+  </div>
+  <div class="content">
+    <div id="news_block" class="columns columns--news">
+      <%= render partial:'carso/news', collection: @news %>
+    </div>
+    <div id="stories_pagination">
+      <%= paginate @news, remote: true %>
+    </div>
+  </div>
+</section>
+
+
+
+
+

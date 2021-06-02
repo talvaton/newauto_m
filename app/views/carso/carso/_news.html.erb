@@ -1,0 +1,14 @@
+<div data-content='news'>
+    <div class="newsblock__inner">
+      <div class="newsblock__img-wrapper">
+        <% if news.newsImage.url.present? %>
+        <%= image_tag news.newsImage.optimized.url,class:'newsblock__img',alt:news.name,title:news.name %>
+          <% end %>
+        <%#= image_tag @stories.newsImage.url,:id => 'bank_logo',class:'thumbnail' %>
+      </div>
+      <div class="newsblock__title"><%= link_to(story_path(news.url),title:news.name) do %><%= news.name %><% end %></div>
+      <div class="newsblock__text"><%# news.newstext.truncate(250, omission: '...') %>
+        <%= truncate_html news.newstext.html_safe, :length => 250 %>
+      </div>
+    </div>
+</div>

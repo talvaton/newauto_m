@@ -1,0 +1,12 @@
+<% provide :title,"#{@articles.brand_desc} | Автосалон Авиньон | Москва" %>
+<% provide :description,"Обзор #{@articles.brand_desc}, технические характеристики" %>
+
+<div class="row justify-content-between">
+      <h1><%= @articles.brand_desc %></h1>
+</div>
+
+<div class="seo_txt_btn art">
+  <%= @articles.brand_seotext.html_safe %>
+</div>
+
+<%= render 'partials/carso/credit_form' %>

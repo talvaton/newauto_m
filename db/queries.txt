@@ -1,0 +1,185 @@
+blog.json
+
+SELECT  xsc.alias AS car_url, xsc_parent.alias AS brand_url,xsc.content,xsc.alias,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 57 THEN x_site_tmplvar_contentvalues.value END) thumb
+FROM saloncentr_dev.x_site_tmplvar_contentvalues
+INNER JOIN saloncentr_dev.x_site_content AS xsc ON x_site_tmplvar_contentvalues.contentid = xsc.id
+INNER JOIN saloncentr_dev.x_site_content AS xsc_parent ON xsc.parent = xsc_parent.id
+WHERE (xsc.parent IN(1420,1759,1429,1432,1437,1440,1446,1449,1452,1459,1466,1488,1492,1495,1499,1502,1506,1509,1515,1518,1521,1524,1534,1526,1534,1536,1542,1603,1769,1773,1857,2090))
+GROUP BY contentid;
+
+banks.json
+Нет смысла менять
+
+
+brands.json
+
+SELECT
+x_site_tmplvar_contentvalues.contentid AS id,
+x_site_content.pagetitle AS title,
+x_site_content.menutitle AS menutitle,
+x_site_content.alias AS url,
+x_site_content.published AS published,
+x_site_content.hidemenu AS hide,
+MAX(CASE WHEN x_site_content.template = 8 THEN 1 ELSE 0 END) official,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 1 THEN x_site_tmplvar_contentvalues.value END) logo,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 29 THEN x_site_tmplvar_contentvalues.value END) logoblack,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 49 THEN x_site_tmplvar_contentvalues.value END) cert,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 36 THEN x_site_tmplvar_contentvalues.value END) brand_desc,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 19 THEN x_site_tmplvar_contentvalues.value END) brand_seotext
+FROM saloncentr_dev.x_site_tmplvar_contentvalues
+INNER JOIN saloncentr_dev.x_site_content ON x_site_tmplvar_contentvalues.contentid = x_site_content.id
+WHERE (x_site_content.parent IN(3))
+GROUP BY contentid;
+
+
+cars.json
+
+SELECT
+xsc.id,
+xsc_parent.alias AS brand_name,
+xsc.pagetitle AS name,
+xsc.menutitle,
+xsc.alias,
+xsc.published,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 47 THEN x_site_tmplvar_contentvalues.value END) russian_name,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 36 THEN x_site_tmplvar_contentvalues.value END) description,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 23 THEN x_site_tmplvar_contentvalues.value END) discount,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 64 THEN x_site_tmplvar_contentvalues.value END) discount_credit,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 65 THEN x_site_tmplvar_contentvalues.value END) discount_tradein,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 66 THEN x_site_tmplvar_contentvalues.value END) half_discount,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 44 THEN x_site_tmplvar_contentvalues.value END) car_type,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 45 THEN x_site_tmplvar_contentvalues.value END) car_link,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 54 THEN x_site_tmplvar_contentvalues.value END) country,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 55 THEN x_site_tmplvar_contentvalues.value END) warranty,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 25 THEN x_site_tmplvar_contentvalues.value END) special_options,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 24 THEN x_site_tmplvar_contentvalues.value END) video_link,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 19 THEN x_site_tmplvar_contentvalues.value END) seo_text,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 22 THEN x_site_tmplvar_contentvalues.value END) colors,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 21 THEN x_site_tmplvar_contentvalues.value END) NewImageList,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 46 THEN x_site_tmplvar_contentvalues.value END) View360
+FROM saloncentr_dev.x_site_tmplvar_contentvalues
+INNER JOIN saloncentr_dev.x_site_content AS xsc ON x_site_tmplvar_contentvalues.contentid = xsc.id
+INNER JOIN saloncentr_dev.x_site_content AS xsc_parent ON xsc.parent = xsc_parent.id
+WHERE (xsc.parent IN(115,112,143,116,117,118,111,113,119,121,120,357,122,123,124,125,126,127,128,130,131,132,133,134,135,136,137,138,114,139,141,140,145,146,144,142,2360,2331))
+AND xsc.published = 1
+GROUP BY contentid;
+
+
+
+countries.json
+
+
+
+
+news.json
+
+SELECT
+x_site_content.pagetitle,
+x_site_content.alias,
+x_site_content.content,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 30 THEN x_site_tmplvar_contentvalues.value END) newsimage,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 50 THEN x_site_tmplvar_contentvalues.value END) brand,
+x_site_content.createdon
+FROM saloncentr_dev.x_site_tmplvar_contentvalues
+INNER JOIN saloncentr_dev.x_site_content ON x_site_tmplvar_contentvalues.contentid = x_site_content.id
+WHERE x_site_content.parent IN(368)
+GROUP BY contentid;
+
+
+price_filter.json
+
+
+
+
+prices.json
+
+
+
+
+regions.json
+Нет смысла менять
+
+
+
+reviews.json
+SELECT * FROM saloncentr_dev.x_site_tmplvar_contentvalues WHERE tmplvarid = 33;
+
+
+special_cars.json
+
+SELECT
+x_site_tmplvar_contentvalues.contentid AS id, x_site_content.menutitle,x_site_content.published,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 7 THEN x_site_tmplvar_contentvalues.value END) model,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 6 THEN x_site_tmplvar_contentvalues.value END) brand,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 8 THEN x_site_tmplvar_contentvalues.value END) price,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 9 THEN x_site_tmplvar_contentvalues.value END) year,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 72 THEN x_site_tmplvar_contentvalues.value END) color,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 60 THEN x_site_tmplvar_contentvalues.value END) vin,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 59 THEN x_site_tmplvar_contentvalues.value END) avito,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 62 THEN x_site_tmplvar_contentvalues.value END) type,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 5 THEN x_site_tmplvar_contentvalues.value END) images,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 32 THEN x_site_tmplvar_contentvalues.value END) parameters
+FROM saloncentr_dev.x_site_tmplvar_contentvalues
+INNER JOIN saloncentr_dev.x_site_content ON x_site_tmplvar_contentvalues.contentid = x_site_content.id
+WHERE (x_site_content.parent IN(2655,2656,2657,2658,2665,2659,2660,2661,2662,2663,2664,2666,2667,2668,2669,2670,2671,2672,2673,2674,2675,2676,2653,2677,2654,2652,2678)) AND x_site_content.published = 1
+GROUP BY contentid;
+
+
+specifications.json
+
+SELECT
+xsc.id,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 26 THEN x_site_tmplvar_contentvalues.value END) specifications,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 37 THEN x_site_tmplvar_contentvalues.value END) equipment,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 39 THEN x_site_tmplvar_contentvalues.value END) equipment_description
+FROM saloncentr_dev.x_site_tmplvar_contentvalues
+INNER JOIN saloncentr_dev.x_site_content AS xsc ON x_site_tmplvar_contentvalues.contentid = xsc.id
+INNER JOIN saloncentr_dev.x_site_content AS xsc_parent ON xsc.parent = xsc_parent.id
+WHERE (xsc.parent IN(115,112,143,116,117,118,111,113,119,121,120,357,122,123,124,125,126,127,128,130,131,132,133,134,135,136,137,138,114,139,141,140,145,146,144,142,2360,2331))
+AND xsc.published = 1
+GROUP BY contentid;
+
+
+types.json
+
+
+used_brands.json
+
+SELECT
+x_site_content.id,
+x_site_content.pagetitle AS title,
+x_site_content.menutitle,
+x_site_content.published,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 19 THEN x_site_tmplvar_contentvalues.value END) used_seotext
+FROM saloncentr_dev.x_site_tmplvar_contentvalues
+INNER JOIN saloncentr_dev.x_site_content ON x_site_tmplvar_contentvalues.contentid = x_site_content.id
+WHERE x_site_content.parent IN(921)
+GROUP BY contentid;
+
+
+used_cars.json
+
+SELECT
+x_site_tmplvar_contentvalues.contentid AS id,
+x_site_content.published AS published,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 7 THEN x_site_tmplvar_contentvalues.value END) model,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 6 THEN x_site_tmplvar_contentvalues.value END) brand,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 10 THEN x_site_tmplvar_contentvalues.value END) odometer,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 8 THEN x_site_tmplvar_contentvalues.value END) price,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 9 THEN x_site_tmplvar_contentvalues.value END) year,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 61 THEN x_site_tmplvar_contentvalues.value END) color,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 60 THEN x_site_tmplvar_contentvalues.value END) vin,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 59 THEN x_site_tmplvar_contentvalues.value END) avito,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 62 THEN x_site_tmplvar_contentvalues.value END) type,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 5 THEN x_site_tmplvar_contentvalues.value END) images,
+MAX(CASE WHEN x_site_tmplvar_contentvalues.tmplvarid = 11 THEN x_site_tmplvar_contentvalues.value END) parameters
+FROM saloncentr_dev.x_site_tmplvar_contentvalues
+INNER JOIN saloncentr_dev.x_site_content ON x_site_tmplvar_contentvalues.contentid = x_site_content.id
+WHERE (x_site_content.parent IN(4)) AND x_site_content.published = 1
+GROUP BY contentid;
+
+
+
+years.json
+

@@ -1,0 +1,13 @@
+<% provide :title,'Автосалон Авиньон — отзывы клиентов' %>
+<% provide :description,'Реальные отзывы клиентов автосалона Авиньон в Москве. Вы можете оставить свой отзыв с помощью специальной формы.' %>
+
+
+<h1 class="green">Отзывы</h1>
+<div class="row justify-content-between reviews_list" id="reviews_list">
+  <%= render partial:'reviews/review', collection: @reviews %>
+</div>
+<div id="reviews_pagitane">
+  <%= paginate @reviews, remote: true %>
+</div>
+
+<%= render 'partials/carso/credit_form' %>

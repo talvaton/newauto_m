@@ -1,0 +1,18 @@
+@import '_vars';
+
+@import '_news';
+@import '_cards';
+@import '_pagination';
+
+//.columns--news {
+//  flex-wrap: wrap;
+//}
+.story-img {
+  display: block;
+  width: 100%;
+  margin: 30px 0;
+}
+.story-date {
+  font-size: 12px;
+  text-align: right;
+}

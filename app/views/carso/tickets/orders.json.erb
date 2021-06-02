@@ -1,0 +1,14 @@
+[
+  <% @tickets.each do |t| %>
+  {
+    "type": "<%= t.form_name %>",
+    "created_at": "<%= t.created_at %>",
+    "client_ip": "<%= t.udata['uip'] %>",
+    "source_object_class": "class_conditions",
+    "source_object_id": "<%= t.id %>",
+    "client_first_name": "<%= t.name %>",
+    "client_phone_number": "<%= t.phone %>",
+    "entry_point": "<%= t.form_url %>?utm_campaign=<%= t.utm_info['cmp'] %>&utm_content=<%= t.utm_info['cnt'] %>&utm_medium=<%= t.utm_info['mdm'] %>&utm_source=<%= t.utm_info['src'] %>&utm_term=<%= t.utm_info['trm'] %>"
+  }<%= t == @tickets.last ? '' : ','%>
+  <% end %>
+]

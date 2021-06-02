@@ -1,0 +1,23 @@
+$.fancybox.open('<%= escape_javascript (render partial:'used_cars/modal_desc_newprice', :object => @car) %>',
+    {
+        touch: false,
+        animationDuration: 500,
+        animationEffect: "fade",
+        afterLoad: function(){
+            $('#used-car-details-modal_newprice').css('display', 'inline-block');
+//            $('.scrollbar-outer').scrollbar();
+            init_labels('#used-car-details-modal_newprice .input, #used-car-details-modal_newprice .select');
+        },
+        afterShow: function(){
+            disableFormBtn();
+            $('#desc_modal_new_ticket').enableClientSideValidations();
+            init_phone_mask();
+            $('#desc_modal_new_ticket .input, .select').on('focus', function(){
+                $(this).removeClass('input--error');
+                $(this).siblings('.form__error').slideUp();
+            });
+            DISABLE_FANCYBOX = false;
+
+        }
+    }
+);

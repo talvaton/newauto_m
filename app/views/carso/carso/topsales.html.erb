@@ -1,0 +1,15 @@
+<% provide :title,"Хиты продаж автомобилей в АС «Авиньон» в #{@current_region.sklon3}"  %>
+<% provide :description,"Наиболее популярные модели автомобилей среди покупателей АС «Авиньон» в #{@current_region.sklon3}. Гибкая система оплаты (наличный расчет, безнал, рассрочка, кредит), приятные подарки и качественное обслуживание ждут Вас. Наш телефон: +7 (495) 93-75-773." %>
+
+<section id="hits" class="inner">
+  <div class="content-xs">
+    <h1 class="title-h1">Хиты продаж</h1>
+  </div>
+  <div class="content">
+    <div class="card-list">
+      <%= render partial:'new_cars/small_new_cars', collection: @hits.where('`new_cars`.`hide` = 0'), locals: {:show_brand => true, :credit_flag => false} %>
+    </div>
+  </div>
+</section>
+
+<%=render 'partials/carso/credit_form' %>

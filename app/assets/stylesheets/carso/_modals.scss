@@ -1,0 +1,1013 @@
+.modal {
+  background-color: #FEFEFE;
+  color: #2A2A30;
+  display: none;
+  width: 100%;
+  max-width: 1150px;
+  position: relative;
+  margin: 0 auto;
+  border-radius: 15px;
+  overflow: hidden;
+
+
+  // если делать без фенсибокса
+  //position: fixed;
+  //top: 0;
+  //bottom: 0;
+  //left: 0;
+  //right: 0;
+  //z-index: 100;
+  &:not(.modal--car-info):not(.modal--credit-car) {
+    @media #{$media_xxl} {
+      border-radius: 16px;
+      background-color: $white;
+      background-image: linear-gradient(180deg, rgba($white, 0) 0%, #F0F0F0 100%);
+      color: $text_main;
+    }
+  }
+
+}
+.close-btn {
+  font-size: 48px;
+  color: #35404B;
+}
+.modal__top {
+  min-height: 70px;
+  @media #{$media_xxl} {
+    height: auto;
+  }
+}
+.modal__main {
+  background-color: rgba(0,0,0,0.25);
+}
+.modal__close-btn {
+  display: block;
+  margin: 0;
+  border: medium none;
+  fill: $white;
+  @media #{$media_xxl} {
+    fill: $text_light;
+    border: medium none;
+  }
+}
+
+.modal__inner {
+  width: 315px;
+  height: 100%;
+  margin: 0 auto;
+  padding-bottom: 30px;
+  background-color: $white;
+  color: $text_gray;
+  .modal:not(.modal--car-info):not(.modal--credit-car) &{
+    @media #{$media_xxl} {
+      background-color: transparent;
+    }
+  }
+  .modal__title-name {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 28px;
+    text-transform: none;
+    color: #343F4B;
+    .txt_dcol{
+      color: #0551A1;
+    }
+    @media all and (max-width: 370px) {
+      font-size: 22px;
+      line-height: 28px;
+    }
+  }
+}
+
+.modal__inner form.form button{
+  @media all and (max-width: 600px) {
+    margin: 15px 0 0 0;
+  }
+}
+.modal.modal--cookie-message form.form button{
+  @media all and (max-width: 600px) {
+    margin: 0;
+  }
+}
+
+ .modal--cookie-message#modal_special form.form button{
+  @media all and (max-width: 600px) {
+    margin: 0 !important;
+  }
+}
+
+
+.modal__title {
+  text-align: left;
+  padding: 0;
+  .modal:not(.modal--car-info):not(.modal--credit-car) &{
+    @media #{$media_xxl} {
+      padding-bottom: 0;
+      text-align: center;
+    }
+  }
+  @media all and (max-width: 370px) {
+    padding: 0 10px;
+  }
+}
+.modal__title-name {
+  font-size: 24px;
+  font-weight: 300;
+  opacity: 1;
+  text-align: center;
+  @media #{$media_xxl} {
+    margin-bottom: 6px;
+  }
+}
+.modal__title-additional {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 18px;
+  color: #0551A1;
+  text-transform: initial;
+  padding: 10px 0 0 0;
+  @media all and (max-width: 370px) {
+    font-size: 18px;
+  }
+}
+.mod_circle.cim_or{
+  position: relative;
+  margin: -70px 0 10px 0px;
+  max-height: 280px;
+  overflow: hidden;
+  @media all and (max-width: 480px) {
+    max-height: 230px;
+  }
+  @media all and (max-width: 380px) {
+    max-height: 190px;
+  }
+}
+.mod_circle{
+ /* display: none;*/
+  @media all and (max-width: 360px) {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    margin: -25px 0 0 0;
+  }
+}
+.mod_circle img{
+  width: 100%;
+}
+@media all and (max-width: 340px) {
+  .modal form input, .modal form select, .modal form button{
+    width: 260px;
+  }
+}
+
+
+
+
+
+
+// cookie message
+.m_imgr{
+  position: absolute;
+  right: 0;
+  left: initial;
+  bottom: 0;
+  z-index: -1;
+  @media all and (max-width: 600px) {
+    display: none;
+  }
+}
+.m_im_cookie{
+  position: absolute;
+  right: 18px;
+  left: initial;
+  bottom: 92px;
+  z-index: 0;
+  @media all and (max-width: 500px) {
+    bottom: 85px;
+    width: 200px;
+  }
+}
+.m_im_cookie img{
+  @media all and (max-width: 500px) {
+    width: 100%;
+  }
+}
+
+.modal--cookie-message#modal_cookie_message{
+  max-width: 500px;
+  max-height: 500px;
+}
+.modal--cookie-message#modal_cookie_message .form{
+  margin: 0 auto;
+  padding: 30px 30px 30px 30px;
+  max-width: 100%;
+  width: 100%;
+  @media all and (max-width: 600px) {
+    padding: 0 30px 30px 30px;
+  }
+
+}
+.modal--cookie-message#modal_cookie_message form input,.modal--cookie-message#modal_cookie_message form button{
+  width: 100%;
+  min-width: 100%;
+}
+
+.modal--cookie-message {
+  top: 10%;
+  max-width: 880px;
+  max-height: 480px;
+  background-color: $white;
+  color: $text_main;
+  @media all and (max-width: 600px) {
+    min-height: 480px;
+  }
+  .modal__close-btn {
+    fill: $text_main;
+  }
+  .modal__top {
+    height: auto;
+    @media #{$media_m} {
+      width: 50%;
+      position: absolute;
+      right: 0;
+      top:0;
+    }
+    @media all and (max-width: 600px) {
+      min-height: 40px;
+    }
+  }
+  .modal__inner {
+    width: 100%;
+    @media #{$media_m} {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0;
+      background: #ffffff !important;
+    }
+  }
+  .form-info{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: uppercase;
+    color: #2EA1DC;
+    text-align: left;
+    padding: 30px 0 10px 0;
+    @media all and (max-width: 600px) {
+      font-size: 24px;
+      line-height: 24px;
+    }
+    @media all and (max-width: 500px) {
+      font-size: 14px;
+      line-height: 16px;
+      padding: 5px 0 10px 0;
+    }
+  }
+  .form-info span{
+    display: block;
+  }
+  .form {
+    max-width: 390px;
+    margin: 0 auto;
+    padding: 0 20px;
+    z-index: 1;
+    @media #{$media_m} {
+      margin: 0 0 0 90px;
+      padding: 0 0 0 20px;
+    }
+    @media all and (max-width: 850px) {
+      margin: 0 0 0 200px;
+    }
+    @media all and (max-width: 600px) {
+      margin: 0;
+      padding: 0 15px 0 25px;
+    }
+  }
+  .form button{
+    margin: 0 0 0 0;
+  }
+  .form_input {
+    padding: 15px 0 0 0;
+    justify-content: start;
+    display: flex;
+  }
+  .form-sp{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    color: #35404B;
+    padding: 5px 0 40px 0;
+    text-align: left;
+    @media all and (max-width: 600px) {
+     display: block !important;
+    }
+    @media all and (max-width: 500px) {
+      padding: 0 0 88px 0;
+    }
+  }
+  .modal__inner .modal__title{
+    @media all and (max-width: 600px) {
+      padding: 0 6px;
+    }
+  }
+  .modal__inner .modal__title-name{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 18px;
+    color: #343F4B;
+    text-align: left;
+    padding: 0 0 0 0;
+  }
+  .modal__title-img{
+    padding: 0 0 0 0;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 20px;
+    color: #343F4B;
+    align-items: center;
+    display: flex;
+    justify-content: start;
+  }
+  .modal__title-img span{
+    font-style: normal;
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 47px;
+    color: #35404B;
+    padding: 0 8px 0 10px;
+  }
+}
+.cookie_modal_vtb .modal__title{
+  text-align: left;
+}
+
+.modal--cookie-message .modal__inner .modal__title-name{
+  font-style: normal;
+  font-weight: 900;
+  font-size: 40px;
+  line-height: 47px;
+  color: #35404B;
+  padding: 0;
+  @media all and (max-width: 600px) {
+    font-size: 30px;
+  }
+  @media all and (max-width: 500px) {
+    font-size: 22px;
+  }
+}
+
+
+.modal--cookie-message#fix-popup-modal {
+  top: 10%;
+  max-width: 715px;
+  max-height: 500px;
+  @media all and (max-width: 700px) {
+    max-height: 540px;
+    height: 540px;
+  }
+  .modal__inner{
+    justify-content: flex-end;
+    @media all and (max-width: 700px) {
+      justify-content: center;
+      height: initial;
+      width: initial;
+      display: flex;
+    }
+  }
+  .modal__title-img{
+    text-align: left;
+  }
+  .form-info{
+    width: 320px;
+    text-align: center;
+    position: absolute;
+    left: 20px;
+    top: 60px;
+    @media all and (max-width: 700px) {
+      width: 100%;
+      text-align: center;
+      position: relative;
+      left: initial;
+      top: 0;
+      padding: 15px 0 0 0;
+    }
+    @media all and (max-width: 375px) {
+      padding: 20px 0 0 20px;
+      font-size: 20px;
+      text-align: left;
+    }
+
+  }
+  .form {
+    margin: 0;
+    padding: 0 20px 0 0;
+    @media all and (max-width: 700px) {
+      margin: -35px auto 0 auto;
+      padding: 0;
+    }
+  }
+  .l__subtitle{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 18px;
+    color: #343F4B;
+    text-align: left;
+    padding: 15px 0 0 0;
+  }
+
+  .m_imgr {
+    @media all and (max-width: 700px) {
+      display: none;
+    }
+  }
+}
+
+.modal--cookie-message#modal_special{
+  max-width: 500px;
+  max-height: 500px;
+  background: #ffffff;
+  border-radius: 20px;
+  @media all and (max-width: 460px) {
+    min-height: 516px;
+  }
+}
+.modal--cookie-message#modal_special .form{
+  margin: 0 auto;
+  padding: 0;
+ /* max-width: 405px;*/
+  @media all and (max-width: 460px) {
+    padding: 0 20px;
+  }
+}
+.modal--cookie-message#modal_special .form button {
+  width: 100%;
+}
+
+.express_fbn_o button, .modal--cookie-message#modal_special input,.modal--cookie-message#modal_special select {
+  width: 100%;
+}
+
+
+.modal--cookie-message#modal_special .m_imgr{
+  @media all and (max-width: 600px) {
+    display: block;
+  }
+  @media all and (max-width: 400px) {
+    margin: 0 0 0 -20px;
+  }
+  @media all and (max-width: 360px) {
+    margin: 0 0 0 -40px;
+  }
+}
+.modal--cookie-message#modal_special .modal__inner{
+  width: 100%;
+  padding: 0;
+  @media all and (max-width: 460px) {
+    height: auto;
+  }
+}
+.pform_spt{
+  font-style: normal;
+  font-weight: 900;
+  font-size: 40px;
+  line-height: 47px;
+  color: #1A63AD;
+  text-align: center;
+}
+.pform_spt span{
+  display: block;
+}
+.pform_spt_s{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #2EA1DC;
+  padding: 20px 0 0 0;
+  @media all and (max-width: 400px) {
+    padding: 15px 0 0 0;
+  }
+}
+.pform_spt_m{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #35404B;
+  padding: 10px 0 10px 0;
+  @media all and (max-width: 400px) {
+    font-size: 16px;
+  }
+}
+.lfld{
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 60px;
+  background: image-url("/static/images/logo.png")repeat;
+  background-color: #0d95e8;
+}
+
+
+.modal__inner-top {
+  position: relative;
+  min-height: 120px;
+  background-color: $contrast_main;
+  color: $white;
+  text-align: left;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: $text_main;
+    opacity: 0.15;
+  }
+  .singlecar__common {
+    margin: 0 auto;
+    position: relative;
+    padding: 15px 30px;
+  }
+  .singlecar__common-item,
+  .singlecar__common-item-main{
+    color: $white;
+    text-transform: uppercase;
+  }
+  .singlecar__common-item-main {
+    font-size: 16px;
+  }
+  .singlecar__common-item-text {
+    font-size: 10px;
+    opacity: 0.5;
+  }
+
+  .modal:not(.modal--car-info):not(.modal--credit-car) &{
+    @media #{$media_xxl} {
+      min-height: auto;
+      height: auto;
+      background-color: transparent;
+      color: $text_main;
+      &::before {
+        display: none;
+      }
+      .singlecar__common {
+        padding: 15px 0;
+      }
+      .singlecar__common-item {
+        width: 25%;
+      }
+      .singlecar__common-item,
+      .singlecar__common-item-main{
+        color: $text_main;
+      }
+    }
+  }
+  .modal--car-info &,
+  .modal--credit-car &{
+    min-height: auto;
+    height: auto;
+  }
+}
+.modal__inner-text {
+  padding: 20px 30px 0;
+  text-align: left;
+  .modal:not(.modal--car-info) &:not(.modal__inner-text--scrolled) {
+    @media #{$media_xxl} {
+      padding: 0 0 20px;
+    }
+  }
+}
+.modal__inner-pricetext {
+  width: 180px;
+  margin: 0 auto;
+  font-size: 13px;
+  color: $text_main;
+}
+.modal__inner-price {
+  display: block;
+  margin: 10px auto;
+  font-size: 22px;
+  font-weight: 700;
+  color: $contrast_main
+}
+
+
+
+.modal--callback {
+  max-width: 400px;
+  .modal__title {
+    padding-right: 20px;
+  }
+  .modal__inner {
+    padding: 10px 20px 30px;
+  }
+}
+
+
+
+
+
+
+// modal cities
+.modal--cities {
+  max-width: 800px;
+
+}
+.modal__cities {
+  padding: 20px 20px 0;
+  column-count: 2;
+  text-align: left;
+  @media #{$media_m} {
+    column-count: 3;
+    column-gap: 40px
+  }
+  @media #{$media_xl} {
+    column-count: 4;
+    column-gap: 70px
+  }
+}
+
+.modal__cities-list {
+  @include list_reset;
+  margin-bottom: 20px;
+  break-inside: avoid
+}
+.modal__city {
+  line-height: 1.2
+}
+.modal__city-link {
+  @include link_decor($text_main, $contrast_main);
+  font-size: 16px;
+}
+.modal__city-link--matched {
+  color: $contrast_main;
+  transition: all .2s ease;
+  &:active,
+  &:focus,
+  &:hover {
+    font-weight: 700
+  }
+}
+
+
+
+
+
+// modal map
+.modal--map {
+  .modal__inner {
+    padding: 0;
+    position: relative;
+  }
+  .button {
+    position: absolute;
+    bottom: 50px;
+    left: calc(50% - 100px);
+    svg {
+      margin-right: 10px;
+      fill: $contrast_main
+    }
+  }
+}
+.modal-map {
+  height: 450px;
+}
+
+
+
+// equipments modal
+.modal--equipments {
+  width: 260px;
+  border-radius: 16px;
+  .slick-arrow {
+    left: calc(50% - 20px);
+    background-color: transparent;
+    svg {
+      fill: transparent;
+      stroke: $text_light;
+    }
+    &::after {
+      display: none;
+    }
+  }
+  .slick-prev {
+    top: -65px;
+    transform: rotateZ(90deg);
+  }
+  .slick-next {
+    top: auto;
+    bottom: -65px;
+    transform: rotateZ(-90deg);
+  }
+  .modal__inner {
+    padding: 20px 30px 60px;
+  }
+}
+.modal__equipments {
+  @include list_reset;
+  width: 200px;
+  margin: 0 auto;
+}
+.modal__equipment {
+  display: block;
+}
+.modal__equipment-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include link_decor($text_main, $contrast_main);
+  font-size: 20px;
+  font-weight: 100;
+  height: 40px;
+  width: 100%;
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: rgba($text_light, 0.2);
+  }
+}
+
+
+
+
+
+.modal--used-car-details {
+  .modal__form {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+.modal__list {
+  @include list_reset;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-flow: row wrap;
+  margin: 0 auto;
+  padding: 15px 30px;
+  @media #{$media_xxxl} {
+    justify-content: flex-start;
+  }
+}
+
+.modal__list-item {
+  display: block;
+  width: 50%;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  span {
+    display: block;
+  }
+  @media #{$media_xxl} {
+    width: 33.3333%;
+  }
+  @media #{$media_xxxl} {
+    width: 180px;
+  }
+}
+.modal__list-item-text {
+  font-size: 12px;
+  opacity: 0.5;
+}
+.modal__list-item-main {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 500;
+  &.old_price {
+    text-decoration: line-through;
+  }
+}
+.modal__inner-text--scrolled {
+  max-height: 300px;
+  overflow-y: auto;
+  font-size: 16px;
+  @media #{$media_xxl} {
+    padding: 10px 0 10px 30px;
+  }
+  ul {
+    padding: 0 0 0 20px;
+  }
+}
+
+
+
+
+
+
+
+
+
+// модаль Рассчитать кредит на комплектациях
+.modal--credit-car {
+  max-width: 500px;
+  max-height: 540px;
+  top: 10%;
+  @media all and (max-width: 480px) {
+    max-height: 500px;
+  }
+  @media all and (max-width: 420px) {
+    max-height: 480px;
+  }
+  @media all and (max-width: 380px) {
+    max-height: 450px;
+  }
+  .form {
+    margin: 0 auto;
+  }
+  //@media #{$media_xxl} {
+  //  .modal__inner {
+  //    padding: 0 70px 30px;
+  //  }
+  //}
+  .modal__close-btn {
+    fill: $white;
+  }
+  @media #{$media_xxl} {
+    .singlecar__common-item {
+      width: 25%;
+    }
+  }
+}
+.modal--car-info {
+  @media #{$media_xxl} {
+    .singlecar__common-item {
+      width: 25%;
+    }
+  }
+}
+.modal--credit-car-credit {
+
+  .modal__inner-top {
+  }
+
+}
+
+.modal__inner.crtr{
+  width: 450px;
+  @media all and (max-width: 450px) {
+    width: 315px;
+  }
+}
+.modal__inner.crtr .modal__title-name b{
+  display: inline-block;
+}
+.modal__inner.crtr .modal__title-name{
+  font-weight: normal!important;
+  font-size: 20px;
+  line-height: 24px;
+}
+.modal__inner.crtr .modal__title-name .txt_dcol{
+  display: block;
+  font-weight: 500;
+}
+.modal__inner.crtr .modal__title{
+  @media all and (max-width: 480px) {
+   padding: 0 6px;
+  }
+}
+
+.close-btn.cl_white{
+  color: #ffffff;
+}
+
+// модаль Рассчитать кредит на комплектациях end
+.l-display-none {
+  display: none;
+}
+.modal__inner-pricetext{
+  padding: 10px 0 0 0;
+}
+
+  @media #{$media_l} {
+    .l-display-none {
+      display: block;
+    }
+  }
+
+/*************************************/
+.modal--cookie-message#sc_action .modal__inner{
+  background: transparent !important;
+}
+.modal--cookie-message#sc_action .form{
+  background: #ffffff;
+  margin: 340px 0 0 0;
+  padding: 10px 20px 20px 20px;
+  width: 410px;
+  max-width: 410px;
+  box-shadow: 0 3px 15px #00000059;
+  @media all and (max-width: 620px) {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-top: 270px;
+  }
+  @media all and (max-width: 600px) {
+    margin-top: 350px;
+  }
+  @media all and (max-width: 580px) {
+    margin-top: 300px;
+    width: 320px;
+    max-width: 320px;
+  }
+  @media all and (max-width: 470px) {
+    margin-top: 310px;
+  }
+  @media all and (max-width: 420px) {
+    margin-top: 280px;
+  }
+  @media all and (max-width: 380px) {
+    margin-top: 245px;
+    background: transparent;
+    box-shadow: none;
+  }
+  @media all and (max-width: 359px) {
+    margin-top: 210px;
+    width: 280px;
+    max-width: 280px;
+    background: transparent;
+    box-shadow: none;
+  }
+
+}
+
+#sc_action{
+  background: image-url('carso/banners/may-day-banner-pp.png')no-repeat center top;
+  background-size: 100%;
+  height: 750px;
+  max-height: 750px;
+  margin: 0;
+  display: block;
+  width: 100%;
+  max-width: 620px;
+  border-radius: 0 !important;
+  @media all and (max-width: 580px) {
+    width: 450px;
+    max-width: 450px;
+    background-size: 110%;
+  }
+  @media all and (max-width: 470px) {
+    background-size: 130%;
+    width: 400px;
+    max-width: 400px;
+  }
+  @media all and (max-width: 420px) {
+    background-size: 131%;
+    width: 360px;
+    max-width: 360px;
+  }
+  @media all and (max-width: 380px) {
+    background-size: 130%;
+    width: 340px;
+    max-width: 340px;
+  }
+  @media all and (max-width: 359px) {
+    background-size: 130%;
+    width: 300px;
+    max-width: 300px;
+  }
+}
+
+#sc_action form input, #sc_action form select, #sc_action form button {
+  width: 410px;
+  @media all and (max-width: 580px) {
+  margin: 2px 0 0 0;
+  }
+}
+
+.act_usl{
+  font-size: 12px;
+  line-height: 14px;
+  text-align: left;
+  margin: 15px 0 0 0;
+}
+
+.modal--cookie-message#sc_action .form_input{
+  @media all and (max-width: 580px) {
+  padding: 6px 0 0 0;
+  }
+}
+
+.modal--cookie-message#sc_action .form__error {
+  @media all and (max-width: 580px) {
+    top: 7px;
+  }
+}
+
+/*************************************/

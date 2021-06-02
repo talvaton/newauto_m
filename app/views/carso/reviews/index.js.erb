@@ -1,0 +1,4 @@
+$("#reviews_list").html("<%= j render partial:'reviews/review', collection: @reviews %>");
+$('#reviews_pagitane').html('<%= j (paginate(@reviews, :remote => true).to_s) %>');
+
+toggleReviewComment();

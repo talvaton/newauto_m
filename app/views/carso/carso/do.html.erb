@@ -1,0 +1,130 @@
+<%
+  region = false
+  unless @current_region.id == 57
+    region = true
+  end
+%>
+<%
+  if @price.to_i == 1000000
+    longtitle = 'одного миллиона'
+  elsif @price.to_i > 1000000 && @price.to_i < 2000000
+    longtitle = 'одного миллиона ' + @price.to_s.at(1..3) + ' тысяч'
+  elsif @price.to_i == 2000000
+    longtitle = 'двух миллионов'
+  elsif @price.to_i > 2000000 && @price.to_i < 3000000
+    longtitle = 'двух миллионов ' + @price.to_s.at(1..3) + ' тысяч'
+  elsif @price.to_i == 3000000
+    longtitle = 'трех миллионов'
+  else
+    longtitle = @price.to_s.truncate(3, omission: '') + ' тысяч'
+  end
+%>
+
+<% t_mos = "Купить авто до #{@price} рублей в #{@current_region.sklon3} новые автомобили #{(Time.current - 1.year).year.to_s}-#{Time.current.year.to_s} года в пределах #{longtitle} руб" %>
+<% t_reg = "Купить авто до #{@price} рублей в #{@current_region.sklon3} новые автомобили #{(Time.current - 1.year).year.to_s}-#{Time.current.year.to_s} года в пределах #{longtitle} руб" %>
+
+<% unless region %>
+  <% provide :title,t_mos %>
+<% else %>
+  <% provide :title,t_reg %>
+<% end %>
+
+<% provide :description,"Автомобили до #{@price} рублей в #{@current_region.sklon3} ❗️Кредит на авто от 1,9% ✅  Trade-in ✅ Каско в подарок! 🎁 Купить новую машину за #{longtitle} руб. в автосалоне Авиньон ☎️ 8 800 500-03-23." %>
+
+
+<section class="inner">
+  <h1 class="title-h1">Новые автомобили до <%= number_with_delimiter(@price , delimiter: " ") %> р. <% if region %> в <%= @current_region.sklon3 %><% end %>  </h1>
+
+  <div class="do_pr_t">На какую сумму вы расчитываете?</div>
+  <div id="do_pr">
+    <a href="/do/300000">до 300 000 ₽</a>
+    <a href="/do/350000">до 350 000 ₽</a>
+    <a href="/do/400000">до 400 000 ₽</a>
+    <a href="/do/450000">до 450 000 ₽</a>
+    <a href="/do/500000">до 500 000 ₽</a>
+    <a href="/do/550000">до 550 000 ₽</a>
+    <a href="/do/600000">до 600 000 ₽</a>
+    <a href="/do/650000">до 650 000 ₽</a>
+    <a href="/do/700000">до 700 000 ₽</a>
+    <a href="/do/800000">до 800 000 ₽</a>
+    <a href="/do/900000">до 900 000 ₽</a>
+    <a href="/do/1000000">до 1 000 000 ₽</a>
+    <a href="/do/1100000">до 1 100 000 ₽</a>
+    <a href="/do/1200000">до 1 200 000 ₽</a>
+    <a href="/do/1250000">до 1 250 000 ₽</a>
+    <a href="/do/1300000">до 1 300 000 ₽</a>
+    <a href="/do/1400000">до 1 400 000 ₽</a>
+    <a href="/do/1500000">до 1 500 000 ₽</a>
+    <a href="/do/1700000">до 1 700 000 ₽</a>
+    <a href="/do/2000000">до 2 000 000 ₽</a>
+    <a href="/do/2500000">до 2 500 000 ₽</a>
+    <a href="/do/3000000">до 3 000 000 ₽</a>
+  </div>
+
+
+
+
+
+    <div class="row justify-content-start cr_tr_url">
+      <div class="cr_tr_hr right row justify-content-start">
+        <%= render partial:'new_cars/small_new_cars', collection: @do_price, locals: {:show_brand => true, :credit_flag => false} %>
+      </div>
+    </div>
+
+
+
+  <% if @special_cars.present? %>
+    <div class="content-xs">
+      <h2 class="title" id="specials">Спецпредложения до <%= number_with_delimiter(@price , delimiter: " ") %> рублей</h2>
+    </div>
+    <div class="content">
+      <div class="card-list">
+        <%= render partial:'partials/carso/special_offer', collection: @special_cars %>
+      </div>
+      <%= link_to deals_path, class:'btn-link' do %>
+        <%= svg_tag 'carso/icons.svg','svg-loader',24,6,class:'' %>
+        <span>Все спецпредложения</span>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% if @price.to_i != 300000 %>
+    <div class="content-xs">
+      <h2 class="title">Более дешевые варианты</h2>
+    </div>
+   <div class="row justify-content-start cr_tr_url">
+     <p class="text">Для тех у кого ограничен бюджет и кто просто хочет сэкономить</p>
+     <div class="cr_tr_hr right row justify-content-start">
+       <%= render partial:'new_cars/new_cars', collection: @do_price_lower, locals: {:hits => false} %>
+     </div>
+   </div>
+
+  <% end %>
+
+  <% if @price.to_i != 3000000 %>
+    <div class="content-xs">
+      <h2 class="title">Более дорогие варианты</h2>
+    </div>
+   <div class="row justify-content-start cr_tr_url">
+     <p class="text">Эти автомобили будут Вам по карману с новой кредитной программой - кредит от 1.9% или рассрочка 0%</p>
+     <div class="cr_tr_hr right row justify-content-start">
+       <%= render partial:'new_cars/small_new_cars', collection: @do_price_higher, locals: {:show_brand => true, :credit_flag => false} %>
+     </div>
+   </div>
+  <% end %>
+
+
+</section>
+
+
+<% content_for :additional_javascript do %>
+  <script>
+      car_brand = undefined;
+      carid = undefined;
+  </script>
+<% end %>
+
+
+
+
+

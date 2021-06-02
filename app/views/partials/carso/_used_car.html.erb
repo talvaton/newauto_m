@@ -1,0 +1,37 @@
+<div class="card card--standard <%= "car__sold" if used_car.sold %>">
+  <div class="card__inner">
+    <div class="card__media card__media--full" data-show-used-ajax="used-car-photos" data-car_id="<%= used_car.id %>">
+      <%= image_tag "/static/images/blank.png",class:'card__img', alt: '',data:{:lazy=>used_car.images[0].card.url,:original=>used_car.images[0].card.url} %>
+
+      <%# <span class="card__label">Хит</span> %>
+    </div>
+    <% price = used_car.price %>
+    <div class="card__main card__main_new">
+      <div class="card__title car__title_used" data-direction="used-car-modal--description"><%= used_car.brand.title %> <%= used_car.name %></div>
+
+
+      <% if !used_car.sold %>
+        <div class="card__price card__price_old"><%= number_with_delimiter(price,delimiter:' ') %> &#8381;</div>
+        <div class="card__price card__price_new"><%= number_with_delimiter(price - (price / 100 * 8),delimiter:' ') %> &#8381;</div>
+      <% else %>
+        <div class="card__price card__price_new">Продано!</div>
+      <% end %>
+    </div>
+    <div>
+      <ul class="card__infolist">
+        <li class="card__infoitem"><span class="card__infoitem-name">Год</span><span><%= used_car.year %></span></li>
+        <li class="card__infoitem"><span class="card__infoitem-name">Пробег</span><span><%= number_with_delimiter(used_car.odometer,delimiter:' ') %> км</span></li>
+        <li class="card__infoitem"><span class="card__infoitem-name">Кпп</span><span><%= used_car.transmission %></span></li>
+      </ul>
+    </div>
+    <% if !used_car.sold %>
+      <div class="card__buttons">
+        <button class="card__btn" data-show-used-ajax="used-car-details-modal_newprice"  data-car_id="<%= used_car.id %>" type="button">
+          <span>Подробнее</span>
+          <%#= svg_tag 'carso/icons.svg','svg-arrow-fat',7,8,class:'card__link_icon' %>
+        </button>
+        <button class="button" data-show-used-ajax="used-car-buy-modal" data-car_id="<%= used_car.id %>" type="button">Купить со скидкой</button>
+      </div>
+    <% end %>
+  </div>
+</div>

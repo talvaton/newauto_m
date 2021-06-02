@@ -1,0 +1,18 @@
+
+
+<%= javascript_include_tag 'carso/centr' %>
+<%= javascript_include_tag 'carso/' + params[:controller], :media => "all"  if javascript_exists?('carso/' + params[:controller]) %>
+<%= javascript_include_tag 'carso/' + params[:controller]+'_'+params[:action], :media => "all"  if javascript_exists?('carso/' + params[:controller]+'_'+params[:action]) %>
+
+
+<% unless true %>
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+        document.getElementById('page-preloader').style.display = 'none';
+    });
+</script>
+<% end %>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WDDT7WT" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->

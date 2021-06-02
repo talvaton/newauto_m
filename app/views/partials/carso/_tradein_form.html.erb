@@ -1,0 +1,76 @@
+<div class="tradein_form">
+  <%= form_for Ticket.new,url: {action:'create',controller:'tickets' },remote:true,validate:true,:html => {:class => 'form section-tradein__form spec_modal_new_ticket',:name=>'tradein'},:namespace => 'tradein' do |f| %>
+   <%= f.hidden_field :form_name, value:'trade_in' %>
+   <%= hidden_field_tag 'ticket[other][tradein_toggle]', '1' %>
+   <div class="tr_flbl">
+    <div class="tr_fh">Заявка trade in</div>
+    <div class="tr_flb">
+     <div>
+        <span class="tr_fins">Ваш авто</span>
+        <div class="form_input">
+          <%= f.text_field :other,class:'input',placeholder:'Марка' %>
+        </div>
+        <div class="form_input">
+          <%= f.text_field :other,class:'input',placeholder:'Модель' %>
+        </div>
+        <div class="form_input">
+          <select class="select input--hascontent" name="ticket[other][year]">
+            <option>Год выпуска</option>
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+            <option value="2017">2017</option>
+            <option value="2016">2016</option>
+            <option value="2015">2015</option>
+            <option value="2014">2014</option>
+            <option value="2013">2013</option>
+            <option value="2012">2012</option>
+            <option value="2011">2011</option>
+            <option value="2010">2010</option>
+            <option value="2009">2009</option>
+            <option value="2008">2008</option>
+            <option value="2007">2007</option>
+            <option value="2006">2006</option>
+            <option value="2005">2005</option>
+            <option value="2004">2004</option>
+            <option value="2003">2003</option>
+            <option value="2002">2002</option>
+            <option value="2001">2001</option>
+            <option value="2000">2000</option>
+            <option value="1999">1999</option>
+            <option value="1998">1998</option>
+            <option value="1997">1997</option>
+            <option value="1996">1996</option>
+            <option value="1995">1995</option>
+            <option value="1994">1994</option>
+            <option value="1993">1993</option>
+            <option value="1992">1992</option>
+            <option value="1991">1991</option>
+            <option value="1990">1990</option>
+          </select>
+        </div>
+      </div>
+     <div>
+       <span class="tr_fins">Новый авто</span>
+       <div class="form_input">
+         <%= select_tag 'ticket[other][marka]', options_from_collection_for_select(@brands, 'id', 'title'), prompt: 'Выберите марку', id:'credit_ticket_other_marka', class:'select' %>
+       </div>
+       <div class="form_input">
+         <%= select_tag 'ticket[other][model]', raw('<option>Выберите модель</option>'), id:'credit_ticket_other_model', class:'select', disabled: 'true' %>
+       </div>
+
+       <div class="form_input">
+         <%= select_tag 'ticket[other][equipment]', raw('<option>Выберите комплектацию</option>'), id:'credit_ticket_other_complect', class:'select', disabled: 'true' %>
+       </div>
+     </div>
+    </div>
+   </div>
+   <div class="tr_frb">
+     <span class="tr_fin">Контактные данные</span>
+    <div class="form_input"><%= f.text_field :name,class:'input',placeholder:'Ваше Имя' %></div>
+    <div class="form_input"><%= f.phone_field :phone,class:'input',data:{:role=>'phone'},placeholder:'Номер телефона *' %></div>
+    <div class="form_input"><%= f.button do %><span>Оставить заявку</span><% end %><div class="secur_f">мы гарантируем конфиденциальность и защиту введённых данных</div></div>
+   </div>
+
+  <% end %>
+</div>

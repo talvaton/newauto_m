@@ -1,0 +1,18 @@
+<% provide :title,'Купить недорогой автомобиль в автосалоне, акции на дешевые авто в ' + @current_region.sklon3 %>
+<% provide :description,'Продажа недорогих автомобилей в ' + @current_region.sklon3 + '. Наличные и безналичный расчет, кредит, рассрочка, trade-in 8(800)500-03-23' %>
+
+
+<h1 class="title-h1">Каталог дешёвых авто в <%= @current_region.sklon3 %></h1>
+  <div class="row justify-content-center cr_tr_url">
+    <div class="cr_tr_hr right row justify-content-center">
+      <%= render partial:'new_cars/small_new_cars', collection: NewCar.where("car_type NOT LIKE ?", '%Внедорожник%').where(hide:0, archive: 0).min_price_ordered.limit(24), locals: {:show_brand => true, :credit_flag => false} %>
+    </div>
+  </div>
+
+    <h2 class="title">Дешёвые внедорожники</h2>
+  <div class="row justify-content-center cr_tr_url">
+    <div class="cr_tr_hr right row justify-content-center">
+      <%= render partial:'new_cars/small_new_cars', collection: NewCar.where("car_type LIKE ?", '%Внедорожник%').where(hide:0, archive: 0).min_price_ordered.limit(8),  locals: {:show_brand => false, :credit_flag => false} %>
+    </div>
+  </div>
+

@@ -1,0 +1,23 @@
+<tr class="table__row" data-eq_id="<%= show_main_filter.id %>">
+  <% car = NewCar.find(show_main_filter.equipment_description.new_car_id) %>
+  <td class="table__cell">
+    <%= link_to new_car_path(Brand.find(car.brand_id), car) do %>
+      <%= image_tag car.colors[0].card.url,class:'', alt:'' %>
+    <% end %>
+  </td>
+  <td class="table__cell">
+    <%= link_to new_car_path(Brand.find(car.brand_id), car), class:'table__cell-link' do %>
+      <%= Brand.find(car.brand_id).title %> <%= car.name %>
+    <% end %>
+    <%= show_main_filter.equipment_description.name %>
+  </td>
+  <td class="table__cell"><%= (show_main_filter.specification.volume / 1000.to_f).round(1) %> л</td>
+  <td class="table__cell"><%= show_main_filter.specification.power %> л.с</td>
+  <td class="table__cell"><%= show_main_filter.specification.transmission %> (<%= show_main_filter.specification.shorttransmission %>)</td>
+  <td class="table__cell"><%= show_main_filter.specification.drive %></td>
+  <td class="table__cell"><%= show_main_filter.specification.enginetype %></td>
+  <td class="table__cell nowrap-text redtext"><%= number_with_delimiter(show_main_filter.price - car.discount_count - @region_discount,delimiter: ' ') %> &#8381;</td>
+  <td class="table__cell table__cell--fixed-w">
+    <%= link_to 'ПОДРОБНЕЕ', new_car_path(Brand.find(car.brand_id), car),class:'button'  %>
+  </td>
+</tr>

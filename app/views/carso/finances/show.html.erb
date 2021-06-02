@@ -1,0 +1,149 @@
+<% provide :title, 'Кредитная программа '+ @finance.name.titleize + ' «от 1,9%» 🚗 выгодные условия на покупку автомобилей в кредит, ' + @current_region.sklon1  %>
+<% provide :description,"#{@finance.name} – специализированная кредитная программа, которую напрямую предоставляет производитель 🚘 В рамках данного предложения вы можете получить самые лояльные условия при покупке автомобиля в кредит под 1,9%." %>
+
+<div class="bbgc"></div>
+<div class="bbgct">
+  <h1 class="green">Кредитная программа <%= @finance.name %></h1>
+  <div class="l_and_b">
+    <div><%= image_tag "/static/images/logo.png", alt:'' %></div>
+    <span>+</span>
+    <%#= @brand.name %>
+    <div><%#= image_tag @brand.logoblack.url, alt: @brand.title, class: 'title__brand-logo' %></div>
+  </div>
+  <div class="tradein_form">
+    <%= form_for Ticket.new,url: {action:'create',controller:'tickets' },remote:true,validate:true,:html => {:class => 'form section-tradein__form spec_modal_new_ticket',:name=>'tradein'},:namespace => 'tradein' do |f| %>
+      <%= f.hidden_field :form_name, value:'gospr' %>
+      <%= hidden_field_tag 'ticket[other][tradein_toggle]', '1' %>
+      <div class="tr_flbl">
+        <div class="nf_i">Заявка на кредит</div>
+        <div class="tr_flb">
+          <div>
+            <div class="form-credit_subt">Ставка по кредиту <b>1.9%</b></div>
+            <div class="form_input">
+              <%= f.text_field :other,class:'input',placeholder:'Марка' %>
+            </div>
+            <div class="form_input">
+              <%= f.text_field :other,class:'input',placeholder:'Модель' %>
+            </div>
+            <div class="form_input">
+              <select class="select input--hascontent" name="ticket[other][year]">
+                <option>Год выпуска</option>
+                <option value="2020">2020</option>
+                <option value="2019">2019</option>
+                <option value="2018">2018</option>
+                <option value="2017">2017</option>
+                <option value="2016">2016</option>
+                <option value="2015">2015</option>
+                <option value="2014">2014</option>
+                <option value="2013">2013</option>
+                <option value="2012">2012</option>
+                <option value="2011">2011</option>
+                <option value="2010">2010</option>
+                <option value="2009">2009</option>
+                <option value="2008">2008</option>
+                <option value="2007">2007</option>
+                <option value="2006">2006</option>
+                <option value="2005">2005</option>
+                <option value="2004">2004</option>
+                <option value="2003">2003</option>
+                <option value="2002">2002</option>
+                <option value="2001">2001</option>
+                <option value="2000">2000</option>
+                <option value="1999">1999</option>
+                <option value="1998">1998</option>
+                <option value="1997">1997</option>
+                <option value="1996">1996</option>
+                <option value="1995">1995</option>
+                <option value="1994">1994</option>
+                <option value="1993">1993</option>
+                <option value="1992">1992</option>
+                <option value="1991">1991</option>
+                <option value="1990">1990</option>
+              </select>
+            </div>
+          </div>
+          <div class="form_cr_r">
+            <div class="car-credit__subtitle">Условия кредитования</div>
+            <div class="form__component cr_1">
+              <span class="credit__rtitle">Желаемый срок кредита в месяцах</span>
+              <input type="range" id="creditsliderfirst" data-role="persent-range" min="0" max="84" step="12" value="<%= PERCENT %>">
+              <div class="r_diagram"><i class="l0">0</i><i class="l12">12</i><i class="l24">24</i><i class="l36">36</i><i class="l48">48</i><i class="l60">60</i><i class="l72">72</i><i class="l84">84</i></div>
+            </div>
+            <div class="form__component cr_2">
+              <span class="credit__rtitle">Первоначальный взнос</span>
+              <input type="range" id="creditsliderfirstv" data-role="persent-range" min="0" max="1000000" step="200000" value="<%= PERCENT %>">
+              <div class="r_diagram"><i class="r0">0₽</i><i class="r2">200 000₽</i><i class="r4">400 000₽</i><i class="r6">600 000₽</i><i class="r8">800 000₽</i><i class="r10">1 000 000₽</i></div>
+            </div>
+            <div class="credit__rtitle">Подарок</div>
+            <div class="form_input">
+              <%= select_tag 'ticket[other][gift]', options_for_select(['КАСКО','Парктроник','Сигнализация','Литые диски','Сигвей']),class:'select',:include_blank => 'Выберите подарок',id:'credit_ticket_other_gift' %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tr_frb">
+        <span class="tr_fin">Контактные данные</span>
+        <div class="form_input"><%= f.text_field :name,class:'input',placeholder:'Ваше Имя' %></div>
+        <div class="form_input"><%= f.phone_field :phone,class:'input',data:{:role=>'phone'},placeholder:'Номер телефона *' %></div>
+        <div class="form_input"><%= f.button do %><span>Оставить заявку</span><% end %><div class="secur_f">мы гарантируем конфиденциальность и защиту введённых данных</div></div>
+      </div>
+
+    <% end %>
+  </div>
+
+  <div class="gsp_in">
+    <div class="gsp_d">
+      <span>Требования</span>
+      <ul>
+        <li><span>Гражданство: Россия</span></li>
+        <li><span>Возраст: от 21 до 60 лет</span></li>
+        <li><span>Два документа: паспорт и права</span></li>
+      </ul>
+    </div>
+    <div class="gsp_d gsp_txt">
+      <span>Условия</span>
+      <ul>
+        <li><span>Выгодные условия по кредиту от 1.9%</span></li>
+        <li><span>Первоначальный взнос от 0 рублей</span></li>
+        <li><span>Срок кредитования от 6 месяцев до 8 лет</span></li>
+        <li><span>Сумма кредитования до 3 000 000 рублей</span></li>
+        <li><span>Досрочное погашение без штрафов и комиссий</span></li>
+        <li><span>Льготное кредитование по системам "Первый автомобиль" и "Семейный автомобиль"</span></li>
+      </ul>
+    </div>
+    <div class="gsp_d gsp_bpdf">
+      <span>Образецы договора</span>
+      <div class="gsp_pdf">
+        <a href="/doc/credit_setelem.pdf" title="Договор"><%= image_tag 'carso/png/pdf.png',alt:'Договор',lazy:true %><b>Договор</b></a>
+        <a href="/doc/credit_vtb.pdf" title="Договор VTB"><%= image_tag 'carso/png/pdf.png',alt:'Договор VTB',lazy:true %><b>Договор VTB</b></a>
+        <a href="/doc/dkp.docx" title="Договор в формате Ворд"><%= image_tag 'carso/png/word.png',alt:'Договор в формате Ворд',lazy:true %><b>Договор в формате Ворд</b></a>
+      </div>
+    </div>
+  </div>
+
+<div class="finp"><%= @finance.description['main_text'].html_safe %></div>
+  <div class="pr_slog_b">
+    <div><%= image_tag "carso/icons/casco.svg", alt:'' %>
+      <span>Бесплатное <br> КАСКО</span>
+    </div>
+    <div><%= image_tag "carso/icons/tire.svg", alt:'' %>
+      <span>Зимняя резина в <br> подарок</span>
+    </div>
+    <div><%= image_tag "carso/icons/gospr.svg", alt:'' %>
+      <span>Госпрограммы: <br> -10% на любое авто</span>
+    </div>
+    <div><%= image_tag "carso/icons/route.svg", alt:'' %>
+      <span>Оплата проезда <br> до автосалона</span>
+    </div>
+  </div>
+
+<div class="bank_block">
+  <h2>Банки партнеры</h2>
+  <div class="banks__main">
+    <%= render partial:'partials/carso/bank', collection: Bank.all %>
+  </div>
+  </div>
+
+</div>
+
+<%= render 'partials/carso/credit_form' %>

@@ -1,0 +1,74 @@
+@import '_vars';
+
+.used-filter {
+  margin: 15px 0 30px;
+  @media #{$media_xl} {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+.used-filter__inputs {
+  @media #{$media_xl} {
+    margin-right: 40px;
+  }
+  @media #{$media_xxl} {
+    margin-right: 140px;
+  }
+}
+.filter-panel__form {
+  @media #{$media_s} {
+    display: flex;
+    .select {
+      min-width: 48%;
+      @media #{$media_xl} {
+        min-width: 200px;
+      }
+      @media #{$media_xxl} {
+        min-width: 320px;
+      }
+    }
+    .button {
+      min-width: 48%;
+      margin: 4px 0 4px 10px;
+      @media #{$media_xl} {
+        min-width: 240px;
+        margin: 8px 0 8px 20px;
+      }
+    }
+  }
+}
+.used-filter__title {
+  margin-right: 40px;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+
+// кнопки подразделов
+.buttons-list-wrapper {
+  margin: 20px 0;
+  @media #{$media_xxl} {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.buttons-list {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  @media #{$media_xxl} {
+    width: 50%;
+  }
+  .button {
+    width: auto;
+    margin: 0 10px 10px 0;
+    padding: 0 20px;
+    font-weight: 700;
+  }
+  .button--active {
+    color: $contrast_main;
+    pointer-events: none;
+  }
+}

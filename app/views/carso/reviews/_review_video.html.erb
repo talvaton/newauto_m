@@ -1,0 +1,27 @@
+<% if review_video.video_link.present? %>
+<div class="review_f r_video">
+    <div class="review_fc">
+      <div class="review_video">
+        <iframe width="276" height="150" src="https://www.youtube.com/embed/<%= review_video.video_link %>?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="review_t"><%= review_video.name.to_s %></div>
+      <div class="review_star">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.5 0.5L9.18386 5.68237H14.6329L10.2245 8.88525L11.9084 14.0676L7.5 10.8647L3.09161 14.0676L4.77547 8.88525L0.367076 5.68237H5.81614L7.5 0.5Z" fill="#6AD1A6"/>
+        </svg>
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.5 0.5L9.18386 5.68237H14.6329L10.2245 8.88525L11.9084 14.0676L7.5 10.8647L3.09161 14.0676L4.77547 8.88525L0.367076 5.68237H5.81614L7.5 0.5Z" fill="#6AD1A6"/>
+        </svg>
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.5 0.5L9.18386 5.68237H14.6329L10.2245 8.88525L11.9084 14.0676L7.5 10.8647L3.09161 14.0676L4.77547 8.88525L0.367076 5.68237H5.81614L7.5 0.5Z" fill="#6AD1A6"/>
+        </svg>
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.5 0.5L9.18386 5.68237H14.6329L10.2245 8.88525L11.9084 14.0676L7.5 10.8647L3.09161 14.0676L4.77547 8.88525L0.367076 5.68237H5.81614L7.5 0.5Z" fill="#6AD1A6"/>
+        </svg>
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.5 0.5L9.18386 5.68237H14.6329L10.2245 8.88525L11.9084 14.0676L7.5 10.8647L3.09161 14.0676L4.77547 8.88525L0.367076 5.68237H5.81614L7.5 0.5Z" fill="#6AD1A6"/>
+        </svg>
+      </div>
+    </div>
+</div>
+<% end %>

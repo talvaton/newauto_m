@@ -1,0 +1,38 @@
+<% if @res.present? %>
+  $('#filter_list .card-list').html('<%= j render partial:'carso/new_cars/show_filter', collection: @res.shuffle %>');
+<% else %>
+  $('#filter_list .card-list').html('<p class="table__error">Извините, автомобилей, соответствующих заданным параметрам, не найдено</p>')
+<% end %>
+
+$('#filter_compl').html('<option value="">Все комплектации</option><%=  j render partial:'carso/new_cars/show_filter_compl', collection: @res.collect{|u| u.equipment_description.name }.uniq %>');
+$('#filter_transmission').html('<option value="">Любая трансмиссия</option><%=  j render partial:'carso/new_cars/show_filter_transmission', collection: @res.collect{|u| u.specification.transmission }.uniq %>');
+$('#filter_volume').html('<option value="">Любой объём</option><%=  j render partial:'carso/new_cars/show_filter_volume', collection: @res.collect{|u| (u.specification.volume.to_f / 1000).round(1) }.uniq.sort() %>');
+$('#filter_drive').html('<option value="">Любой привод</option><%=  j render partial:'carso/new_cars/show_filter_drive', collection: @res.collect{|u| u.specification.drive }.uniq %>');
+
+<% if params[:compl].present? %>
+  $('#filter_compl').val('<%= params[:compl] %>');
+<% end %>
+
+<% if params[:transmission].present? %>
+   $('#filter_transmission').val('<%= params[:transmission] %>');
+<% end %>
+
+<% if params[:volume].present? %>
+  $('#filter_volume').val('<%= params[:volume] %>');
+<% end %>
+
+<% if params[:drive].present? %>
+  $('#filter_drive').val('<%= params[:drive] %>');
+<% end %>
+
+
+
+if (COLOR_URL) {
+    $("#filter_list img").attr('src', COLOR_URL);
+}
+
+var $card_new = $('#filter_list .card');
+setQuantity($card_new);
+
+showMoreComplInfo();
+//init_new_ajax_modal();

@@ -1,0 +1,23 @@
+$('#credit_ticket_other_model').attr( "disabled", true );
+$('#credit_ticket_other_complect').attr( "disabled", true );
+
+<% if params[:brand].present? %>
+  <% if @res.present? %>
+    $('#credit_ticket_other_model').attr( "disabled", false );
+    $('#credit_ticket_other_model').html('<option>Выберите модель</option><%=  j render partial:'carso/credit_brand_options', collection: @res  %>');
+  <% else %>
+    $('#credit_ticket_other_model').attr( "disabled", true );
+    $('#credit_ticket_other_complect').attr( "disabled", true );
+  <% end %>
+<% end %>
+
+<% if params[:model].present? %>
+  <% if @res.present? %>
+    $('.frm_credit_img').html('<%=  j render partial:'carso/credit_model_img', collection: @res.limit(1)  %>');
+    $('#credit_ticket_other_model').attr( "disabled", false );
+    $('#credit_ticket_other_complect').attr( "disabled", false );
+    $('#credit_ticket_other_complect').html('<option>Выберите комплектацию</option><%=  j render partial:'carso/credit_model_options', collection: @res  %>');
+  <% else %>
+    $('#credit_ticket_other_complect').attr( "disabled", true );
+  <% end %>
+<% end %>

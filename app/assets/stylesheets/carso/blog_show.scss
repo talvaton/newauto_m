@@ -1,0 +1,159 @@
+@import '_vars';
+@import '_tables';
+.img-blog {
+  display: block;
+  border-radius: 16px;
+  height: 300px;
+  width: 100%;
+  margin: 10px 0;
+  @include object_fit(cover, center);
+}
+
+.button--blog {
+  max-width: 300px;
+  margin: 20px 0;
+}
+
+// галерея
+.photos {
+  @include list_reset;
+  width: 100%;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+.photo {
+  height: 160px;
+}
+.photo-link {
+  display: block;
+}
+.photo--single {
+  display: none;
+}
+.photos-wrapper {
+  display: flex;
+  overflow: hidden;
+  height: 160px;
+  margin-bottom: 70px;
+  .slick-arrow {
+    background: none;
+    background-image: image-url('carso/newcar/slider-arrow-white.png');
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    &::after{
+      display: none;
+    }
+  }
+  .slick-prev {
+    transform: rotateZ(-180deg);
+  }
+  @media #{$media_s} {
+    height: 260px;
+  }
+  @media #{$media_m} {
+    height: 300px;
+  }
+  @media #{$media_l} {
+    height: 360px;
+  }
+  @media #{$media_xl} {
+    height: 400px;
+  }
+  @media #{$media_xxl} {
+    height: 160px;
+    margin-bottom: 0;
+  }
+  @media #{$media_xxl} {
+    display: block;
+    height: auto;
+  }
+}
+
+
+@media #{$media_xxl} {
+  .content-photos {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin: 50px 0;
+    padding-right: 10px;
+    .title {
+      min-width: 25%;
+      margin: 0;
+    }
+    .photos-wrapper {
+      width: 75%;
+    }
+  }
+  .photos-wrapper {
+    height: 750px;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    img {
+      height: 100%;
+      width: 100%;
+      @include object_fit(cover,center);
+    }
+  }
+  .photo--single {
+    display: block;
+    height: 540px;
+    width: 100%;
+    margin: 0 0 20px 0;
+    overflow: hidden
+  }
+  .photos {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: flex-start;
+    height: auto;
+    width: 100%;
+  }
+  .photos__item {
+    width: calc(16.6667% - 15px);
+    height: 90px;
+    margin: 0 18px 10px 0;
+    overflow: hidden;
+    &:nth-of-type(6n) {
+      margin-right: 0;
+    }
+  }
+}
+
+// галерея end
+
+
+
+
+// блок с видео
+.media-block {
+  @media #{$media_s} {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+.media-block__video {
+  width: 100%;
+  height: 280px;
+  position: relative;
+  margin: 0 auto 30px;
+  @media #{$media_s} {
+    width: calc(50% - 20px);
+    height: 200px;
+  }
+  @media #{$media_l} {
+    height: 350px;
+  }
+}
+
+.play-button {
+  width: 80px;
+  height: 80px;
+
+}
+// блок с видео end

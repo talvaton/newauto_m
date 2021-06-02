@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<torg_price date="<%= Date.today %> 00:01">
+<shop>
+    <name>carso.ru</name>
+    <company>Авиньон</company>
+    <url>https://carso.ru</url>
+    <currencies>
+        <currency id="RUR"/>
+    </currencies>
+    <categories>
+        <category id="0" parentId="0">Автосалон</category>
+        <% @brands.where(hide:false).each do |brands|%>
+        <category id="<%= brands.id %>"><%= brands.title %></category>
+        <% end %>
+    </categories>
+    <offers>
+    <% @newcars.each do |new_car|%>
+    <% e = new_car.equipments.where(hide:false).order(:price).first %>
+        <offer id="<%= new_car.id %>" available="true">
+            <url><%= "#{request.base_url}#{new_car_path(new_car.brand.url,new_car.url)}" %></url>
+            <price><%= e.price - new_car.discount_count %></price>
+            <currencyId>RUR</currencyId>
+            <categoryId>0</categoryId>
+            <categoryId><%= new_car.brand.id %></categoryId>
+            <%# if new_car.colors.length > 2
+                colors_swaped = new_car.colors.swap(0,1)
+              #else
+              #  colors_swaped = new_car.colors
+              #end %>
+            <%# if colors_swaped[2..-1].present? %>
+             <%# colors_swaped[2..-1].each_with_index do |c| %>
+                <picture><%= image_url new_car.colors[0].largecard.url %></picture>
+               <%# end %>
+             <%# end %>
+            <vendor><%= new_car.brand.title %></vendor>
+            <model><%= new_car.name %></model>
+        </offer>
+         <% end %>
+    </offers>
+</shop>
+</torg_price>

@@ -1,0 +1,260 @@
+
+@media only screen and (max-width: 1250px) {
+  .main-top__title{
+    font-size: 62px;
+  }
+  .main-top__list{
+    font-size: 28px;
+  }
+
+}
+
+
+// ВЕРХНИЙ БЛОК
+.main-top {
+  width: 100%;
+  height: 580px;
+  margin-top: -110px;
+  position: relative;
+  color: $white;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 1480px;
+    height: 320px;
+    background: linear-gradient(180deg, $background 0%, $background 40px, rgba(255, 255, 255, 0) 100%);
+    z-index: 1;
+    @media #{$media_xxl} {
+      top: 48px;
+      background: linear-gradient(180deg, $background 0%, rgba(255, 255, 255, 0) 100%);
+    }
+    @media #{$media_xxxl} {
+      left: calc(50% - 740px);
+    }
+  }
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), linear-gradient(90.4deg, rgba(255, 255, 255, 0.5) 11.2%, rgba(255, 255, 255, 0) 30.41%, rgba(255, 255, 255, 0) 69.54%, rgba(255, 255, 255, 0.5) 87.1%);
+  }
+  .button {
+    width: 160px;
+    margin: 10px auto 0;
+    svg {
+      margin-right: 10px;
+      fill: $contrast_credit
+    }
+  }
+
+  @media #{$media_xxl} {
+    height: 720px;
+    .button {
+      display: none;
+    }
+  }
+}
+.main-top__img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  //@include object_fit(contain,center);
+}
+
+.main-top__inner {
+  position: relative;
+  max-width: $grid_width;
+  margin: 0 auto;
+  padding: 140px 10px 0 15px;
+  z-index: 2;
+  @media #{$media_xxl} {
+    padding: 240px 60px 0 20px;
+  }
+}
+
+.main-top__title {
+  margin: 0;
+  padding-bottom: 80px;
+  text-transform: uppercase;
+  font-size: 30px;
+  line-height: 1;
+  @media #{$media_m} {
+    font-size: 36px;
+  }
+  @media #{$media_xxl} {
+    font-size: 62px;
+  }
+  @media #{$media_xxxl} {
+    font-size: 72px;
+  }
+}
+.main-top__title-block {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 1px;
+  &:nth-of-type(3) {
+    margin-right: 1px;
+  }
+  &:nth-of-type(4) {
+    margin-right: 1px;
+  }
+  span {
+    display: block;
+    margin-right: 2px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    background-color: rgba(#000, 0.3);
+    @media #{$media_xxl} {
+      padding: 8px 20px;
+    }
+  }
+}
+.main-top__title-logo {
+  display: block;
+  height: 100%;
+  width: 40px;
+  @include object_fit(contain, center);
+}
+
+.main-top__main {
+  @media #{$media_xxl} {
+    display: flex;
+  }
+}
+
+.main-top__list {
+  @include list_reset;
+  display: flex;
+  font-size: 26px;
+  text-transform: uppercase;
+  @media #{$media_xxl} {
+    font-size: 28px;
+  }
+  @media #{$media_xxxl} {
+    font-size: 32px;
+  }
+}
+.main-top__list-item {
+  display: flex;
+  align-items: center;
+  position: relative;
+  max-width: 320px;
+  padding: 0 40px 0 65px;
+  line-height: 1;
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 58px;
+    min-width: 58px;
+    height: 58px;
+    position: absolute;
+    left: 0;
+    margin-right: 20px;
+    border-radius: 8px;
+    border: 4px solid $contrast_main;
+  }
+  &:first-child,
+  &:last-child {
+    display: none;
+  }
+  @media #{$media_xxl} {
+    &:first-child,
+    &:last-child {
+      display: flex;
+    }
+  }
+}
+.main-top__list-item.main-top__list-item--checked {
+  &::after {
+    content: image-url("carso/main/check_icon.png");
+    display: block;
+    position: absolute;
+    left: 13px;
+    top: unset;
+    @media all and (max-width: 1023px) {
+      top: 7px;
+    }
+  }
+}
+.main-top__list-item--matched {
+  &::before {
+    display: none;
+  }
+}
+.main-top__list-link {
+  display: flex;
+  align-items: center;
+  @include link_undecor($white);
+  @media all and (max-width: 1023px) {
+    background-color: rgba(0,0,0,0.45);
+    padding: 10px;
+    border-radius: 5px;
+  }
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 58px;
+    min-width: 58px;
+    height: 58px;
+    position: absolute;
+    left: 0;
+    margin-right: 20px;
+    border-radius: 8px;
+    border: 4px solid $contrast_main;
+    background-color: $contrast_main;
+  }
+  &::after {
+    content: image-url("carso/main/slider-arrow.svg");
+    display: block;
+    position: absolute;
+    left: 13px;
+    top: unset;
+    @media all and (max-width: 1023px) {
+      top: 7px;
+    }
+  }
+}
+
+.main-top__link {
+  display: none;
+  @media #{$media_xxl} {
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 220px;
+    min-width: 220px;
+    height: 58px;
+    @include link_undecor($white);
+    padding: 0 15px;
+    background: linear-gradient(90deg, #25BFD5 0%, $contrast_credit 100%);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+}
+.main-top__link-icon {
+  @media #{$media_xxl} {
+    display: block;
+    margin: 0 15px 0 0;
+  }
+}
+// ВЕРХНИЙ БЛОК end
+

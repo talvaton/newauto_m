@@ -1,0 +1,45 @@
+$.fancybox.open('<%= escape_javascript (render partial:"carso/#{@common_modal_type}") %>',
+    {
+        touch: false,
+        animationDuration: 500,
+        animationEffect: "fade",
+        afterLoad: function(){
+            $('.fancybox-inner .modal').css('display', 'inline-block');
+            init_labels('.fancybox-inner .input, .fancybox-inner .select');
+        },
+        afterShow: function(){
+            disableFormBtn();
+            $('.fancybox-inner form').enableClientSideValidations();
+            init_phone_mask();
+            $('.fancybox-inner .input, .fancybox-inner .select').on('focus', function(){
+                $(this).removeClass('input--error');
+                $(this).siblings('.form__error').slideUp();
+            });
+            DISABLE_FANCYBOX = false;
+
+            if ('<%=@common_modal_type %>' === 'modal_map') {
+
+                ymaps.ready(initMap);
+                var myMap,
+                    myPlacemark;
+
+                function initMap(){
+                    console.log('init map');
+                    myMap = new ymaps.Map("modal-map", {
+                        center: [55.899573, 37.542303],
+                        zoom: 16
+                    });
+                    myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+                        hintContent: 'Автосалон Авиньон',
+                        balloonContent: 'г.Москва, Дмитровское шоссе 157, строение 4',
+
+                    }, {
+                        preset: 'islands#redAutoIcon',
+                    });
+                    myMap.geoObjects.add(myPlacemark);
+                }
+
+            }
+        }
+    }
+);

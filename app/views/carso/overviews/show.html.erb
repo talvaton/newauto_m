@@ -1,0 +1,12 @@
+<% provide :title,"#{@overviews.title} | Автосалон Авиньон | Москва" %>
+<% provide :description,"Обзор #{@overviews.title}, технические характеристики" %>
+
+<div class="row justify-content-between">
+      <h1><%= @overviews.title %></h1>
+</div>
+
+<div class="row seo_txt_btn art">
+  <%= @overviews.desc.html_safe %>
+</div>
+
+<%= render 'partials/carso/credit_form' %>

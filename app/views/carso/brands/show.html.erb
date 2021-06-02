@@ -1,0 +1,250 @@
+<%
+  region = false
+  unless @current_region.id == 57
+    region = true
+  end
+%>
+
+<%
+  if @brand.new_cars.where(hide: 0, archive: 0).present?
+    ordered_cars = @brand.new_cars.where(hide: 0, archive: 0).min_price_ordered
+  else
+    ordered_cars = @brand.new_cars.min_price_ordered
+  end
+
+    min_price = ordered_cars[0].equipments.where(hide:0).minimum(:price)
+
+  if (ordered_cars[0].discount_count + @region_discount) < min_price*4/10
+    min_discount_e = ordered_cars[0].discount_count + @region_discount
+  else
+    min_discount_e = min_price*4/10
+  end
+
+  max_price = ordered_cars.last.equipments.where(hide:0).maximum(:price)
+
+  max_discount = ordered_cars.last.discount.to_i + ordered_cars.last.discount_tradein.to_i + ordered_cars.last.discount_credit.to_i + 50000 + 30000 +(max_price * 0.1).to_i
+
+  if (max_discount + @region_discount) < max_price*4/10
+    max_discount_e = max_discount + @region_discount
+  else
+    max_discount_e = max_price*4/10
+  end
+%>
+
+
+
+<% t_mos = "Купить #{@brand.menutitle} в #{@current_region.sklon3} 🚗 цена на новый #{@brand.title} #{Time.current.year.to_s} в автосалоне у официального дилера" %>
+<% t_reg = "Купить #{@brand.menutitle} в #{@current_region.sklon3}, комплектации и цены #{(Time.current - 1.year).year.to_s + '-' + Time.current.year.to_s} на #{@brand.title} у официального дилера, весь модельный ряд в автосалоне" %>
+<% d_mos = "🚘 Каталог новых автомобилей #{@brand.title} у официального дилера в #{@current_region.sklon3} — автосалон «Авиньон» 🚙 Модельный ряд и цены на #{@brand.menutitle} #{Time.current.year.to_s} года ❗ Скидки до #{number_with_delimiter(max_discount_e, delimiter: " ")} руб. 🎁 Подарки при покупке! ☎️ 8 800 500-03-23." %>
+<% d_reg = "Купить #{@brand.menutitle} в автосалоне 🚘 Trade-in ✅ Рассрочка 0% ✅ Экспресс кредит от 1.9% ✅ Цены и Комплектации ✅ Весь модельный ряд #{@brand.title} у официального дилера в #{@current_region.sklon3} 🎁 Бонусы и Подарки!" %>
+
+
+<% unless region %>
+  <% provide :title,t_mos %>
+  <% provide :description,d_mos %>
+<% else %>
+  <% provide :title,t_reg %>
+  <% provide :description,d_reg %>
+<% end %>
+
+<%
+  #  if @brand.new_cars.where(hide: 0, archive: 0).present?
+  #    brand_img = @brand.new_cars.where(hide: 0, archive: 0).order(images: :desc)[0].images[0].large.url
+  #  else
+  #    brand_img = @brand.new_cars.where(hide: 0, archive: 1).order(images: :desc)[0].images[0].large.url
+  #  end
+%>
+
+
+<%
+  modelsCount = NewCar.where(brand_id: @brand.id, hide: 0, archive: 0).length;
+%>
+ <div class="frm_banner">
+  <div>
+    <a href="/banks/vtb" class="banr_img">
+      <%= image_tag "carso/banners/ban_vtb.png", alt:'' %>
+    </a>
+  </div>
+  <div class="frm_bangr">
+    <div>
+      <a href="#" class="banr_img ism">
+        <%= image_tag "carso/banners/3pay-307x.png", alt:'' %>
+      </a>
+    </div>
+    <div>
+      <a href="#" class="banr_img ism">
+        <%= image_tag "carso/banners/casko-307x.png", alt:'' %>
+      </a>
+    </div>
+    <div>
+      <a href="/credit#gospr" class="banr_img ism">
+        <%= image_tag "carso/banners/gospr-307x.png", alt:'' %>
+      </a>
+    </div>
+    <div>
+      <a href="/tradein" class="banr_img ism">
+        <%= image_tag "carso/banners/tradein-307х.png", alt:'' %>
+      </a>
+    </div>
+  </div>
+</div>
+
+  <div class="url_pgb">
+    <%= link_to brand_credit_path(@brand.url),class:'b_link' do %>Купить <%= @brand.title %> в Кредит<% end %>
+    <%= link_to brand_tradein_path(@brand.url),class:'b_link' do %>Купить <%= @brand.title %> в Трейд-ин<% end %>
+    <%= link_to brand_taxi_path(@brand.url),class:'b_link' do %>Купить <%= @brand.title %> в Такси<% end %>
+  </div>
+
+
+<div class="url_ft">
+  <span>Тип кузова:</span>
+  <% if @brand.new_cars.where(hide: 0, archive: 0).present? %>
+    <% brand_car_types = NewCar.where(brand_id: @brand.id,hide: 0, archive: 0).distinct.pluck(:car_type) %>
+    <% brand_car_types.each do |t| %>
+      <% if t.present? %>
+        <a href="#<%= t.pluralize(:ru) %>" rel="nofollow" data-role="page-navigation-link"><%= t.pluralize(:ru) %></a>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="bh_form">
+ <div class="mm_url">
+  <ul>
+   <%= render partial:'new_cars/new_cars_url_brand', collection:NewCar.where(brand_id: @brand.id, hide: 0, archive: 0).min_price_ordered %>
+  </ul>
+ </div>
+ <div class="form_block credit">
+    <span class="fprm_gos_pa">Госпрограмма -10%</span>
+        <div class="form-sale-info">
+          <span class="frins">Получите</span>
+          <div class="form-credit-info">специальную цену в кредит</div>
+        </div>
+
+    <%= form_for Ticket.new,url: {action:"create",controller:"tickets" },remote:true,validate:true,:html => {:class => "form",:name=>"newcarreq"},:namespace => "newcarreq" do |f| %>
+      <%= hidden_field_tag 'ticket[other][model]',@brand.id, id:'newcarreq_ticket_other_model' %>
+      <%= f.hidden_field :form_name, value:"express" %>
+      <div class="form_input">
+        <%= f.text_field :name,class:"input",placeholder:"Ваше имя" %>
+      </div>
+      <div class="form_input">
+        <%= f.phone_field :phone,class:"input",data:{:role=>"phone"},placeholder:"Номер телефона"  %>
+      </div>
+      <%= f.button do %>
+          <span>Получить предложение</span>
+      <% end %>
+     <span class="act_date_f">Акция действует до <%= l(SALE_DATE, format: :next_monday) %></span>
+      <div class="secur_f">мы гарантируем конфиденциальность и защиту введённых данных</div>
+    <% end %>
+  </div>
+</div>
+<% unless region %>
+  <% if @brand.description.present? %>
+    <% if @brand.description['brand_desc'].present? %>
+      <div class="row seo_txt">
+        <%= @brand.description['brand_desc'].html_safe %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<h1>Модельный ряд <%= @brand.title %></h1>
+
+<% if region %>
+<%= render partial:'new_cars/region_form' %>
+<% end %>
+<br>
+
+<% if @brand.new_cars.where(hide: 0, archive: 0).present? %>
+  <% brand_car_types = NewCar.where(brand_id: @brand.id,hide: 0, archive: 0).distinct.pluck(:car_type) %>
+  <% brand_car_types.each do |t| %>
+    <div class="row" id="<%= t.pluralize(:ru) %>"><h3><%= t.pluralize(:ru) %></h3></div>
+    <div class="row justify-content-start cr_tr_url">
+      <div class="cr_tr_hr right row justify-content-start">
+        <%= render partial:'new_cars/new_cars_brand', collection: @brand.new_cars.where(hide: 0, archive: 0, car_type: t).min_price_ordered %>
+      </div>
+    </div>
+    <%#<div class="row justify-content-start">%><%#= link_to t.pluralize(:ru), brand_type_path(@brand.url,t("car_types.#{t}")) %><%#</div>%>
+  <% end %>
+<% end %>
+
+
+<% if @brand.new_cars.where(hide: 0, archive: 1).present? %>
+
+  <h2>Архивные модели</h2>
+    <div class="row justify-content-start cr_tr_url">
+      <div class="cr_tr_hr right row justify-content-start">
+        <%= render partial:'new_cars/new_cars_brand', collection:NewCar.where(brand_id: @brand.id, hide: 0, archive: 1).min_price_ordered %>
+      </div>
+    </div>
+<% end %>
+
+
+<div class="pr_slog_b">
+  <div><%= image_tag "carso/icons/casco.svg", alt:'' %>
+    <span>Бесплатное <br> КАСКО</span>
+  </div>
+  <div><%= image_tag "carso/icons/tire.svg", alt:'' %>
+    <span>Зимняя резина в <br> подарок</span>
+  </div>
+  <div><%= image_tag "carso/icons/gospr.svg", alt:'' %>
+    <span>Госпрограммы: <br> -10% на любое авто</span>
+  </div>
+  <div><%= image_tag "carso/icons/route.svg", alt:'' %>
+    <span>Оплата проезда <br> до автосалона</span>
+  </div>
+</div>
+
+
+<% if @brand.description.present? %>
+<% if @brand.description['brand_seotext'].present? && !region %>
+<div class="seo_txt_btn">
+  <%= @brand.description['brand_seotext'].html_safe %>
+</div>
+<% end %>
+<% end %>
+
+
+<% if region %>
+  <%#= render partial:'new_cars/region_reasons' %>
+<% end %>
+
+<%#= render 'partials/carso/tradein_form' %>
+
+
+<%#= render 'partials/carso/credit_form' %>
+
+
+<% if @current_region.id == 57 %>
+  <% if Story.where(brand_id: @brand.id).present? %>
+  <div>
+    <h2>Новости</h2>
+  </div>
+  <div id="news-block" class="columns columns--news" data-content='news' data-role='columns'>
+    <%= render partial:'carso/news', collection: Story.where(brand_id: @brand.id).order("created_at ASC").last(3) %>
+  </div>
+<% end %>
+<% end %>
+
+
+<% if @current_region.id == 57 %>
+  <% if Articles.where(brand_id: @brand.id).present? %>
+  <div>
+    <h2>Статьи</h2>
+  </div>
+  <div id="articles-block" class="columns columns--news" data-content='articles' data-role='columns'>
+    <%= render partial:'carso/articles', collection: Articles.where(brand_id: @brand.id).order("created_at ASC").last(3) %>
+  </div>
+<% end %>
+<% end %>
+
+
+<%= render 'partials/carso/credit_form' %>
+
+<% content_for :additional_javascript do %>
+
+  <script>
+      car_brand = '<%= @brand.url %>';
+      carid = undefined;
+  </script>
+<% end %>

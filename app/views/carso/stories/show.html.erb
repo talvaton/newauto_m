@@ -1,0 +1,27 @@
+<% provide :title, @news_item.name + ' | Автосалон «Авиньон» в ' + @current_region.sklon3 %>
+<% provide :description,'Автомобильные новости:  ' + @news_item.name %>
+
+<section class="inner">
+  <div class="content-xs">
+    <%= image_tag @news_item.newsImage.mainimg.url, alt: @news_item.name, title: @news_item.name, class: 'story-img' %>
+    <h1 class="title-h1"><%= @news_item.name %></h1>
+  </div>
+  <div class="content text">
+    <%= @news_item.newstext.html_safe %>
+  </div>
+
+</section>
+
+
+  <h2 class="title">Все автомобили <%=@brand.menutitle %> в наличии</h2>
+
+<div class="row justify-content-start cr_tr_url">
+  <div class="cr_tr_hr right row justify-content-start">
+    <%= render partial:'new_cars/new_cars', collection: @brand.new_cars.where(hide: 0),locals: {:show_brand => true, :credit_flag => false}  %>
+  </div>
+</div>
+
+
+
+
+

@@ -1,0 +1,7 @@
+<%= price = @model.count_price(@specifications.first.price,@region_discount) %>
+
+$('.config-car_price b').text("<%=  number_with_delimiter(price, delimiter: ' ') + " р." %>");
+$('.config-car_credit b').text("<%= number_with_delimiter(count_price(price,PERCENT,MONTH), delimiter: " ") + " р./мес."  %>")
+
+$('.config-engineblock').html("<%= j render partial:'configurator_specifications', collection: @specifications, as: :spec %>");
+changeSpecification();

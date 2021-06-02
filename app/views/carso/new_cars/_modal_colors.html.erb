@@ -1,0 +1,44 @@
+<aside class="modal modal--colors" id="car-colors-modal">
+  <div class="modal__top">
+    <button type="button" class="modal__close-btn" data-fancybox-close>
+      <%= svg_tag 'carso/icons.svg','svg-close',40,40,id:'nav-close',class:'' %>
+    </button>
+
+    <div class="modal__title">
+      <div class="modal__title-name">
+        <%= Brand.find_by(id:@car.brand_id).title %>
+        <%= @car.name %>
+      </div>
+      <p class="modal__title-additional">Выберите цвет автомобиля</p>
+    </div>
+  </div>
+
+  <div class="modal__inner">
+
+    <div class="modal__colors-wrapper">
+
+      <%
+        colors = @car.colors
+        color_options =  @car.color_options
+      %>
+      <ul class="modal__colors">
+        <% colors.each_with_index do |c,index| %>
+          <li class="modal__color">
+            <%= link_to new_car_color_path(Brand.find_by(id:@car.brand_id),@car,color_options[index]['color_type']),class:'modal__color-link', target:"_blank" do %>
+              <%= image_tag "#{c.largecard.url}",class:'modal__color-img', alt:'', data:{:altsrc=>"#{c.largecard.url}",:image_index=>index} %>
+              <span class="modal__color-name"><%= color_options[index]['colorname'] %></span>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+
+    </div>
+
+
+<!--    <a href="tel:88001000157" class="button">-->
+      <%#= svg_tag 'carso/icons.svg','svg-phone',14,14,class:'' %>
+<!--      <span>Уточните наличие</span>-->
+<!--    </a>-->
+
+  </div>
+</aside>

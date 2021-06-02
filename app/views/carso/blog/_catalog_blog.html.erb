@@ -1,0 +1,14 @@
+<div class="content-xs">
+  <h2 class="title">
+    <%= link_to blog_brand_path(catalog_blog.brand), class: 'title__link' do %>
+      <%= image_tag catalog_blog.brand.logoblack.url, alt: catalog_blog.brand.title, class: 'title__brand-logo' %>
+      <%= catalog_blog.brand.title %>
+    <% end %>
+  </h2>
+</div>
+<div class="content">
+  <div class="columns columns--blog">
+    <%= render partial:'blog/catalog_single_blog', collection: Blog.where(brand_id: catalog_blog.brand.id).where('blogs.new_car_id IS NOT NULL') %>
+  </div>
+</div>
+

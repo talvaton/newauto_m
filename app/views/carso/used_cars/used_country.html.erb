@@ -1,0 +1,88 @@
+<%
+  region = false
+  unless @current_region.id == 57
+    region = true
+  end
+%>
+
+<%
+  case @country
+  when 'china'
+    country_name = 'Китая'
+    country_adjective = 'китайск'
+  when 'korejskie-avtomobili'
+    country_name = 'Кореи'
+    country_adjective = 'корейск'
+  when 'nemeczkie-avtomobili'
+    country_name = 'Германии'
+    country_adjective = 'немецк'
+  when 'russkie-avtomobili'
+    country_name = 'России'
+    country_adjective = 'российск'
+  when 'franczuzskie-avtomobili'
+    country_name = 'Франции'
+    country_adjective = 'французск'
+  when 'japan'
+    country_name = 'Японии'
+    country_adjective = 'японск'
+  when 'amerikanskie-avtomobili'
+    country_name = 'Америки'
+    country_adjective = 'американск'
+  end
+%>
+<% t_mos = "#{country_adjective.capitalize}ие автомобили с пробегом, купить БУ авто из #{country_name} в #{@current_region.sklon3}" %>
+<% t_reg = "Купить БУ авто из #{country_name}, #{country_adjective}ие автомобили с пробегом в #{@current_region.sklon3}" %>
+<% d_mos = "Продажа БУ авто из #{country_name}. Рассрочка 0%, Трейд-Ин, кредит от 1.9%! Купить #{country_adjective}ий автомобиль с пробегом в автосалоне, #{@current_region.sklon1}" %>
+<% d_reg = "Продажа #{country_name}их автомобилей с пробегом. Рассрочка 0%, Трейд-Ин, кредит от 1.9%! Купить БУ автомобиль из #{country_name} в автосалоне, #{@current_region.sklon1}" %>
+
+
+<% unless region %>
+  <% provide :title,t_mos %>
+  <% provide :description,d_mos %>
+<% else %>
+  <% provide :title,t_reg %>
+  <% provide :description,d_reg %>
+<% end %>
+
+<div class="inner">
+
+  <div class="content-xs">
+    <h1 class="title-h1" id="models">Автомобили с пробегом из <%= country_name %> </h1>
+    <%= render 'carso/used_cars/filter_links' %>
+  </div>
+
+  <div class="content">
+    <div class="card-list">
+      <%= render partial:'partials/carso/used_car', collection: @used_country %>
+    </div>
+    <%= link_to sprobegom_path, class:'btn-link', target:'_blank' do %>
+      <%= svg_tag 'carso/icons.svg','svg-loader',24,6,class:'' %>
+      <span>Все автомобили БУ</span>
+    <% end %>
+  </div>
+
+
+  <div class="content-xs">
+    <h2 class="title">Другие авто с пробегом</h2>
+  </div>
+  <div class="content">
+    <div class="card-list">
+      <%= render partial:'partials/carso/used_car', collection: UsedCar.used_cars(12).order(id: :desc) %>
+    </div>
+
+    <%= link_to sprobegom_path, class:'btn-link', target:'_blank' do %>
+      <%= svg_tag 'carso/icons.svg','svg-loader',24,6,class:'' %>
+      <span>Все автомобили с пробегом</span>
+    <% end %>
+  </div>
+
+</div>
+
+
+<%= render partial:'carso/carso/bottom_banner' %>
+
+<% content_for :rails_to_js_variables do %>
+  <script>
+      var url = '<%= @country %>';
+  </script>
+<% end %>

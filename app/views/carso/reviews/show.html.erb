@@ -1,0 +1,11 @@
+<% provide :title,"Отзыв клиента #{@reviews.name} о автосалоне Авиньон" %>
+<% provide :description,"Реальный отзыв клиента #{@reviews.name} автосалона Авиньон в Москве." %>
+
+<h1 class="green"><span>Отзыв клиента </span><b><%= @reviews.name %></b></h1>
+
+<div class="row justify-content-between review_cont">
+ <div class="review_title">Отзыв</div>
+ <div class="review_desc"><%= @reviews.rev_text %></div>
+</div>
+<%#=link_to 'Хочу такую же', new_car_path(@car.brand, @car), class: 'button button--model-reviews' %>
+<%= render 'partials/carso/credit_form' %>

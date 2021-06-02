@@ -1,0 +1,140 @@
+<% max_price_e = @car.equipments.where(hide:0).order(price: :desc).first
+   if (@car.discount_count(max_price_e) + @region_discount) < max_price_e.price*4/10
+     max_discount_e = @car.discount_count(max_price_e) + @region_discount
+   else
+     max_discount_e = max_price_e.price*4/10
+   end
+
+   if (@car.discount_count + @region_discount) < @car.equipments.where(hide:0).minimum(:price)*4/10
+     min_discount_e = @car.discount_count + @region_discount
+   else
+     min_discount_e = @car.equipments.where(hide:0).minimum(:price)*4/10
+   end
+%>
+<aside class="modal modal--colors modal--car-info" id="car-features-modal">
+
+  <div class="modal-tradein__inner modal-tradein__inner_desktop">
+    <div class="modal__top modal-tradein__top">
+
+      <ul class="features-list">
+        <li>
+          <%= svg_tag 'carso/newcar/modal-sprite.svg','svg-modal-guarantee',30,30,class:'' %>
+          <span>Гарантия лучшей цены</span>
+        </li>
+        <li>
+          <%= svg_tag 'carso/newcar/modal-sprite.svg','svg-modal-credit',30,30,class:'' %>
+          <span>Выгодный кредит 1.9%</span>
+        </li>
+        <li>
+          <%= svg_tag 'carso/newcar/modal-sprite.svg','svg-modal-present',30,30,class:'' %>
+          <span>Подарок при покупке</span>
+        </li>
+        <li>
+          <%= svg_tag 'carso/newcar/modal-sprite.svg','svg-modal-tradein',30,30,class:'' %>
+          <span>Зачёт Вашего авто в Трейд-ин</span>
+        </li>
+        <li> <%= svg_tag 'carso/newcar/modal-sprite.svg','svg-modal-fuel',30,30,class:'' %>
+          <span>Полный бак бензина покупателю</span>
+        </li>
+      </ul>
+
+    </div>
+
+    <div class="modal__inner">
+      <button type="button" class="modal__close-btn" data-fancybox-close>
+        <%= svg_tag 'carso/icons.svg','svg-close',40,40,id:'nav-close',class:'' %>
+      </button>
+      <div class="modal__title">
+        <div class="modal__title-name">Оставьте заявку до <%= l(SALE_DATE, format: :next_monday) %></div>
+        <p class="modal__title-additional">И получите все выгоды одновременно!</p>
+      </div>
+
+      <%= form_for Ticket.new,url: {action:'create',controller:'tickets' },remote:true,validate:true,:html => {:class => 'modal__form',:name=>'new_tradein_modal_plus'},:namespace => 'new_tradein_modal_plus' do |f| %>
+
+        <%= f.hidden_field :form_name, value:'credit' %>
+        <%= hidden_field_tag 'ticket[other][model]',@car.id, id:'new_tradein_modal_plus_ticket_other_model' %>
+
+        <div class="form__component">
+          <%= f.text_field :name,class:'input', placeholder:'Ваше имя' %>
+        </div>
+        <div class="form__component">
+          <%= f.phone_field :phone,class:'input',data:{:role=>'phone'}, placeholder:'Номер телефона' %>
+        </div>
+
+        <%= f.button 'Отправить', class: "button" %>
+      <% end %>
+
+
+    </div>
+  </div>
+
+  <div class="modal__inner modal__inner_mobile">
+
+    <div class="modal__inner-top">
+      <ul class="singlecar__common">
+        <li class="singlecar__common-item">
+          <span class="singlecar__common-item-text">Мощность</span>
+          <span class="singlecar__common-item-main"><%= @car.specifications.joins(:equipment).where('`equipment`.`hide` = 0').maximum(:power) %> л/с</span>
+        </li>
+
+        <% min_acc = @car.specifications.joins(:equipment).where('`equipment`.`hide` = 0').minimum(:acceleration) %>
+        <% if min_acc.present? %>
+          <li class="singlecar__common-item">
+            <span class="singlecar__common-item-text">Разгон до 100 км/ч</span>
+            <span class="singlecar__common-item-main"><%= @car.specifications.joins(:equipment).where('`equipment`.`hide` = 0').minimum(:acceleration).round(1) %> с</span>
+          </li>
+        <% end %>
+
+        <%
+          min_fh = @car.specifications.joins(:equipment).where('`equipment`.`hide` = 0').minimum(:fuelhigh)
+          min_fc = @car.specifications.joins(:equipment).where('`equipment`.`hide` = 0').minimum(:fuelcity)
+          min_fm = @car.specifications.joins(:equipment).where('`equipment`.`hide` = 0').minimum(:fuelmix)
+          unless min_fc.nil? || min_fh.nil? || min_fm.nil?
+
+            if (min_fc.nil? || min_fh.nil?) && min_fm.present?
+              fuel = min_fm.round(1)
+            else
+              fuel = "#{min_fh.round(1)}-#{min_fc.round(1)}"
+            end
+        %>
+          <li class="singlecar__common-item">
+            <span class="singlecar__common-item-text">Расход на 100 км</span>
+            <span class="singlecar__common-item-main"><%= fuel %> л</span>
+          </li>
+        <% end %>
+
+        <% max_speed = @car.specifications.maximum(:topspeed) %>
+        <% if max_speed.present? %>
+          <li class="singlecar__common-item">
+            <span class="singlecar__common-item-text">Максимальная скорость</span>
+            <span class="singlecar__common-item-main"><%= max_speed %> км/ч</span>
+          </li>
+        <% end %>
+
+      </ul>
+    </div>
+
+    <% if @car.description.present? && @car.description['text_upper'].present? %>
+      <!-- noindex -->
+      <div class="modal__inner-text"><%= @car.description['text_upper'].html_safe %></div>
+      <!--/ noindex -->
+    <% end %>
+
+    <div class="">
+      <p class="modal__inner-pricetext">Позвоните сейчас и узнайте как получить скидку до</p>
+      <span class="modal__inner-price" id="modal-discount" data-real-discount="<%=@car.discount_count(max_price_e) + @region_discount %>">
+        <%= "#{number_with_delimiter(max_discount_e,delimeter:' ')}" %> ₽
+      </span>
+    </div>
+
+    <%= form_for Ticket.new,url: {action:'create',controller:'tickets' },remote:true,validate:true,:html => {:class => 'form',:name=>'model-features'},:namespace => 'model-features' do |f| %>
+      <%= f.hidden_field :form_name, value:'credit' %>
+      <div class="form__component">
+        <%= f.phone_field :phone,class:'input',data:{:role=>'phone'}, placeholder:'Номер телефона' %>
+      </div>
+      <%= f.button 'Узнать детали', class: "button" %>
+    <% end %>
+  </div>
+
+</aside>
+

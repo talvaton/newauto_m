@@ -1,0 +1,48 @@
+<% max_price_e = show_filter
+   if (@car.discount_count(max_price_e) + @region_discount) < max_price_e.price*4/10
+     max_discount_e = @car.discount_count(max_price_e) + @region_discount
+   else
+     max_discount_e = max_price_e.price*4/10
+   end
+%>
+
+<div class="card card--wide" data-eq_id="<%= show_filter.id %>">
+  <div class="card__inner">
+    <div class="card__media">
+      <%= link_to new_car_equipment_path(@brand, @car, show_filter.equipment_description.name.parameterize) do %>
+        <%= image_tag @car.colors[0].card.url,class:'card__img', alt:'', style: '' %>
+      <% end %>
+<!--      <span class="card__label">Хит</span>-->
+    </div>
+    <div class="card__main">
+      <%= link_to "#{@car.name} #{show_filter.equipment_description.name}", new_car_equipment_path(@brand, @car, show_filter.equipment_description.name.parameterize), class:"card__title" %>
+
+<!--      <div class="card__title"><%#= @car.name %> <%#= show_filter.equipment_description.name %></div>-->
+      <div class="card__additional">
+        Скидка до
+        <span><%= number_with_delimiter(max_discount_e,delimiter: ' ') %> &#8381;</span>
+      </div>
+      <p class="card__text"><%= show_filter.specification.transmission %> (<%= show_filter.specification.shorttransmission %>),
+        <%= (show_filter.specification.volume / 1000.to_f).round(1) %> л,
+        <%= show_filter.specification.drive == 'Полный' ? '4WD' : '2WD' %>,
+        <%= show_filter.specification.power %> л.с
+      </p>
+      <p class="card__text">В наличии: <strong><span data-role="quantity"></span> автомобиля</strong></p>
+      <div class="card__buttons">
+        <button type="button" class="card__link" data-show-new-ajax="car-credit-modal" data-eq_id="<%= show_filter.id %>">
+          <%= svg_tag 'carso/icons.svg','svg-arrow-fat',7,8,class:'card__link_icon card__link_icon--credit' %>
+          <span>В кредит</span>
+        </button>
+        <button type="button" class="card__link" data-show-new-ajax="car-obmen-modal" data-eq_id="<%= show_filter.id %>">
+          <%= svg_tag 'carso/icons.svg','svg-arrow-fat',7,8,class:'card__link_icon' %>
+          <span>Обмен</span>
+        </button>
+        <button type="button" class="button" data-show-new-ajax="car-details-modal" data-eq_id="<%= show_filter.id %>">
+          <span>Купить со скидкой</span>
+        </button>
+
+        <%# link_to "Купить со скидкой", new_car_equipment_path(@brand, @car, show_filter.equipment_description.name.parameterize),class:"button"  %>
+      </div>
+    </div>
+  </div>
+</div>

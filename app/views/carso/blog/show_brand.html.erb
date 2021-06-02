@@ -1,0 +1,29 @@
+<% provide :title,"Обзоры автомобилей #{@brand.menutitle} 🚘 все о машинах #{@brand.title}" %>
+<% provide :description,"Все об автомобилях и бренде #{@brand.menutitle} 🚘 обзоры, история бренда и моделей машин #{@brand.title}" %>
+
+
+<section class="inner">
+  <div class="content-xs">
+    <h1 class="title"><%=@brand.menutitle %></h1>
+  </div>
+  <div class="content">
+    <div class="columns columns--blog">
+      <%= render partial:'blog/catalog_single_blog', collection: Blog.where(brand_id: @brand.id).where('blogs.new_car_id IS NOT NULL') %>
+    </div>
+  </div>
+  <div class="content-xs">
+    <h2 class="title">Все автомобили <%= @brand.menutitle %> в наличии</h2>
+  </div>
+  <div class="content">
+    <div class="card-list">
+      <%= render partial:'new_cars/small_new_cars', collection: @brand.new_cars.where(hide: 0),locals: {:show_brand => true, :credit_flag => false}  %>
+    </div>
+  </div>
+</section>
+
+
+<%= render partial:'carso/carso/bottom_banner' %>
+
+
+
+

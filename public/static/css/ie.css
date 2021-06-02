@@ -1,0 +1,485 @@
+.main::after,
+.footer__inner::after,
+.menu-list::after,
+.brandlist::after,
+.card-list::after,
+.filter-panel::after,
+.info-columns::after,
+.singlecar-descriptionr::after,
+.footer__nav-list::after,
+.footer__info-block::after,
+.footer__social::after,
+.card__price-list::after,
+.singlecar__form-main::after,
+.media-block::after,
+.modal-configurator::after,
+.modal-configurator__nav-list::after,
+.modal-columns::after,
+.singlecar-description::after,
+.menu::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.footer-main__aside,
+.photos__item,
+.transfer__item,
+.brandlist__item,
+.media-block__item,
+.pagination__item,
+.info-columns__column-2,
+.modal__form .button,
+.filter-panel__title,
+.singlecar__label,
+.filter-panel__filter,
+.logo__img,
+.menu-list__img,
+.menu-list__item,
+.singlecar-description__info,
+.promo-block__attention-text,
+.region-section__card,
+.promocode__img,
+.section__content,
+.photo--single,
+.car-main__content,
+.car-main__imgblock,
+.car-main__info,
+.car-main__tool,
+.section--inverted .section__main,
+.footer__info,
+.footer__info-link,
+.partners__item,
+.card__price-item,
+.modal__photos-wrapper,
+.modal__aside,
+.modal-configurator__nav-item,
+.modal-configurator__colors li,
+.modal-columns__item,
+.menu__brands,
+.brand__type,
+.brand__list-item {
+  float: left;
+}
+
+.header__phone-wrapper,
+.singlecar-description__slider,
+.promo-block__info-wrapper,
+.logo__text,
+.region-section__info,
+.section__main,
+.section__form,
+.promocode__close,
+.nav,
+.footer__nav,
+.footer__social,
+.social-icon,
+.newsblock__link,
+.modal__tabpanel-wrapper,
+.modal-configurator__inner,
+.menu__brand {
+  float: right;
+}
+
+.button,
+.card__btn,
+.logo,
+.header__icon,
+.header__phone-wrapper,
+.header__phone,
+.header__top-btn,
+.menu-list__link,
+.form--region-section,
+.car-main__common-item-text {
+  display: inline-block;
+}
+
+.card__btn {
+  padding: 15px 10px !important;
+}
+
+.btn-link__btn {
+  top: 9px !important;
+}
+
+.banner {
+  padding: 38px 0 !important;
+}
+
+.section,
+.infoblock-list,
+.card-list,
+.sticky-nav .singlecar-nav,
+.footer-main,
+.footer-main__info,
+.brandnames-list,
+.section-sm-list,
+.info-columns--news,
+.info-columns {
+  font-size: 0 !important;
+}
+
+.info-column,
+.info-columns__column-2,
+.card {
+  font-size: 16px !important;
+}
+
+.info-columns__column-2:first-child {
+  margin-right: 30px !important;
+}
+
+.actions-nav {
+  float: right;
+  padding-right: 8px !important;
+}
+
+.menu__slider .slider-btn,
+.photos-wrapper .slider-btn {
+  display: none !important;
+}
+
+.menu__slider-name {
+  padding-top: 50px;
+  vertical-align: top;
+}
+
+.topslider__slide-info {
+  padding-top: 34px;
+}
+
+.section-aside {
+  width: 100%;
+  vertical-align: top;
+}
+
+.section--inverted .section-aside {
+  float: left;
+}
+
+.singlecar__label {
+  padding-top: 20px;
+}
+
+.singlecar__label span:first-child {
+  padding-right: 50px !important;
+}
+
+.singlecar__nav-wrapper {
+  width: calc(100% - 440px);
+}
+
+.singlecar__nav-link {
+  padding-top: 27px !important;
+}
+
+.sticky-nav .singlecar__nav-link {
+  padding-top: 14px !important;
+}
+
+.singlecar__banner-feature {
+  top: -30px !important;
+  vertical-align: top;
+}
+
+.card {
+  vertical-align: top;
+}
+
+.pagination {
+  margin: 0 auto;
+}
+
+.pagination__item {
+  padding: 8px 11px !important;
+}
+
+.media-block__img {
+  margin-right: 10px;
+}
+
+.infoblock-list__item {
+  vertical-align: top;
+}
+
+.filter-panel__form {
+  float: right;
+}
+
+.filter-panel__form .select,
+.filter-panel__form .button {
+  width: 45% !important;
+}
+
+.filter-panel__form .select {
+  float: left;
+}
+
+.filter-panel__form .button {
+  float: right;
+}
+
+.btn-totop--abs {
+  position: fixed;
+  right: 20px !important;
+  bottom: 20px !important;
+}
+
+.form__button {
+  margin-bottom: 20px !important;
+}
+
+.section-simple__img {
+  width: 100%;
+  height: 150px !important;
+  margin: 20px 0 !important;
+}
+
+.infoblock__title {
+  height: 220px;
+}
+
+.modal-configurator__radio-label,
+.modal-configurator__nav-item {
+  padding-top: 13px !important;
+}
+
+.modal-configurator__nav-item {
+  width: 25%;
+}
+
+.modal-configurator__nav-item::before {
+  padding-top: 4px !important;
+}
+
+.configurator-common__inner {
+  float: left;
+}
+
+.configurator-common__img {
+  float: right;
+}
+
+.modal__aside-photos {
+  top: -30px !important;
+}
+
+.logo,
+.header__phone-wrapper {
+  padding-top: 20px !important;
+}
+
+.header__phone {
+  vertical-align: middle;
+}
+
+.header__phone-wrapper--sm {
+  display: none;
+}
+
+.header__inner {
+  padding-top: 10px !important;
+}
+
+.header__inner--top {
+  text-align: right;
+  padding-top: 0;
+}
+
+.header__inner--top>div {
+  display: inline-block;
+}
+
+.header__top-btn {
+  padding-top: 10px !important;
+  text-align: center;
+}
+
+.menu-list__link {
+  line-height: 35px !important;
+}
+
+.menu--visible {
+  display: block;
+}
+
+.header__btn::after {
+  top: 9px !important;
+}
+
+.header__btn--inverted::after {
+  top: 20px !important;
+}
+
+.brand__list-link {
+  display: block;
+}
+
+.brand__wrapper {
+  height: 300px;
+}
+
+.region-section__card {
+  margin-right: calc(25% - 198px);
+}
+
+.sidenav {
+  background-color: #555d68;
+}
+
+.sticky-nav .singlecar-nav,
+.nav__list {
+  padding-top: 10px !important;
+}
+
+.nav__list-item {
+  display: inline-block;
+}
+
+.section__form .form__button {
+  margin-bottom: 0 !important;
+}
+
+.section--kredit .section__info>div,
+.singlecar__form-info>div {
+  float: left;
+}
+
+.section--kredit .section__info>div {
+  padding-right: 40px;
+}
+
+.singlecar__form-info>div:first-child {
+  padding-right: 10px !important;
+}
+
+.card__infoitem {
+  padding-right: 50px !important;
+}
+
+.card__infoitem:last-child {
+  padding-right: 0;
+}
+
+.card__main {
+  height: 160px;
+}
+
+.car-main__title-imgblock {
+  float: left;
+  padding: 7px !important;
+}
+
+.car-main__tools {
+  margin-top: 360px;
+}
+
+.car-main__tool-link {
+  line-height: 50px;
+}
+
+.button--simple {
+  line-height: 40px;
+}
+
+.footer__nav-list li {
+  float: left;
+  width: 33.3333%;
+}
+
+.slick-dots>li {
+  float: right;
+  padding-left: 20px;
+}
+
+.topslider__btn-link {
+  line-height: 64px;
+}
+
+.card__media {
+  background-color: #e7e9ed;
+}
+
+.partners__link {
+  display: block;
+}
+
+.partners__img {
+  margin: 0 auto;
+}
+
+.brandnames__block {
+  display: inline-block;
+  width: 16%;
+}
+
+.card__price-item:first-of-type {
+  margin-right: 20px !important;
+}
+
+.social-icon__link {
+  display: inline-block;
+}
+
+.media-block__item:first-child {
+  margin-right: 28px !important;
+}
+
+.pagination__item {
+  padding: 9px 14px !important;
+}
+
+.form__component--tradein {
+  margin-right: 5px !important;
+}
+
+.promo-block--stock .promo-block__btn {
+  padding-top: 20px;
+}
+
+.section__form--tradein-anketa .button {
+  float: right;
+  margin-top: 8px !important;
+}
+
+.modal-configurator__inner {
+  width: calc(100% - 300px);
+}
+
+.modal__aside {
+  height: 100%;
+}
+
+.modal-configurator__radio-label {
+  display: block;
+}
+
+.modal-configurator__form-btn {
+  text-align: left;
+}
+
+.modal-columns__item {
+  width: calc(50% - 10px);
+}
+
+.modal-columns__item:nth-of-type(2n+1) {
+  margin-right: 20px;
+}
+
+.modal-configurator__nav-list {
+  position: relative;
+  top: -10px !important;
+}
+
+.promocode__close {
+  margin-top: -35px !important;
+}
+
+.card__link::after {
+  background: rgba(0,0,0,0);
+}
+
+.card--long .card__link::after {
+  bottom: 48px !important;
+}
+/*# sourceMappingURL=ie.scss.map */

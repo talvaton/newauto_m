@@ -1,0 +1,7 @@
+<% if @res.present? %>
+  pagesAmount = <%=@total_pages %>;
+  $('#filter-results tbody').append('<%= j render partial:'carso/carso/show_main_filter', collection: @res %>');
+<% else %>
+  pagesAmount = 0
+  $('#filter-results tbody').append('<tr class="table__error"><td colspan="9">Извините, автомобилей, соответствующих заданным параметрам, не найдено</td></tr>')
+<% end %>

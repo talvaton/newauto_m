@@ -1,0 +1,9 @@
+<section class="car-banner" style="background-image: url(<%= NewCar.find(311).images[0].large.url %>)">
+  <div class="car-banner__inner">
+    <div class="car-banner__title">Как получить максимальную скидку?</div>
+    <p class="car-banner__text">Воспользуйтесь спецпредложением, которое откроет Вам простой путь покупки автомобиля с максимальной скидкой, а также упростит оформление всех документов за 1 день.</p>
+    <%#= link_to 'Получить спецпредложение', common_modal_path, class: 'button car-banner__button', rel: 'nofollow', :data => {:'show-common-modal' => 'modal_feedback_call'} %>
+    <%= link_to 'Получить спецпредложение', common_modal_path, class: 'button car-banner__button', rel: 'nofollow', :data => {:'show-common-modal' => 'modal_feedback_bottombanner'} %>
+  </div>
+</section>
+

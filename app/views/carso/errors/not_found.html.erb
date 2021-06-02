@@ -1,0 +1,12 @@
+<% provide :title,'404' %>
+<% provide :description,'404' %>
+
+
+<div class="row">
+    <h1 class="title-h1">Страница не найдена. Возможно, вы неправильно ввели адрес или она была удалена.</h1>
+  <div class="content">
+    <p class="text">Для дальнейшей работы с сайтом предлагаем перейти на
+      <%=link_to 'главную страницу', root_url, class: 'text-link' %>
+      или в раздел <%=link_to 'каталог новых авто', newauto_path, class: 'text-link' %>.</p>
+  </div>
+</div>

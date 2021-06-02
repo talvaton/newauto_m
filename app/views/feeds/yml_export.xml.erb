@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<yml_catalog date="">
+  <shop>
+    <name>Автосалон Авиньон</name>
+    <company>Автосалон Авиньон</company>
+    <url><%= request.base_url %></url>
+    <currencies>
+      <currency id="RUR" rate="1"/>
+    </currencies>
+    <cpa>0</cpa>
+    <categories>
+     <%# <category id="1">Авто</category>
+      <category id="2" parentId="1">Транспорт</category>
+      <category id="0" parentId="10003">Автомобили</category>%>
+      <% @brands.each do |brand| %>
+          <category id="<%= brand.id %>" parentId="10003"><%= brand.title %></category>
+      <% end %>
+    </categories>
+    <offers>
+      <% @new.each do |new_car| %>
+      <offer id="<%= new_car.id %>" available="true">
+        <url><%= request.base_url %>/<%= new_car.brand.url %>/<%= new_car.url %></url>
+        <currencyId>RUR</currencyId>
+        <categoryId><%= new_car.brand.id %></categoryId>
+        <picture><% if new_car.colors[0].present? %><%= request.base_url %><%= new_car.colors[0].feed.url %><% end %></picture>
+        <name><%= new_car.brand.title %><% if new_car.name.present? %> <%= new_car.name %><% end %></name>
+        <vendor><%= new_car.brand.title %></vendor>
+        <model><%= new_car.name %></model>
+        <manufacturer_warranty>true</manufacturer_warranty>
+        <price from="true"><%= new_car.equipments.minimum(:price) %></price>
+        <sales_notes></sales_notes>
+        <description></description>
+        <param name="Название авто (рус.)"><%= new_car.russian_name %> <%= ( Time.current - 1.year ).year.to_s if new_car.old %></param>
+        <param name="Марка (рус.)"><%= new_car.brand.menutitle %></param>
+        <param name="Модель (рус.)"><%= new_car.russian_name %></param>
+        <param name="Тип кузова"><%= new_car.car_type %></param>
+        <param name="Скидка" unit="руб."><%= new_car.discount + 120000 %></param>
+        <param name="Мощность" unit="л.с."><%= new_car.specifications.maximum(:power) %></param>
+        <param name="Год выпуска"><%= ( Time.current - 1.year ).year.to_s if new_car.old %><%= Time.current.year.to_s unless new_car.old %></param>
+      </offer>
+      <% end %>
+    </offers>
+  </shop>
+</yml_catalog>

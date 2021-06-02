@@ -1,0 +1,150 @@
+<div class="dark-section filter">
+  <div class="inner">
+    <div class="content-xs">
+      <h2 class="title title--light">
+        Быстрый подбор авто
+      </h2>
+
+      <%= form_for Ticket.new,
+                   url: {controller:'brands', action:'show_filter' },
+                   remote:true,
+                   validate:true,
+                   :html => {:class => '',:name=>'brands_filter', :autocomplete => 'off'},
+                   :namespace => 'brands_filter' do |f| %>
+
+        <%= f.hidden_field :form_name, value:'credit' %>
+
+        <div class="filter-panel">
+          <div class="select-wrapper">
+            <%= select_tag 'brands[filter][brand]', options_from_collection_for_select(Brand.where(hide:0), 'id', 'title'),class:'select',:include_blank => 'Все марки',id:'filter_brand' %>
+          </div>
+          <% equips = Equipment.where(hide: 0).joins(:equipment_description).joins(:specification)
+              .where(equipment_descriptions: {new_car_id: NewCar.where(hide:0, archive: 0)})
+          %>
+          <div class="select-wrapper">
+            <%= select_tag 'brands[filter][transmission]', raw('<option value="">Любая трансмиссия</option><option value="механ">Механическая</option><option value="автомат">Автоматическая</option><option value="робот">Робот</option><option value="вариатор">Вариатор</option>'),class:'select',id:'filter_transmission' %>
+          </div>
+          <div class="select-wrapper">
+            <%= select_tag 'brands[filter][drive]', raw('<option value="">Любой привод</option><option value="Передний">Передний</option><option value="Задний">Задний</option><option value="Полный">Полный</option>'),class:'select',id:'filter_drive' %>
+          </div>
+          <div class="select-wrapper">
+            <%= select_tag 'brands[filter][engine]', raw('<option value="">Любой двигатель</option><option value="Бензин">Бензин</option><option value="Дизель">Дизель</option>'),class:'select',id:'filter_engine' %>
+          </div>
+        </div>
+
+
+        <div class="filter-panel">
+          <div class="select-wrapper">
+            <%= select_tag 'brands[filter][type]', raw('<option value="">Любой кузов</option>
+    <option value="vnedorozhniki">Внедорожники</option>
+    <option value="xetchbeki">Хэтчбеки</option>
+    <option value="liftbeki">Лифтбеки</option>
+    <option value="universalyi">Универсалы</option>
+    <option value="sedanyi">Седаны</option>
+    <option value="minivenyi">Минивэны</option>
+    <option value="pikapyi">Пикапы</option>
+    <option value="furgonyi">Фургоны</option>
+    <option value="kupe">Купе</option>
+    <option value="cross-kupe">Кросс-купе</option>'),class:'select',id:'filter_type' %>
+          </div>
+          <div class="select-wrapper">
+            <% min_volume = (equips.minimum(:volume).to_f / 1000).round(1)
+               max_volume = (equips.maximum(:volume).to_f / 1000).round(1)
+
+               i = min_volume
+               arr = [i]
+               while (i < max_volume) do
+                 i = (i + 0.2).round(1)
+                 arr.push(i)
+               end
+            %>
+            <%= select_tag 'brands[filter][volume_min]', options_for_select(arr),class:'select select--sm',:include_blank => 'Объём, от',id:'filter_volume_min' %>
+            <%= select_tag 'brands[filter][volume_max]', options_for_select(arr),class:'select select--sm',:include_blank => 'Объём, до',id:'filter_volume_max' %>
+          </div>
+          <div class="select-wrapper">
+            <%= number_field_tag 'brands[filter][power_min]', nil, min: 0, max: 1000, step: 1, class:'input select--sm',id:'filter_power_min', placeholder:'Мощность, от' %>
+            <%= number_field_tag 'brands[filter][power_max]', nil, min: 0, max: 1000, step: 1, class:'input select--sm',id:'filter_power_max', placeholder:'Мощность, до' %>
+          </div>
+          <div class="select-wrapper">
+            <%= number_field_tag 'brands[filter][price_min]', nil, min: 0, max: 10000000, step: 10, class:'input select--sm',id:'filter_price_min', placeholder:'Цена, от' %>
+            <%= number_field_tag 'brands[filter][price_max]', nil, min: 0, max: 10000000, step: 10, class:'input select--sm',id:'filter_price_max', placeholder:'Цена, до' %>
+          </div>
+        </div>
+
+        <div class="filter-panel">
+          <div class="">
+            <div class="filter__text">Страна</div>
+            <%= hidden_field_tag 'ticket[filter][country]','',id:'filter_country' %>
+            <ul data-role="filter-countries-list" class="colors-list colors-list--country">
+              <li class="color color--all color--choosed" title="Все страны" data-value="">Все</li>
+              <li class="color" title="Китай" data-value="kitayskie-avtomobili">
+                <%= svg_tag 'carso/sprites/countries-sprite.svg','svg-china',32,32,class:'' %>
+              </li>
+              <li class="color" title="Корея" data-value="korejskie-avtomobili">
+                <%= svg_tag 'carso/sprites/countries-sprite.svg','svg-korea',32,32,class:'' %>
+              </li>
+              <li class="color" title="Германия" data-value="nemeczkie-avtomobili">
+                <%= svg_tag 'carso/sprites/countries-sprite.svg','svg-germany',32,32,class:'' %>
+              </li>
+              <li class="color" title="Россия" data-value="russkie-avtomobili">
+                <%= svg_tag 'carso/sprites/countries-sprite.svg','svg-russia',32,32,class:'' %>
+              </li>
+              <li class="color" title="Франция" data-value="franczuzskie-avtomobili">
+                <%= svg_tag 'carso/sprites/countries-sprite.svg','svg-france',32,32,class:'' %>
+              </li>
+              <li class="color" title="Япония" data-value="yaponskie-avtomobili">
+                <%= svg_tag 'carso/sprites/countries-sprite.svg','svg-japan',32,32,class:'' %>
+              </li>
+              <li class="color" title="Америка" data-value="amerikanskie-avtomobili">
+                <%= svg_tag 'carso/sprites/countries-sprite.svg','svg-america',32,32,class:'' %>
+              </li>
+            </ul>
+          </div>
+
+          <div class="select-wrapper select-wrapper--reset">
+            <button class="button button--filter button--filter-dark" type="button" data-action="filter-reset">Сбросить фильтры</button>
+          </div>
+        </div>
+
+      <% end %>
+
+
+    </div>
+  </div>
+</div>
+
+<div class="inner">
+    <div class="table-wrapper">
+      <table class="table table-filter" style="display: none;" id="filter-results">
+        <thead>
+        <tr class="table__header">
+          <th class="table__col-title">Модель</th>
+          <th class="table__col-title"></th>
+          <th class="table__col-title">Объём</th>
+          <th class="table__col-title">Мощность</th>
+          <th class="table__col-title">Трансмиссия</th>
+          <th class="table__col-title">Привод</th>
+          <th class="table__col-title">Двигатель</th>
+          <th class="table__col-title">Цена</th>
+          <th class="table__col-title"></th>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+    </div>
+    <svg viewBox="0 0 80 80" class="loader" id="filter_loader" style="display:none">
+      <symbol id="s-spinner">
+        <circle r="5" cx="10" cy="10"></circle>
+      </symbol>
+      <g id="spinner" class="g-circles">
+        <g class="g-circle"><use xlink:href="#s-spinner" class="u-circle"/></g>
+        <g class="g-circle"><use xlink:href="#s-spinner" class="u-circle"/></g>
+        <g class="g-circle"><use xlink:href="#s-spinner" class="u-circle"/></g>
+      </g>
+    </svg>
+
+
+</div>
+

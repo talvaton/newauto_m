@@ -1,0 +1,20 @@
+$.fancybox.open(
+    [
+        <% @car.images.each_with_index do |img,index| %>
+        {
+            src : '<%= @car.images[index].url %>'
+        },
+        <% end %>
+    ],
+    {
+    buttons: [
+        'close'
+    ],
+    transitionEffect: 'slide',
+    loop: true,
+    afterShow: function(){
+        DISABLE_FANCYBOX = false;
+      }
+    }
+
+);

@@ -1,0 +1,50 @@
+<aside class="modal" id="phone-request-modal">
+  <div class="modal__inner">
+    <h3 class="modal__title">Обратный звонок</h3>
+    <div class="modal__text">Оставьте номер и мы сами перезвоним вам!</div>
+    <form class="form modal__form" method="POST" action="">
+      <div class="form__component">
+        <input class="input" type="text" name="customer-name">
+        <label class="label">Ваше имя</label>
+      </div>
+      <div class="form__component">
+        <input class="input" type="tel" data-role="phone" name="phone">
+        <label class="label">Номер телефона</label>
+      </div>
+      <button class="button button--simple modal__button" type="submit">Отправить заявку  </button>
+    </form>
+  </div>
+  <button class="modal__close-btn" type="button" data-fancybox-close>
+    <svg width="32" height="32" viewBox="0 0 26 26" ratio="1">
+      <line fill="none" stroke="#1aa7e8" stroke-width="1" x1="1" y1="1" x2="24" y2="24"> </line>
+      <line fill="none" stroke="#1aa7e8" stroke-width="1" x1="24" y1="1" x2="1" y2="24"></line>
+    </svg>
+  </button>
+</aside>
+<aside class="modal" id="city-choice-modal">
+  <div class="modal__inner">
+    <h3 class="modal__title">Выберите свой город</h3>
+    <ul class="modal__cities">
+      <li class="modal__city">
+        <%= link_to '<strong>Москва</strong>'.html_safe,root_url(subdomain: 'www') ,class:'modal__city-link' %>
+      </li>
+      <li class="modal__city">
+        <%= link_to '<strong>Санкт-Петербург</strong>'.html_safe,root_url(subdomain: 'peterburg') ,class:'modal__city-link' %>
+      </li>
+      <%= render partial:'partials/common/city_list', collection: @regions  %>
+      <hr>
+      <li class="modal__city">
+        <%= link_to '<strong>Беларусь</strong>'.html_safe,root_url(subdomain: 'belarus') ,class:'modal__city-link' %>
+      </li>
+      <li class="modal__city">
+        <%= link_to '<strong>Казахстан</strong>'.html_safe,root_url(subdomain: 'kazakhstan') ,class:'modal__city-link' %>
+      </li>
+    </ul>
+  </div>
+  <button class="modal__close-btn" type="button" data-fancybox-close>
+    <svg width="32" height="32" viewBox="0 0 26 26" ratio="1">
+      <line fill="none" stroke="#1aa7e8" stroke-width="1" x1="1" y1="1" x2="24" y2="24"> </line>
+      <line fill="none" stroke="#1aa7e8" stroke-width="1" x1="24" y1="1" x2="1" y2="24"></line>
+    </svg>
+  </button>
+</aside>

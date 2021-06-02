@@ -1,0 +1,5 @@
+<li class="menu-list__item">
+  <%= link_to(special_brand_path(used_brands.url), class:'menu-list__link',title:used_brands.title) do %>
+    <%= image_tag used_brands.logo.url, class:"menu-list__img",alt:used_brands.title %><%= used_brands.title %>
+  <% end %>
+</li>

@@ -1,0 +1,17 @@
+<% provide :title,'Автомобильные новости' %>
+<% provide :description,'Автомобильные новости о новых моделях, об авторынке, о дилерах, цены на авто - официальный дилер, Автосалон | Москва' %>
+
+
+<div class="row justify-content-between form__credit_p">
+  <div class="form__lt">
+      <h1>Мир автосалона Авиньон</h1>
+  </div>
+</div>
+
+
+
+<div class="row justify-content-between reviews_list">
+  <%= render partial:'articles/article', collection: @articles %>
+</div>
+
+<%= render 'partials/carso/credit_form' %>

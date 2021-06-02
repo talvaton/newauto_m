@@ -1,0 +1,20 @@
+@import '_vars';
+
+@import '_common_top';
+@import '_cards';
+@import '_banks_list';
+
+
+.utiliz-list {
+
+}
+
+@media #{$media_xxl} {
+  .utiliz-columns {
+    display: flex;
+    justify-content: space-between;
+  }
+  .utiliz-columns__item {
+    width: 45%;
+  }
+}

@@ -1,0 +1,74 @@
+<%
+  region = false
+  unless @current_region.id == 57
+    region = true
+  end
+%>
+<%
+  if @price.to_s == '1000000'
+    longtitle = 'одного миллиона'
+  elsif @price.to_s == '1500000'
+    longtitle = 'одного миллиона 500 тысяч'
+  elsif @price.to_s == '2000000'
+    longtitle = 'двух миллионов'
+  else
+    longtitle = @price.to_s.truncate(3, omission: '') + ' тысяч'
+  end
+ %>
+
+
+<% t_mos = "Автомобили с пробегом до #{longtitle} рублей купить БУ авто до #{@price} рублей в #{@current_region.sklon3}" %>
+<% t_reg = "Купить БУ авто до #{@price} руб в #{@current_region.sklon3} автомобили с пробегом до #{longtitle} рублей" %>
+<% d_mos = "Продажа БУ авто за #{longtitle} р.️ Рассрочка, трейд-ин, кредит под низкий процент! Купить автомобиль с пробегом за #{longtitle} р. в автосалоне, #{@current_region.sklon1}" %>
+<% d_reg = "Продажа БУ авто за #{longtitle} р. Рассрочка, трейд-ин, кредит под низкий процент! Купить автомобиль с пробегом за #{longtitle} р. в автосалоне, #{@current_region.sklon1}" %>
+
+
+<% unless region %>
+  <% provide :title,t_mos %>
+  <% provide :description,d_mos %>
+<% else %>
+  <% provide :title,t_reg %>
+  <% provide :description,d_reg %>
+<% end %>
+
+<div class="inner">
+
+  <div class="content-xs">
+    <h1 class="title-h1">Автомобили с пробегом до <%= number_with_delimiter(@price , delimiter: " ") %> рублей </h1>
+    <%= render 'carso/used_cars/filter_links' %>
+  </div>
+
+  <div class="content">
+    <div class="card-list">
+      <%= render partial:'partials/carso/used_car', collection: @used_price %>
+    </div>
+    <%= link_to sprobegom_path, class:'btn-link', target:'_blank' do %>
+      <%= svg_tag 'carso/icons.svg','svg-loader',24,6,class:'' %>
+      <span>Все автомобили БУ</span>
+    <% end %>
+  </div>
+
+  <div class="content-xs">
+    <h2 class="title">Другие авто с пробегом</h2>
+  </div>
+  <div class="content">
+    <div class="card-list">
+      <%= render partial:'partials/carso/used_car', collection: UsedCar.used_cars(12).order(id: :desc) %>
+    </div>
+
+    <%= link_to sprobegom_path, class:'btn-link', target:'_blank' do %>
+      <%= svg_tag 'carso/icons.svg','svg-loader',24,6,class:'' %>
+      <span>Все автомобили с пробегом</span>
+    <% end %>
+  </div>
+
+</div>
+
+<%= render partial:'carso/carso/bottom_banner' %>
+
+
+<% content_for :rails_to_js_variables do %>
+  <script>
+      var url = '<%= @price %>';
+  </script>
+<% end %>

@@ -1,0 +1,21 @@
+<%# if bank.image.present? %>
+<% if bank.has_page? %>
+<div class="bank__item">
+    <div>
+    <%= link_to bank_path(bank.url) do %>
+        <% if (bank.name == 'ВТБ') ||
+            (bank.name == 'Сетелем Банк') ||
+            (bank.name == 'Газпромбанк') ||
+            (bank.name == 'Сбербанк') ||
+            (bank.name == 'ЛокоБанк') ||
+            (bank.name == 'Росбанк') ||
+            (bank.name == 'Совкомбанк') ||
+            (bank.name == 'Банк «Тинькофф»') ||
+            (bank.name == 'Банк Оранжевый') ||
+            (bank.name == 'ЮниКредит Банк')%><span class="rb_n">Кредит на авто в <%= bank.name %></span><% else %> <% end %>
+        <%= image_tag bank.image.optimized.url,alt:bank.name,class:'partners__img', lazy:false %>
+    <% end %>
+    </div>
+</div>
+<% end %>
+<%# end %>

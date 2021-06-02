@@ -1,0 +1,33 @@
+<aside class="modal modal--callback" id="used-car-buy-modal">
+
+  <div class="modal__top">
+    <button type="button" class="modal__close-btn" data-fancybox-close>
+      <%= svg_tag 'carso/icons.svg','svg-close',40,40,id:'nav-close',class:'' %>
+    </button>
+    <div class="modal__title">
+      <div class="modal__title-name">
+        Оставьте заявку на кредит или бронирование
+      </div>
+      <div class="modal__title-name">
+        <%= @car.brand.title %> <%= @car.name %>
+      </div>
+      <p class="modal__title-additional">Кредит 1.9% / Одобрение 95%</p>
+    </div>
+  </div>
+
+
+  <div class="modal__inner">
+    <%= form_for Ticket.new,url: {action:"create",controller:"tickets" },remote:true,validate:true,:html => {:class => "form",:name=>"bron_modal"},:namespace => "bron_modal" do |f| %>
+      <%= hidden_field_tag 'ticket[other][used_car_id]',@car.id, id:'bron_modal_ticket_other_used_car_id' %>
+      <%= f.hidden_field :form_name, value:"express" %>
+      <div class="form__component">
+        <%= f.text_field :name,class:"input", placeholder:'Ваше имя' %>
+      </div>
+      <div class="form__component">
+        <%= f.phone_field :phone,class:"input",data:{:role=>"phone"}, placeholder:'Номер телефона' %>
+      </div>
+      <%= f.button "Отправить", class: "button button--simple modal__button" %>
+    <% end %>
+  </div>
+
+</aside>

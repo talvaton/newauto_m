@@ -1,0 +1,156 @@
+// модаль цветов в машине
+.modal--colors {
+  &.modal--car-info {
+    max-width: 700px;
+  }
+  @media #{$media_xxl} {
+    &:not(.modal--car-info) {
+      max-width: 1060px;
+    }
+    //.modal__inner {
+    //  padding: 0 70px 30px;
+    //}
+  }
+  .button svg {
+    margin-right: 5px;
+    fill: $contrast_main;
+  }
+  .form {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+.modal__colors-wrapper {
+  position: relative;
+  padding: 10px;
+  @media #{$media_xxl} {
+    padding: 30px 60px 20px;
+  }
+}
+.modal__colors-arrow {
+  position: absolute;
+  top: calc(50% - 40px)
+}
+.modal__colors-arrow--back {
+  left: 0;
+}
+.modal__colors-arrow--forward {
+  right: 0;
+  transform: rotateZ(180deg);
+}
+
+.modal__colors {
+  @include list_reset;
+  display: flex;
+  flex-flow: row wrap;
+  @media #{$media_xxl} {
+    justify-content: flex-start;
+  }
+}
+.modal__color {
+  width: 50%;
+  @media #{$media_s} {
+    width: 33.3333%;
+  }
+  @media #{$media_l} {
+    width: 25%;
+  }
+  @media #{$media_xxl} {
+    width: calc(16.6666% - 30px);
+    margin: 0 15px;
+  }
+}
+.modal__color-link {
+  display: block;
+  @include link_undecor($text_gray);
+  padding-bottom: 10px;
+}
+.modal__color-img {
+  display: block;
+  max-width: 120px;
+  margin: 0 auto;
+}
+.modal__color-name {
+  display: block;
+  margin: 10px 0 15px;
+  font-size: 12px;
+  text-align: center;
+}
+
+// модаль цветов в машине end
+
+
+
+
+// модаль Обмен в машине
+.modal--tradein-car {
+  max-width: 940px;
+  text-align: left;
+  .modal__inner {
+    padding: 20px;
+    @media #{$media_l} {
+      padding: 0 0 60px 40px;
+    }
+  }
+  .modal__title {
+    text-align: left;
+    padding: 0;
+  }
+  .modal__title-name {
+    font-size: 22px;
+    text-transform: uppercase;
+    color: $contrast_main;
+    font-weight: 400;
+    opacity: 1;
+  }
+  .modal__title-additional {
+    font-size: 18px;
+    color: $text_main;
+    @media #{$media_l} {
+      font-size: 22px;
+    }
+  }
+  .form__component {
+    width: 260px;
+  }
+  .button {
+    margin: 0;
+  }
+}
+.modal-tradein__inner {
+  @media #{$media_l} {
+    display: flex;
+  }
+}
+.modal-tradein__top {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: $contrast_main;
+  color: $white;
+  @media #{$media_m} {
+    min-width: 340px;
+    padding: 35px 40px 35px 35px;
+  }
+}
+.features-list {
+  @include list_reset;
+  font-size: 20px;
+  font-weight: 500;
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-bottom: 20px;
+  }
+  svg {
+    min-width: 30px;
+    margin-right: 20px;
+  }
+}
+// модаль Обмен в машине end
+
+
+
+
+

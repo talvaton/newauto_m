@@ -1,0 +1,30 @@
+<% if credit_page?
+  # m = 60
+  # p = 25
+  credit = true
+ end %>
+<% if tradein_page?
+  # m = 60
+  # p = 25
+  tradein = true
+ end %>
+
+<% if new_cars_url_brand.special_options.present? and (new_cars_url_brand.special_options.include? 'Хит-продаж')
+     class_topsale = "card--topsale"
+   else
+     class_topsale = ""
+   end %>
+
+<%
+  if (new_cars_url_brand.discount_count + @region_discount) < new_cars_url_brand.equipments.where(hide:0).minimum(:price)*4/10
+    snc_price = new_cars_url_brand.equipments.where(hide:0).minimum(:price) - new_cars_url_brand.discount_count - @region_discount
+  else
+    #snc_price = new_cars_url_brand.equipments.where(hide:0).minimum(:price)*6/10
+    snc_price = new_cars_url_brand.equipments.where(hide:0).minimum(:price) - new_cars_url_brand.discount_count
+  end
+%>
+     <li>
+    <%= link_to ( new_car_path(new_cars_url_brand.brand.url,new_cars_url_brand.url)  ) do %>
+        <span><%#= new_cars_url_brand.brand.title %><%= new_cars_url_brand.name %></span>
+    <% end %>
+     </li>

@@ -1,0 +1,14 @@
+<li class="brand__block">
+  <div class="brand_name">
+    <%= link_to(brand_path(main_catalog.url), class:'menu-list__link brandlist__link',:data=>{:action => 'show-brand-in-menu'},title:main_catalog.title) do %>
+    <span><%= main_catalog.title %></span>
+    <% end %>
+  </div>
+  <ul>
+    <% main_catalog.new_cars.where(hide: 0).each do |car| %>
+      <li>
+        <%= link_to car.name, new_car_path(car.brand.url,car.url) %>
+      </li>
+      <% end %>
+  </ul>
+</li>

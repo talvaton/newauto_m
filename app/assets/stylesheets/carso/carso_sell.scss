@@ -1,0 +1,513 @@
+@import '_vars';
+
+@import '_common_top';
+@import '_review';
+@import '_banks_list';
+
+
+
+
+
+.sell_info_txt{
+  width: 64%;
+  padding: 30px 0 30px 0;
+  @media all and (max-width: 1000px) {
+    width: 100%;
+  }
+}
+.sell_info_txt.lnp{
+  width: 32%;
+  @media all and (max-width: 1000px) {
+    width: 100%;
+  }
+}
+.sell_info_txt span{
+  display: block;
+  padding: 0 0 20px 0;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 120%;
+  color: #222222;
+}
+.sell_info_txt div{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: #2A2A30;
+  width: 930px;
+  min-width: 930px;
+  @media all and (max-width: 1000px) {
+    width: 100%;
+    min-width: 100%;
+  }
+}
+.sell_info_txt p{
+  line-height: 140%;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  color: #222222;
+  margin: 0 0 10px 0;
+  @media all and (max-width: 600px) {
+    font-size: 14px;
+  }
+}
+.sell_info_txt.lnp p{
+  line-height: 140%;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  color: #222222;
+  margin: 0 0 15px 0;
+}
+
+.credit_bp_txt div p{}
+.frm_tbank{
+  font-style: normal;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 24px;
+  color: #343F4B;
+  @media all and (max-width: 1300px) {
+    text-align: center;
+    display: block;
+    margin: 0 0 55px 0;
+  }
+}
+.main .credit_fbn {
+  margin: 50px 0;
+}
+
+.form_block-right {
+  position: relative;
+  margin: 80px 0 0 0;
+  border: 3px solid #00ADF8;
+  border-radius: 15px;
+  padding: 40px 40px 30px 40px;
+  width: 945px;
+  background: #fff;
+  @media all and (max-width: 600px) {
+    position: initial;
+    padding: 0 25px 0 25px;
+    margin: 0;
+    width: 100%;
+  }
+}
+.fr_credit{
+  display: none;
+  @media all and (max-width: 600px) {
+    display: block;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 26px;
+    line-height: 26px;
+    color: #BDC7D1;
+  }
+}
+
+.form_block.credit {
+  border: medium none;
+  border-radius: 0;
+  padding: 0 0 30px 30px;
+  width: 348px;
+  @media all and (max-width: 600px) {
+    padding: 40px 15px 15px 15px;
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.sell_f_center {
+  width: 50%;
+  margin: 0;
+  background: #F7F7F7;
+  padding: 30px 50px 10px 50px;
+  @media all and (max-width: 1280px) {
+    width: 620px;
+    margin: 20px auto;
+  }
+  @media all and (max-width: 700px) {
+    width: 100%;
+  }
+  @media all and (max-width: 500px) {
+    padding: 30px 10px 10px 20px;
+  }
+}
+
+.sct{
+  font-style: normal;
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 22px;
+  color: #343F4B;
+  padding: 20px 0;
+}
+.form-sale-info{
+  margin: 0 0 10px 0;
+  text-align: left;
+}
+.form-credit-info{
+  font-style: normal;
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 32px;
+  color: #2A2A30;
+  padding: 0 0 10px 0;
+  @media all and (max-width: 600px) {
+    font-size: 22px;
+    line-height: 22px;
+  }
+}
+.form-credit-info span{
+  display: block;
+  color: #0551A1;
+  @media all and (max-width: 600px) {
+    display: inline-block;
+  }
+}
+.form_sell .form_input{
+    padding: 0 0 15px 0;
+  @media all and (max-width: 1280px) {
+    padding: 0 10px 15px 0;
+  }
+}
+.form_sell form select{
+  height: 42px;
+}
+.sale-from{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  color: #BDC7D1;
+  line-height: 48px;
+  @media all and (max-width: 600px) {
+    padding: 20px 0 0 0;
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 800;
+    color: #0551A1;
+  }
+}
+.form_block-right form select,.form_block-right form input,.form_block-right form button{
+  @media all and (max-width: 600px) {
+    width: 100%;
+  }
+}
+.form_sell form input,.form_sell form select,.form_sell form button{
+  width: 254px;
+  @media all and (max-width: 700px) {
+    width: 100%;
+  }
+}
+
+.form_block-right form button{
+  @media all and (max-width: 600px) {
+    height: auto;
+    line-height: 16px;
+    margin: 0 0 20px 0;
+  }
+}
+
+.sale-from{
+  font-weight: 800;
+  color: #0551A1;
+}
+.tradein_slh{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 26px;
+  line-height: 26px;
+  color: #BDC7D1;
+  display: block;
+  padding: 16px 0 0 0;
+}
+.sale-from_w{
+  font-style: normal;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 18px;
+  color: #343F4B;
+  display: block;
+  padding: 5px 0 5px 0;
+}
+
+.opif_cr{
+  @media all and (max-width: 600px) {
+    width: 100%;
+    margin: 0 0 30px -10px;
+  }
+}
+
+.opif_cr .row{
+  padding: 15px 0 0 0;
+  @media all and (max-width: 600px) {
+    padding: 15px 0 0 0;
+    flex-wrap: initial;
+    display: inline-block;
+  }
+}
+.opif_cr span{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 15px;
+  color: #2A2A30;
+  width: 388px;
+  padding: 0 0 0 5px;
+  @media all and (max-width: 600px) {
+    width: 280px;
+    display: inline-block;
+    padding: 0;
+  }
+  @media all and (max-width: 400px) {
+    width: 220px;
+  }
+}
+.opif_cr span strong{
+  display: block;
+  padding: 25px 0 0 0;
+}
+.opif_cr b{
+  font-style: normal;
+  font-weight: 800;
+  font-size: 18px;
+  color: #2A2A30;
+  width: 20px;
+  text-align: center;
+  @media all and (max-width: 600px) {
+    font-size: 18px;
+    width: 40px;
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+.fcr_t_top{
+  position: absolute;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 26px;
+  line-height: 26px;
+  color: #2A2A30;
+  top: -17px;
+  left: 28px;
+  background: #fff;
+  padding: 0 15px;
+  @media all and (max-width: 600px) {
+    font-size: 18px;
+    line-height: 18px;
+    border: 2px solid #00ADF8;
+    border-radius: 15px;
+    padding: 5px 15px;
+  }
+}
+.form_sell_bl {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin: 40px 0;
+  @media all and (max-width: 1280px) {
+    display: block;
+  }
+}
+.form_sell{
+  width: 50%;
+  border: 1px solid #6AD1A6;
+  padding: 30px 50px 77px 50px;
+  @media all and (max-width: 1280px) {
+    width: 620px;
+    margin: 0 auto;
+  }
+  @media all and (max-width: 700px) {
+    width: 100%;
+    margin: 0 auto;
+  }
+  @media all and (max-width: 500px) {
+    padding: 30px 10px 20px 10px;
+  }
+}
+.form_sell h2{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 120%;
+  color: #222222;
+  @media all and (max-width: 700px) {
+    font-size: 28px;
+    margin: 0 0 20px 0;
+  }
+}
+.form_sell form{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  @media all and (max-width: 700px) {
+    display: block;
+  }
+}
+.form__lt {
+  width: 434px;
+  height: auto;
+}
+
+
+.form__lt h1 b{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 26px;
+  line-height: 26px;
+  color: #BDC7D1;
+}
+.form__lt h1 span{
+  font-style: normal;
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 64px;
+  color: #0551A1;
+  display: block;
+  margin: 0;
+  @media all and (max-width: 600px) {
+    font-size: 40px;
+    line-height: 40px;
+  }
+}
+
+.h_block{
+  position: relative;
+  @media all and (max-width: 600px) {
+    padding: 0;
+  }
+}
+.sale-date{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 24px;
+  color: #343F4B;
+}
+.sale-price{
+  font-style: normal;
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 48px;
+  color: #F43F42;
+}
+
+.circle_block {
+  position: absolute;
+  height: 698px;
+  width: 698px;
+  border: 4px solid #dae1e847;
+  border-radius: 50%;
+  top: -100px;
+  left: -180px;
+  z-index: -1;
+  @media all and (max-width: 500px) {
+    top: -135px;
+    left: -285px;
+  }
+}
+
+.circle_block img{
+  position: absolute;
+  top: 140px;
+  left: 140px;
+}
+.circle_block:before{
+  content: '';
+  position: absolute;
+  display: inline-block;
+  width: 412px;
+  height: 412px;
+  top: 20.49%;
+  left: 20.49%;
+  right: 20.49%;
+  bottom: 20.49%;
+  opacity: 0.6;
+  border: 1px solid #DAE1E8;
+  border-radius: 50%;
+}
+.circle_block:after{
+  content: '';
+  position: absolute;
+  display: inline-block;
+  width: 560px;
+  height: 560px;
+  top: 9.89%;
+  left: 9.89%;
+  right: 9.89%;
+  bottom: 9.89%;
+  opacity: 0.6;
+  border: 40px solid #dae1e87a;
+  border-radius: 50%;
+}
+.main .form_block-right{
+  @media all and (max-width: 600px) {
+    margin: 80px 0 0 0;
+    position: relative;
+  }
+}
+.secur_f {
+  width: 254px;
+  padding: 15px 0 0 0;
+}
+.secur_f:before{
+  width: 60px;
+}
+.sell_inf ul li{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: #2A2A30;
+  padding: 10px 0 0 0;
+  align-items: flex-start;
+  display: flex;
+}
+.sell_inf ul li span{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 140%;
+  color: #2A2A30;
+  display: inline-block;
+  padding: 0;
+  @media all and (max-width: 400px) {
+    font-size: 14px;
+    line-height: 14px;
+  }
+}
+.sell_inf ul li:before{
+  content: '';
+  background: image-url('carso/icons/vect_ok.svg')no-repeat center right;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  margin: 0 10px 0 0;
+}
+.form__credit_p .form__lt {
+  @media all and (max-width: 600px) {
+    height: auto;
+  }
+}
+.fm_i_t{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 120%;
+  color: #222222;
+  display: block;
+  padding: 8px 0;
+}
+.sell_info_b{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  @media all and (max-width: 1000px) {
+    display: block;
+  }
+}
+.reviews_model {
+  background: transparent;
+}

@@ -1,0 +1,2 @@
+$("#news_block").html("<%= j render partial:'carso/news', collection: @news %>");
+$('#stories_pagination').html('<%= j (paginate(@news, :remote => true).to_s) %>');

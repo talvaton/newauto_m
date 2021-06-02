@@ -1,0 +1,224 @@
+@import "_vars";
+@import "rangeslider";
+
+
+h1 .h_slog{
+  font-size: 16px;
+  color: #6AD1A6;
+  opacity: 1;
+  line-height: 20px;
+  display: block;
+}
+
+.e__quip .form_block {
+  width: 362px;
+  @media (max-width: 1100px) {
+    width: 550px;
+  }
+}
+.e__quip .s__block__center{
+  width: initial;
+  padding: 0 10px;
+  @media (max-width: 1280px) {
+    padding: 0 30px 0 10px;
+    width: 300px;
+  }
+  @media (max-width: 1100px) {
+    width: 550px;
+    margin: 10px auto;
+    padding: 0 10px 0 10px;
+  }
+}
+.e__quip .sale-date{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 120%;
+  color: #888888;
+}
+.e__quip .sale-price{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 120%;
+  color: #6AD1A6;
+  position: relative;
+  right: initial;
+  top: inherit;
+}
+.e__quip .sale-from{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 120%;
+  color: #1260B0;
+}
+.e__quip .form-sp{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 18px;
+  color: #222222;
+}
+
+.e__quip .form-credit-info span{
+  @media (max-width: 400px) {
+    font-size: 30px;
+  }
+}
+
+.stb-n.e__quip {
+  margin: 20px 0 40px 0;
+  @media (max-width: 1100px) {
+    display: block;
+  }
+}
+.e__quip .img_col_block {
+  @media (max-width: 1280px) {
+    width: 400px;
+  }
+  @media (max-width: 500px) {
+  width: 100%;
+}
+ }
+.e__quip .img-comp-img img{
+  @media (max-width: 1280px) {
+    width: 100%;
+  }
+}
+.e__quip .s__block__center .sale_block_center{
+  @media (max-width: 1280px) {
+    width: 100%;
+  }
+  @media (max-width: 1100px) {
+    margin: 20px 0 0 0;
+  }
+}
+
+/************tradein_form**************/
+.tradein_form{
+  margin: 20px 0;
+}
+.tradein_form form{
+  display: flex;
+  justify-content: space-between;
+  @media (max-width: 1000px) {
+    flex-wrap: wrap;
+    display: inline-block;
+    width: 100%;
+  }
+}
+.tr_flbl{
+  width: 100%;
+  padding: 30px 40px 0 40px;
+  background: #F7F7F7;
+  @media (max-width: 1180px) {
+    padding: 30px 15px 0 15px
+  }
+  @media (max-width: 1000px) {
+    width: 347px;
+    margin: 0 auto;
+    padding: 30px 15px 15px 15px;
+  }
+  @media (max-width: 400px) {
+    width: 100%;
+  }
+}
+.tr_flb{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @media (max-width: 1000px) {
+    flex-wrap: wrap;
+  }
+  @media (max-width: 400px) {
+    display: block;
+  }
+}
+.tr_frb{
+  padding: 40px;
+  background: #FFFFFF;
+  border: 1px solid #6AD1A6;
+  box-sizing: border-box;
+  @media (max-width: 1180px) {
+    padding: 40px 15px 15px 15px;
+  }
+  @media (max-width: 1000px) {
+    width: 347px;
+    margin: 0 auto;
+    padding: 15px;
+  }
+  @media (max-width: 400px) {
+    width: 100%;
+  }
+}
+.tr_fin{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 120%;
+  color: #222222;
+}
+.tr_fins{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 100%;
+  color: #222222;
+  @media (max-width: 1000px) {
+    margin: 15px 0 0 0;
+    display: block;
+  }
+}
+.tr_fh{
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 120%;
+  color: #222222;
+  padding: 0 0 10px 0;
+  display: block;
+}
+.tradein_form form input,.tradein_form form select{
+  background-color: #ffffff;
+  @media (max-width: 1050px) {
+    width: 100%;
+    max-width: 100%;
+    min-width: 280px;
+  }
+  @media (max-width: 1000px) {
+    width: 315px;
+    max-width: initial;
+    min-width: initial;
+  }
+  @media (max-width: 400px) {
+    width: 100%;
+  }
+}
+.tradein_form form button{
+  @media (max-width: 1050px) {
+    width: 100%;
+    max-width: 100%;
+    min-width: 280px;
+  }
+  @media (max-width: 1000px) {
+    width: 315px;
+    max-width: initial;
+    min-width: initial;
+  }
+  @media (max-width: 400px) {
+    width: 100%;
+  }
+}
+.secur_f {
+  @media (max-width: 400px) {
+    width: 100%;
+  }
+}
+.secur_f:before {
+  @media (max-width: 400px) {
+    width: 60px;
+  }
+}
+
+/************tradein_form**************/

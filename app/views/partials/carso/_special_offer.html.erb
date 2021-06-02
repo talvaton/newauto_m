@@ -1,0 +1,29 @@
+<div class="card card--standard">
+  <div class="card__inner">
+    <div class="card__media card__media--full" data-show-used-ajax="used-car-photos" data-car_id="<%= special_offer.id %>">
+<% if special_offer.images[0].present? %>
+      <%= image_tag "/static/images/blank.png",class:'card__img', alt: '',data:{:lazy=>special_offer.images[0].card.url,:original=>special_offer.images[0].card.url} %>
+<% end %>
+<!--      <span class="card__label">Хит</span>-->
+    </div>
+    <div class="card__main card__main_new">
+
+      <div class="card__title"><%= special_offer.brand.title %>  <%= special_offer.name %></div>
+      <div class="card__price"><%= number_with_delimiter(special_offer.price,delimiter:' ') %> &#8381;</div>
+    </div>
+    <div>
+      <ul class="card__infolist">
+        <li class="card__infoitem"><span class="card__infoitem-name">Объём</span><span><%= special_offer.volume %> л</span></li>
+        <li class="card__infoitem"><span class="card__infoitem-name">Мощность</span><span><%= special_offer.power %> л.с</span></li>
+        <li class="card__infoitem"><span class="card__infoitem-name">Кпп</span><span><%= special_offer.transmission %></span></li>
+      </ul>
+    </div>
+    <div class="card__buttons">
+      <button class="card__btn" data-show-used-ajax="used-car-details-modal"  data-car_id="<%= special_offer.id %>" type="button">
+        <span>Подробнее</span>
+
+      </button>
+      <button class="button" data-show-used-ajax="used-car-buy-modal" data-car_id="<%= special_offer.id %>" type="button">Купить со скидкой</button>
+    </div>
+  </div>
+</div>

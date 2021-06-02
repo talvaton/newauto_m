@@ -1,0 +1,6 @@
+<li class="menu-list__item">
+  <%= link_to new_car_path(car_list.brand.url, car_list.url), class: 'menu-list__link' do %>
+    <%= image_tag car_list.colors[0].url,class:'menu-list__img' %>
+    <span class="menu-list__name"><%= car_list.russian_name %></span>
+  <% end %>
+</li>

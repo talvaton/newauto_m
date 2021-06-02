@@ -1,0 +1,11 @@
+<% if menu %>
+<li class="brandlist__item brandlist__item--in-menu">
+  <%= link_to('#', class:'brandlist__link brandlist__link--dark',:data=>{:action => 'show-brand-in-menu'}) do %><%= image_tag brand_list.logo.url, class:"brandlist__img" %><%= brand_list.title %><% end %>
+</li>
+  <% else %>
+  <li class="brandlist__item">
+    <a class="brandlist__link" href="#">
+      <img class="brandlist__img" src="https://www.saloncentr.ru/assets/images/logo/jac.png" alt="" title="">Brilliance
+    </a>
+  </li>
+<% end %>

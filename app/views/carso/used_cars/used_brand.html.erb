@@ -1,0 +1,133 @@
+<%
+  region = false
+  unless @current_region.id == 57
+    region = true
+  end
+%>
+<%
+  title = @brand.title
+  if @brand.menutitle
+    title = @brand.menutitle
+  end
+%>
+
+<% t_mos = "#{title} с пробегом, купить БУ #{@brand.title} в кредит (подержанный) в автосалоне, #{@current_region.sklon1}" %>
+<% t_reg = "Купить #{title} с пробегом в #{@current_region.sklon3}, БУ #{@brand.title} в кредит (подержанный), продажа в автосалоне" %>
+<% d_mos = "Купить #{title} с пробегом. Рассрочка, трейд-ин, кредит под низкий процент! Продажа подержанных БУ #{@brand.title} в автосалоне, #{@current_region.sklon1}" %>
+<% d_reg = "Продажа #{title} с пробегом в #{@current_region.sklon3}. Рассрочка, трейд-ин, кредит на выгодных условиях! Купить подержанную БУ #{@brand.title} в автосалоне" %>
+
+<% unless region %>
+  <% provide :title,t_mos %>
+  <% provide :description,d_mos %>
+<% else %>
+  <% provide :title,t_reg %>
+  <% provide :description,d_reg %>
+<% end %>
+
+
+<div class="inner">
+
+  <div class="content-xs">
+    <h1 class="title-h1">Автомобили <%= @brand.title %>
+      <% if @brand.menutitle %>
+        (<%= @brand.menutitle %>)
+      <% end %>
+      с пробегом</h1>
+
+    <ul class="menu-list--simple-count">
+      <%= render partial:'carso/used_cars/main_brands', collection: @brands %>
+    </ul>
+
+    <%= render 'carso/used_cars/filter_links' %>
+
+    <% if @brand.used_cars.used_cars.present? %>
+      <div class="buttons-list-wrapper">
+        <div class="buttons-list">
+          <p>Модели:</p>
+          <% @brand.used_cars.used_cars.map(&:name).uniq.each do |car| %>
+            <%= link_to used_brand_model_path(@brand.url, @brand.used_cars.where(name:car).first.url), class:'button button__used' do %>
+              <%= car %>
+              <span class="brands__count"><%= "#{@brand.used_cars.where(hide:0, used: 1,name:car).length}" %></span>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="buttons-list">
+          <p>Год:</p>
+          <% UsedCar.where(brand_id:@brand).used_cars.collect{|u| u.year }.uniq.sort.each do |y| %>
+            <%= link_to used_brand_year_path(@brand.url, y),class:'button button__used' do %>
+              <%= y %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <% if (@brand.description.present? && @brand.description['used_seotext_upper'].present?) %>
+      <div class="text content__usedtext"><%= @brand.description['used_seotext_upper'].html_safe %></div>
+    <% end %>
+  </div>
+
+  <div class="content">
+    <div class="card-list_used card-list_used-list">
+      <%= render partial:'partials/carso/used_car', collection: UsedCar.used_cars.where(brand_id: @brand.id).order(id: :desc) %>
+    </div>
+
+    <%= link_to sprobegom_path, class:'btn-link', target:'_blank' do %>
+      <%= svg_tag 'carso/icons.svg','svg-loader',24,6,class:'' %>
+      <span>Все автомобили БУ</span>
+    <% end %>
+  </div>
+
+
+  <div class="content-xs">
+    <h2 class="title">Другие авто с пробегом</h2>
+  </div>
+  <div class="content">
+    <div class="card-list_used">
+      <%= render partial:'partials/carso/used_car', collection: UsedCar.used_cars(12).order(id: :desc) %>
+    </div>
+
+    <%= link_to sprobegom_path, class:'btn-link', target:'_blank' do %>
+      <%= svg_tag 'carso/icons.svg','svg-loader',24,6,class:'' %>
+      <span>Все автомобили с пробегом</span>
+    <% end %>
+  </div>
+
+
+
+  <% if @brand.description.present? && @brand.description['used_seotext_lower'].present? %>
+    <div class="content-xs text">
+      <%= @brand.description['used_seotext_lower'].html_safe %>
+    </div>
+  <% end %>
+
+
+</div>
+
+
+<%
+  img = NewCar.find(311).images[0].large.url
+  car = NewCar.where(brand_id: @brand.id,hide:0).first
+  if car.present?
+     if car.images.present?
+       img = car.images[0].large.url
+     end
+   end
+%>
+<section class="car-banner" style="background-image: url(<%= img %>)">
+  <div class="car-banner__inner">
+    <div class="car-banner__title">Как получить максимальную скидку?</div>
+    <p class="car-banner__text">Воспользуйтесь спецпредложением, которое откроет Вам простой путь покупки автомобиля с максимальной скидкой, а также упростит оформление всех документов за 1 день.</p>
+    <%#= link_to 'Получить спецпредложение', common_modal_path, class: 'button car-banner__button', rel: 'nofollow', :data => {:'show-common-modal' => 'modal_feedback_call'} %>
+    <%= link_to 'Получить спецпредложение', common_modal_path, class: 'button car-banner__button', rel: 'nofollow', :data => {:'show-common-modal' => 'modal_feedback_bottombanner'} %>
+  </div>
+</section>
+
+<% content_for :rails_to_js_variables do %>
+  <script>
+      var url = '<%= @brand.url %>';
+      console.log(url)
+  </script>
+<% end %>
+
+

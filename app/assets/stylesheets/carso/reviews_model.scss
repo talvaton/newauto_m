@@ -1,0 +1,101 @@
+@import '_vars';
+@import '_new_cars_review';
+
+.title--reviews {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.car-main__title-img {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+  @include object_fit(contain,center);
+
+}
+
+@media #{$media_xl} {
+  .review-columns {
+    display: flex;
+  }
+  .review-columns__column-2 {
+    width: 50%;
+  }
+}
+
+
+.singlecar__car {
+  padding-top: 90px;
+  @media #{$media_l} {
+    padding-top: 0;
+  }
+}
+.singlecar__car-imgblock {
+  position: relative;
+  height: 165px;
+  width: 100%;
+  margin-bottom: 20px;
+
+  @media #{$media_s} {
+    width: 320px;
+    margin: 0 auto;
+  }
+  @media #{$media_l} {
+    left: 0;
+  }
+  @media #{$media_xl} {
+    width: 400px;
+    height: 250px;
+  }
+  @media #{$media_xxl} {
+    height: 250px;
+    width: 100%;
+  }
+  @media #{$media_xxxl} {
+    left: -20px;
+  }
+}
+.singlecar__car-img-link {
+  display: none;
+}
+.singlecar__colors-wrapper {
+  padding: 20px;
+}
+.singlecar__car-img {
+  display: block;
+  height: 165px;
+  width: 100%;
+  margin: 0 auto;
+  @include object_fit(contain,center);
+  @media #{$media_xl} {
+    height: 250px;
+  }
+  @media #{$media_xxl} {
+    height: 250px;
+  }
+}
+.singlecar__car-img-link.showcar {
+  display: block;
+}
+
+
+.singlecar__colors-name {
+  display: block;
+  margin: 10px 0;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: $text_light;
+}
+.media-block__video {
+  height: 340px;
+}
+
+.button--model-reviews {
+  width: 300px;
+  margin: 0 auto;
+  @media #{$media_xl} {
+    margin: 0 0 0 20px;
+  }
+}

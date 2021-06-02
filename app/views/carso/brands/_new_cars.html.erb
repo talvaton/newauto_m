@@ -1,0 +1,31 @@
+<% car = NewCar.find(new_cars.equipment_description.new_car_id) %>
+
+<div class="card card--wide" data-eq_id="<%= car.id %>">
+  <div class="card__inner">
+    <div class="card__media">
+      <%= image_tag car.colors[0].card.url,class:'card__img', alt:'', style: '' %>
+      <span class="card__label">Хит</span>
+    </div>
+    <div class="card__main">
+      <div class="card__title"><%= car.name %> <%= new_cars.equipment_description.name %></div>
+      <div class="card__additional">Скидка до <span> &#8381;</span></div>
+      <p class="card__text"><%= new_cars.specification.transmission %> (<%= new_cars.specification.shorttransmission %>),
+        <%= (new_cars.specification.volume / 1000.to_f).round(1) %> л,
+        <%= new_cars.specification.drive == 'Полный' ? '4WD' : '2WD' %>,
+        <%= new_cars.specification.power %> л.с
+      </p>
+<!--      <p class="card__text">В наличии: <strong><span data-role="quantity"></span> автомобиля</strong></p>-->
+      <div class="card__buttons">
+        <button type="button" class="card__link">
+          <%= svg_tag 'carso/icons.svg','svg-arrow-fat',7,8,class:'card__link_icon' %>
+          <span>В кредит</span>
+        </button>
+        <button type="button" class="card__link">
+          <%= svg_tag 'carso/icons.svg','svg-arrow-fat',7,8,class:'card__link_icon' %>
+          <span>Обмен</span>
+        </button>
+        <button type="button" class="button">Купить со скидкой</button>
+      </div>
+    </div>
+  </div>
+</div>

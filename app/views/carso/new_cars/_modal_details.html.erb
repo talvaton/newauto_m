@@ -1,0 +1,58 @@
+<aside class="modal modal--credit-car" id="car-details-modal">
+  <div class="modal__top">
+    <button type="button" class="modal__close-btn" data-fancybox-close>
+      <span class="close-btn cl_white" data-action="hide-table-row-description">×</span>
+    </button>
+
+
+  </div>
+
+  <div class="mod_circle cim_or">
+    <% if @car %>
+
+      <% if @car.images_available.count >= 1 %>
+        <% @car.images_available[1.. 1].each do |image|%>
+          <%#= link_to image.url,class:'photo-link', data:{:fancybox => 'car-exterior'} do %>
+          <%= image_tag image.large.url, alt: '' %>
+          <%# end %>
+        <% end %>
+      <% else %>
+        <% if @car.images.present? %>
+              <% @car.images[1.. 1].each do |image| %>
+                <%#= link_to image.large.url, itemprop:'url' ,class:'photo-link',data:{:fancybox => 'car-exterior'} do %>
+                    <%= image_tag image.large.url,alt: "#{@car.brand.title} #{@car.name}", class:'photo' %>
+                <%# end %>
+              <% end %>
+        <% end %>
+      <% end %>
+
+    <% end %>
+  </div>
+
+
+  <div class="modal__inner crtr">
+    <div class="modal__title">
+      <div class="modal__title-name">
+        Лучшее предложение <b>по Trade-in</b> на <span class="txt_dcol"><%= @car.menutitle %></span>
+      </div>
+    </div>
+
+    <div>
+      <%= form_for Ticket.new,url: {action:'create',controller:'tickets' },remote:true,validate:true,:html => {:class => 'form tradein_modal_new_ticket',:name=>'new_details_modal'},:namespace => 'new_details_modal' do |f| %>
+        <%= f.hidden_field :form_name, value:'trade_in_new' %>
+        <%= hidden_field_tag 'ticket[other][model]',@car.id, id:'new_details_modal_ticket_other_model' %>
+        <%= hidden_field_tag 'ticket[other][equipment]',@equip.id, id:'new_details_modal_ticket_other_equipment' %>
+        <div class="form_input">
+          <%= f.text_field :name,class:'input', placeholder:'Ваше имя' %>
+        </div>
+        <div class="form_input">
+          <%= f.phone_field :phone,class:'input',data:{:role=>'phone'}, placeholder:'Номер телефона' %>
+        </div>
+        <%= f.button 'Получить скидку', class: "button" %>
+      <% end %>
+    </div>
+
+  </div>
+</aside>
+
+

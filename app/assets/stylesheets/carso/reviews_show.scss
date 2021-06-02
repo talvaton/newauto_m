@@ -1,0 +1,74 @@
+@import '_vars';
+@import '_review';
+@import '_pagination';
+
+.h_block {
+  padding: 30px 0 0 0;
+}
+
+.header_sitebar{
+  @media (max-width: 1280px) {
+    padding: 0 20px !important;
+  }
+}
+.main{
+  @media (max-width: 1280px) {
+    padding: 0 20px !important;
+  }
+}
+.breadcrumbs{
+  @media (max-width: 1280px) {
+    padding: 10px 20px !important;
+  }
+}
+
+h1{
+  margin: 0 0 50px 0;
+}
+.main h1 b{
+  font-style: normal;
+  font-weight: 800;
+  font-size: 26px;
+  line-height: 28px;
+  color: #9DA9B6;
+  display: block;
+}
+.review_date{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 26px;
+  line-height: 26px;
+  color: #BDC7D1;
+  display: block
+}
+.review_title{
+  font-style: normal;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 100%;
+  color: #343F4B;
+}
+.review_desc{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 26px;
+  color: #2A2A30;
+  width: 930px;
+  @media all and (max-width: 800px) {
+    font-size: 14px;
+  }
+  @media all and (max-width: 500px) {
+    width: 100%;
+  }
+}
+.review_cont{
+  margin: 0 0 50px 0;
+}
+.circle_block {
+  @media all and (max-width: 500px) {
+    top: -65px;
+    left: -275px;
+  }
+}

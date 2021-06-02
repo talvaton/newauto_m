@@ -1,0 +1,8 @@
+<div data-content='news'>
+    <div class="newsblock__inner article_t">
+      <div class="newsblock__title"><%= link_to(articles_path(articles.url), class:'btn-link',title:articles.brand_desc) do %><%= articles.brand_desc %><% end %></div>
+      <div class="newsblock__text"><%# news.newstext.truncate(250, omission: '...') %>
+        <%= truncate_html articles.brand_seotext.html_safe, :length => 350 %>
+      </div>
+    </div>
+</div>

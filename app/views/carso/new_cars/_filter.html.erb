@@ -1,0 +1,37 @@
+ <div class="inner">
+      <h2>Новые автомобили в наличии</h2>
+    <div class="card_f_content">
+      <% equipments = @equipments.limit(10).shuffle %>
+      <div class="filter-list" id="filter_list">
+
+        <div class="" id="filter-results">
+          <% equipments.each do |e| %>
+            <%
+              real_discount = @car.discount_count(e) + @region_discount
+              if (@car.discount_count(e) + @region_discount) < e.price*4/10
+                max_discount = @car.discount_count(e) + @region_discount
+              else
+                max_discount = e.price*4/10
+              end
+              car_count = e.id % 5
+              car_count = 2 if car_count < 2
+            %>
+                <div class="row card_f justify-content-between card card--wide" data-eq_id="<%= e.id %>">
+                  <%= link_to "#{@car.name} #{e.equipment_description.name}", new_car_equipment_path(@brand, @car, e.equipment_description.name.parameterize), rel: 'nofollow', class:"card_f_title" %>
+                  <div class="card_f_sale">от <span><%= number_with_delimiter(e.price - real_discount,delimiter: ' ') %> &#8381;</span></div>
+                  <div class="card_f_txt"><%= e.specification.transmission.gsub('Механическая','Механика').gsub('5-ступенчатая механическая','Механика').gsub('5MT','').gsub('6МТ','').gsub('Автоматическая','Автомат').gsub('5-ступенчатая автоматическая','Автомат').gsub('4AT','') %> (<%= e.specification.shorttransmission %>),
+                    <% if e.specification.volume.present? %><%= (e.specification.volume / 1000.to_f).round(1) %> л, <% end %>
+                    <%= e.specification.enginetype.gsub('Бензиновый','Бензин') %>,
+                    <%= e.specification.drive == 'Полный' ? '4WD' : '2WD' %>,
+                    <%= e.specification.power %> л.с
+                  </div>
+                  <div class="card_f_txtn">В наличии: <strong><span data-role="quantity"><%= car_count %> шт.</span><%#= t('misc.car', :count => car_count) %></strong></div>
+                    <button type="button" class="card_f_button" data-show-new-ajax="car-credit-modal" data-eq_id="<%= e.id %>">
+                      <%= link_to '#reserv', class:'reserv', rel: 'nofollow' do %>Купить авто<% end %>
+                    </button>
+                </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>

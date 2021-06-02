@@ -1,0 +1,34 @@
+<aside class="modal modal--cookie-message" id="modal_cookie_message">
+  <div class="m_imgr"><%= image_tag "carso/png/gerl.png", alt:"" %></div>
+
+  <div class="modal__top">
+    <button type="button" class="modal__close-btn" data-fancybox-close="">
+      <span class="close-btn" data-action="hide-table-row-description">×</span>
+    </button>
+  </div>
+
+  <div class="modal__inner">
+    <%= form_for Ticket.new,
+                 url: {action:"create",controller:"tickets" },
+                 remote:true,
+                 validate:true,
+                 :html => {:class => "form cookie_modal_vtb",
+                           :name=>"cookie_modal"},
+                 :namespace => "cookie_modal" do |f| %>
+
+      <%= f.hidden_field :form_name, value:"booking_from_card",id:'cookie_modal_ticket_other_model' %>
+
+      <div class="form-info">Принять участие</div>
+
+      <div class="form_input">
+        <%= f.text_field :name,class:'input', placeholder:'Ваше имя' %>
+      </div>
+      <div class="form_input">
+        <%= f.phone_field :phone,class:"input",data:{:role=>"phone"}, placeholder:"Телефон для связи" %>
+      </div>
+      <div class="form_input">
+      <%= f.button "Отправить заявку", class: "button button--simple modal__button" %>
+      </div>
+    <% end %>
+  </div>
+</aside>

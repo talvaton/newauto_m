@@ -1,0 +1,6 @@
+<div class="container" data-brand="<%= brand.title.downcase %>">
+  <% logo_url = brand.logoblack.url %>
+  <input type="radio"  name="brand" value="<%= brand.id %>">
+  <%#= image_tag logo_url, class:"menu-list__img",alt:brand.title %>
+  <span class="checkmark"><%= brand.title %></span>
+</div>

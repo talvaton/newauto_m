@@ -1,0 +1,311 @@
+@import '_vars';
+
+@import '_filter';
+@import '_cards';
+@import '_text_and_img_block';
+@import '_credit_light_form';
+@import '_banks_list';
+@import '_modals_used_cars';
+
+
+.used-text-list {
+  column-count: 3;
+  @include list_reset;
+
+}
+
+.used-filter {
+  margin: 15px 0 30px;
+  @media #{$media_xl} {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+.used-filter__inputs {
+  @media #{$media_xl} {
+    margin-right: 40px;
+  }
+  @media #{$media_xxl} {
+    //margin-right: 140px;
+    margin-right: 20px;
+  }
+}
+.filter-panel__form {
+  @media #{$media_s} {
+    display: flex;
+    .select {
+      min-width: 48%;
+      @media #{$media_xl} {
+        min-width: 200px;
+      }
+      @media #{$media_xxl} {
+        //min-width: 320px;
+        min-width: 230px;
+      }
+    }
+    .button {
+      min-width: 48%;
+      margin: 4px 0 4px 10px;
+      @media #{$media_xl} {
+        min-width: 240px;
+        margin: 8px 0 8px 20px;
+      }
+    }
+  }
+}
+
+.btn-link--used-filter {
+  margin: 20px 0 20px 6px;
+  font-size: 14px;
+}
+
+
+
+
+
+// кнопки подразделов
+.buttons-list-wrapper {
+  margin: 20px 0;
+  @media #{$media_xxl} {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.buttons-list {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  @media #{$media_xxl} {
+    width: 50%;
+  }
+  .button {
+    width: auto;
+    margin: 0 10px 10px 0;
+    padding: 0 20px;
+    font-weight: 700;
+  }
+  .button--active {
+    color: $contrast_main;
+    pointer-events: none;
+  }
+}
+
+
+
+// список марок
+.menu-list--simple {
+  margin-bottom: 60px;
+  justify-content: flex-start;
+  .menu-list__item {
+    width: 50%;
+    border-bottom: none;
+    @media #{$media_s} {
+      width: 33.3333%;
+    }
+    @media #{$media_l} {
+      width: 25%;
+    }
+    @media #{$media_xl} {
+      width: 20%;
+    }
+    @media #{$media_xxl} {
+      width: 12.5%;
+    }
+  }
+}
+
+
+section[data-role="used-main-filter"]{
+  padding: 0px;
+}
+
+@media only screen and (max-width: 1500px) {
+  section[data-role="used-main-filter"] {
+    padding: 0 10px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  section[data-role="used-cars-filters"],
+  .content__usedtext,
+  .filter-panel_mob{
+    display: none;
+  }
+
+}
+
+
+// СТИЛИ ДЛЯ БЛОКА С БРЕНДАМИ
+.menu-list--simple-count {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  margin: 0;
+  list-style: none;
+  list-style-position: outside;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  padding: 5px 10px;
+  border: 1px solid #e3e4eb;
+  box-shadow: 0 1px 3px 0px rgba(51, 55, 57, 0.1);
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  height: auto;
+}
+
+.menu-list--simple-count .menu-list__item {
+  min-width: 10%;
+  padding: 0;
+  display: grid;
+  width: auto;
+  text-align: center;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: uppercase;
+  height: auto;
+  margin: 5px 0;
+  border-bottom: none;
+  margin-right: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.menu-list--simple-count .menu-list__item:hover {
+  background-color: #f4f4f4;
+}
+
+.menu-list--simple-count .menu-list__link {
+  display: -ms-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  outline: 0;
+  color: #000;
+  font-weight: 400;
+  padding: 10px;
+}
+.menu-list--simple-count span.brands__count {
+  font-size: 12px;
+  color: #cc2128;
+  margin-left: 8px;
+  font-weight: 500;
+}
+
+@media only screen and (max-width: 1024px) {
+  .card-list_used .card__media,
+  .card-list__used .card__media {
+    padding: 0;
+    margin: 0;
+    border-bottom: 0;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .menu-list--simple-count{
+    display: none;
+  }
+  .menu-list--simple-count-main{
+    display: grid;
+  }
+}
+
+@media only screen and (max-width: 659px) {
+  .card-list_used .card {
+    border-bottom: 2px solid #aaa;
+    padding: 0 10px 20px 10px;
+  }
+}
+
+@media only screen and (max-width: 499px) {
+  .menu-list--simple-count{
+    border: 0;
+    box-shadow: none;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+  }
+  .menu-list--simple-count .menu-list__item{
+    border: 1px solid #aaa;
+    border-radius: 0;
+    margin: 0;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .menu-list--simple-count{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+.button__used{
+  box-shadow: none;
+  background: none;
+  border: 1px solid #aaa;
+
+}
+.button__used:hover{
+  border-color: transparent;
+  border-top: none;
+}
+
+.buttons-list p {
+  margin-right: 10px;
+}
+.button__used .brands__count{
+  color: #cc2128;
+  margin-left: 10px;
+  transition: color 0.3s linear;
+}
+.button__used:hover .brands__count{
+  color: #fff;
+}
+
+.menu-list__item_active .menu-list__link{
+  font-weight: 500;
+  color: #cc2128;
+}
+
+.card-list_used-list{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 300px));
+  grid-column-gap: 40px;
+  grid-row-gap: 20px;
+  justify-content: center;
+}
+
+.card-list_used-list .card{
+  width: auto!important;
+  margin: 0!important;
+}
+
+.card-list_used-list .card .card__inner{
+  margin-bottom: 0!important;
+}

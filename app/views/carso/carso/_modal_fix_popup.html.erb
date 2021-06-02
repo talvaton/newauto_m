@@ -1,0 +1,44 @@
+<aside class="modal modal--cookie-message" id="fix-popup-modal">
+  <div class="form-info">Трейд-ин с выгодой <span>150 000 руб</span></div>
+  <div class="m_imgr"><%= image_tag "carso/png/man_yes.png", alt:"" %></div>
+
+  <div class="modal__top">
+    <button type="button" class="modal__close-btn" data-fancybox-close="">
+      <span class="close-btn" data-action="hide-table-row-description">×</span>
+    </button>
+  </div>
+
+  <div class="modal__inner">
+    <%= form_for Ticket.new,
+                 url: {action:"create",controller:"tickets" },
+                 remote:true,
+                 validate:true,
+                 :html => {:class => "form fix-popup-modal",
+                           :name=>"cookie_modal"},
+                 :namespace => "new_details_modal" do |f| %>
+
+      <%= f.hidden_field :form_name, value:"booking_from_card",id:'fix-popup-modal_f' %>
+
+      <div class="modal__title">
+        <div class="modal__title-img"><%= image_tag "carso/png/logop.png", alt:"" %></div>
+      </div>
+      <div class="l__subtitle">Ваш автомобиль</div>
+      <div class="form_input">
+        <%= f.text_field :name,class:'input', placeholder:'Марка и модель' %>
+      </div>
+      <div class="form_input">
+        <%= f.text_field :name,class:'input', placeholder:'Год выпуска' %>
+      </div>
+      <div class="l__subtitle">Ваши данные</div>
+      <div class="form_input">
+        <%= f.text_field :name,class:'input', placeholder:'Ваше имя' %>
+      </div>
+      <div class="form_input">
+        <%= f.phone_field :phone,class:"input",data:{:role=>"phone"}, placeholder:"Телефон для связи" %>
+      </div>
+      <div class="form_input">
+      <%= f.button "Отправить заявку", class: "button button--simple modal__button" %>
+      </div>
+    <% end %>
+  </div>
+</aside>

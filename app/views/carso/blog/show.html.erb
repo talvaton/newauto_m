@@ -1,0 +1,413 @@
+<% provide :title,"Обзор #{@car.russian_name} #{@car.old ? (Time.current - 1.year).year.to_s : Time.current.year.to_s} 🚘" %>
+<% provide :description,"Подробный обзор автомобиля #{@car.russian_name} 🚘 плюсы и недостатки, технические характеристики, фото, видео и отзывы о #{@car.menutitle}" %>
+
+<section class="inner">
+
+  <div class="content-xs">
+    <h1 class="title"><%=@car.menutitle %> обзор</h1>
+  </div>
+
+  <div class="content text">
+    <div class="columns columns--blog">
+
+      <div class="columns__column-2">
+        <%= image_tag @car.blog.images[0].url,alt:@car.menutitle,class:'img-blog'  %>
+      </div>
+      <div class="columns__column-2">
+        <%= @car.blog.description['intro_text'] %>
+      </div>
+      <div class="columns__column-2">
+        <h2 class="title">Дизайн</h2>
+        <%= @car.blog.description['design'][0] %>
+        <%= image_tag @car.blog.images[2].url, alt:'дизайн_1' ,class:'img-blog'  %>
+      </div>
+      <div class="columns__column-2">
+        <%= image_tag @car.blog.images[1].thumb.url,alt:'дизайн_2', class:'img-blog' %>
+        <%= @car.blog.description['design'][1] %>
+      </div>
+      <div class="columns__column-2">
+        <h2 class="title">Конструкция</h2>
+        <p><%= @car.blog.description['construction'].join %></p>
+      </div>
+      <div class="columns__column-2"><%= image_tag @car.blog.images[3].url,alt:'конструкция_1', class:'img-blog' %></div>
+      <div class="columns__column-2"><%= image_tag @car.blog.images[4].url,alt:'конструкция_2',class:'img-blog' %></div>
+      <div class="columns__column-2">
+        <h2 class="title">Адаптация к российским условиям</h2>
+        <p><%= @car.blog.description['adapt'].join %></p>
+      </div>
+      <div class="columns__column-2">
+        <h2 class="title">Комфорт</h2>
+        <%= @car.blog.description['comfort'][0] %>
+        <%= image_tag @car.blog.images[6].url,alt:'комфорт_1',class:'img-blog'  %>
+      </div>
+      <div class="columns__column-2">
+        <%= image_tag @car.blog.images[5].url,alt:'комфорт_2',class:'img-blog' %>
+        <%= @car.blog.description['comfort'][1] %>
+      </div>
+      <div class="columns__column-2">
+        <h2 class="title">Безопасность</h2>
+        <%= image_tag @car.blog.images[7].url,alt:'Безопасность',class:'img-blog' %>
+        <p><%= @car.blog.description['security'].join %></p>
+      </div>
+      <div class="columns__column-2">
+        <h2 class="title">Мультимедиа</h2>
+        <%= image_tag @car.blog.images[8].url,alt:'Мультимедиа',class:'img-blog' %>
+        <p><%= @car.blog.description['media'].join %></p>
+      </div>
+      <div class="columns__column-2">
+        <h2 class="title"><%= @car.russian_name %> Технические характеристики</h2>
+        <p><%= @car.blog.description['stats'].join %></p>
+      </div>
+      <div class="columns__column-2"><%= image_tag @car.blog.images[9].url,alt:'Технические характеристики',class:'img-blog' %></div>
+    </div>
+  </div>
+
+
+  <div class="content-xs">
+    <h2 class="title">Технические характеристики</h2>
+  </div>
+  <div class="content">
+    <div class="table-wrapper">
+      <table class="table table--features">
+        <% car_spec = @car.specifications %>
+
+        <thead>
+        <tr class="table__header">
+          <th class="table__header-title">Характеристика</th>
+          <% car_spec.each do |s| %>
+            <th class="table__col-title"><%= s.name %></th>
+          <% end %>
+        </tr>
+        </thead>
+
+        <tr class="table__row">
+          <th class="table__row-title">Тип двигателя:</th>
+          <% car_spec.each do |s| %>
+            <td class="table__cell"><%= s.enginetype %></td>
+          <% end %>
+        </tr>
+        <tr class="table__row">
+          <th class="table__row-title">Объём двигателя:</th>
+          <% car_spec.each do |s| %>
+            <td class="table__cell"><%= s.volume %></td>
+          <% end %>
+        </tr>
+        <tr class="table__row">
+          <th class="table__row-title">Мощность:</th>
+          <% car_spec.each do |s| %>
+            <td class="table__cell"><%= s.power %> л.с</td>
+          <% end %>
+        </tr>
+        <tr class="table__row">
+          <th class="table__row-title">Разгон до 100км/час:</th>
+          <% car_spec.each do |s| %>
+            <td class="table__cell"><%= s.acceleration %> с</td>
+          <% end %>
+        </tr>
+        <tr class="table__row">
+          <th class="table__row-title">Максимальная скорость:</th>
+          <% car_spec.each do |s| %>
+            <td class="table__cell"><%= s.topspeed %> км/ч</td>
+          <% end %>
+        </tr>
+
+        <tr class="table__row">
+          <th class="table__row-title">Расход в городском цикле:</th>
+          <% car_spec.each do |s| %>
+            <td class="table__cell"><%= s.fuelcity %>/100км</td>
+          <% end %>
+        </tr>
+        <tr class="table__row">
+          <th class="table__row-title">Расход в загородном цикле:</th>
+          <% car_spec.each do |s| %>
+            <td class="table__cell"><%= s.fuelhigh %>/100км</td>
+          <% end %>
+        </tr>
+        <tr class="table__row">
+          <th class="table__row-title">Расход в смешанном цикле:</th>
+          <% car_spec.each do |s| %>
+            <td class="table__cell"><%= s.fuelmix %>/100км</td>
+          <% end %>
+        </tr>
+        <tr class="table__row">
+          <th class="table__row-title">Объем топливного бака:</th>
+          <% car_spec.each do |s| %>
+            <td class="table__cell"><%= s.tank %> л</td>
+          <% end %>
+        </tr>
+
+        <tr class="table__row">
+          <th class="table__row-title">Длина:</th>
+          <% car_spec.each do |s| %>
+            <td class="table__cell"><%= s.length %> мм</td>
+          <% end %>
+        </tr>
+        <tr class="table__row">
+          <th class="table__row-title">Ширина:</th>
+          <% car_spec.each do |s| %>
+            <td class="table__cell"><%= s.width %> мм</td>
+          <% end %>
+        </tr>
+        <tr class="table__row">
+          <th class="table__row-title">Высота:</th>
+          <% car_spec.each do |s| %>
+            <td class="table__cell"><%= s.height %> мм</td>
+          <% end %>
+        </tr>
+        <tr class="table__row">
+          <th class="table__row-title">Колёсная база:</th>
+          <% car_spec.each do |s| %>
+            <td class="table__cell"><%= s.wheelbase %> мм</td>
+          <% end %>
+        </tr>
+        <tr class="table__row">
+          <th class="table__row-title">Клиренс:</th>
+          <% car_spec.each do |s| %>
+            <td class="table__cell"><%= s.clearance %> мм</td>
+          <% end %>
+        </tr>
+        <tr class="table__row">
+          <th class="table__row-title">Масса:</th>
+          <% car_spec.each do |s| %>
+            <td class="table__cell"><%= s.mass %> кг</td>
+          <% end %>
+        </tr>
+        <tr class="table__row">
+          <th class="table__row-title">Объём багажника:</th>
+          <% car_spec.each do |s| %>
+            <td class="table__cell"><%= s.trunk %> л</td>
+          <% end %>
+        </tr>
+
+        <tr class="table__row">
+          <th class="table__row-title">Трансмиссия:</th>
+          <% car_spec.each do |s| %>
+            <td class="table__cell"><%= s.transmission %></td>
+          <% end %>
+        </tr>
+        <tr class="table__row">
+          <th class="table__row-title">Привод:</th>
+          <% car_spec.each do |s| %>
+            <td class="table__cell"><%= s.drive %></td>
+          <% end %>
+        </tr>
+        <tr class="table__row">
+          <th class="table__row-title">Передняя подвеска:</th>
+          <% car_spec.each do |s| %>
+            <td class="table__cell"><%= s.frontsusp %></td>
+          <% end %>
+        </tr>
+        <tr class="table__row">
+          <th class="table__row-title">Задняя подвеска:</th>
+          <% car_spec.each do |s| %>
+            <td class="table__cell"><%= s.rearsusp %></td>
+          <% end %>
+        </tr>
+        <tr class="table__row">
+          <th class="table__row-title">Передние тормоза:</th>
+          <% car_spec.each do |s| %>
+            <td class="table__cell"><%= s.frontbrakes %></td>
+          <% end %>
+        </tr>
+        <tr class="table__row">
+          <th class="table__row-title">Задние тормоза:</th>
+          <% car_spec.each do |s| %>
+            <td class="table__cell"><%= s.rearbrakes %></td>
+          <% end %>
+        </tr>
+        <% if @car.country.present? %>
+          <tr class="table__row">
+            <th class="table__row-title">Производство:</th>
+            <td class="table__cell table__cell--center" colspan="5"><%= @car.country %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+  <div class="content-xs">
+    <%= link_to "Купить #{@car.russian_name}".html_safe, new_car_path(@car.brand,@car), class: 'button button--blog', title: "#{@car.russian_name}" %>
+  </div>
+
+
+  <div class="content">
+    <div class="columns">
+      <div class="columns__column-2"><%= image_tag @car.blog.images[10].url,alt:'Габариты', class:'info-column__img info-column__img--blog'  %></div>
+      <div class="columns__column-2">
+        <h3 class="title">Габариты <%= @car.menutitle %></h3>
+        <ul>
+          <li>длина — <%= number_with_delimiter(@car.specifications[0].length,:delimiter=>'.') %> м;</li>
+          <li>ширина — <%= number_with_delimiter(@car.specifications[0].width,:delimiter=>'.') %> м;</li>
+          <li>высота — <%= number_with_delimiter(@car.specifications[0].height,:delimiter=>'.') %> м;</li>
+          <li>колесная база — <%= (@car.specifications[0].wheelbase / 1000.to_f).round(1) %> м;</li>
+          <li>клиренс — <%= @car.specifications[0].clearance %> мм;</li>
+          <li>объем багажника — <%= @car.specifications[0].trunk %> л.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="content-xs">
+    <h2 class="title">
+      <%= @car.russian_name %> комплектации
+    </h2>
+  </div>
+  <div class="content">
+    <div class="table-wrapper">
+      <table class="table table--features">
+        <thead>
+        <tr class="table__header">
+          <th class="table__header-title">Комплектация</th>
+          <th class="table__col-title">Объём</th>
+          <th class="table__col-title">Мощность</th>
+          <th class="table__col-title">Расход (город)</th>
+          <th class="table__col-title">Расход (трасса)</th>
+          <th class="table__col-title">КПП</th>
+          <th class="table__col-title">Привод</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <% car_rows = Equipment.select('`equipment`.*,minimum_price')
+            .joins(:equipment_description)
+            .joins('INNER JOIN(SELECT MIN(`equipment`.`price`) as minimum_price,`equipment`.`equipment_description_id` as eq_id FROM `equipment` GROUP BY `equipment`.`equipment_description_id`) eq ON eq.eq_id = `equipment_descriptions`.`id` ')
+            .where('`equipment_descriptions`.`new_car_id` = ?', @car.id).order('minimum_price') %>
+
+        <% car_rows.each do |e| %>
+          <tr class="table__row pl-lr">
+            <th class="table__row-title compl-table">
+              <span><%= e.equipment_description.name %></span>
+              <span><%= e.suffix %></span>
+              <span><%= e.specification.drive == 'Полный' ? '4WD' : '2WD' %></span>
+            </th>
+            <td class="table__cell"><%= (e.specification.volume / 1000.to_f).round(1) %> л</td>
+            <td class="table__cell"><%= e.specification.power %> л.с</td>
+            <td class="table__cell"><%= e.specification.fuelcity %></td>
+            <td class="table__cell"><%= e.specification.fuelhigh %></td>
+            <td class="table__cell"><%= e.specification.shorttransmission %></td>
+            <td class="table__cell"><%= e.specification.drive == 'Полный' ? '4WD' : '2WD' %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+    <%= link_to "Посмотреть цены комплектаций", new_car_path(@car.brand,@car), class: 'button button--blog', title: "#{@car.russian_name}" %>
+  </div>
+
+
+
+<% if @car.images.present? %>
+  <div class="content-photos">
+    <div class="content-xs">
+      <h2 class="title"><%=@car.russian_name %> фото</h2>
+    </div>
+    <div class="photos-wrapper">
+      <%= link_to @car.images[0].large.url,class:'photo-link photo--single',data:{:fancybox => 'car-exterior'} do %>
+        <%= image_tag @car.images[0].large.url,alt:'', class:'photo' %>
+      <% end %>
+      <ul class="photos" data-role="photogallery">
+        <% @car.images[1..-1].each do |image|%>
+          <li class="photos__item">
+            <%= link_to image.large.url,class:'photo-link',data:{:fancybox => 'car-exterior'} do %>
+              <%= image_tag image.thumb.url,alt:'',class:'photo' %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
+
+
+<% if @car.video_link.present? %>
+  <%
+    vidurl = "https://img.youtube.com/vi/#{@car.video_link.gsub(/\?.+/, '')}/sddefault.jpg"
+    unless working_url?(vidurl)
+      vidurl = "https://img.youtube.com/vi/#{@car.video_link.gsub(/\?.+/, '')}/hqdefault.jpg"
+    end
+    if working_url?(vidurl)
+  %>
+    <div class="content-xs">
+      <h2 class="title">Тест-драйв <%=@car.menutitle %> - видео</h2>
+    </div>
+    <div class="content">
+      <div class="media-block">
+        <div class="media-block__video youtube" data-embed="<%= @car.video_link %>">
+          <img src="<%= vidurl %>" alt="<%=@car.russian_name %>" title="<%=@car.russian_name %>" class="media-block__video-img">
+          <div class="play-button">
+            <%= svg_tag 'carso/newcar/sprite.svg','svg-video-btn',80,80,class:'' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+
+
+  <div class="content-xs">
+    <h2 class="title">Достоинства и недостатки <%= @car.menutitle %></h2>
+  </div>
+  <div class="content text">
+    <p><%= @car.blog.description['procontra_text'] %></p>
+    <div class="columns">
+      <%# if @car.blog.description['pro'].present? %>
+      <div class="columns__column-2">
+        <h4><%= @car.blog.description['pro_text'] %></h4>
+        <ul>
+          <% @car.blog.description['pro'].each do |pc| %>
+            <li><%= pc %></li>
+          <% end %>
+        </ul>
+        <%# end %>
+      </div>
+      <%# if @car.blog.description['contra'].present? %>
+      <div class="columns__column-2">
+        <h4><%= @car.blog.description['contra_text'] %></h4>
+        <ul>
+          <% @car.blog.description['contra'].each do |pc| %>
+            <li><%= pc %></li>
+          <% end %>
+        </ul>
+      </div>
+      <%# end %>
+    </div>
+  </div>
+
+
+  <%
+    reviews = Blog.where(brand_id: @car.brand.id).where('blogs.new_car_id IS NOT NULL').where('blogs.new_car_id != ?',@car.id)
+  %>
+  <% if reviews.present? %>
+    <div class="content-xs">
+      <h2 class="title">Другие обзоры</h2>
+    </div>
+    <div class="content">
+      <div class="columns columns--blog">
+        <%= render partial:'blog/catalog_single_blog', collection: reviews %>
+      </div>
+    </div>
+  <% end %>
+
+
+  <div class="content-xs">
+    <h2 class="title">Все автомобили <%=@car.brand.menutitle %> в наличии</h2>
+  </div>
+  <div class="content">
+    <div class="card-list">
+      <%= render partial:'new_cars/small_new_cars', collection: @brand.new_cars.where(hide: 0),locals: {:show_brand => true, :credit_flag => false}  %>
+    </div>
+  </div>
+
+</section>
+
+
+<%= render partial:'carso/carso/bottom_banner' %>
+
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+<aside class="modal modal--map" id="map-modal">
+  <div class="modal__top">
+    <button type="button" class="modal__close-btn" data-fancybox-close>
+      <%= svg_tag 'carso/icons.svg','svg-close',40,40,id:'nav-close',class:'' %>
+    </button>
+    <div class="modal__title">
+      <div class="modal__title-name">Наш адрес</div>
+      <p class="modal__title-additional">г.Москва, Дмитровское ш. 157, стр. 4</p>
+    </div>
+  </div>
+  <div class="modal__inner">
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <div class="modal-map" id="modal-map"></div>
+    <a href="tel:88001000157" class="button" id="btnPhone">
+      <%= svg_tag 'carso/icons.svg','svg-phone',14,14,class:'' %>
+      <span>Позвонить</span>
+    </a>
+  </div>
+</aside>

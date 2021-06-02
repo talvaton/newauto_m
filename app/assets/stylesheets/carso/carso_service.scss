@@ -1,0 +1,621 @@
+@import '_vars';
+@import '_common_top';
+@import '_banks_list';
+
+main.main {
+  max-width: initial;
+  @media all and (max-width: 1280px) {
+    padding: 0 !important;
+  }
+}
+main.main .container{
+  @media all and (max-width: 1280px) {
+    padding: 0 20px;
+  }
+}
+
+.container h1{
+  font-style: normal;
+  font-weight: 900;
+  font-size: 58px;
+  line-height: 70px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  width: 900px;
+  margin: 0 0 135px 0;
+  @media all and (max-width: 1600px) {
+    margin: 0 0 25px 20px;
+  }
+  @media all and (max-width: 1280px) {
+    margin: 0 0 135px 20px;
+  }
+  @media all and (max-width: 1000px) {
+    width: 100%;
+    font-size: 40px;
+    line-height: 54px;
+    margin: 0 0 168px 20px;
+  }
+  @media all and (max-width: 900px) {
+    margin: 0 0 66px 20px;
+  }
+  @media all and (max-width: 680px) {
+    margin: 0 0 35px 0;
+    width: 100%;
+    font-size: 28px;
+    line-height: 40px;
+  }
+  @media all and (max-width: 500px) {
+    margin: 0 0 43px 0;
+    font-size: 26px;
+    line-height: 36px;
+  }
+  @media all and (max-width: 440px) {
+    margin: 0 0 7px 0;
+  }
+  @media all and (max-width: 350px) {
+    font-size: 24px;
+  }
+}
+.head_bn{
+  background: image-url('carso/png/service_h.png')no-repeat center top;
+  background-size: 100%;
+  height: 550px;
+  max-height: 550px;
+  margin: 0 0 -430px 0;
+  width: 100%;
+  @media all and (max-width: 1280px) {
+    background-size: auto;
+  }
+}
+header.header {
+  background: transparent;
+  margin: 0 0 -50px 0;
+}
+.header .header_sitebar{
+  display: none;
+}
+.header .breadcrumbs {
+  border-bottom: 1px solid rgba(233, 232, 232, 0.2);
+}
+.header .breadcrumbs li{
+  @media all and (max-width: 1280px) {
+    padding: 3px 0;
+  }
+}
+.header .breadcrumbs li:first-child a {
+  color: #FFF;
+  font-weight: bold;
+}
+.header .breadcrumbs li a {
+  color: #FFF;
+}
+
+.tab__box{
+  border: solid 15px #dcdcdc61;
+  position: relative;
+  margin: 0 0 60px 0;
+}
+.tab__box:after{
+  content: '';
+  background: image-url('carso/service/car_bg.png')no-repeat center top;
+  width: 593px;
+  height: 238px;
+  position: absolute;
+  right: 10px;
+  bottom: 70px;
+  @media all and (max-width: 680px) {
+    display: none;
+  }
+}
+.tab__box-nav{
+  display: flex;
+  justify-content: space-between;
+  @media all and (max-width: 1600px) {
+    border-bottom: 1px dashed #949494;
+  }
+  @media all and (max-width: 1280px) {
+    border-bottom: medium none;
+  }
+  @media all and (max-width: 900px) {
+    display: block;
+  }
+}
+.tab__b_n-m{
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.7);
+  border-right: 1px dashed #949494;
+  cursor: pointer;
+  @media all and (max-width: 1280px) {
+    padding: 20px;
+    width: 25%;
+  }
+  @media all and (max-width: 900px) {
+    width: 100%;
+    border-right: medium none;
+    border-bottom: 1px dashed #949494;
+  }
+  @media all and (max-width: 680px) {
+    padding: 12px 20px;
+  }
+}
+.tab__b_n-m:last-child{
+  border-right: medium none;
+}
+.tab__b_n-m.act{
+  background: #FFFFFF;
+  cursor: default;
+  border-right: medium none;
+}
+.tab__b_n-m i{
+  margin: 0 20px 0 0;
+  @media all and (max-width: 1000px) {
+    margin: 0 10px 0 0;
+  }
+  @media all and (max-width: 680px) {
+    width: 40px;
+  }
+}
+.tab__b_n-m i img{
+  @media all and (max-width: 680px) {
+    width: 100%;
+  }
+}
+.tab__b_n-m span{
+  font-style: normal;
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: #161616;
+  max-width: 245px;
+  min-width: 132px;
+  @media all and (max-width: 1280px) {
+    font-size: 12px;
+  }
+  @media all and (max-width: 1000px) {
+    font-size: 10px;
+    max-width: 110px;
+    min-width: 110px;
+  }
+}
+
+.tab__box_txt{
+  padding: 70px 0 70px 70px;
+  z-index: 1;
+  position: relative;
+  @media all and (max-width: 1600px) {
+    background: #ffffff;
+  }
+  @media all and (max-width: 1280px) {
+    background: transparent;
+  }
+  @media all and (max-width: 680px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 40px 20px 30px 25px;
+  }
+}
+.tab__box_txt_b{
+  border-left: 10px solid #6AD1A6;
+}
+
+ .tab__box_txt_b span{
+   display: none;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 42px;
+  color: #161616;
+  margin: 0 0 0 15px;
+   @media all and (max-width: 680px) {
+     font-size: 20px;
+     line-height: 24px;
+   }
+}
+.tab__box_txt_b span.block-active{
+  display: block;
+}
+ .tab__box_txt_b div{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  color: #6A6A6A;
+  max-width: 450px;
+   margin: 0 0 0 15px;
+   @media all and (max-width: 680px) {
+     font-size: 15px;
+     line-height: 20px;
+   }
+}
+ .frm_info{
+   font-style: normal;
+   font-weight: normal;
+   font-size: 14px;
+   line-height: 20px;
+   color: #C4C4C4;
+   display: block;
+   margin: 20px 0 0 0;
+ }
+
+ /*****************form********************/
+.tab_form{
+  position: relative;
+}
+  .tab__box .service{
+    display: flex;
+    margin: 30px 0 0 0;
+    @media all and (max-width: 1000px) {
+     flex-wrap: wrap;
+    }
+  }
+
+.tab__box .service input{
+   margin: 0 22px 0 0;
+  height: 60px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  color: #8F8F8F;
+  text-align: center;
+  width: 243px;
+  border: 1px solid #C4C4C4;
+  border-radius: 0;
+  @media all and (max-width: 1000px) {
+    width: 278px;
+    height: 40px;
+  }
+  @media all and (max-width: 400px) {
+    width: 220px;
+    margin: 0 auto;
+  }
+}
+.tab__box .service button{
+  height: 60px;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 22px;
+  line-height: 24px;
+  text-transform: initial;
+  color: #FFFFFF;
+  width: 278px;
+  border-radius: 0;
+  @media all and (max-width: 1000px) {
+    height: 50px;
+  }
+  @media all and (max-width: 400px) {
+    width: 220px;
+  }
+}
+ /*****************form********************/
+
+.sr_txt{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 120px 0;
+  @media all and (max-width: 1100px) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+.sr_txt div:first-child{
+  margin: 0 120px 40px 0;
+}
+.sr_th{
+  display: block;
+  border-left: 10px solid #6AD1A6;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 40px;
+  line-height: 50px;
+  text-transform: uppercase;
+  color: #161616;
+  padding: 0 0 0 30px;
+  margin: 0 0 15px 0;
+  position: relative;
+  @media all and (max-width: 500px) {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+.sr_txt i{
+  display: block;
+  position: relative;
+  @media all and (max-width: 1100px) {
+    width: 551px;
+    margin: 0 0 30px 0;
+  }
+  @media all and (max-width: 680px) {
+    width: 100%;
+  }
+}
+.sr_txt i img{
+  position: relative;
+  @media all and (max-width: 680px) {
+    width: 100%;
+  }
+}
+.sr_txt i:before{
+  content: '';
+  display: block;
+  background: #F2F2F2;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: -40px;
+  bottom: -40px;
+  @media all and (max-width: 500px) {
+    right: -20px;
+    bottom: -20px;
+  }
+}
+.sr_txt p{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  color: #4F4F4F;
+  margin: 20px 0 20px 0;
+  @media all and (max-width: 480px) {
+    font-size: 16px;
+  }
+}
+.sr_txt a{
+  display: block;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 30px;
+  color: #1260B0;
+  margin: 15px 0 0 0;
+  @media all and (max-width: 400px) {
+    font-size: 14px;
+  }
+}
+.sr_txt.nxt a{
+  font-style: normal;
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 30px;
+  color: #1260B0;
+  @media all and (max-width: 400px) {
+    font-size: 14px;
+  }
+}
+
+.sr_txt a img{
+  margin: 0 0 0 20px;
+}
+.sr_txt ul{
+  list-style-image: image-url('carso/service/ul_btn.png');
+  padding: 0 0 0 17px;
+}
+.sr_txt ul li{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  color: #4F4F4F;
+  padding: 15px 0 0 10px;
+  @media all and (max-width: 400px) {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+.sr_txt.nxt div:first-child {
+  margin: -40px 0 0 0;
+  @media all and (max-width: 1100px) {
+    margin: -40px 0 80px 0px;
+    order: 2;
+  }
+}
+.sr_txt.nxt div:last-child {
+  margin: 0 0 40px 80px;
+  @media all and (max-width: 1100px) {
+    margin: 0 0 40px 40px;
+    order: 1;
+  }
+}
+.sr_txt.nxt i:before {
+  right: initial;
+  bottom: initial;
+  left: -40px;
+  top: -40px;
+  @media all and (max-width: 500px) {
+    left: -20px;
+    top: -20px;
+  }
+}
+.sr_txt.nxt{
+  margin: 0 0 80px 0;
+  @media all and (max-width: 500px) {
+    margin: 0;
+  }
+}
+.glpr{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 0 40px 0;
+}
+.srmr{
+  margin: 0 0 40px 0;
+}
+.glpr_bl{
+  position: relative;
+  display: flex;
+  width: 393px;
+  height: 223px;
+  align-items: baseline;
+  justify-content: start;
+  border: 2px solid #F2F2F2;
+  background: #fff;
+  padding: 20px;
+  margin: 0 20px 40px 0;
+  @media all and (max-width: 500px) {
+    width: 100%;
+    margin: 0 0 40px 0;
+    height: 280px;
+  }
+}
+.glpr_form{
+  position: relative;
+  display: block;
+  width: 393px;
+  height: 223px;
+  align-items: center;
+  justify-content: start;
+  border: 2px solid #F2F2F2;
+  background: #fff;
+  padding: 20px 40px;
+  margin: 0 20px 40px 0;
+  @media all and (max-width: 680px) {
+    height: 280px;
+  }
+}
+
+.glpr_bl:before,.glpr_form:before{
+  content: '';
+  display: block;
+  background: #F2F2F2;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: -22px;
+  bottom: -22px;
+  z-index: -1;
+}
+
+.glpr_bl i{
+  margin: 0 20px 0 0;
+}
+.glpr_bl div span{
+  font-style: normal;
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: #161616;
+  width: 206px;
+  display: block;
+  @media all and (max-width: 500px) {
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+  }
+}
+.glpr_bl div p{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 20px;
+  color: #4F4F4F;
+  padding: 15px 0 0 0;
+  width: 225px;
+  @media all and (max-width: 500px) {
+   margin: 0 auto;
+    width: 100%;
+    text-align: center;
+  }
+}
+.glpr_form span{
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 30px;
+  text-transform: uppercase;
+  color: #161616;
+  display: block;
+  margin: 0 0 10px 0;
+}
+.glpr_form input{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #8F8F8F;
+  border-radius: 0;
+  height: 44px;
+  width: 167px;
+  @media all and (max-width: 680px) {
+    width: 100%;
+  }
+}
+.glpr_form .form_input:first-child input{
+  width: 136px;
+  margin: 0 10px 0 0;
+  @media all and (max-width: 680px) {
+    width: 100%;
+  }
+}
+.service .form_input{
+  @media all and (max-width: 400px) {
+    margin: 0 auto;
+  }
+}
+.glpr_form button{
+  height: 54px;
+  line-height: 54px;
+  width: 313px;
+  margin: 5px 0 0 0;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media all and (max-width: 680px) {
+    width: 100%;
+  }
+}
+.glpr_form button span{
+  font-style: normal;
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 24px;
+  color: #FFFFFF;
+  margin: 0;
+}
+.ser_inbl{
+  display: flex;
+  justify-content: center;
+  @media all and (max-width: 680px) {
+    display: block;
+  }
+}
+.service_brand{
+  list-style-image: image-url('carso/service/srt-r-m.png');
+  padding: 0 0 0 27px;
+  margin: 0 0 40px 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.service_brand li a {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: #1260B0;
+  padding: 25px 0 25px 5px;
+  display: block;
+  width: 300px;
+  @media all and (max-width: 680px) {
+    width: 160px;
+    padding: 0 0 15px 5px;
+    font-size: 16px;
+    line-height: 16px;
+  }
+  @media all and (max-width: 400px) {
+    width: 140px;
+    padding: 0 0 15px 5px;
+    font-size: 12px;
+    line-height: 16px;
+  }
+  @media all and (max-width: 360px) {
+    width: 125px;
+  }
+}

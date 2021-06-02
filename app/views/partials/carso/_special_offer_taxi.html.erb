@@ -1,0 +1,45 @@
+<div class="card card--wide2">
+  <div class="card__inner card__inner2">
+    <div class="card__media card__media--full" data-show-used-ajax="used-car-photos" data-car_id="<%= special_offer_taxi.id %>">
+
+      <%= image_tag "/static/images/blank.png",class:'card__img card__img_first', alt: '',data:{:lazy=>special_offer_taxi.images[0].card.url,:original=>special_offer_taxi.images[0].card.url} if special_offer_taxi.images[0].present? %>
+      <%= image_tag "/static/images/blank.png",class:'card__img card__img_second', alt: '',data:{:lazy=>special_offer_taxi.images[1].card.url,:original=>special_offer_taxi.images[1].card.url} if special_offer_taxi.images[1].present? %>
+      <%= image_tag "/static/images/blank.png",class:'card__img card__img_third', alt: '',data:{:lazy=>special_offer_taxi.images[2].card.url,:original=>special_offer_taxi.images[2].card.url} if special_offer_taxi.images[2].present? %>
+
+    </div>
+
+    <div class="card__infoblock">
+      <div class="card__infoblock_name">
+        <%= special_offer_taxi.brand.title %>  <%= special_offer_taxi.name %>
+      </div>
+      <div class="card__infoblock_class">
+        <%= special_offer_taxi.taxi_type %>
+      </div>
+      <div class="card__infoblock_info">
+        Новый / <%= special_offer_taxi.transmission %> / <%= special_offer_taxi.year %>
+      </div>
+      <div class="card__infoblock_price">
+        <%= number_with_delimiter(special_offer_taxi.price,delimiter:' ') %> &#8381;
+      </div>
+    </div>
+
+    <div class="modal__inner-text--scrolled">
+      <% if special_offer_taxi.complectation['other'].length != 1 %>
+        <ul>
+          <% special_offer_taxi.complectation['other'].each do |compl| %>
+            <li><%= compl %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        <%= special_offer_taxi.complectation['other'][0].html_safe %>
+      <% end %>
+    </div>
+    <div class="card__buttons">
+      <div class="taxi_sticker">Оклейка жёлтой плёнкой - <b>бесплатно!</b></div>
+      <div class="price_per_day">от <span><%= number_with_delimiter((count_price(special_offer_taxi.price,PERCENT,MONTH))/31, delimiter: " ") %></span> &#8381;/в день</div>
+      <button class="button" data-show-used-ajax="used-car-buy-modal" data-car_id="<%= special_offer_taxi.id %>" type="button">Купить в кредит</button>
+    </div>
+  </div>
+</div>
+
+

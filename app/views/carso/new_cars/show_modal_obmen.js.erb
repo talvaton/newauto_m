@@ -1,0 +1,22 @@
+$.fancybox.open('<%= escape_javascript (render partial:'new_cars/modal_obmen', :object => @car) %>',
+    {
+        touch: false,
+        animationDuration: 500,
+        animationEffect: "fade",
+        afterLoad: function(){
+            $('#car-obmen-modal').css('display', 'inline-block');
+//            $('.scrollbar-outer').scrollbar();
+            init_labels('#car-obmen-modal .input, #car-obmen-modal .select');
+        },
+        afterShow: function(){
+            disableFormBtn();
+            $('#new_obmen_modal_new_ticket').enableClientSideValidations();
+            init_phone_mask();
+            $('#new_obmen_modal_new_ticket .input, .select').on('focus', function(){
+                $(this).removeClass('input--error');
+                $(this).siblings('.form__error').slideUp();
+            });
+            DISABLE_FANCYBOX = false;
+        }
+    }
+);

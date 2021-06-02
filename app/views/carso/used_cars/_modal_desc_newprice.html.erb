@@ -1,0 +1,74 @@
+<aside class="modal modal---colors modal--used-car-details" id="used-car-details-modal_newprice">
+  <div class="modal__top">
+    <button type="button" class="modal__close-btn" data-fancybox-close>
+      <%= svg_tag 'carso/icons.svg','svg-close',40,40,id:'nav-close',class:'' %>
+    </button>
+    <div class="modal__title">
+      <div class="modal__title-name">
+        Характеристики <%= @car.brand.title %> <%= @car.name %>
+      </div>
+      <p class="modal__title-additional">Кредит 1.9% / Одобрение 95%</p>
+    </div>
+  </div>
+
+  <div class="modal__inner">
+    <div class="modal__inner-top">
+      <ul class="modal__list">
+        <li class="modal__list-item">
+          <span class="modal__list-item-text">Объем, л.:</span>
+          <span class="modal__list-item-main"><%= @car.volume %></span>
+        </li>
+        <li class="modal__list-item">
+          <span class="modal__list-item-text">Мощность, л.с.:</span>
+          <span class="modal__list-item-main"><%= @car.power %></span>
+        </li>
+        <li class="modal__list-item">
+          <span class="modal__list-item-text">КПП:</span>
+          <span class="modal__list-item-main"><%= @car.transmission %></span>
+        </li>
+        <li class="modal__list-item">
+          <span class="modal__list-item-text">Год:</span>
+          <span class="modal__list-item-main"><%= @car.year %></span>
+        </li>
+        <% if @car.color %>
+          <li class="modal__list-item">
+            <span class="modal__list-item-text">Цвет:</span>
+            <span class="modal__list-item-main"><%= @car.color %></span>
+          </li>
+        <% end %>
+        <li class="modal__list-item">
+          <span class="modal__list-item-text">Цена:</span>
+          <span class="modal__list-item-main"><%= number_with_delimiter(@car.price - (@car.price / 100 * 8),delimiter:' ') %>₽</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="modal__inner-text modal__inner-text--scrolled">
+      <% if @car.complectation['other'].length != 1 %>
+        <ul>
+          <% @car.complectation['other'].each do |compl| %>
+            <li><%= compl %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        <%= @car.complectation['other'][0].html_safe %>
+      <% end %>
+    </div>
+
+
+
+    <div class="modal__title-name">Забронируйте авто</div>
+    <%= form_for Ticket.new,url: {action:'create',controller:'tickets' },remote:true,validate:true,:html => {:class => 'modal__form',:name=>'desc_modal'},:namespace => 'desc_modal' do |f| %>
+      <%# f.invisible_captcha :ticket_text %>
+      <%= f.hidden_field :form_name, value:'booking_from_card' %>
+      <%= hidden_field_tag 'ticket[other][used_car_id]',@car.id, id:'bron_modal_ticket_other_used_car_id' %>
+      <div class="form__component">
+        <%= f.text_field :name,class:'input', placeholder:'Ваше имя' %>
+      </div>
+      <div class="form__component">
+        <%= f.phone_field :phone,class:'input',data:{:role=>'phone'}, placeholder:'Номер телефона'%>
+      </div>
+      <%= f.button 'Отправить', class: "button" %>
+    <% end %>
+  </div>
+</aside>

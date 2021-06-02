@@ -1,0 +1,21 @@
+$.fancybox.open('<%= escape_javascript (render partial:'used_cars/modal_bron', :object => @car) %>',
+    {
+        touch: false,
+        animationDuration: 500,
+        animationEffect: "fade",
+        afterLoad: function(){
+            $('#used-car-buy-modal').css('display', 'inline-block');
+            init_labels('#used-car-buy-modal .input, #used-car-buy-modal .select');
+        },
+        afterShow: function(){
+            disableFormBtn();
+            $('#bron_modal_new_ticket').enableClientSideValidations();
+            init_phone_mask();
+            $('#bron_modal_new_ticket .input, .select').on('focus', function(){
+                $(this).removeClass('input--error');
+                $(this).siblings('.form__error').slideUp();
+            });
+            DISABLE_FANCYBOX = false;
+        }
+    }
+);

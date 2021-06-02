@@ -1,0 +1,17 @@
+{
+  "name"              : "Автосалон Авиньон",
+  "short_name"        : "Авиньон",
+  "description"       : "Один из крупнейших автосалонов Москвы \"Авиньон\" предлагает купить новые и подержанные автомобили по лучшим ценам. Скидки, акции, автокредит, программы утилизации и трейд-ин.",
+  "start_url"         : "/",
+  "display"           : "standalone",
+  "orientation"       : "any",
+  "background_color"  : "#c9242f",
+  "theme_color"       : "#c9242f",
+  "icons": [
+    {
+      "src"           : "/static/images/logo_h_30.png",
+      "sizes"         : "150x30",
+      "type"          : "image/png"
+    }
+  ]
+}

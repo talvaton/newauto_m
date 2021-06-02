@@ -1,0 +1,29 @@
+@import '_vars';
+
+@import '_cards';
+@import '_news';
+
+.title__link {
+  @include link_undecor($text_main);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  img {
+    margin-right: 10px;
+  }
+}
+
+//.columns--blog {
+//  flex-wrap: wrap;
+//}
+.newsblock {
+  margin-bottom: 15px;
+}
+.newsblock__title {
+  display: block;
+  padding: 10px 0;
+  @include link_undecor($text_main);
+  @media #{$media_m} {
+    padding: 0 0 10px 0;
+  }
+}

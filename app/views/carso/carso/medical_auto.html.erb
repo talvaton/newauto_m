@@ -1,0 +1,190 @@
+<% provide :title,'Программа "Для медработников" - условия государственной программы автокредитования 2018-2019 года' %>
+<% provide :description,"Государственная программа 'Для медработников' позволит вам приобрести свою первую машину со скидкой до 12,5% в Автосалоне «Авиньон», #{@current_region.sklon1}" %>
+
+<h1 class="green">Программа для медработников</h1>
+
+<div class="tradein_form">
+  <%= form_for Ticket.new,url: {action:'create',controller:'tickets' },remote:true,validate:true,:html => {:class => 'form section-tradein__form spec_modal_new_ticket',:name=>'tradein'},:namespace => 'tradein' do |f| %>
+    <%= f.hidden_field :form_name, value:'gospr' %>
+    <%= hidden_field_tag 'ticket[other][tradein_toggle]', '1' %>
+    <div class="tr_flbl">
+      <div class="tr_fh">Заявка на покупку</div>
+      <div class="tr_flb">
+        <div>
+          <span class="tr_fins">Ваш авто</span>
+          <div class="form_input">
+            <%= f.text_field :name,class:'input',placeholder:'Марка' %>
+          </div>
+          <div class="form_input">
+            <%= f.text_field :name,class:'input',placeholder:'Модель' %>
+          </div>
+          <div class="form_input">
+            <select class="select input--hascontent" name="ticket[other][year]">
+              <option>Год выпуска</option>
+              <option value="2020">2020</option>
+              <option value="2019">2019</option>
+              <option value="2018">2018</option>
+              <option value="2017">2017</option>
+              <option value="2016">2016</option>
+              <option value="2015">2015</option>
+              <option value="2014">2014</option>
+              <option value="2013">2013</option>
+              <option value="2012">2012</option>
+              <option value="2011">2011</option>
+              <option value="2010">2010</option>
+              <option value="2009">2009</option>
+              <option value="2008">2008</option>
+              <option value="2007">2007</option>
+              <option value="2006">2006</option>
+              <option value="2005">2005</option>
+              <option value="2004">2004</option>
+              <option value="2003">2003</option>
+              <option value="2002">2002</option>
+              <option value="2001">2001</option>
+              <option value="2000">2000</option>
+              <option value="1999">1999</option>
+              <option value="1998">1998</option>
+              <option value="1997">1997</option>
+              <option value="1996">1996</option>
+              <option value="1995">1995</option>
+              <option value="1994">1994</option>
+              <option value="1993">1993</option>
+              <option value="1992">1992</option>
+              <option value="1991">1991</option>
+              <option value="1990">1990</option>
+            </select>
+          </div>
+        </div>
+        <div class="form_cr_r">
+          <div class="car-credit__subtitle">Условия кредитования</div>
+          <div class="form__component cr_1">
+            <span class="credit__rtitle">Желаемый срок кредита в месяцах</span>
+            <input type="range" id="creditsliderfirst" data-role="persent-range" min="0" max="84" step="12" value="<%= PERCENT %>">
+            <div class="r_diagram"><i class="l0">0</i><i class="l12">12</i><i class="l24">24</i><i class="l36">36</i><i class="l48">48</i><i class="l60">60</i><i class="l72">72</i><i class="l84">84</i></div>
+          </div>
+          <div class="form__component cr_2">
+            <span class="credit__rtitle">Первоначальный взнос</span>
+            <input type="range" id="creditsliderfirstv" data-role="persent-range" min="0" max="1000000" step="200000" value="<%= PERCENT %>">
+            <div class="r_diagram"><i class="r0">0₽</i><i class="r2">200 000₽</i><i class="r4">400 000₽</i><i class="r6">600 000₽</i><i class="r8">800 000₽</i><i class="r10">1 000 000₽</i></div>
+          </div>
+          <div class="credit__rtitle">Подарок</div>
+          <div class="form_input">
+            <%= select_tag 'ticket[other][gift]', options_for_select(['КАСКО','Парктроник','Сигнализация','Литые диски','Сигвей']),class:'select',:include_blank => 'Выберите подарок',id:'credit_ticket_other_gift' %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tr_frb">
+      <span class="tr_fin">Контактные данные</span>
+      <div class="form_input"><%= f.text_field :name,class:'input',placeholder:'Ваше Имя' %></div>
+      <div class="form_input"><%= f.phone_field :phone,class:'input',data:{:role=>'phone'},placeholder:'Номер телефона *' %></div>
+      <div class="form_input"><%= f.button do %><span>Оставить заявку</span><% end %><div class="secur_f">мы гарантируем конфиденциальность и защиту введённых данных</div></div>
+    </div>
+
+  <% end %>
+</div>
+
+
+
+<div class="gsp_in">
+  <div class="gsp_d gsp_txt">
+    <span>Программа «Для медработников»</span>
+    <div><p>С 1 Марта 2019 года правительство Российской Федерации возобновлю программу государственной поддержки «Первый автомобиль». </p><p>Особенностью программы «Первый автомобиль» является то, что при покупке автомобиля – значительную часть кредитной нагрузки на себя берёт Государство, оставляя заёмщику на погашение лишь остаток. Таким образом создаются очень лояльные и привлекательные условия для покупки автомобиля посредством автокредита.</p></div>
+  </div>
+  <div class="gsp_d">
+    <span>Условия</span>
+    <ul>
+      <li><span>Выгодные условия по кредиту от 1.9%</span></li>
+      <li><span>Первоначальный взнос от 0 рублей</span></li>
+      <li><span>Срок кредитования от 6 месяцев до 8 лет</span></li>
+      <li><span>Сумма кредитования до 3 000 000 рублей</span></li>
+      <li><span>Досрочное погашение без штрафов и комиссий</span></li>
+      <li><span>Льготное кредитование по системам "Первый автомобиль" и "Семейный автомобиль"</span></li>
+    </ul>
+  </div>
+  <div class="gsp_d">
+    <span>Требования</span>
+    <ul>
+      <li><span>Гражданство: Россия</span></li>
+      <li><span>Возраст: от 21 до 60 лет</span></li>
+      <li><span>Два документа: паспорт и права</span></li>
+    </ul>
+  </div>
+  <div class="gsp_d gsp_bpdf">
+    <span>Образецы договора</span>
+    <div class="gsp_pdf">
+      <a href="/doc/credit_setelem.pdf" title="Договор"><%= image_tag 'carso/png/pdf.png',alt:'Договор',lazy:true %><b>Договор</b></a>
+      <a href="/doc/credit_vtb.pdf" title="Договор VTB"><%= image_tag 'carso/png/pdf.png',alt:'Договор VTB',lazy:true %><b>Договор VTB</b></a>
+      <a href="/doc/dkp.docx" title="Договор в формате Ворд"><%= image_tag 'carso/png/word.png',alt:'Договор в формате Ворд',lazy:true %><b>Договор в формате Ворд</b></a>
+    </div>
+  </div>
+</div>
+
+<div class="tradein_btt">
+  <span class="tradein_tt">Преимущества кредитной программы</span>
+  <div class="row credit_bp_txt">
+    <ul>
+      <li><span>доступность программы практически для каждого россиянина;</span></li>
+      <li><span>низкие процентные ставки;</span></li>
+      <li><span>лояльные сроки кредитования.</span></li>
+    </ul>
+  </div>
+</div>
+<div class="tradein_btt">
+  <span class="tradein_tt">Требования к автомобилю</span>
+  <div class="row credit_bp_txt">
+    <ul>
+      <li><span>приобретаемый автомобиль должен быть отечественной марки и/или собираться на территории Российской Федерации;</span></li>
+      <li><span>стоимость автомобиля не должна превышать 1 500 000 рублей;</span></li>
+      <li><span>разрешенная максимальная масса автомобиля не должна превышать 3,5 тонны.</span></li>
+    </ul>
+  </div>
+</div>
+<div class="tradein_btt">
+  <span class="tradein_tt">Предлагаемые условия</span>
+  <div class="row credit_bp_txt">
+    <ul>
+      <li><span>минимальная процентная ставка – от 1,9% годовых;</span></li>
+      <li><span>срок кредита – от 1 года до 7 лет;</span></li>
+      <li><span>первоначальный взнос – от 0 рублей;</span></li>
+      <li><span>оформление кредита всего по двум документам – паспорт и водительское удостоверение.</span></li>
+    </ul>
+  </div>
+</div>
+<div class="tradein_btt">
+  <span class="tradein_tt on">Требования к заёмщику</span>
+  <div class="row credit_bp_txt on">
+    <ul>
+      <li><span>у заёмщика не должно быть ранее во владение какого-либо транспортного средства;</span></li>
+      <li><span>наличие гражданства Российской Федерации – от 8 месяцев;</span></li>
+      <li><span>все документы образца РФ;</span></li>
+      <li><span>прописка в кредитуемом банком-партнером регионе – от 6 месяцев;</span></li>
+      <li><span>минимальный возраст – от 21 года, максимальный – до 60 лет;</span></li>
+      <li><span>отсутствие судимости.</span></li>
+    </ul>
+  </div>
+</div>
+
+<div class="pr_slog_b">
+  <div><%= image_tag "carso/icons/casco.svg", alt:'' %>
+    <span>Бесплатное <br> КАСКО</span>
+  </div>
+  <div><%= image_tag "carso/icons/tire.svg", alt:'' %>
+    <span>Зимняя резина в <br> подарок</span>
+  </div>
+  <div><%= image_tag "carso/icons/gospr.svg", alt:'' %>
+    <span>Госпрограммы: <br> -10% на любое авто</span>
+  </div>
+  <div><%= image_tag "carso/icons/route.svg", alt:'' %>
+    <span>Оплата проезда <br> до автосалона</span>
+  </div>
+</div>
+
+<div class="bank_block">
+  <h2>Банки партнеры</h2>
+  <div class="banks__main">
+    <%= render partial:'partials/carso/bank', collection: Bank.all %>
+  </div>
+</div>
+
+<%= render 'partials/carso/credit_form' %>

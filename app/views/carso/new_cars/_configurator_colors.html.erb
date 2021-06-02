@@ -1,0 +1,13 @@
+
+<li class="modal__color">
+  <div class="container">
+    <input type="radio"  name="color" value="<%= @model.color_options[color_counter]['colorname'] %>">
+
+      <div class="modal__color-link card__inner">
+        <%#= image_tag "#{color.largecard.url}",class:'modal__color-img', alt:'' %>
+        <span class="modal__color-or-name" style="background: <%= @model.color_options[color_counter]['color'] %>"></span>
+        <span class="modal__color-name"><%= @model.color_options[color_counter]['colorname'] %></span>
+      </div>
+
+  </div>
+</li>

@@ -1,0 +1,40 @@
+h1{
+  padding: 30px 10px 0 10px;
+  @media all and (max-width: 600px) {
+    font-size: 20px;
+    margin: 20px 0 20px 0;
+  }
+}
+
+.big_cat_menu{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+.brand__block{
+  margin: 20px 20px;
+}
+.brand_name{
+
+}
+.brand_name span{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 140%;
+  text-transform: uppercase;
+  color: #222222;
+}
+.brand__block ul li a{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 18px;
+  color: #0551A1;
+  padding: 5px 0;
+  display: block;
+  @media all and (max-width: 600px) {
+    font-size: 16px;
+    line-height: 14px;
+  }
+}

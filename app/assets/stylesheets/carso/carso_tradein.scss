@@ -1,0 +1,723 @@
+@import '_vars';
+
+@import '_common_top';
+@import '_review';
+@import '_banks_list';
+
+
+
+
+
+.tradein_btt .credit_bp_txt{
+  display: none;
+  padding: 30px 0 30px 25px;
+  @media all and (max-width: 600px) {
+    padding: 10px 0 0 0;
+  }
+}
+.tradein_btt .credit_bp_txt.on{
+  display: flex;
+}
+
+.credit_bp_txt img{
+  padding: 0 0 10px 0;
+  @media all and (max-width: 400px) {
+  width: 100%;
+  }
+}
+.credit_bp_txt span{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 100%;
+  color: #222222;
+  display: block;
+  margin: 0;
+  @media all and (max-width: 600px) {
+    padding: 0 1px 15px 0;
+  }
+}
+.credit_bp_txt div{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: #2A2A30;
+  width: 900px;
+  min-width: 900px;
+  @media all and (max-width: 1000px) {
+    width: 100%;
+    min-width: 100%;
+  }
+  @media all and (max-width: 680px) {
+    padding: 0;
+  }
+}
+.credit_bp_txt div p{}
+.frm_tbank{
+  font-style: normal;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 24px;
+  color: #343F4B;
+  @media all and (max-width: 1300px) {
+    text-align: center;
+    display: block;
+    margin: 0 0 55px 0;
+  }
+}
+.main .credit_fbn {
+  margin: 50px 0;
+}
+
+ .form_block-right {
+  position: relative;
+  margin: 80px 0 0 0;
+  border: 3px solid #00ADF8;
+  border-radius: 15px;
+  padding: 40px 40px 30px 40px;
+  width: 945px;
+  background: #fff;
+  @media all and (max-width: 600px) {
+    position: initial;
+    padding: 0 25px 0 25px;
+    margin: 0;
+    width: 100%;
+  }
+}
+.fr_credit{
+  display: none;
+  @media all and (max-width: 600px) {
+    display: block;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 26px;
+    line-height: 26px;
+    color: #BDC7D1;
+  }
+}
+
+.form_block.credit {
+  border: medium none;
+  border-radius: 0;
+  padding: 0 0 30px 30px;
+  width: 348px;
+  @media all and (max-width: 600px) {
+    padding: 15px;
+    width: 100%;
+  }
+}
+.credit_bp_txt span
+ .f__block__center {
+   width: 50%;
+   margin: 0;
+   padding: 0 52px 10px 0;
+   @media all and (max-width: 600px) {
+     width: 100%;
+     -webkit-box-ordinal-group: 1;
+     -webkit-order: 1;
+     -ms-flex-order: 1;
+     order: 1;
+   }
+}
+
+.sct{
+  font-style: normal;
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 22px;
+  color: #343F4B;
+  padding: 20px 0;
+}
+.form-sale-info{
+  margin: 0;
+}
+.form-credit-info{
+  font-style: normal;
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 32px;
+  color: #2A2A30;
+  padding: 0 0 10px 0;
+  @media all and (max-width: 600px) {
+    font-size: 22px;
+    line-height: 22px;
+  }
+}
+.form-credit-info span{
+  display: block;
+  color: #0551A1;
+  @media all and (max-width: 600px) {
+    display: inline-block;
+  }
+}
+.form_block-right .form_input{
+  @media all and (max-width: 600px) {
+    padding: 0 0 15px 0;
+  }
+}
+.sale-from{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  color: #BDC7D1;
+  line-height: 48px;
+  @media all and (max-width: 600px) {
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: 800;
+    color: #0551A1;
+  }
+}
+.form_block-right form select,.form_block-right form input,.form_block-right form button{
+  @media all and (max-width: 600px) {
+    width: 100%;
+  }
+}
+.form_block-right form button{
+  @media all and (max-width: 600px) {
+    height: auto;
+    line-height: 16px;
+  }
+}
+
+.sale-from{
+  font-weight: 800;
+  color: #0551A1;
+}
+.tradein_slh{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 26px;
+  line-height: 26px;
+  color: #BDC7D1;
+  display: block;
+  padding: 16px 0 0 0;
+}
+.sale-from_w{
+  font-style: normal;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 18px;
+  color: #343F4B;
+  display: block;
+  padding: 25px 0 5px 0;
+}
+
+.opif_cr{
+  @media all and (max-width: 600px) {
+    width: 340px;
+    margin: 0 0 30px -10px;
+  }
+}
+
+.opif_cr .row{
+  padding: 15px 0 0 0;
+  @media all and (max-width: 600px) {
+    padding: 15px 0 0 0;
+    flex-wrap: initial;
+    display: inline-block;
+  }
+}
+.opif_cr span{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 15px;
+  color: #2A2A30;
+  width: 388px;
+  padding: 0 0 0 5px;
+  @media all and (max-width: 600px) {
+    width: 280px;
+    display: inline-block;
+    padding: 0;
+  }
+  @media all and (max-width: 400px) {
+    width: 220px;
+  }
+}
+.opif_cr span strong{
+  display: block;
+  padding: 25px 0 0 0;
+}
+.opif_cr b{
+  font-style: normal;
+  font-weight: 800;
+  font-size: 18px;
+  color: #2A2A30;
+  width: 20px;
+  text-align: center;
+  @media all and (max-width: 600px) {
+    font-size: 18px;
+    width: 40px;
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+.fcr_t_top{
+  position: absolute;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 26px;
+  line-height: 26px;
+  color: #2A2A30;
+  top: -17px;
+  left: 28px;
+  background: #fff;
+  padding: 0 15px;
+  @media all and (max-width: 600px) {
+    border: 2px solid #00ADF8;
+    border-radius: 15px;
+    padding: 5px 15px;
+    font-size: 18px;
+    line-height: 18px;
+  }
+}
+.main .form__credit_p {
+  margin: 60px 0 130px 0;
+  @media all and (max-width: 600px) {
+    margin: 60px 0 30px 0;
+  }
+}
+.form__lt {
+  width: 434px;
+}
+.form__credit_p .form__lt{
+@media all and (max-width: 600px) {
+  height: auto;
+}
+}
+.form__lt h1 b{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 26px;
+  line-height: 26px;
+ /* color: #BDC7D1;*/
+}
+.form__lt h1 span{
+  font-style: normal;
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 64px;
+  color: #0551A1;
+  display: block;
+  margin: 0;
+  @media all and (max-width: 600px) {
+    font-size: 22px;
+    line-height: 22px;
+  }
+  }
+
+.h_block{
+  position: relative;
+  @media all and (max-width: 600px) {
+    padding: 0;
+  }
+}
+.sale-date{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 24px;
+  color: #343F4B;
+}
+.sale-price{
+  font-style: normal;
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 48px;
+  color: #F43F42;
+}
+
+.circle_block {
+  position: absolute;
+  height: 698px;
+  width: 698px;
+  border: 4px solid #dae1e847;
+  border-radius: 50%;
+  top: -100px;
+  left: -180px;
+  z-index: -1;
+  @media all and (max-width: 500px) {
+    top: -135px;
+    left: -285px;
+  }
+}
+
+.circle_block img{
+  position: absolute;
+  top: 140px;
+  left: 140px;
+}
+.circle_block:before{
+  content: '';
+  position: absolute;
+  display: inline-block;
+  width: 412px;
+  height: 412px;
+  top: 20.49%;
+  left: 20.49%;
+  right: 20.49%;
+  bottom: 20.49%;
+  opacity: 0.6;
+  border: 1px solid #DAE1E8;
+  border-radius: 50%;
+}
+.circle_block:after{
+  content: '';
+  position: absolute;
+  display: inline-block;
+  width: 560px;
+  height: 560px;
+  top: 9.89%;
+  left: 9.89%;
+  right: 9.89%;
+  bottom: 9.89%;
+  opacity: 0.6;
+  border: 40px solid #dae1e87a;
+  border-radius: 50%;
+}
+.main .form_block-right{
+  @media all and (max-width: 600px) {
+    margin: 80px 0 0 0;
+    position: relative;
+  }
+}
+.form__tradein{
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin: 0 0 40px 0;
+  @media all and (max-width: 1100px) {
+    flex-wrap: wrap;
+  }
+}
+.form_tr{
+  position: relative;
+  width: 50%;
+  background: image-url('carso/icons/frame_line.svg') no-repeat center right #F7F7F7;
+  box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.12);
+  padding: 30px 25px 20px 25px;
+  margin: -70px 0 0 60px;
+  @media all and (max-width: 1280px) {
+    width: 60%;
+  }
+  @media all and (max-width: 1100px) {
+    width: 700px;
+    margin: 0 auto;
+  }
+  @media all and (max-width: 680px) {
+    width: 100%;
+    order:1;
+    margin: 0 0 35px 0;
+    padding: 15px 25px 20px 25px;
+  }
+}
+
+.form__tradein .f__block__center{
+  @media all and (max-width: 680px) {
+    order:2;
+  }
+}
+
+.bank_block {
+  @media (max-width: 680px){
+  margin: 20px 15px 0 15px;
+  }
+}
+.form_tradein{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  @media all and (max-width: 680px) {
+    flex-wrap: wrap;
+    display: grid;
+    margin: 0 auto;
+    justify-content: center;
+  }
+}
+.form_tradein div:nth-child(1){
+  margin: 0 30px 0 0;
+  @media all and (max-width: 680px) {
+    margin: 0;
+  }
+}
+.secur_f {
+  padding: 15px 0 0 0;
+  width: 276px;
+}
+.secur_f:before {
+  width: 54px;
+}
+.date-tr{
+  display: flex;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 100%;
+  color: #222222;
+  margin: 30px 0 10px 0;
+}
+.sale-tr{
+  background: #6AD1A6;
+  border-radius: 10px;
+  width: 276px;
+  height: 67px;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 43px;
+  line-height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  letter-spacing: -0.06em;
+  color: #FFFFFF;
+  @media all and (max-width: 680px) {
+    margin: 0 0 10px 0;
+  }
+}
+.form_tradein form input,.form_tradein form select,.form_tradein form button{
+  width: 276px;
+  @media all and (max-width: 700px) {
+    width: 100%;
+  }
+}
+.nf_i{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 100%;
+  display: flex;
+  align-items: center;
+  color: #222222;
+  @media all and (max-width: 680px) {
+    display: none;
+  }
+}
+.form-sp{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 120%;
+  display: flex;
+  align-items: center;
+  color: #1260B0;
+  padding: 20px 0 10px 0;
+  @media all and (max-width: 680px) {
+    padding: 0 0 10px 0;
+  }
+}
+.form-sp_s{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 120%;
+  color: #222222;
+  display: flex;
+  padding: 0 0 20px 0;
+  @media all and (max-width: 680px) {
+    display: none;
+  }
+}
+.form_tradein form button{
+  margin: 15px 0 0 0;
+}
+.form_tradein svg{
+  margin: 10px 0 0 0;
+}
+.abn{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 100%;
+  display: flex;
+  align-items: center;
+  color: #000000;
+  padding: 0 0 10px 0;
+}
+.tradein_w{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 26px;
+  display: flex;
+  align-items: center;
+  color: #222222;
+  padding: 0 0 10px 0;
+}
+.form__tradein-l div span{
+  padding: 0 0 15px 0;
+  display: block;
+}
+.form__tradein-l div span strong{
+  padding: 15px 0 0 0;
+  display: block;
+}
+.tradein_tt{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 100%;
+  color: #222222;
+  justify-content: space-between;
+  display: flex;
+  background: #F7F7F7;
+  height: 50px;
+  padding: 0 20px;
+  align-items: center;
+  cursor: pointer;
+  margin: 0 0 2px 0;
+  @media all and (max-width: 400px) {
+    padding: 0 25px 0 10px;
+    position: relative;
+  }
+}
+.tradein_tt:after{
+  content: '';
+  background: image-url('carso/icons/t_str.svg') no-repeat 0 0 #F7F7F7;
+  width: 15px;
+  height: 12px;
+  transform: rotate(180deg);
+  @media (max-width: 400px) {
+    position: absolute;
+    right: 8px;
+  }
+}
+.tradein_tt.on:after{
+  transform: rotate(0);
+}
+
+.pr_slog_b {
+  @media (max-width: 680px) {
+    margin: 0 0 15px 0;
+  }
+}
+
+/************tradein_form**************/
+.tradein_form{
+  margin: 20px 0;
+}
+.tradein_form form{
+  display: flex;
+  justify-content: space-between;
+  @media (max-width: 1000px) {
+    flex-wrap: wrap;
+    display: inline-block;
+    width: 100%;
+  }
+}
+.tr_flbl{
+  width: 100%;
+  padding: 30px 40px 0 40px;
+  background: #F7F7F7;
+  @media (max-width: 1180px) {
+    padding: 30px 15px 0 15px
+  }
+  @media (max-width: 1000px) {
+    width: 347px;
+    margin: 0 auto;
+    padding: 30px 15px 15px 15px;
+  }
+  @media (max-width: 400px) {
+    width: 100%;
+  }
+}
+.tr_flb{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @media (max-width: 1000px) {
+    flex-wrap: wrap;
+  }
+  @media (max-width: 400px) {
+    display: block;
+  }
+}
+.tr_frb{
+  padding: 40px;
+  background: #FFFFFF;
+  border: 1px solid #6AD1A6;
+  box-sizing: border-box;
+  @media (max-width: 1180px) {
+    padding: 40px 15px 15px 15px;
+  }
+  @media (max-width: 1000px) {
+    width: 347px;
+    margin: 0 auto;
+    padding: 15px;
+  }
+  @media (max-width: 400px) {
+    width: 100%;
+  }
+}
+.tr_fin{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 120%;
+  color: #222222;
+}
+.tr_fins{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 100%;
+  color: #222222;
+  @media (max-width: 1000px) {
+    margin: 15px 0 0 0;
+    display: block;
+  }
+}
+.tr_fh{
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 120%;
+  color: #222222;
+  padding: 0 0 10px 0;
+  display: block;
+}
+.tradein_form form input,.tradein_form form select{
+  background-color: #ffffff;
+  @media (max-width: 1050px) {
+    width: 100%;
+    max-width: 100%;
+    min-width: 280px;
+  }
+  @media (max-width: 1000px) {
+    width: 315px;
+    max-width: initial;
+    min-width: initial;
+  }
+  @media (max-width: 400px) {
+    width: 100%;
+  }
+}
+.tradein_form form button{
+  @media (max-width: 1050px) {
+    width: 100%;
+    max-width: 100%;
+    min-width: 280px;
+  }
+  @media (max-width: 1000px) {
+    width: 315px;
+    max-width: initial;
+    min-width: initial;
+  }
+  @media (max-width: 400px) {
+    width: 100%;
+  }
+}
+.secur_f {
+  @media (max-width: 400px) {
+    width: 100%;
+  }
+}
+.secur_f:before {
+  @media (max-width: 400px) {
+    width: 60px;
+  }
+}
+
+/************tradein_form**************/

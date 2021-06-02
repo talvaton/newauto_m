@@ -1,0 +1,99 @@
+<% provide :title,"Профессиональный ремонт и ТО вашего автомобиля в #{@current_region.sklon3}" %>
+<% provide :description,'Профессиональный ремонт и ТО вашего автомобиля. Автосалон «Авиньон» 8 (800) 500-03-23, ' + @current_region.sklon1 + '.' %>
+<div class="head_bn"></div>
+<div class="container">
+<h1>Профессиональный ремонт и ТО вашего автомобиля</h1>
+
+<div class="tab__box">
+  <div class="tab__box-nav">
+    <div class="tab__b_n-m act"><i><%= image_tag "carso/service/master.png", alt:'' %></i><span>Задать вопрос мастеру</span></div>
+    <div class="tab__b_n-m"><i><%= image_tag "carso/service/invoice.png", alt:'' %></i><span>Записаться на Тех Обслуживание</span></div>
+    <div class="tab__b_n-m"><i><%= image_tag "carso/service/001-screwdriver.png", alt:'' %></i><span>Записаться на ремонт</span></div>
+    <div class="tab__b_n-m"><i><%= image_tag "carso/service/calculator.png", alt:'' %></i><span>Узнать стоимость ремонта</span></div>
+  </div>
+  <div class="tab__box_txt">
+    <div class="tab__box_txt_b">
+     <span class="block-active">Задать вопрос мастеру</span>
+     <span>Записаться на Тех Обслуживание</span>
+     <span>Записаться на ремонт</span>
+     <span>Узнать стоимость ремонта</span>
+     <div>Наш мастер свяжется с вами в течение 10 минут и поможет подобрать необходимые запчасти.</div>
+    </div>
+
+
+    <div class="tab_form">
+      <%= form_for Ticket.new,url: {action:'create',controller:'tickets' },remote:true,validate:true,:html => {:class => 'service',:name=>'service'},:namespace => 'service' do |f| %>
+        <%= f.hidden_field :form_name, value:'service' %>
+        <%= hidden_field_tag 'ticket[other][tradein_toggle]', '1' %>
+          <div class="form_input"><%= f.text_field :name,class:'input',placeholder:'Введите имя' %></div>
+          <div class="form_input"><%= f.phone_field :phone,class:'input',data:{:role=>'phone'},placeholder:'Телефон для связи' %></div>
+          <div class="form_input"><%= f.button do %><span>Оставить заявку</span><% end %></div>
+      <% end %>
+    </div>
+
+
+    <span class="frm_info">Нажимая на кнопку “Отправить” Вы даете согласие на обработку своих персональных данных</span>
+  </div>
+</div>
+  <div class="sr_txt">
+    <div><i><%= image_tag "carso/service/auto-mechanic-working-in-garage-repair-service.png", alt:'' %></i></div>
+    <div>
+      <h2 class="sr_th">Какие услуги предлагает наш автосервис</h2>
+      <p>Мы оказываем профессиональные услуги по ремонту и техническому обслуживанию автомобилей любых марок и годов выпуска. Благодаря многолетней успешной работе мы можем предложить нашим клиентам один из самых высоких уровней сервиса в Москве по справедливой цене.</p>
+      <p>Большой практический опыт мастеров и оснащение современным оборудованием позволяют нашей станции качественно и оперативно справляться с любой неисправностью вашего автомобиля.</p>
+      <a href="#">Записаться на ремонт или ТО <%= image_tag "carso/service/srt-r.png", alt:'' %></a>
+      <a href="#">Рассчитать стоимость <%= image_tag "carso/service/srt-r.png", alt:'' %></a>
+    </div>
+  </div>
+  <div class="sr_txt nxt">
+    <div>
+      <h2 class="sr_th">Перечень доступных услуг</h2>
+      <ul>
+        <li>Диагностика авто — комплексная и отдельных агрегатов;</li>
+        <li>Техническое обслуживание — замена расходных материалов и технических жидкостей;</li>
+        <li>Ремонт и обслуживание после ДТП;</li>
+        <li>Обслуживание и ремонт тормозной системы и трансмиссии;</li>
+        <li>Слесарный ремонт рулевого управления и подвески;</li>
+        <li>Ремонт кузова — устранение царапин и сколов, покраска;</li>
+        <li>Удаление сколов и трещин с лобового стекла;</li>
+        <li>Обслуживание и ремонт системы вентиляции и кондиционирования.</li>
+      </ul>
+
+      <a href="#">Задать вопрос по услугам <%= image_tag "carso/service/srt-r.png", alt:'' %></a>
+    </div>
+    <div><i><%= image_tag "carso/service/img_usl.png", alt:'' %></i></div>
+  </div>
+
+  <h2 class="sr_th srmr">Почему мы, а не кто-то другой: <br> 8 главных причин</h2>
+  <div class="glpr">
+    <div class="glpr_bl"><i><%= image_tag "carso/service/005-guarantee-1.png", alt:'' %></i><div><span>Наша гарантия сроком на полгода</span><p>6 месяцев — именно столько составляет гарантия на все выполненные нами работы.</p></div></div>
+    <div class="glpr_bl"><i><%= image_tag "carso/service/004-guarantee.png", alt:'' %></i><div><span>Сохранность гарантии производителя авто</span><p>После обращения в наш автосервис вы сохраняете гарантию производителя.</p></div></div>
+    <div class="glpr_bl"><i><%= image_tag "carso/service/002-clock.png", alt:'' %></i><div><span>Своевременное окончание работ</span><p>Вы гарантированно получите свой автомобиль точно в срок, обозначенный оператором.</p></div></div>
+    <div class="glpr_bl"><i><%= image_tag "carso/service/006-profit.png", alt:'' %></i><div><span>Бонусы и скидки</span><p>На ряд услуг нами предусмотрены приятные скидки и бонусы.</p></div></div>
+    <div class="glpr_bl"><i><%= image_tag "carso/service/007-mechanic.png", alt:'' %></i><div><span>Помощь в покупке запчастей</span><p>Наши специалисты подскажут, где купить необходимые запчасти на лучших условиях.</p></div></div>
+    <div class="glpr_bl"><i><%= image_tag "carso/service/003-customer-support.png", alt:'' %></i><div><span>Устраняем только реальные поломки</span><p>Проводим тщательную диагностику и работаем только с действительно существующими проблемами.</p></div></div>
+    <div class="glpr_bl"><i><%= image_tag "carso/service/001-coffee-cup.png", alt:'' %></i><div><span>Кофе для поднятия настроения</span><p>Угощаем вкусным кофе, чтобы сделать нахождение в нашем автосервисе максимально приятным.</p></div></div>
+    <div class="glpr_bl"><i><%= image_tag "carso/service/001-armchair.png", alt:'' %></i><div><span>Комфортабельная зона ожидания</span><p>Мы оснастили зону ожидания всем необходимым для вашего комфорта — мягкой мебелью, быстрым интернетом и другими удобствами.</p></div></div>
+    <div class="glpr_form">
+      <span>Записаться на услугу</span>
+      <%= form_for Ticket.new,url: {action:'create',controller:'tickets' },remote:true,validate:true,:html => {:class => 'service_add',:name=>'service_add'},:namespace => 'service_add' do |f| %>
+        <%= f.hidden_field :form_name, value:'Записаться на услугу' %>
+        <%= hidden_field_tag 'ticket[other][tradein_toggle]', '1' %>
+       <div class="ser_inbl">
+        <div class="form_input"><%= f.text_field :name,class:'input',placeholder:'Введите имя' %></div>
+        <div class="form_input"><%= f.phone_field :phone,class:'input',data:{:role=>'phone'},placeholder:'Ваш телефон' %></div>
+       </div>
+         <div class="form_input"><%= f.button do %><span>Оставить заявку</span><% end %></div>
+      <% end %>
+    </div>
+  </div>
+
+  <h3 class="sr_th srmr">Ремонтируемые марки авто</h3>
+
+  <ul class="service_brand">
+    <%= render partial:'partials/carso/brand_list', collection: @brands %>
+  </ul>
+
+<%= render 'partials/carso/credit_form' %>
+
+</div>

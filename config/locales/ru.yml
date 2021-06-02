@@ -1,0 +1,42 @@
+ru:
+  errors:
+    messages:
+      blank: "Обязательно для заполнения"
+  views:
+    pagination:
+      first: "««"
+      last: "»»"
+      previous: "«"
+      next: "»"
+      truncate: "&hellip;"
+    helpers:
+      page_entries_info:
+        one_page:
+          display_entries:
+            zero: "No %{entry_name} found"
+            one: "Displaying <b>1</b> %{entry_name}"
+            other: "Displaying <b>all %{count}</b> %{entry_name}"
+        more_pages:
+          display_entries: "Displaying %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> in total"
+  date:
+    month_names: [~, Января, Февраля, Марта, Апреля, Мая, Июня, Июля, Августа, Сентября, Октября, Ноября, Декабря]
+    formats:
+      next_monday: "%-d %B"
+  car_types:
+    Внедорожник: "vehicle"
+    Седан: "sedan"
+    Хэтчбек: "hetchback"
+    Лифтбек: "liftbeki"
+    Универсал: "universal"
+    Минивэн: "minivenyi"
+    Пикап: "pikapyi"
+    Фургон: "furgonyi"
+    Купе: "kupe"
+    Кросс-купе: "cross-kupe"
+    Кроссовер: "crossover"
+  misc:
+    car:
+      zero: 'автомобилей'
+      one: 'автомобиль'
+      few: 'автомобиля'
+      many: 'автомобилей'

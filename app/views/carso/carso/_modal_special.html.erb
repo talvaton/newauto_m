@@ -1,0 +1,36 @@
+<aside class="modal modal--cookie-message" id="modal_special">
+  <div class="modal__top">
+    <button type="button" class="modal__close-btn" data-fancybox-close="">
+      <span class="close-btn" data-action="hide-table-row-description">×</span>
+    </button>
+  </div>
+
+  <div class="modal__inner">
+    <%= form_for Ticket.new,
+                 url: {action:"create",controller:"tickets" },
+                 remote:true,
+                 validate:true,
+                 :html => {:class => "form cookie_modal_vtb",
+                           :name=>"cookie_modal"},
+                 :namespace => "cookie_modal" do |f| %>
+
+      <%= f.hidden_field :form_name, value:"Гарантия лучшей цены",id:'cookie_modal_ticket_other_model' %>
+
+      <div class="pform_spt">Гарантия <span>лучшей цены</span></div>
+      <div class="pform_spt_s">Действует до <%= l(SALE_DATE, format: :next_monday) %> 2021 года</div>
+      <div class="pform_spt_m">Если вы найдете цену ниже, то мы компенсируем разницу и подарим ценный подарок.</div>
+      <div class="form_input">
+        <%= f.text_field :name,class:'input', placeholder:'Ваше имя' %>
+      </div>
+      <div class="form_input">
+        <%= f.phone_field :phone,class:"input",data:{:role=>"phone"}, placeholder:"Телефон для связи" %>
+      </div>
+      <div class="form_input">
+        <%= select_tag 'ticket[other][gift]', options_for_select(['КАСКО','Парктроник','Сигнализация','Литые диски','Сигвей']),class:'select',:include_blank => 'Выберите подарок',id:'credit_ticket_other_gift' %>
+      </div>
+      <div class="form_input">
+      <%= f.button "Получить лучшую цену", class: "button button--simple modal__button" %>
+      </div>
+    <% end %>
+  </div>
+</aside>

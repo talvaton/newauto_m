@@ -1,0 +1,5 @@
+$('<%= "#equipment_#{@equipment.id}_description" %>').html('<%= j render partial:'carso/new_cars/compl_description_content' %>');
+
+$("[data-action=hide-table-row-description]").on('click', function(){
+    $(this).closest('[data-role="table-row-description"]').hide();
+});

@@ -1,0 +1,3 @@
+<% if @res.present? %>
+  $('#used-list').append('<%= j render partial:'partials/carso/used_car', collection: @res %>');
+<% end %>

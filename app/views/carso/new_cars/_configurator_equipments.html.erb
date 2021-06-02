@@ -1,0 +1,30 @@
+<% compl_params = [] %>
+<% doc = Nokogiri::HTML(card.description) %>
+<% doc.css('li').each do |tag| %>
+  <% compl_params.push(tag.content) %>
+<% end %>
+
+<div class="container">
+
+  <input type="radio"  name="complect" value="<%= card.name %>">
+  <div class="card__inner">
+      <div class="card__header">
+        <div class="card__title"><%= card.name %></div>
+        <div class="card__header-info">
+          <span class="card__header-additional"><%= @prev_compl == '' ? 'Базовая комплектация' : 'В дополнение к ' + @prev_compl %></span>
+           <div class="kfprd">
+            <span class="card__price"><%= number_with_delimiter(@model.count_price(card.price,@region_discount), delimiter: ' ') %> ₽</span>
+            <span class="kfprsl">Выбрать</span>
+           </div>
+          </div>
+      </div>
+      <ul class="card__feature-list">
+        <% (compl_params - @prev_compl_params).each do |p| %>
+          <li class="card__feature"><%= p %></li>
+        <% end %>
+      </ul>
+  </div>
+</div>
+
+<% @prev_compl_params = compl_params %>
+<% @prev_compl = card.name %>

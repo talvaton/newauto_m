@@ -1,0 +1,1276 @@
+@import "_vars";
+
+.header::after {
+  display: none !important;
+}
+
+// названия табов
+.config-titles {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @include list_reset;
+  @media all and (max-width: 1100px) {
+    padding: 10px 0;
+    justify-content: center;
+  }
+  @media all and (max-width: 420px) {
+    display: block;
+  }
+}
+.config-titles__tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 175px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  margin: 0 10px;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    color: $white;
+    background: #7AE3B7;
+  }
+  @media all and (max-width: 900px) {
+    margin: 0 13px;
+  }
+  @media all and (max-width: 600px) {
+    margin: 0 5px;
+  }
+  @media all and (max-width: 480px) {
+    width: 50px;
+  }
+  @media all and (max-width: 420px) {
+    width: 100%;
+    height: 44px;
+    border-radius: 0;
+    margin: 10px 0 0 0;
+  }
+
+}
+.config-titles__tab span{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 120%;
+  color: #FFFFFF;
+  transform: rotate(-90deg);
+  @media all and (max-width: 420px) {
+    transform: initial;
+  }
+}
+.config-titles__tab--active {
+  color: $white;
+  background: #7AE3B7;
+}
+.config-titles__tab--done {
+  color: $white;
+  background-color: $line_color;
+  border-color: $contrast_main;
+}
+// названия табов end
+
+
+
+
+// названия табов
+/*.config-car {
+  background-color: $white;
+}*/
+// названия табов end
+
+/* СТИЛИ ДЛЯ КОНФИГУРАТОРА */
+
+.config-tabs__tab{
+  display: none;
+}
+.config-tabs__tab.frmt{
+  opacity: 0;
+  height: 0;
+  display: block;
+}
+.frmt.config-tabs__tab-active{
+  opacity: 1;
+  height: auto;
+}
+.config-tabs__tab-active{
+  display: block;
+}
+.config-tabs .title{
+  margin: 10px 0 40px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 120%;
+  color: #1260B0;
+}
+.config-tabwrapper{
+  display: grid;
+  margin: 0 0 40px 0;
+ /* grid-template-columns: 100% 25%;
+  grid-column-gap: 30px;
+  margin: 30px 0;*/
+  @media all and (max-width: 900px) {
+    display: block;
+  }
+}
+.config-tabtitlewrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.config-tabtitlewrapper button{
+  max-width: 140px;
+  position: relative;
+}
+.config-tabtitlewrapper button:hover,
+.config-tabtitlewrapper button:active,
+.config-tabtitlewrapper button:focus {
+  background: linear-gradient(to bottom, #fff 0%, #E4E4E4 100%);
+  color: #cc2128;
+}
+
+.config-tabtitlewrapper button:disabled {
+  color: gray;
+}
+.config-tabs__tab button:disabled:hover,
+.config-tabs__tab button:disabled:active,
+.config-tabs__tab button:disabled:focus{
+  background: linear-gradient(to bottom, #fff 0%, #E4E4E4 100%);
+}
+
+.config-tabtitlewrapper button span{
+  margin-right: 10px;
+}
+.config-tabtitlewrapper button img{
+  position: absolute;
+  right: 0;
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+.config-brandsblockwrapper{
+  display: flex;
+}
+.config-brandsblock_mob{
+  margin: 0 32px 0 0;
+  @media all and (max-width: 800px) {
+    width: 50%;
+  }
+  @media all and (max-width: 460px) {
+    width: 100%;
+  }
+}
+.config-brandsblockwrapper .config-modelblock{
+  @media all and (max-width: 800px) {
+    width: 50%;
+  }
+  @media all and (max-width: 460px) {
+    width: 100%;
+    margin: 15px 0 0 0;
+  }
+}
+
+.config-brandsblock{
+  display: none;
+  //display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 10px 31px;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid #eee;
+}
+.config-brandsblock div.container{
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 5px 20px;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+.config-brandsblock div.container:hover,
+.config-brandsblock div.container.checked_input{
+  background-color: #cc2128;
+
+}
+.config-brandsblock div.container:hover span,
+.config-brandsblock div.container.checked_input span{
+  color: #fff;
+}
+.config-brandsblock div.container input,
+.config-complectblock input,
+.config-engineblock input,
+.config-presentblock input,
+.color__picker .modal__color input{
+  position: absolute;
+  opacity: 0;
+}
+.config-brandsblock div.container img{
+  margin-right: 20px;
+}
+.config-brandsblock div.container span{
+  text-transform: uppercase;
+}
+.config-modelblock .modelblock__name,
+.config-brandsblock_mob .brandblock__name{
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.config-modelblock select,
+.config-brandsblock_mob select{
+  background-color: #FFFFFF;
+  border: 1px solid #DAE1E8;
+  border-radius: 5px;
+  height: 40px;
+  width: 308px;
+  padding: 10px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  color: #999c9e;
+  background-image:image-url('carso/icons/t_str.svg');
+  background-repeat: no-repeat;
+  background-position: right .7em top 50%, 0 0;
+  @media all and (max-width: 800px) {
+    width: 100%;
+  }
+}
+
+.config-complectblock{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+}
+
+.config-presentblock{
+  display: grid;
+  justify-content: space-between;
+  grid-template-columns: repeat(4, 1fr);
+  @media all and (max-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-row-gap: 30px;
+  }
+  @media all and (max-width: 1000px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media all and (max-width: 600px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+
+.config-engineblock{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 30px;
+  @media all and (max-width: 1400px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.config-complectblock .card__inner{
+  border: 1px solid transparent;
+}
+.config-complectblock .card__inner{
+  min-height: 215px;
+}
+/*.config-complectblock div.container:hover .card__inner,
+.config-engineblock div.container:hover .card__inner,
+.config-presentblock div.container:hover .card__inner{
+  border: 1px solid #cc2128;
+}*/
+/*.config-engineblock div.container:hover .card__header{
+  background-color: #cc2128;
+  color: #fff;
+}*/
+.config-complectblock div.container:hover .card__title:before{
+  border-color: #fff;
+}
+
+.config-complectblock .card__header{
+
+}
+.config-complectblock .card__header .card__title{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #1260B0;
+}
+.config-complectblock .card__header-info{
+  text-align: left;
+}
+.config-complectblock .card__header-info .card__price{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  color: #6AD1A6;
+  display: flex;
+  align-items: center;
+  @media all and (max-width: 400px) {
+    margin: 0 0 10px 0;
+  }
+}
+.kfprd{
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0 10px 0;
+  @media all and (max-width: 400px) {
+    display: block;
+  }
+}
+.kfprsl{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background: #1260B0;
+  border-radius: 3px;
+  width: 130px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.config-engineblock .kfprsl{
+  width: 100%;
+}
+
+.config-complectblock .checked_input .kfprsl, .config-engineblock .checked_input .kfprsl{
+  background: #6AD1A6;
+}
+
+.config-complectblock .card__header-info .card__header-additional{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 15px;
+  color: #222222;
+}
+.config-engineblock .card__header{
+  position: relative;
+}
+.config-engineblock .container{
+  border: 1px solid #E3E6EA;
+  border-radius: 5px;
+  padding: 10px;
+  width: 240px;
+}
+/*.config-complectblock .card__title:before,
+.config-engineblock .card__title:before{
+  content: '';
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #aaa;
+  border-radius: 5px;
+}*/
+.config-complectblock .checked_input .card__title:before,
+.config-engineblock .checked_input .card__title:before{
+  border-color: #fff;
+}
+/*.config-complectblock .checked_input .card__title:after,
+.config-engineblock .checked_input .card__title:after{
+  content: '';
+  position: absolute;
+  left: 23px;
+  top: 23px;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 2px;
+}*/
+/*.config-complectblock .checked_input .card__header,
+.config-engineblock .checked_input .card__header{
+  background-color: #cc2128;
+  color: #fff;
+}*/
+/*.config-complectblock .checked_input .card__price,
+.config-complectblock .checked_input .card__header-additional{
+  color: #fff;
+}*/
+/*.config-complectblock .checked_input .card__inner,
+.config-engineblock .checked_input .card__inner,
+.config-presentblock .checked_input .card__inner,
+.modal__colors .checked_input .card__inner{
+  border: 1px solid #cc2128;
+  box-shadow: none;
+}*/
+.config-complectblock .card__feature-list{
+  height: 222px;
+  overflow-y: auto;
+}
+.config-complectblock .card__feature-list li{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 14px;
+  color: #222222;
+  padding: 10px 0 0 0;
+}
+.config-engineblock .card__price{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  color: #6AD1A6;
+  padding: 13px 0;
+  display: block;
+}
+
+.config-engineblock .card__title{
+  text-align: left;
+}
+
+.modal__color .checked_input .modal__color-name{
+  font-weight: 700;
+  color: #cc2128;
+}
+
+/*
+.modal__colors .modal__color:hover .card__inner,
+.modal__colors .modal__color .checked_input .card__inner{
+  border: 1px solid #cc2128;
+}*/
+
+.modal__colors .modal__color {
+  width: 20%;
+  margin: 15px;
+  cursor: pointer;
+}
+.modal__colors .modal__color .card__inner{
+  display: flex;
+  align-items: center;
+  @media all and (max-width: 560px) {
+    padding: 0 10px 10px 0;
+  }
+}
+.modal__colors .modal__color .modal__color-name {
+  margin: 0 0 0 13px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: -0.01em;
+  color: #222222;
+  text-align: left;
+  @media all and (max-width: 560px) {
+    font-size: 12px;
+  }
+}
+.modal__colors .modal__color .checked_input .modal__color-name {
+  color: #6AD1A6;
+}
+
+.modal__color-or-name{
+  width: 48px;
+  min-width: 48px;
+  height: 48px;
+  border-radius: 5px;
+  @media all and (max-width: 560px) {
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+  }
+}
+.config-presentblock .card__inner{
+  display: block;
+  overflow: hidden;
+}
+.config-presentblock .container{
+  width: 280px;
+  border: 1px solid #E3E6EA;
+  border-radius: 5px;
+  padding: 0;
+  @media all and (max-width: 680px) {
+    margin: 15px auto;
+  }
+  @media all and (max-width: 360px) {
+    width: 240px;
+  }
+}
+
+.config-presentblock .card__inner .card__title{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  color: #222222;
+  margin: 24px 0 16px 20px;
+}
+.config-presentblock .card__inner .kfprsl{
+  width: 130px;
+  margin: 0 0 20px 20px;
+}
+.config-presentblock .checked_input .card__inner .kfprsl{
+  background: #6AD1A6;
+}
+
+/*.config-tabwrapper .config-car{
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.12), 0px 12px 16px rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+}*/
+.config-car{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  @media all and (max-width: 760px) {
+    display: block;
+  }
+}
+.config-car form {
+  width: 100%;
+  @media all and (max-width: 760px) {
+    width: 317px;
+    margin: 0 auto;
+  }
+  @media all and (max-width: 400px) {
+    width: 100%;
+  }
+}
+.config-tabs__tab .config-car{
+  margin: 40px 0 0 0;
+}
+.config-tabs__tab .config-car form .form_input{
+  padding: 20px 0 0 0;
+}
+.config-tabs__tab .config-car form input{
+  width: 317px;
+  height: 62px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  line-height: 120%;
+  color: #C4C4C4;
+  border: 1px solid #8F8F8F;
+  border-radius: 5px;
+  @media all and (max-width: 400px) {
+    width: 100%;
+    height: 50px;
+  }
+}
+.config-tabs__tab .config-car form button{
+  width: 317px;
+  height: 60px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 20px;
+  color: #FFFFFF;
+  background: #1260B0;
+  border-radius: 3px;
+  @media all and (max-width: 400px) {
+    width: 100%;
+    height: 50px;
+  }
+}
+
+.frm_knf_i{
+  margin: 0 150px 0 0;
+  @media all and (max-width: 1100px) {
+    margin: 0 80px 0 0;
+  }
+  @media all and (max-width: 800px) {
+    margin: 0 50px 0 0;
+  }
+  @media all and (max-width: 760px) {
+    margin: 0;
+  }
+}
+
+.frmt.config-tabs__tab-active{
+  display: block;
+  grid-template-columns: initial;
+}
+
+
+.frm_knf_i_t{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 120%;
+  color: #1260B0;
+  display: block;
+  margin: 25px 0 45px 0;
+  text-align: right;
+  @media all and (max-width: 1100px) {
+    font-size: 30px;
+    margin: 25px 0 25px 0;
+  }
+  @media all and (max-width: 760px) {
+    text-align: left;
+  }
+  @media all and (max-width: 500px) {
+    font-size: 26px;
+  }
+}
+.frm_knf_i_i{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 140%;
+  color: #8F8F8F;
+  text-align: right;
+  display: block;
+  @media all and (max-width: 1100px) {
+    font-size: 14px;
+  }
+  @media all and (max-width: 760px) {
+    text-align: left;
+  }
+}
+
+/*.config-car .config-car__title{
+  display: grid;
+  grid-template-columns: 67% 30%;
+  grid-column-gap: 10px;
+}*/
+/*.config-car .config-car__title .config-car__title_left{
+  padding: 20px;
+}*/
+/*.config-car .config-car__title .config-car__title_left > div{
+  width: 60px;
+  height: 60px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  float: left;
+}*/
+.config-car .config-car__title .config-car__title_left > div img {
+  max-width: 90%;
+}
+/*.config-car .config-car__title .config-car__title_left > span{
+  display: inline-block;
+  font-size: 18px;
+  line-height: 21px;
+  margin: 5px 0 0 5px;
+}*/
+.config-car .config-car__title .config-car__title_right{
+  font-size: 18px;
+  color: #cc2128;
+  font-weight: 500;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px;
+}
+.config-car .config-car__inner .config-car_img{
+  width: 100%;
+  padding: 20px;
+}
+.config-car .config-car__info{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 35px 0 0 0;
+  @media all and (max-width: 1100px) {
+
+  }
+}
+.config-car .config-car__info > div > span {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 100%;
+  color: #ffffff6b;
+  @media all and (max-width: 360px) {
+    font-size: 16px;
+  }
+}
+.config-car .config-car__info .config-car_price {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 120%;
+  color: #FFFFFF;
+}
+.config-car .config-car__info .config-car_credit {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 120%;
+  color: #FFFFFF;
+}
+
+.config-car__inner ul {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding: 0 20px 14px 20px;
+}
+.config-car__inner ul li{
+  list-style: none;
+  text-align: center;
+}
+.config-car__inner ul li span,
+.config-car_exterier span{
+  font-size: 11px;
+  line-height: 13px;
+  color: rgba(68,68,68,0.5);
+  margin-bottom: 10px;
+}
+.config-car__inner ul li span b,
+.config-car_exterier span b{
+  font-size: 16px;
+  line-height: 19px;
+  color: rgba(68,68,68,1);
+}
+.config-car_exterier{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 10px 20px;
+}
+.config-car_exterier span b{
+  font-size: 14px;
+}
+.config-car__inner .form__bottom_block{
+  opacity: 1;
+}
+.config-car__inner .form__bottom_block button{
+  width: 140px;
+}
+/*.config-brandsblock_mob,
+.config-button_mob{
+  display: none;
+}*/
+
+.config-car .display__none,
+.config-tabs .display__none{
+  opacity: 0;
+  visibility: hidden;
+}
+.config-tabs{
+  box-shadow: 0 17px 32px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  padding: 25px 25px 30px 25px;
+  @media all and (max-width: 500px) {
+    padding: 25px 10px 30px 10px;
+  }
+}
+
+.config-brandsblock option,
+.config-brandsblock_mob div.container.container,
+.config-brandsblock_mob div.container.container > input,
+.config-brandsblock_mob div.container.container > img,
+.config-brandsblock_mob div.container.container > span{
+  display: none;
+}
+
+.config-button_mob-next{
+  grid-column: 2/3;
+}
+
+.config-button_mob_back img{
+  transform: rotate(180deg);
+}
+
+.config-button:disabled{
+  color: gray;
+}
+.config-button:disabled img{
+  display: none;
+}
+
+.disabled {
+  pointer-events:none;
+  opacity:0.6;
+}
+.config-engineblock .card__title{
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 120%;
+  display: flex;
+  color: #222222;
+}
+
+.config-engineblock .card__title span{
+  display: inline-block;
+}
+
+.conf_about__link {
+  width: max-content;
+  border: 1px solid #4e4c4c;
+  border-radius: 10px;
+  padding: 5px 10px;
+  text-transform: none;
+  margin: -10px auto 10px;
+  transition-duration: 0.5ms;
+}
+.conf_about__link:hover{
+  color: #fff;
+  text-decoration: none;
+  border-color: #cc2128;
+  background-color: #cc2128;
+  transition-duration: 0.5ms;
+}
+
+
+.config__formtitle{
+  grid-row-start: 5;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  margin: 40px 0 -30px;
+  text-align: center;
+  opacity: 0;
+}
+
+.configpage__title{
+  margin: 15px 0 30px;
+}
+
+/*.config-button:after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -14px;
+  width: 123%;
+  height: 100%;
+  background: linear-gradient(to left, rgba(255,255,255,.0), rgba(255,255,255,.3), rgba(255,255,255,.0)) no-repeat -3em 0%;
+  background-size: 3em 100%;
+  transform: skewX(-31deg);
+}*/
+.button.config-button__hover{
+/*  background: #CC2128;
+  background-image: linear-gradient(to top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 100%);
+  color: #fff;*/
+}
+.button.config-button__hover img{
+  opacity: 0;
+  transition: opacity 0s ease;
+}
+.button.config-button__hover:after{
+  transition: 1s ease-out;
+  background-position: 110% 0%;
+}
+
+
+
+/* СТИЛИ ДЛЯ КОНФИГУРАТОРА - END */
+@media only screen and (max-width: 1440px) {
+  .configpage__title{
+    margin: 15px 20px 30px;
+  }
+}
+@media only screen and (max-width: 1300px) {
+  .config-presentblock .card__title{
+    margin-left: 15px;
+  }
+}
+@media only screen and (max-width: 1250px) {
+  .config-brandsblock,
+  .config-brandsblock div.container{
+    padding: 10px;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .config-brandsblock{
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .config-tabwrapper{
+    grid-column-gap: 23px;
+  }
+}
+@media only screen and (max-width: 1160px) {
+  .config-car .config-car__info .config-car_price,
+  .config-car .config-car__info .config-car_credit{
+    font-size: 16px;
+  }
+/*  .config-car {
+    max-height: 660px;
+  }*/
+  .config-presentblock .card__title{
+    margin-left: 32px;
+    font-size: 15px;
+  }
+}
+@media only screen and (max-width: 1100px) {
+  .config-presentblock {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .config-presentblock .card__title{
+    margin-left: 10px;
+  }
+  .modal__colors .modal__color {
+    width: 28%;
+    margin: 7px;
+  }
+  .config-complectblock, .config-engineblock{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+@media only screen and (max-width: 1030px) {
+
+}
+@media only screen and (max-width: 1024px) {
+  .config-modelblock select{
+    font-size: 12px;
+  }
+
+  .config-brandsblock{
+   // display: block;
+  }
+  .config-brandsblock, .config-brandsblock div.container{
+    text-align: center;
+  }
+  .config-brandsblock div.container img{
+    margin: 0 auto;
+  }
+}
+@media only screen and (max-width: 930px) {
+  .config-complectblock,
+  .config-engineblock,
+  .config-presentblock{
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media only screen and (max-width: 900px) {
+  .config-presentblock {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media only screen and (max-width: 840px) {
+  .modal__colors .modal__color {
+    width: 50%;
+    margin: 7px auto;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .modal__colors .modal__color {
+    width: 100%;
+  }
+}
+
+@media (max-width: 680px) {
+
+  .config-tabwrapper .config-tabs{
+    order: 2;
+  }
+ /* .config-tabwrapper .config-car{
+    order:1;
+    margin: 0 20px 30px;
+  }*/
+  .config-car .config-car__inner .config-car_img{
+    //border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .config-car__inner{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .config-car__inner ul,
+  .config-car_exterier,
+  .config-car__inner .form__bottom_block{
+    grid-column: 1/3;
+  }
+  .config-car .config-car__info .config-car_price,
+  .config-car .config-car__info .config-car_credit{
+    font-size: 20px;
+  }
+  .config-tabs .title{
+    //display: none;
+  }
+  .config-tabwrapper{
+    position: relative;
+    padding-bottom: 230px;
+  }
+
+  .config-car__inner .form__bottom_block .form__error{
+    margin: 0 0 -17px;
+  }
+  .config-car__inner .form__bottom_block .input--error{
+    border-color: #000;
+  }
+  .config-brandsblockwrapper{
+    grid-template-columns: 50% 50%;
+    grid-column-gap: 0;
+    @media only screen and (max-width: 460px) {
+      display: block;
+    }
+  }
+  .config-tabs__tab{
+    padding: 0 20px;
+    @media only screen and (max-width: 400px) {
+
+      grid-template-columns: initial;
+      padding: 0 10px;
+    }
+  }
+
+  .config-brandsblock_mob{
+    display: block;
+    grid-column: 1/3;
+  }
+  .config-button_mob{
+    display: flex;
+    margin: 50px 0 0;
+    width: 93%;
+    position: relative;
+  }
+  .config-button_mob img{
+    opacity: 1;
+    transition: opacity 1s ease;
+  }
+  .config-button_mob.config-button__hover img{
+    opacity: 0;
+    transition: opacity 0s ease;
+  }
+  .config-button:after {
+    left: -2px;
+  }
+  /*.config-button_mob{
+    grid-column: 1/3;
+  }*/
+  .config-modelblock{
+    grid-column: 1/3;
+  }
+  .config-complectblock, .config-engineblock, .config-presentblock{
+    display: block;
+  }
+ /* .config-titles__tab{
+    display: none!important;
+  }*/
+ /* .config-titles__tab--active{
+    display: flex!important;
+    width: 100%!important;
+  }*/
+
+  .config-presentblock{
+    margin-bottom: 30px;
+  }
+
+  .config-tabs__tab-active{
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+  .config-brandsblockwrapper,
+  .config-complectblock,
+  .config-engineblock,
+  .config-presentblock{
+    grid-column: 1/3;
+    //min-height: 360px;
+  }
+  .config-brandsblockwrapper .slick-prev,
+  .config-complectblock .slick-prev,
+  .config-engineblock .slick-prev,
+  .config-presentblock .slick-prev{
+    //background-color: transparent;
+    top: calc(50% - 51px)!important;
+    //height: 30px;
+  }
+  .config-brandsblockwrapper .slick-next,
+  .config-complectblock .slick-next,
+  .config-engineblock .slick-next,
+  .config-presentblock .slick-next{
+    //background-color: transparent;
+    top: calc(50% - 59px);
+    //height: 30px;
+  }
+  .config-brandsblockwrapper .slick-next,
+  .config-complectblock .slick-next,
+  .config-engineblock .slick-next,
+  .config-presentblock .slick-next{
+    //right: 30%;
+    //bottom: -32px;
+  }
+  .config-brandsblockwrapper .slick-prev,
+  .config-complectblock .slick-prev,
+  .config-engineblock .slick-prev,
+  .config-presentblock .slick-prev{
+    //left: 30%;
+    //bottom: -39px;
+  }
+  .config-brandsblockwrapper .slick-arrow::after,
+  .config-complectblock .slick-arrow::after,
+  .config-engineblock .slick-arrow::after,
+  .config-presentblock .slick-arrow::after{
+    background-image: image-url('carso/newcar/fat_arrow.png');
+  }
+  .config-button_mob:nth-child(1){
+    grid-column: 1/2;
+  }
+  .config-button_mob:nth-child(2){
+    grid-column: 2/3;
+  }
+  .config-tabs__tab[data-role="config-model"],
+  .config-tabs__tab[data-role="config-complect"],
+  .config-tabs__tab[data-role="config-engine"],
+  .config-tabs__tab[data-role="config-colors"]{
+   /* margin-bottom: -190px;*/
+  }
+  .config-tabs__tab[data-role="config-present"].config-tabs__tab-active{
+    margin-bottom: 40px;
+  }
+
+  .config-tabtitlewrapper,
+  .color__picker{
+    grid-column: 1/3;
+  }
+  .config-car .config-car__title .config-car__title_left > div{
+    display: none;
+  }
+  .conf_about__link{
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    margin: 0 auto;
+    border: none;
+    text-decoration: underline;
+  }
+  .conf_about__link:hover{
+    text-decoration: underline;
+  }
+
+  .config-engineblock .container,
+  .config-complectblock .container{
+    margin-bottom: 30px;
+  }
+  .config__formtitle{
+    opacity: 1;
+    transition: opacity ease 1s 1s;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .config-brandsblockwrapper .slick-next,
+  .config-complectblock .slick-next,
+  .config-engineblock .slick-next {
+    //right: 20%;
+  }
+  .config-car__inner .form__bottom_block{
+    margin: 0 10px 30px 10px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .config-car .config-car__info .config-car_price,
+  .config-car .config-car__info .config-car_credit {
+    font-size: 14px;
+  }
+  .config-presentblock .card__inner img{
+    width: 100%;
+  }
+  .config-presentblock .card__title{
+    font-size: 13px;
+  }
+  .config-brandsblockwrapper .slick-next,
+  .config-complectblock .slick-next,
+  .config-engineblock .slick-next {
+    //right: 20%;
+  }
+}
+
+@media only screen and (max-width: 370px) {
+  .modal__colors .modal__color .modal__color-img {
+    width: 100%;
+  }
+}
+.conf_bl{
+  height: 215px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  background: linear-gradient(100.86deg, rgba(5, 81, 161, 0) 13.79%, rgba(0, 149, 233, 0.8) 48.95%, rgba(5, 81, 161, 0) 87.35%), linear-gradient(0deg, #29425C, #29425C), #F2F2F2;
+  border-radius: 5px 5px 0 0;
+  margin: 25px 0 0 0;
+  @media only screen and (max-width: 1100px) {
+    height: auto;
+    display: block;
+    }
+}
+.fonf_l{
+  align-items: center;
+  display: flex;
+  margin: 0 0 0 55px;
+  min-height: 175px;
+  min-width: 200px;
+  max-width: 260px;
+  @media all and (max-width: 1100px) {
+    margin: 0 auto;
+  }
+}
+.fonf_l img{
+  width: 100%;
+  @media all and (max-width: 360px) {
+    width: initial;
+  }
+}
+.cnf_r{
+  height: 175px;
+  width: 494px;
+  background: linear-gradient(90deg, #0E72B2 0%, #7AE3B7 100%), #FFFFFF;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  margin: 0 0 0 35px;
+  padding: 20px;
+  @media all and (max-width: 1120px) {
+    width: 100%;
+  }
+  @media all and (max-width: 1100px) {
+    width: 494px;
+    margin: 0 auto;
+  }
+  @media all and (max-width: 600px) {
+    width: 100%;
+    border-radius: 0;
+  }
+}
+.config-car__title_left{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 120%;
+  letter-spacing: -0.01em;
+  color: #FFFFFF;
+  @media all and (max-width: 1120px) {
+    font-size: 22px;
+  }
+}
+.cbb_nxt{
+  background-color: #1260B0;
+  @media all and (max-width: 420px) {
+   height: 45px;
+  }
+}
+.cbb_nxt button{
+  background-image: image-url('carso/config/vector-24.png');
+  background-color: transparent;
+  width: 35px;
+  height: 100%;
+  border: medium none;
+  background-position: center center;
+  background-repeat: no-repeat;
+  @media all and (max-width: 420px) {
+    width: 100%;
+  }
+}
+.cbb_nxt button.dis{
+  display: none;
+
+}.cbb_nxt button[disabled]{
+  display: none;
+}
+
+.config-complectblock .container{
+  border: 1px solid #E3E6EA;
+  border-radius: 10px;
+  padding: 10px;
+}

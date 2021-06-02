@@ -1,0 +1,3 @@
+<div class="crfc_name"><%= credit_model_img.equipment_description.new_car.menutitle %></div>
+<img src="<%= credit_model_img.equipment_description.new_car.colors[0] %>" alt="" >
+<div class="crfc_p">Сумма кредита<span><%= number_with_delimiter(credit_model_img.price - credit_model_img.equipment_description.new_car.discount_count - @region_discount) %>₽</span></div>

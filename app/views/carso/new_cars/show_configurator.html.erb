@@ -1,0 +1,236 @@
+<script>
+  <% if @brand.present? %>
+    let p_brand = '<%= @brand.title.downcase %>';
+    let p_brand_id = '<%= @brand.id %>';
+    <% if @car.present? %>
+      let firstload = true;
+      let p_model = <%= @car.id %>;
+
+      <% provide :title,"Конфигуратор #{@brand.title} #{@car.name} 🚗 онлайн подбор автомобилей #{@car.russian_name} по параметрам, "  + @current_region.sklon1 %>
+      <% provide :description,"Ищете #{@brand.title} #{@car.name}? 🔍 Воспользуйтесь онлайн конфигуратором #{@car.russian_name} на официальном сайте автосалона «Авиньон» 🚘 Подбор новых авто #{(Time.current - 1.year).year.to_s}-#{Time.current.year.to_s} года ✅ подберите нужную машину с помощью десятков параметров!" %>
+    <% else %>
+      let firstload = false;
+
+  <% provide :title,"Конфигуратор #{@brand.title} 🚗 онлайн подбор автомобилей #{@brand.menutitle} по параметрам, "  + @current_region.sklon1 %>
+      <% provide :description,"Ищете автомобиль бренда #{@brand.title}? 🔍 Воспользуйтесь онлайн конфигуратором  #{@brand.menutitle} на официальном сайте автосалона «Авиньон» 🚘 Подбор новых авто #{(Time.current - 1.year).year.to_s}-#{Time.current.year.to_s} года ✅ подберите нужную машину с помощью десятков параметров" %>
+    <% end %>
+  <% else %>
+  <% provide :title,"Конфигуратор авто 🚗 онлайн подбор автомобилей, подобрать машину по параметрам, " + @current_region.sklon1 %>
+  <% provide :description,"Ищете определенное авто? 🔍 Воспользуйтесь онлайн конфигуратором на официальном сайте автосалона «Авиньон» 🚘 Подбор новых автомобилей #{(Time.current - 1.year).year.to_s}-#{Time.current.year.to_s} года ✅ подберите нужную машину с помощью десятков параметров!" %>
+  <% end %>
+</script>
+
+<section class="inner">
+
+  <% if @brand.present?
+    pageTitle = "Конфигуратор #{@brand.title}"
+      if @car.present?
+        pageTitle = "Конфигуратор #{@brand.title} #{@car.name}"
+      end
+    else
+      pageTitle = "Конфигуратор"
+  end %>
+
+  <h1 class="green"><%= pageTitle %></h1>
+<div class="conf_bl">
+  <div class="fonf_l">
+    <%#= image_tag 'carso/config/car-temp.png', alt:'', class:'config-img_p' %>
+    <%= image_tag '', alt:'', class:'config-car_img' %>
+  </div>
+  <div class="cnf_r">
+
+    <div class="config-car">
+      <%= form_for Ticket.new,url: {action:"create",controller:"tickets" },remote:true,validate:true,:html => {:class => "form",:name=>"newconfig"},:namespace => "newconfig" do |f| %>
+        <%= f.hidden_field :form_name, value:"booking_from_card" %>
+        <%= hidden_field_tag 'ticket[other][model]' %>
+        <%= hidden_field_tag 'ticket[other][equipment]' %>
+        <%= hidden_field_tag 'ticket[other][color]' %>
+        <%= hidden_field_tag 'ticket[other][gift]' %>
+        <div class="config-car__title">
+          <div class="config-car__title_left">
+            <span class="config-car__title_brand"></span>
+            <span class="config-car__title_model"><b></b></span>
+          </div>
+        </div>
+
+        <div class="config-car__info">
+          <div>
+            <span>Стоимость, от</span><br>
+            <span class="config-car_price"><b></b></span>
+          </div>
+          <div>
+            <span>В кредит, от</span><br>
+            <span class="config-car_credit"><b></b></span>
+          </div>
+        </div>
+
+      <% end %>
+      </div>
+
+  </div>
+  <ul class="config-titles">
+    <li class="config-titles__tab config-titles__tab--active" data-show-tabpanel="config-model"><span>Модель</span></li>
+    <li class="config-titles__tab" data-show-tabpanel="config-complect"><span>Комплектация</span></li>
+    <li class="config-titles__tab disabled" data-show-tabpanel="config-engine"><span>Модификация</span></li>
+    <li class="config-titles__tab disabled" data-show-tabpanel="config-colors"><span>Цвет</span></li>
+    <li class="config-titles__tab disabled" data-show-tabpanel="config-present"><span>Подарки</span></li>
+    <li class="config-titles__tab cbb_nxt">
+      <button class="button config-button" type="button" data-show-tabpanel="config-complect"></button>
+      <button class="button config-button" type="button" data-show-tabpanel="config-engine"></button>
+      <button class="button config-button" type="button" data-show-tabpanel="config-colors"></button>
+      <button class="button config-button" type="button" data-show-tabpanel="config-present"></button>
+      <button class="button config-button" type="button" data-show-tabpanel="config-frm"></button>
+    </li>
+  </ul>
+</div>
+  <div class="config-tabwrapper">
+
+    <div class="config-tabs">
+      <div class="config-tabs__tab config-tabs__tab-active" data-role="config-model">
+        <div class="config-tabtitlewrapper">
+          <h2 class="title">Выберите марку и модель авто</h2>
+        </div>
+        <div class="config-brandsblockwrapper">
+          <div class="config-brandsblock">
+            <%= render partial:'configurator_brands', collection: @brands.where.not(id: [11,19,35]), as: :brand %>
+          </div>
+
+          <div class="config-brandsblock_mob">
+            <div class="brandblock__name">Выберите марку</div>
+
+            <%= select_tag 'main[filter][brand]',
+                           options_for_select(Brand.where(hide:0).where.not(id: [11,19,31,33,35,52]).map{|b| [b.title,b.id, {'data-id'=>b.id}]}.sort, "22"),
+                           :include_blank => 'Выберите марку',
+                           id:'filter_brand' %>
+          </div>
+
+          <div class="config-modelblock">
+            <div class="modelblock__name">Выберите модель</div>
+            <select name="" id="modelblock_select" disabled>
+
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="config-tabs__tab" data-role="config-complect">
+        <div class="config-tabtitlewrapper">
+          <h2 class="title">Выберите комплектацию авто</h2>
+        </div>
+        <div class="config-complectblock">
+
+        </div>
+      </div>
+      <div class="config-tabs__tab" data-role="config-engine">
+        <div class="config-tabtitlewrapper">
+          <h2 class="title">Выберите модификацию авто</h2>
+        </div>
+
+        <div class="config-engineblock">
+        </div>
+
+      </div>
+      <div class="config-tabs__tab" data-role="config-colors">
+        <div class="config-tabtitlewrapper">
+          <h2 class="title">Выберите цвет</h2>
+        </div>
+
+        <div class="color__picker">
+            <ul class="modal__colors">
+
+            </ul>
+        </div>
+
+      </div>
+      <div class="config-tabs__tab" data-role="config-present">
+        <div class="config-tabtitlewrapper">
+          <h2 class="title">Выберите подарок</h2>
+        </div>
+
+        <div class="config-presentblock">
+          <div class="container">
+            <input type="radio"  name="present" value="kasko">
+            <div>
+              <div class="card__inner">
+                <%= image_tag 'carso/config/frame-1.png', alt:'' %>
+                <div class="card__title">Каско <br> в подарок</div>
+                <span class="kfprsl">Выбрать</span>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <input type="radio"  name="present" value="multisyst">
+            <div>
+              <div class="card__inner">
+                <%= image_tag 'carso/config/frame-2.png', alt:'' %>
+                <div class="card__title">Современная сигнализация</div>
+                <span class="kfprsl">Выбрать</span>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <input type="radio"  name="present" value="parktronik">
+            <div>
+              <div class="card__inner">
+                <%= image_tag 'carso/config/frame-3.png', alt:'' %>
+                <div class="card__title">Дополнительный парктроник</div>
+                <span class="kfprsl">Выбрать</span>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <input type="radio"  name="present" value="sygnal">
+            <div>
+              <div class="card__inner">
+                <%= image_tag 'carso/config/frame-4.png', alt:'' %>
+                <div class="card__title">Мультимедийная система</div>
+                <span class="kfprsl">Выбрать</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <%# <button class="button config-button config-button_mob config-button_mob_back" type="button" data-show-tabpanel="config-colors">%>
+          <%#= image_tag 'carso/long_arrow.png', class:"" %>
+        <%# <span>Назад</span>%>
+        <%#</button>%>
+
+      </div>
+      <div class="config-tabs__tab frmt" data-role="config-frm">
+        <div class="config-car">
+          <div class="frm_knf_i">
+            <span class="frm_knf_i_t">Получите спецпредложение с <br> максимальной скидкой!</span>
+            <span class="frm_knf_i_i">Воспользуйтесь спецпредложением, которое откроет Вам простой путь покупки автомобиля с максимальной скидкой, а также упростит оформление всех документов за 1 день.</span>
+          </div>
+          <%= form_for Ticket.new,url: {action:'create',controller:'tickets' },remote:true,validate:true,:html => {:class => 'form',:name=>'newconfig'},:namespace => 'newconfig' do |f| %>
+            <%= f.hidden_field :form_name, value:"Конфигуратор" %>
+            <%= hidden_field_tag 'ticket[other][model]' %>
+            <%= hidden_field_tag 'ticket[other][equipment]' %>
+            <%= hidden_field_tag 'ticket[other][color]' %>
+            <%= hidden_field_tag 'ticket[other][gift]' %>
+
+            <div class="config-car__inner">
+              <div class="form__bottom_block">
+                <div class="form_input">
+                  <%= f.text_field :name,class:"input",placeholder:"Ваше имя" %>
+                </div>
+                <div class="form_input">
+                  <%= f.phone_field :phone,class:"input",data:{:role=>"phone"},placeholder:"Номер телефона"  %>
+                </div>
+                <div class="form_input">
+                  <button name="button" type="submit" class="button singlecar__form-btn">
+                    <span>Отправить</span>
+                  </button>
+                 <%#= f.button class: "button singlecar__form-btn" do %>
+                    <%#=<span>Отправить</span>%>
+                 <%# end %>
+                </div>
+              </div>
+          <% end %>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>

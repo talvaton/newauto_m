@@ -1,0 +1,57 @@
+<% provide :title, "Отзывы о  #{@car.menutitle} от клиентов Автосалона Авиньон" %>
+<% provide :description,"Читать реальные отзывы клиентов о автомобиле #{@car.russian_name}. Рецензии и комментарии о #{@car.menutitle} от покупателей Автосалона Авиньон!" %>
+
+<section class="dark-section">
+  <div class="inner">
+    <div class="content-xs">
+      <h1 class="title title--light title--reviews">Отзывы владельцев <%= @car.russian_name %>
+      </h1>
+    </div>
+
+    <div class="content review-columns">
+      <div class="review-columns__column-2">
+        <div class="singlecar__car">
+          <div class="singlecar__car-imgblock img-comp-container img-colors" data-content="car-colors-list">
+            <% @car.colors.swap(0,1).each_with_index do |c,index| %>
+              <%= link_to new_car_color_path(@car.brand,@car,@car.color_options.swap(0,1)[index]['color_type']),class:'singlecar__car-img-link' do %>
+                <%= image_tag 'blank.png',class:'singlecar__car-img', alt:'', data:{:altsrc=>"#{c.largecard.url}",:image_index=>index} %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%=link_to 'Хочу такую же', new_car_path(@car.brand, @car), class: 'button button--model-reviews' %>
+  </div>
+</section>
+
+
+
+<section class="inner">
+  <div class="content">
+    <div class="card-list" id="reviews_list">
+      <% @reviews.order(created_at: :desc).each  do |r| %>
+        <div class="card card--wide card-review">
+          <div class="card-review__inner">
+            <div class="card-review__name"><%= r.name.to_s %></div>
+            <span class="card-review__date"><%= r.created_at.strftime("%e.%m.%Y") %></span>
+            <p class="card-review__text" data-content="review-full"><%= r.rev_text %></p>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</section>
+
+
+<h2><%= "Автомобили #{@car.brand.title}" %></h2>
+<div class="row justify-content-center cr_tr_url">
+  <div class="row justify-content-center cr_tr_url">
+      <%= render partial:'new_cars/small_new_cars', collection: @car.brand.new_cars.where('`new_cars`.`hide` = 0'),locals: {:show_brand => true, :credit_flag => false} %>
+    </div>
+</div>
+
+<%= render 'partials/carso/credit_form' %>
+
+

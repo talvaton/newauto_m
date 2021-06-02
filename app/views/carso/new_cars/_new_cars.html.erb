@@ -1,0 +1,48 @@
+<% if credit_page?
+  # m = 60
+  # p = 25
+  credit = true
+ end %>
+<% if tradein_page?
+  # m = 60
+  # p = 25
+  tradein = true
+ end %>
+
+<% if new_cars.special_options.present? and (new_cars.special_options.include? 'Хит-продаж')
+     class_topsale = "card--topsale"
+   else
+     class_topsale = ""
+   end %>
+
+<%
+  if (new_cars.discount_count + @region_discount) < new_cars.equipments.where(hide:0).minimum(:price)*4/10
+    snc_price = new_cars.equipments.where(hide:0).minimum(:price) - new_cars.discount_count - @region_discount
+  else
+    #snc_price = new_cars.equipments.where(hide:0).minimum(:price)*6/10
+    snc_price = new_cars.equipments.where(hide:0).minimum(:price) - new_cars.discount_count
+  end
+%>
+
+<div class="card-box <% if new_cars.archive %>card-archive<% end %>">
+    <%= link_to ( new_car_path(new_cars.brand.url,new_cars.url)  ) do %>
+<div class="card-media">
+        <% if new_cars.colors[0].present? %>
+          <%= image_tag "/static/images/blank.png", alt: '',data:{:lazy=>new_cars.colors[0].card.url,:original=>new_cars.colors[0].card.url} %>
+        <% end %>
+      </div>
+      <div class="card-main">
+        <div class="sale_block_center row justify-content-between">
+          <div class="sbc-item"><span class="sbc-i-text">Кредит 1.9%</span></div>
+          <div class="sbc-item"><span class="sbc-i-text">Рассрочка 0%</span></div>
+          <div class="sbc-item"><span class="sbc-i-text">Трейд-ин</span></div>
+          <div class="sbc-item"><span class="sbc-i-text">Гарантия</span></div>
+        </div>
+        <div class="card-title"><%= new_cars.brand.title %> <%= new_cars.name %></div>
+        <div class="card-price">
+          <span <%= credit ? "data-price=#{snc_price}" : '' %>><%= number_with_delimiter((credit ? count_price(snc_price,PERCENT,MONTH):snc_price  ), delimiter: " ") %></span> ₽<% if credit %><span>/мес</span><% end %>
+        </div>
+      </div>
+    <% end %>
+
+  </div>

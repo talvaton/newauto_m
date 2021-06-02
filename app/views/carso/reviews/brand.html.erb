@@ -1,0 +1,18 @@
+<% provide :title, "Отзывы о #{@brand.title} от клиентов Автосалона Авиньон" %>
+<% provide :description,"Реальные отзывы клиентов о автомобилях #{@brand.menutitle}, комментарии о #{@brand.title} от покупателей Автосалона Авиньон!" %>
+
+
+    <h1><%= @brand.menutitle %> отзывы клиентов</h1>
+   <div class="row justify-content-between reviews_list">
+      <%= render partial:'reviews/review', collection: @reviews.order(created_at: :desc) %>
+    </div>
+
+
+  <div class="content-xs">
+    <h2 class="title"><%= "Автомобили #{@brand.title}" %></h2>
+  </div>
+  <div class="row justify-content-center cr_tr_url">
+    <div class="row justify-content-center cr_tr_url">
+      <%= render partial:'new_cars/new_cars', collection: @brand.new_cars.where('`new_cars`.`hide` = 0'), locals: {:hits => false} %>
+    </div>
+  </div>

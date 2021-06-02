@@ -1,0 +1,87 @@
+<%
+  region = false
+  unless @current_region.id == 57
+    region = true
+  end
+%>
+
+<%
+  case @title
+  when 'Внедорожники'
+    type_multiply = 'внедорожников'
+  when 'Хэтчбеки'
+    type_multiply = 'хэтчбеков'
+  when 'Лифтбеки'
+    type_multiply = 'лифтбеков'
+  when 'Универсалы'
+    type_multiply = 'Универсалы'
+  when 'Седаны'
+    type_multiply = 'седанов'
+  when 'Минивэны'
+    type_multiply = 'минивэнов'
+  when 'Пикапы'
+    type_multiply = 'пикапов'
+  when 'Фургоны'
+    type_multiply = 'фургонов'
+  when 'Купе'
+    type_multiply = 'купе'
+  end
+%>
+
+<% t_mos = "#{@title} с пробегом, купить БУ #{@title} в #{@current_region.sklon3}" %>
+<% t_reg = "Купить БУ #{@title} в #{@current_region.sklon3}" %>
+<% d_mos = "Продажа БУ #{type_multiply}. Рассрочка, трейд-ин, кредит под низкий процент! Купить #{@title} с пробегом в автосалоне, #{@current_region.sklon1}" %>
+<% d_reg = "Продажа БУ #{@title}. Рассрочка, трейд-ин, кредит под низкий процент! Купить #{@title} с пробегом в автосалоне, #{@current_region.sklon1}" %>
+
+
+<% unless region %>
+  <% provide :title,t_mos %>
+  <% provide :description,d_mos %>
+<% else %>
+  <% provide :title,t_reg %>
+  <% provide :description,d_reg %>
+<% end %>
+
+<div class="inner">
+
+  <div class="content-xs">
+    <h1 class="title-h1"><%= @title %> с пробегом</h1>
+    <%= render 'carso/used_cars/filter_links' %>
+  </div>
+
+  <div class="content">
+    <div class="card-list">
+      <%= render partial:'partials/carso/used_car', collection: @used_type %>
+    </div>
+    <%= link_to sprobegom_path, class:'btn-link', target:'_blank' do %>
+      <%= svg_tag 'carso/icons.svg','svg-loader',24,6,class:'' %>
+      <span>Все автомобили БУ</span>
+    <% end %>
+  </div>
+
+  <div class="content-xs">
+    <h2 class="title">Другие авто с пробегом</h2>
+  </div>
+  <div class="content">
+    <div class="card-list">
+      <%= render partial:'partials/carso/used_car', collection: UsedCar.used_cars(12).order(id: :desc) %>
+    </div>
+
+    <%= link_to sprobegom_path, class:'btn-link', target:'_blank' do %>
+      <%= svg_tag 'carso/icons.svg','svg-loader',24,6,class:'' %>
+      <span>Все автомобили с пробегом</span>
+    <% end %>
+  </div>
+
+
+</div>
+
+
+<%= render partial:'carso/carso/bottom_banner' %>
+
+
+<% content_for :rails_to_js_variables do %>
+  <script>
+      var url = '<%= @type %>';
+  </script>
+<% end %>

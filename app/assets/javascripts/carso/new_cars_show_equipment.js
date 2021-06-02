@@ -1,0 +1,1 @@
+//= require carso/new_cars_show
