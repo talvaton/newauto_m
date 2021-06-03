@@ -8,20 +8,7 @@
   end
 %>
 <div class="container">
-<%= render 'partials/carso/banner_form' %>
-<div class="m_state">
- <div>1428 <span>новых <br>автомобилей</span></div>
- <div>1235 <span>автомобилей <br>с пробегом</span></div>
- <div>516 <span>коммерческих <br>автомобилей</span></div>
-</div>
-<div class="main_br">
-  <ul class="nav d-flex">
-  <%= render partial:'partials/carso/brand_list_main', collection: @brands %>
-  </ul>
-</div>
-<div class="">
-  <h1>Автомобильный салон «Авиньон»</h1>
-</div>
+
 <div class="card__box">
   <div>
     <h2>Хиты продаж</h2>
@@ -112,16 +99,3 @@
 
 
 
-
-
-<div class="container">
-
-<div class="hit-menu">
-  <div class="row justify-content-start">
-    <h2>Популярные марки</h2>
-  </div>
-  <ul class="nav d-flex">
-    <%= render partial:'carso/main_catalog_main', collection: @brands %>
-  </ul>
-</div>
-</div>
