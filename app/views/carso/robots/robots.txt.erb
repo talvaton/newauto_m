@@ -1,13 +1,2 @@
-<% if Rails.env.production? %>
 User-Agent: *
-Disallow: /404
-Disallow: /common_modal
-Disallow: /*?rb_clickid=
-Disallow: /flag/
-Disallow: /*?
-
-Sitemap: <%= root_url %><%= @current_region.name %>/sitemap.xml
-<% else %>
-  User-Agent: *
-  Disallow: /
-<% end %>
+Disallow: /
