@@ -1,5 +1,5 @@
 # after 'deploy:published', 'sitemap:refresh'
-# after 'deploy:published', 'data:clear'
+ after 'deploy:published', 'data:clear'
 
 set :stage, "development"
 set :rails_env, :development
