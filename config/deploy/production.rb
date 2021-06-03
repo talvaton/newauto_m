@@ -1,5 +1,5 @@
 #after 'deploy:published', 'data:database'
-#after 'deploy:published', 'data:clear'
+after 'deploy:published', 'data:clear'
 
 set :stage, "production"
 set :rails_env, :production
