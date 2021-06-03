@@ -78,95 +78,14 @@
     </nav>
     <div class="main_top_mob" data-action="top-menu-home"><%= image_tag "carso/icons/menu_mobile.svg", alt:'' %><span class="close-btn" data-action="close-tbtn">×</span></div>
   </div>
-  <div class="row container justify-content-between header_top">
-    <a href="/" class="logo"><%= image_tag "/static/images/logo.png", alt:'' %><div class="of_d">официальный дилер</div></a>
+  <div class="container header_top">
     <div class="header_phone">
-      <div class="reg_select">
-        <span>Ваш город <b class="r_selected"><%= @current_region.sklon1 %></b></span>
-        <div class="reg_s_block">
-          <div class="r_close-btn" data-action="hide-table-row-description">×</div>
-          <ul>
-            <li><a rel="nofollow" href="https://carso.ru">Москва</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'spb') %>">Санкт-Петербург</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'astrakhan') %>">Астрахань</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'balashiha') %>">Балашиха</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'belgorod') %>">Белгород</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'bryansk') %>">Брянск</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'novgorod') %>">Великий Новгород</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'vladimir') %>">Владимир</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'volgograd') %>">Волгоград</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'vologda') %>">Вологда</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'voronezh') %>">Воронеж</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'ekaterinburg') %>">Екатеринбург</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'zhukovskiy') %>">Жуковский</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'ivanovo') %>">Иваново</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'izhevsk') %>">Ижевск</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'irkutsk') %>">Иркутск</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'kazan') %>">Казань</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'kaluga') %>">Калуга</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'kirov') %>">Киров</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'klin') %>">Клин</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'kolomna') %>">Коломна</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'kostroma') %>">Кострома</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'krasnodar') %>">Краснодар</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'krasnoyarsk') %>">Красноярск</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'kursk') %>">Курск</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'lipetsk') %>">Липецк</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'mytishchi') %>">Мытищи</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'nn') %>">Нижний Новгород</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'tagil') %>">Нижний Тагил</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'novosibirsk') %>">Новосибирск</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'obninsk') %>">Обнинск</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'omsk') %>">Омск</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'orekhovozuevo') %>">Орехово-Зуево</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'orel') %>">Орел</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'orenburg') %>">Оренбург</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'penza') %>">Пенза</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'perm') %>">Пермь</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'podolsk') %>">Подольск</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'pskov') %>">Псков</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'rostov') %>">Ростов-на-Дону</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'ryazan') %>">Рязань</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'samara') %>">Самара</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'saransk') %>">Саранск</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'saratov') %>">Саратов</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'serpuhov') %>">Серпухов</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'simferopol') %>">Симферополь</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'sevastopol') %>">Севастополь</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'smolensk') %>">Смоленск</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'sochi') %>">Сочи</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'stavropol') %>">Ставрополь</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'syktyvkar') %>">Сыктывкар</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'tver') %>">Тверь</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'tolyatti') %>">Тольятти</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'tomsk') %>">Томск</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'tula') %>">Тула</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'tyumen') %>">Тюмень</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'ulyanovsk') %>">Ульяновск</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'cheboksary') %>">Чебоксары</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'ufa') %>">Уфа</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'himki') %>">Химки</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'chelyabinsk') %>">Челябинск</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'cherepovec') %>">Череповец</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'chehov') %>">Чехов</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'cherepovets') %>">Череповец</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'yaroslavl') %>">Ярославль</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'kazakhstan') %>">Казахстан</a></li>
-            <li><a rel="nofollow" href="<%= root_url(subdomain: 'belarus') %>">Беларусь</a></li>
-          </ul>
-        </div>
-      </div>
-      <div>
+      <div class="home_location">Москва, ул. Привольная, 70к1. Метро Котельники</div>
       <div class="row h_tel">
         <a href="tel:+74954778400" rel="nofollow" class="row"><span itemprop="telephone">+7 495 477-84-00</span></a>
         <a href="tel:88005000323" rel="nofollow" class="row"><span itemprop="telephone">8 800 500-03-23</span></a>
        </div>
-       <div class="home_location">Москва, ул. Привольная, 70. Метро Котельники</div>
-     </div>
       </div>
-  </div>
-  <div class="row justify-content-between header_sitebar">
-    <div class="container bgrl"><span class="brslog">Автомобильный салон «Авиньон»</span><span class="bgrls"></span></div>
   </div>
   <ul id="breadcrumbs" class="container row breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
     <% if main_page? %><% else %>

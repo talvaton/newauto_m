@@ -156,10 +156,10 @@ ul{
 }
 .menu_catalog:before{
   content: '';
-  background: image-url('carso/icons/rectangle_b.svg')no-repeat left center;
-  width: 8px;
-  height: 5px;
-  margin: 0 10px 2px 0;
+  background: image-url('carso/icons/vstrau.svg')no-repeat left center;
+  width: 16px;
+  height: 9px;
+  margin: 0 10px 0 0;
   display: inline-block;
 }
 .menu_catalog img,.home_location img,.header_phone img{
@@ -170,22 +170,22 @@ ul{
 }
 
 .home_location{
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 100%;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 140%;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  color: #000000;
+
   align-items: center;
+  display: flex;
 
 }
-.home_location{
-  font-weight: normal;
-  font-size: 12px;
-  text-align: right;
-  opacity: 0.5;
-  color: #2A2A30;
-  //color: #979797;
-}
+
 .header_phone{
   display: flex;
+  justify-content: flex-end;
+  width: 100%;
   @media all and (max-width: 1300px) {
     padding: 0 20px 0 0;
   }
@@ -205,12 +205,11 @@ ul{
 }
 .h_tel a{
   font-style: normal;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 20px;
-  line-height: 100%;
-  align-items: center;
-  text-transform: uppercase;
-  color: #2A2A30;
+  line-height: 140%;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  color: #1C1C1C;
   padding: 0 0 0 15px;
 }
 .header_phone a span{
