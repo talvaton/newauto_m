@@ -210,7 +210,7 @@ h2{
   justify-content: space-between;
   align-items: flex-start;
   margin: 20px 0 40px 0;
-  @media all and (max-width: 1280px) {
+  @media all and (max-width: 1240px) {
     margin: 0 0 20px 0;
   }
   @media all and (max-width: 1200px) {
@@ -278,6 +278,9 @@ h2{
     font-size: 14px;
   }
 }
+#newcarreq_new_ticket .form_input{
+    padding: 10px 0 15px 0;
+}
 
 .sale-date{
   font-style: normal;
@@ -314,7 +317,7 @@ h2{
   text-align: right;
   color: #D0D0D0;
    padding: 5px 0 0 0;
-   @media all and (max-width: 1280px) {
+   @media all and (max-width: 1240px) {
      font-size: 24px;
    }
    @media all and (max-width: 760px) {
@@ -341,8 +344,16 @@ h2{
   display: flex;
   line-height: 10px;
 }
-#newcarreq_new_ticket input,#newcarreq_new_ticket button{
+#newcarreq_new_ticket input{
+
+}
+#newcarreq_new_ticket button{
   width: 100%;
+  height: 60px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 24px;
+  text-transform: initial;
   @media all and (max-width: 600px) {
     width: 100%;
     padding: 10px 10px;
@@ -360,10 +371,10 @@ h2{
 }
 
 #newcarreq_new_ticket .add__form-btn{
-  background: #41515A;
+  background: #003469;
 }
 #newcarreq_new_ticket button{
-  margin: 10px 0 0 0;
+  margin: 20px 0 0 0;
 }
 
 .but_url{
@@ -402,16 +413,15 @@ h2{
 }
 
 .form-sale-info{
-  margin: 30px 0 0 0;
+  margin: 0;
   text-align: left;
 }
 .form-credit-info{
   font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 120%;
-  text-transform: uppercase;
-  color: #222222;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 140%;
+  color: #1C1C1C;
   padding: 0 0 10px 0;
 }
 .form-credit-info i{
@@ -419,12 +429,15 @@ h2{
   text-transform: initial;
 }
 .form-credit-info span{
-  display: block;
   font-style: normal;
   font-weight: bold;
-  font-size: 40px;
-  line-height: 47px;
-  color: #1260B0;
+  font-size: 24px;
+  line-height: 130%;
+  /* or 31px */
+
+  font-feature-settings: 'pnum' on, 'lnum' on;
+
+  color: #1C1C1C;
 }
 .form_block-right .form_input{
   @media all and (max-width: 600px) {
@@ -434,10 +447,10 @@ h2{
 
 .car_online{
   font-style: normal;
-  font-weight: bold;
-  font-size: 15px;
-  line-height: 18px;
-  color: #222222;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 140%;
+  color: #1C1C1C;
   display: flex;
   align-items: center;
   @media all and (max-width: 600px) {
@@ -500,7 +513,7 @@ h2{
 
 .sbcf{
   display: flex;
-  @media all and (max-width: 1280px) {
+  @media all and (max-width: 1240px) {
     width: auto;
   }
   @media all and (max-width: 900px) {
@@ -561,7 +574,7 @@ h2{
 
 .sale_ftxt{
   display: block;
-  @media all and (max-width: 1280px) {
+  @media all and (max-width: 1240px) {
     width: 150px;
     margin: 0 20px 0 10px;
   }
@@ -1559,7 +1572,7 @@ label.on .lab_ch-text{
   width: 198px;
   max-width: 198px;
   overflow: hidden;
-  height: 24px;
+  height: 35px;
   @media all and (max-width: 450px) {
     margin: 0;
   }
@@ -1579,10 +1592,10 @@ label.on .lab_ch-text{
 
 .color {
   display: inline-block;
-  width: 60px !important;
-  height: 11px;
+  width: 35px !important;
+  height: 35px;
   margin: 0 6px 0 0;
-  border-radius: 2px;
+  border-radius: 30px;
   overflow: hidden;
   cursor: pointer;
   font-size: 12px;
@@ -1604,10 +1617,10 @@ label.on .lab_ch-text{
   background-image: image-url('carso/icons/slick_nav.svg');
   background-repeat: no-repeat;
   background-position: center center;
-  width: 60px;
-  height: 11px;
-  top: 6px;
-  right: 6px;
+  width: 35px;
+  height: 35px;
+  top: 0;
+  right: 30px;
 }
 
 .singlecar__colors-wrapper {

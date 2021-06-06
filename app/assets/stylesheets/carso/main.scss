@@ -18,7 +18,7 @@ body{
   max-width: initial;
 }
 .container{
-  max-width:1280px;
+  max-width:1240px;
   margin: 0 auto;
   padding: 0;
   @media all and (max-width: 1440px) {
@@ -46,7 +46,7 @@ body{
   }
 }
 .main{
-  max-width:1280px;
+  max-width:1240px;
   margin: 0 auto;
   padding: 0;
 }
@@ -82,11 +82,11 @@ ul{
   color: #ff5555;
   font-size: 11px;
   position: absolute;
-  top: -2px;
+  bottom: 0;
   left: 10px;
 }
 .input.input--error{
-  border: 1px solid rgb(255, 85, 85);
+  border-bottom: 1px solid rgb(255, 85, 85);
 }
 .form_input{
   position: relative;
@@ -304,15 +304,19 @@ content: "";
 
 /****form*****/
 form input{
-  background: #FFFFFF;
-  border: 1px solid #DAE1E8;
-  border-radius: 5px;
+  background: transparent;
+  border-bottom: 1px solid #000000;
+  border-radius: 0;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
   height: 40px;
   padding: 15px;
   font-weight: normal;
   font-size: 15px;
   line-height: 100%;
   color: #2A2A30;
+  box-shadow: none;
 }
 select {
   -webkit-appearance: none;
@@ -456,7 +460,7 @@ transform: scale(-1);*/
 /*******nav******/
 .top-menu{
   display: none;
-  max-width: 1280px;
+  max-width: 1240px;
   position: absolute;
   top: 33px;
   background: #F7F7F7;
@@ -1301,7 +1305,7 @@ footer{
 }
 .f_info .h_tel{
   display: block;
-  @media all and (max-width: 1280px) {
+  @media all and (max-width: 1240px) {
     width: 350px;
     min-width: 350px;
   }
@@ -1728,7 +1732,7 @@ footer{
 
 /*******block_h_url********/
 .over_bl_h2{
-  max-width: 1280px;
+  max-width: 1240px;
   margin: 0 auto;
   padding: 0 15px;
 }
@@ -1805,41 +1809,39 @@ footer{
   display: block;
 }
 .sale_h_pr{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: block;
+  text-align: right;
 }
 .sale_h_pr span{
   font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 14px;
-  text-transform: uppercase;
-  color: #222222;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 140%;
+  color: #1C1C1C;
 }
 .sale_h_pr i{
   font-style: normal;
   font-weight: bold;
-  font-size: 28px;
-  line-height: 20px;
-  text-transform: uppercase;
-  color: #1260B0;
+  font-size: 48px;
+  line-height: 130%;
+  color: #1C1C1C;
   display: block;
+  margin: 20px 0;
 }
 .sale_h_pr a{
   display: block;
   font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 43px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 70px;
   text-transform: uppercase;
   color: #FFFFFF;
-  background: #1260B0;
+  background: #003469;
   border-radius: 3px;
-  height: 40px;
-  width: 150px;
+  height: 70px;
+  width: 100%;
   text-align: center;
-  margin: 0 0 0 40px;
+  margin: 0;
 }
 .h_slog{}
 .h_slog span:first-child{
@@ -1849,7 +1851,7 @@ footer{
   line-height: 16px;
   text-transform: uppercase;
   color: #222222;
-  opacity: 0.5;
+  /*opacity: 0.5;*/
 }
 .h_slog span:last-child{
   font-style: normal;
@@ -1923,7 +1925,7 @@ footer{
   border-radius: 4px;
   padding: 12px;
   width: 308px;
-  @media all and (max-width: 1280px) {
+  @media all and (max-width: 1240px) {
     margin: 0 10px 0px 10px;
   }
   @media all and (max-width: 900px) {
@@ -2132,7 +2134,7 @@ footer{
   height: 380px;
   align-items: center;
   margin: 0 0 80px 0;
-  @media all and (max-width: 1280px) {
+  @media all and (max-width: 1240px) {
     padding: 0 20px;
   }
   @media all and (max-width: 900px) {
@@ -2147,7 +2149,7 @@ footer{
 .social_inf{
   width: 485px;
   margin: 0 80px 0 0;
-  @media all and (max-width: 1280px) {
+  @media all and (max-width: 1240px) {
     margin: 0 20px 0 0;
   }
   @media all and (max-width: 600px) {
@@ -2272,7 +2274,7 @@ footer{
   background: #FFFFFF;
   border: 1px solid #6AD1A6;
   box-sizing: border-box;
-  @media (max-width: 1280px) {
+  @media (max-width: 1240px) {
     margin: 0 auto;
   }
   @media (max-width: 1180px) {

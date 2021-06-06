@@ -4,12 +4,12 @@
 
 main.main {
   max-width: initial;
-  @media all and (max-width: 1280px) {
+  @media all and (max-width: 1240px) {
     padding: 0 !important;
   }
 }
 main.main .container{
-  @media all and (max-width: 1280px) {
+  @media all and (max-width: 1240px) {
     padding: 0 20px;
   }
 }
@@ -26,7 +26,7 @@ main.main .container{
   @media all and (max-width: 1600px) {
     margin: 0 0 25px 20px;
   }
-  @media all and (max-width: 1280px) {
+  @media all and (max-width: 1240px) {
     margin: 0 0 135px 20px;
   }
   @media all and (max-width: 1000px) {
@@ -63,7 +63,7 @@ main.main .container{
   max-height: 550px;
   margin: 0 0 -430px 0;
   width: 100%;
-  @media all and (max-width: 1280px) {
+  @media all and (max-width: 1240px) {
     background-size: auto;
   }
 }
@@ -78,7 +78,7 @@ header.header {
   border-bottom: 1px solid rgba(233, 232, 232, 0.2);
 }
 .header .breadcrumbs li{
-  @media all and (max-width: 1280px) {
+  @media all and (max-width: 1240px) {
     padding: 3px 0;
   }
 }
@@ -113,7 +113,7 @@ header.header {
   @media all and (max-width: 1600px) {
     border-bottom: 1px dashed #949494;
   }
-  @media all and (max-width: 1280px) {
+  @media all and (max-width: 1240px) {
     border-bottom: medium none;
   }
   @media all and (max-width: 900px) {
@@ -127,7 +127,7 @@ header.header {
   background: rgba(255, 255, 255, 0.7);
   border-right: 1px dashed #949494;
   cursor: pointer;
-  @media all and (max-width: 1280px) {
+  @media all and (max-width: 1240px) {
     padding: 20px;
     width: 25%;
   }
@@ -171,7 +171,7 @@ header.header {
   color: #161616;
   max-width: 245px;
   min-width: 132px;
-  @media all and (max-width: 1280px) {
+  @media all and (max-width: 1240px) {
     font-size: 12px;
   }
   @media all and (max-width: 1000px) {
@@ -188,7 +188,7 @@ header.header {
   @media all and (max-width: 1600px) {
     background: #ffffff;
   }
-  @media all and (max-width: 1280px) {
+  @media all and (max-width: 1240px) {
     background: transparent;
   }
   @media all and (max-width: 680px) {

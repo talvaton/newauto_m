@@ -93,7 +93,7 @@ $(document).ready(function() {
     openTempModal();
     changeCuttedListDisplay();
     changeColumnsDisplay();
-    initCookieModal();
+   // initCookieModal();
     initFixModal();
     if( !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
         //initCookieModal();
