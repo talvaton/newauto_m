@@ -78,7 +78,7 @@
 %>
 <div class="h_block">
   <div>
-   <h1 itemprop="name">Новый <%= @car.brand.title %> <%= @car.name %></h1>
+   <h1 itemprop="name">Новый <%= @car.brand.title %> <br><%= @car.name %></h1>
    <div class="h_slog"><span>(<%= @car.russian_name %>)</span><span> По специальной цене до <%= l(SALE_DATE, format: :next_monday) %> 2021</span></div>
   </div>
   <div class="sale_h_pr"><div><span>Получи скидку</span> <i><%= number_with_delimiter(max_discount_e,delimeter:' ') %> ₽ </i></div>
