@@ -904,6 +904,7 @@ h2{
 
 .table-main .table th, .table-main .table td{
   border: medium none;
+  padding: 0.75rem 0.75rem 0.75rem 0;
 }
 .table-main .table .tr{
  /* border-bottom: 1px solid #9da9b65e;*/
@@ -946,12 +947,12 @@ h2{
 }
 .table-main .table .tr th{
   font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 20px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 140%;
+  color: #1C1C1C;
   text-transform: uppercase;
-  color: #222222;
-  padding: 15px 20px;
+  padding: 15px 20px 15px 0;
   vertical-align: middle;
   display: flex;
   justify-content: space-between;
@@ -1019,9 +1020,9 @@ h2{
 }
 
 .table-main .table .tr th i{
-  width: 20px;
-  height: 20px;
-  background: image-url('carso/icons/tt_ok.svg')no-repeat;
+  width: 25px;
+  height: 15px;
+  background: image-url('carso/icons/vstrab.svg')no-repeat;
   z-index: -1;
   @media all and (max-width: 800px) {
     position: absolute;
@@ -1039,21 +1040,21 @@ h2{
   vertical-align: middle;
 }
 .table-main .table .tr td.kpp{
-  width: 300px;
+  width: 220px;
 }
 
 .table-main .table .tr td.compl-price{
    font-style: normal;
-   font-weight: 500;
-   font-size: 14px;
-   color: #888888;
+   font-weight: 400;
+   font-size: 16px;
+   color: #1C1C1C;
 }
 .table-main .table .tr td.compl-price-discount{
   font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 20px;
-  color: #1260B0;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 140%;
+  color: #003469;
   @media all and (max-width: 700px) {
     font-weight: bold;
     font-size: 16px;
@@ -1073,16 +1074,14 @@ h2{
 }
 .table-main .but_credit{
   font-style: normal;
-  font-weight: bold;
-  font-size: 11px;
-  line-height: 20px;
-  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 130%;
   color: #FFFFFF;
-  background: #1260B0;
+  background: #003469;
   padding: 0;
-  border-radius: 3px;
-  height: 40px;
-  width: 140px;
+  height: 45px;
+  width: 160px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1092,17 +1091,15 @@ h2{
 }
 .table-main .but_traid-in{
   font-style: normal;
-  font-weight: bold;
-  font-size: 11px;
-  line-height: 20px;
-  text-transform: uppercase;
-  color: #888888;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 130%;
+  color: #003469;
   background: #fff;
   padding: 0;
-  border-radius: 3px;
-  border: 1px solid #D0D0D0;
-  height: 40px;
-  width: 115px;
+  border: 1px solid #003469;
+  height: 45px;
+  width: 152px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1241,7 +1238,19 @@ h2{
   }
 }
 .cr_tr_hr .btn-link{
-  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #003469;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 130%;
+  color: #FFFFFF;
+  width: 400px;
+  height: 70px;
+  padding: 0;
+  text-decoration: none;
+
 }
 .cr_tr_hr .btn-link:hover{
   text-decoration: none;

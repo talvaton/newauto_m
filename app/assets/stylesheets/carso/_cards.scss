@@ -5,15 +5,10 @@
 .card-box{
   position: relative;
   overflow: hidden;
-  background: #FFFFFF;
   padding: 20px 15px;
   margin: 15px 10px;
-  width: 230px !important;
-  background: linear-gradient(0deg, #F7F7F7 0%, #FFFFFF 40.63%);
-  border: 1px solid #F7F7F7;
-  box-sizing: border-box;
-  box-shadow: 0 5px 12px rgba(17, 27, 38, 0.12);
-  border-radius: 10px;
+  width: 370px !important;
+  background: #F2F2F2;
 }
 .card-box:hover{
   box-shadow: 0px 5px 15px rgba(153, 160, 166, 0.1);
@@ -29,7 +24,7 @@
   top: -20px;
   left: -15px;
 }*/
-.card-box a:before{
+/*.card-box a:before{
   content: 'i';
   width: 20px;
   height: 20px;
@@ -48,7 +43,7 @@
   right: 0;
   top: 0;
   cursor: pointer;
-}
+}*/
 .card-box a{
   position: relative;
   display: block;
@@ -56,11 +51,11 @@
 
 .card-title{
   font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 100%;
-  color: #222222;
-  text-align: center;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 130%;
+  color: #1C1C1C;
+  text-align: left;
   margin: 0;
   padding: 15px 0 0 0;
 }
@@ -75,12 +70,27 @@
 .card-price{
   font-style: normal;
   font-weight: bold;
-  font-size: 16px;
-  line-height: 100%;
-  text-align: center;
-  color: #1260B0;
+  font-size: 24px;
+  line-height: 130%;
+  color: #1C1C1C;
+  text-align: left;
   padding: 5px 0 0 0;
 }
+
+.bt_hrk{
+  background: #1C1C1C;
+  width: 370px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 130%;
+  color: #FFFFFF;
+  border: medium none;
+  margin: 30px 0px -20px -15px;
+  height: 70px;
+}
+
+
 .card-box .sale_block_center {
   width: initial;
   padding: 0 0 15px 0;

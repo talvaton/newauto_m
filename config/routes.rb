@@ -381,9 +381,9 @@ Rails.application.routes.draw do
   #get '/:brand/:car_url/:color'=>  'new_cars#show_color',constraints: NewCarColorConstraint.new, as: 'new_car_color'
   #get '/:brand/:car_url/tth'=>  'new_cars#show_tth',constraints: NewCarConstraint.new, as: 'new_car_tth'
 
-      get '/konfigurator' => 'new_cars#show_configurator', as: 'konfigurator'
-      get '/konfigurator/:brand' => 'new_cars#show_configurator', as: 'konfigurator_brand'
-      get '/konfigurator/:brand/:model' => 'new_cars#show_configurator', as: 'konfigurator_model'
+     # get '/konfigurator' => 'new_cars#show_configurator', as: 'konfigurator'
+     # get '/konfigurator/:brand' => 'new_cars#show_configurator', as: 'konfigurator_brand'
+     # get '/konfigurator/:brand/:model' => 'new_cars#show_configurator', as: 'konfigurator_model'
 
       post '/konfigurator' => 'new_cars#show_configurator_options'
 
@@ -394,12 +394,12 @@ Rails.application.routes.draw do
   post '/filter' => 'brands#show_filter', as: 'brands_filter'
 
   #Credit brands and new_cars
-  get '/credit/:brand' => 'brands#show_credit',constraints: BrandConstraint.new, as: 'brand_credit'
-  get '/tradein/:brand' => 'brands#show_tradein',constraints: BrandConstraint.new, as: 'brand_tradein'
-  get '/taxi/:brand' => 'brands#show_taxi',constraints: BrandConstraint.new, as: 'brand_taxi'
-  get '/credit/:brand/:car_url'=>  'new_cars#show_credit',constraints: NewCarCreditConstraint.new, as: 'new_car_credit'
-  get '/tradein/:brand/:car_url'=>  'new_cars#show_tradein',constraints: NewCarCreditConstraint.new, as: 'new_car_tradein'
-  get '/taxi/:brand_car_url'=>  'new_cars#show_taxi',constraints: NewCarTaxiConstraint.new,as: 'new_car_taxi'
+ # get '/credit/:brand' => 'brands#show_credit',constraints: BrandConstraint.new, as: 'brand_credit'
+ # get '/tradein/:brand' => 'brands#show_tradein',constraints: BrandConstraint.new, as: 'brand_tradein'
+ # get '/taxi/:brand' => 'brands#show_taxi',constraints: BrandConstraint.new, as: 'brand_taxi'
+ # get '/credit/:brand/:car_url'=>  'new_cars#show_credit',constraints: NewCarCreditConstraint.new, as: 'new_car_credit'
+ # get '/tradein/:brand/:car_url'=>  'new_cars#show_tradein',constraints: NewCarCreditConstraint.new, as: 'new_car_tradein'
+ # get '/taxi/:brand_car_url'=>  'new_cars#show_taxi',constraints: NewCarTaxiConstraint.new,as: 'new_car_taxi'
 
   # resources :brands,:only => [:show],param: :url, path: '/catalog',constraints: BrandConstraint.new do
   get '/:url' => 'new_cars#country', constraints: NewCarCountryConstraint.new, as: 'new_car_country'
@@ -418,13 +418,13 @@ Rails.application.routes.draw do
 
 
   #articles
-  get '/article/:url' => 'articles#show', as: 'articles'#, constraints: ArticlesConstraint.new
-  get '/articles' => 'articles#index',  as: 'article'
+#  get '/article/:url' => 'articles#show', as: 'articles'#, constraints: ArticlesConstraint.new
+ # get '/articles' => 'articles#index',  as: 'article'
 
-  get '/overview/:url' => 'overviews#show', as: 'overview'#, constraints: ArticlesConstraint.new
-  get '/blog' => 'overviews#index',  as: 'overviews'
+#  get '/overview/:url' => 'overviews#show', as: 'overview'#, constraints: ArticlesConstraint.new
+#  get '/blog' => 'overviews#index',  as: 'overviews'
 
-   get '/news' => 'stories#index'
+#   get '/news' => 'stories#index'
 
   # get '/blog' => 'blog#index'
   # get '/blog/:brand' => 'blog#show_brand',constraints: BrandConstraint.new, as: 'blog_brand'

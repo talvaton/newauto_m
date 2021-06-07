@@ -42,6 +42,7 @@
         <div class="card-price">
           <span <%= credit ? "data-price=#{snc_price}" : '' %>><%= number_with_delimiter((credit ? count_price(snc_price,PERCENT,MONTH):snc_price  ), delimiter: " ") %></span> ₽<% if credit %><span>/мес</span><% end %>
         </div>
+      <button class="bt_hrk">Посмотреть авто</button>
     </div>
   <% end %>
 </div>
