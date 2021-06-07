@@ -588,10 +588,11 @@ header .container .header_top{
 }
 .hf_call_t{
   font-style: normal;
-  font-weight: 500;
-  font-size: 30px;
-  line-height: 120%;
-  color: #1260B0;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 130%;
+  color: #1C1C1C;
+
   @media all and (max-width: 940px) {
     font-size: 24px;
   }
@@ -626,10 +627,10 @@ header .container .header_top{
 }
 .hfc_rb div span{
   font-style: normal;
-  font-weight: 500;
-  font-size: 25px;
-  line-height: 100%;
-  color: #1260B0;
+  font-weight: 600;
+  font-size: 19.8532px;
+  line-height: 130%;
+  color: #1C1C1C;
   padding: 0 0 0 20px;
   @media all and (max-width: 1100px) {
     font-size: 20px;
@@ -648,7 +649,6 @@ header .container .header_top{
   }
 }
 .hfc_rb div img{
-  border: 1.66851px solid #DAE1E8;
   box-sizing: border-box;
   border-radius: 8px;
   padding: 12px;
@@ -676,7 +676,25 @@ header .container .header_top{
 .banr_form form button{
   margin: 0;
 }
-
+.home_f_cell .form_input button{
+  background: #1C1C1C;
+  width: 100%;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 130%;
+  color: #FFFFFF;
+  border: medium none;
+  margin: 30px 0px 0px 0px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0;
+}
+.home_f_cell .form_input{
+  margin: 0 0 10px 0;
+}
 .banr_form form .form_input {
   padding: 30px 0 0 0;
 }
