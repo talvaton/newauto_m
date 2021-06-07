@@ -89,12 +89,13 @@ h1 .h-credit{
   font-size: 72px;
   line-height: 130%;
   color: #1C1C1C;
-  @media all and (max-width: 1200px) {
-    font-size: 26px;
-    line-height: 28px;
+  @media all and (max-width: 1000px) {
+    max-width: 100%;
   }
   @media all and (max-width: 900px) {
     max-width: 100%;
+      font-size: 26px;
+      line-height: 28px;
   }
   @media all and (max-width: 500px) {
     font-size: 22px;
@@ -102,8 +103,8 @@ h1 .h-credit{
   }
 }
 .h_slog span:last-child,.h_slog span:first-child{
-  @media all and (max-width: 1200px) {
-    font-size: 12px;
+  @media all and (max-width: 900px) {
+    font-size: 14px;
   }
 }
 .sale_h{
@@ -125,7 +126,7 @@ h2{
 }
 
 .sale_h_pr{
-  @media all and (max-width: 900px) {
+  @media all and (max-width: 1000px) {
     display: none;
   }
 }
@@ -230,7 +231,7 @@ h2{
     justify-content: center !important;
     display: flex;
   }
-  @media all and (max-width: 900px) {
+  @media all and (max-width: 1000px) {
     display: block;
   }
   @media all and (max-width: 800px) {
@@ -272,6 +273,10 @@ h2{
   width: 400px;
   @media all and (max-width: 1200px) {
     margin: 0 auto;
+    width: 370px;
+  }
+  @media all and (max-width: 1000px) {
+    width: 400px;
   }
 
   @media all and (max-width: 760px) {
@@ -351,6 +356,11 @@ h2{
     position: absolute;
     right: 15px;
     top: 190px;
+  }
+}
+.sale-from{
+  @media all and (max-width: 1000px) {
+    display: none;
   }
 }
  .sale-from span{
@@ -572,13 +582,11 @@ h2{
   @media all and (max-width: 1240px) {
     width: auto;
   }
-  @media all and (max-width: 900px) {
-    justify-content: space-between;
+  @media all and (max-width: 1000px) {
+    display: block;
+    margin: 50px auto;
   }
-  @media all and (max-width: 760px) {
-    justify-content: center;
-    display: grid;
-  }
+
 }
 .s__block__center{
   width: 210px;
@@ -634,9 +642,8 @@ h2{
     width: 150px;
     margin: 0 20px 0 10px;
   }
-  @media all and (max-width: 760px) {
-    order: 3;
-    width: 100%;
+  @media all and (max-width: 1000px) {
+    display: none;
   }
 }
 .sale_ftxt span{
@@ -1287,7 +1294,9 @@ h2{
   height: 70px;
   padding: 0;
   text-decoration: none;
-
+  @media all and (max-width: 900px) {
+    margin: 0 auto;
+  }
 }
 .cr_tr_hr .btn-link:hover{
   text-decoration: none;
@@ -1680,8 +1689,8 @@ label.on .lab_ch-text{
   }
 }
 .colors-list{
-  width: 198px;
-  max-width: 198px;
+  width: 196px;
+  max-width: 196px;
   overflow: hidden;
   height: 35px;
   @media all and (max-width: 450px) {
@@ -1741,9 +1750,15 @@ label.on .lab_ch-text{
   left: -175px;
   bottom: -100px;
   width: 400px;
-  @media all and (max-width: 900px) {
+  @media all and (max-width: 1000px) {
     justify-content: space-around !important;
     margin: 0 0 10px 0;
+    display: block;
+    position: relative;
+    padding: 5px 20px 0 0;
+    left: initial;
+    bottom: initial;
+    width: 400px;
   }
 }
 .singlecar__colors {
