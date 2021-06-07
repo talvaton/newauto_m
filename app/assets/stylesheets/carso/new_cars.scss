@@ -637,8 +637,8 @@ h2{
 }
 .sbcf .mrr_bl{
   display: none;
-  @media all and (max-width: 760px) {
-    display: flex;
+  @media all and (max-width: 900px) {
+    display: none;
     margin: 15px 0 0 0;
     order: 2;
     overflow-y: scroll;
@@ -1558,6 +1558,9 @@ h2{
 }
 .disc_bl_lab_ch{
   width: 225px;
+  @media all and (max-width: 900px) {
+    padding: 15px 0 0 0;
+  }
 }
 .disc_bl_lab_main{
   padding: 10px 0px 10px 0;
