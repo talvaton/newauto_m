@@ -1401,7 +1401,7 @@ footer{
 }
 .toolbar_m.fb_finx{
   @media all and (max-width: 600px) {
-    display: flex;
+    display: none;
     justify-content: space-around;
     align-items: center;
     overflow: hidden;
@@ -1908,9 +1908,10 @@ footer{
   display: flex;
   justify-content: space-between;
   margin: 140px 0 40px 0;
-  @media all and (max-width: 900px) {
+  @media all and (max-width: 1000px) {
     justify-content: center;
     flex-wrap: wrap;
+    margin: 0 0 40px 0;
   }
   @media all and (max-width: 500px) {
     margin: 0;
@@ -1934,6 +1935,12 @@ footer{
 }
 .pr_slog_b div img{
   width: auto;
+  @media all and (max-width: 900px) {
+   width: 80px;
+  }
+  @media all and (max-width: 420px) {
+    width: 60px;
+  }
 }
 .pr_slog_b div span{
   font-style: normal;
