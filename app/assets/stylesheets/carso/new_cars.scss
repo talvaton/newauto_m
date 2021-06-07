@@ -411,7 +411,8 @@ h2{
   }
 }
 .discount__block button{
-  width: 315px;
+  width: 370px;
+  height: 70px;
   @media all and (max-width: 900px){
   margin: 20px 0 0 0;
 }
@@ -1459,16 +1460,18 @@ h2{
 }
 .total__discount span{
   font-style: normal;
-  font-weight: 800;
-  font-size: 18px;
-  color: #BDC7D1;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 140%;
+  text-transform: uppercase;
+  color: #1C1C1C;
 }
 .total__discount #discount-counted, .total__discount .discount-r{
   font-style: normal;
-  font-weight: 800;
-  font-size: 24px;
-  line-height: 24px;
-  color: #F43F42;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 140%;
+  color: #003469;
 }
 
 
@@ -1481,10 +1484,12 @@ h2{
 }
 .sale-calc-t{
   font-style: normal;
-  font-weight: 800;
-  font-size: 24px;
-  line-height: 24px;
-  color: #343F4B;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 130%;
+  color: #1C1C1C;
+  display: block;
+  max-width: 900px;
   @media all and (max-width: 600px) {
     font-size: 20px;
     line-height: 20px;
@@ -1500,16 +1505,21 @@ h2{
   width: 18px;
   height: 18px;
   display: inline-block;
-  background: image-url('carso/icons/desc_off.svg')no-repeat;
+  background: transparent;
   transform: translateX(3px);
   transition: all .4s ease;
 }
 .disc_bl_lab_main .saleprice-check.on .saleprice--lab {
-  transform: translateX(33px);
-  background: image-url('carso/icons/desc_on.svg')no-repeat;
+  transform: translate(5px, -5px);
+  transition: initial;
+ /* background: image-url('carso/icons/desc_on.svg')no-repeat;*/
+  background: image-url('carso/icons/vector11.png')no-repeat;
+  height: 28px;
+  width: 35px;
 }
 .disc_bl_lab_main .saleprice-check.on:after {
-  background: #0551A1;
+  /*background: #0551A1;*/
+  /*background: image-url('carso/icons/vector11.png')no-repeat;*/
   top: -6px;
 }
 .disc_bl_lab_main .saleprice-check:after {
@@ -1518,28 +1528,52 @@ h2{
   left: -3px;
   top: -6px;
   display: block;
-  width: 60px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   background: transparent;
   border-radius: 40px;
-  border: 1px solid #DAE1E8;
+  border: 3px solid #1C1C1C;
   transition: all .4s ease;
   z-index: -1;
 }
 .disc_bl_lab_ch{
   width: 225px;
 }
+.disc_bl_lab_main{
+  padding: 10px 0px 10px 0;
+}
 .disc_bl_lab_main label{
   padding: 5px 0 0 0;
   cursor: pointer;
 }
+
 .disc_bl_lab_ch span{
   display: block;
+  color: #003469;
 }
  label .disc_bl_lab_ch span{
   display: block;
   color: #BDC7D1;
 }
+.total__discount__bl .disc_bl_lab_main .saleprice-check.on .saleprice--lab{
+  transform: translate(0px, -5px);
+  transition: initial;
+  /* background: image-url('carso/icons/desc_on.svg')no-repeat;*/
+  background: image-url('carso/icons/group2475.png')no-repeat;
+  height: 85px;
+  width: 88px;
+}
+.total__discount__bl .disc_bl_lab_main .saleprice-check.on:after{
+  border: medium none;
+}
+.total__discount__bl .disc_bl_lab_main .saleprice-check.on{
+ width: 100px;
+}
+.total__discount__bl .disc_bl_lab_main{
+  border: 1px solid #003469;
+  padding: 20px 0px 20px 0;
+}
+
 .lab_ch-price{
   font-style: normal;
   font-weight: 800;
@@ -1549,7 +1583,11 @@ h2{
   }
 }
 label.on .lab_ch-price{
-  color: #0551A1;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 140%;
+  color: #003469;
 }
 .lab_ch-title{
   font-style: normal;
@@ -1559,7 +1597,11 @@ label.on .lab_ch-price{
   color: #2A2A30;
 }
 label.on .lab_ch-title{
-  color: #2A2A30;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 140%;
+  color: #1C1C1C;
 }
 .lab_ch-text{
   font-style: normal;
@@ -1574,7 +1616,11 @@ label.on .lab_ch-title{
   }
 }
 label.on .lab_ch-text{
-  color: #BDC7D1;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 140%;
+  color: #1C1C1C;
 }
 .discount-pr-w{
   width: 155px;
