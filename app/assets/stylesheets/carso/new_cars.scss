@@ -239,7 +239,7 @@ h2{
 }
 .img_col_block{
   position: relative;
-  max-width: 700px;
+  max-width: 660px;
   @media all and (max-width: 1300px) {
   width: auto;
   }
@@ -566,9 +566,9 @@ h2{
   }
 }
 .sf_ul{
-  display: flex;
+  display: block;
   justify-content: flex-end;
-  padding: 58px 0 0 0;
+  padding: 30px 0 0 0;
   @media all and (max-width: 768px) {
     padding: 5px 0 0 0;
     justify-content: center;
@@ -605,16 +605,16 @@ h2{
 }
 .sale_ftxt span{
   font-style: normal;
-  font-weight: bold;
-  font-size: 15px;
-  line-height: 15px;
-  color: #222222;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 130%;
+  color: #1C1C1C;
   display: block;
 }
 .sale_ftxt ul{
-  list-style-image: image-url('carso/icons/vect_ok.svg');
-  padding: 0 0 0 22px;
-  width: 150px;
+  list-style-image: image-url('carso/icons/vect_ok_1.svg');
+  padding: 0 0px 0 30px;
+  width: 165px;
   @media all and (max-width: 760px) {
     width: auto;
   }
@@ -624,11 +624,12 @@ h2{
   font-size: 13px;
   line-height: 15px;
   color: #222222b8;
-  padding: 15px 0 0 0;
+  padding: 15px 0 0 5px;
 }
 .sbc-item{
   display: block;
   text-align: center;
+  margin: 0 25px 0px 0px;
   @media all and (max-width: 900px) {
     min-width: fit-content;
     margin: 0 10px 0 0;
@@ -1611,7 +1612,7 @@ label.on .lab_ch-text{
   }
 }
 .colors-list{
-  margin: 0 0 5px 0;
+  margin: 0 0 24px 0;
   @media all and (max-width: 900px) {
     margin: 0 auto;
   }
@@ -1655,7 +1656,7 @@ label.on .lab_ch-text{
 .singlecar__colors-wrapper {
   display: block;
   position: relative;
-  padding: 5px 0 0 0;
+  padding: 5px 20px 0 0;
   @media all and (max-width: 900px) {
     justify-content: space-around !important;
     margin: 0 0 10px 0;

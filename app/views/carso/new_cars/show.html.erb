@@ -132,7 +132,7 @@
           <% end %>
         </ul>
       </div>
-      <div class="mrr_bl row justify-content-between">
+      <div class="mrr_bl row justify-content-start">
         <div class="sbc-item">
           <span class="sbc-i-text"><%= @car.specifications.joins(:equipment).where('`equipment`.`hide` = 0').maximum(:power) %> л.с.</span>
           <span class="sbc-i-title">Мощность</span>
