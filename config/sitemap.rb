@@ -1,9 +1,9 @@
 Region.all.each do |domain|
 
   if domain.name === 'moskva'
-    SitemapGenerator::Sitemap.default_host = "https://carso.ru/"
+    SitemapGenerator::Sitemap.default_host = "https://autosalon-m.ru/"
   else
-    SitemapGenerator::Sitemap.default_host = "https://#{domain.name}.carso.ru/"
+    SitemapGenerator::Sitemap.default_host = "https://#{domain.name}.autosalon-m.ru/"
   end
 
   SitemapGenerator::Sitemap.sitemaps_path = "sitemaps/#{domain.name}"
