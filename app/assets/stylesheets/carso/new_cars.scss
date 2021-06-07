@@ -292,7 +292,39 @@ h2{
   }
 }
 #newcarreq_new_ticket .form_input{
-    padding: 10px 0 15px 0;
+    padding: 30px 0 15px 0;
+}
+#newcarreq_new_ticket .form_input.nn:before{
+  content: '';
+  background-image: image-url('carso/icons/group2862.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 20px;
+  height: 30px;
+  position: absolute;
+  left: 0;
+}
+#newcarreq_new_ticket .form_input.ph:before{
+  content: '';
+  background-image: image-url('carso/icons/vector-8.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 20px;
+  height: 30px;
+  position: absolute;
+  left: 0;
+}
+#newcarreq_new_ticket .form_input.ph input, #newcarreq_new_ticket .form_input.nn input{
+  padding: 0 0 0 35px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 130%;
+  color: #1C1C1C;
+}
+
+#newcarreq_new_ticket :focus-visible {
+  outline: -webkit-focus-ring-color auto 0px;
 }
 
 .sale-date{
@@ -475,6 +507,9 @@ h2{
   @media all and (max-width: 600px) {
     padding: 0 0 8px 0;
   }
+}
+.car_online img{
+  margin: 0 10px 0 0;
 }
 .car_online svg{
   padding: 0 8px 0 0;

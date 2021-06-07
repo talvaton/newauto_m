@@ -172,7 +172,9 @@
         <div class="form-sale-info">
           <% if @car.archive %><div class="t_archive">Снят с производства</div><% end %>
           <div class="form-credit-info">Выгодный кредит <span><i>от </i><% snc_price = min_price %><%= number_with_delimiter(count_price(snc_price,PERCENT,MONTH), delimiter: " ") %> ₽</span></div>
-          <span class="car_online"><svg width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6L6 10L14 2" stroke="#1260B0" stroke-width="3"/></svg>
+          <span class="car_online">
+             <%= image_tag "/assets/carso/icons/group2873.png", alt: '' %>
+
             <% car_count_arr = [] %>
             <% equipments = @equipments.limit(10).shuffle %>
             <% equipments.each do |e| %>
@@ -185,10 +187,10 @@
         <%= form_for Ticket.new,url: {action:"create",controller:"tickets" },remote:true,validate:true,:html => {:class => "form",:name=>"newcarreq"},:namespace => "newcarreq" do |f| %>
           <%= hidden_field_tag 'ticket[other][model]',@car.id, id:'newcarreq_ticket_other_model' %>
           <%= f.hidden_field :form_name, value:"express" %>
-          <div class="form_input">
+          <div class="form_input nn">
             <%= f.text_field :name,class:"input",placeholder:"Ваше имя" %>
           </div>
-          <div class="form_input">
+          <div class="form_input ph">
             <%= f.phone_field :phone,class:"input",data:{:role=>"phone"},placeholder:"Номер телефона"  %>
           </div>
           <%= f.button class: "button add__form-btn" do %><span>Получить условия</span><% end %>
@@ -204,16 +206,16 @@
 
 
 <div class="pr_slog_b">
-  <div><%= image_tag "carso/icons/casco.svg", alt:'' %>
+  <div><%= image_tag "carso/icons/group30.svg", alt:'' %>
     <span>Бесплатное <br> КАСКО</span>
   </div>
-  <div><%= image_tag "carso/icons/tire.svg", alt:'' %>
+  <div><%= image_tag "carso/icons/group101.svg", alt:'' %>
     <span>Зимняя резина в <br> подарок</span>
   </div>
-  <div><%= image_tag "carso/icons/gospr.svg", alt:'' %>
+  <div><%= image_tag "carso/icons/group98.svg", alt:'' %>
     <span>Госпрограммы: <br> -10% на любое авто</span>
   </div>
-  <div><%= image_tag "carso/icons/route.svg", alt:'' %>
+  <div><%= image_tag "carso/icons/group33.svg", alt:'' %>
     <span>Оплата проезда <br> до автосалона</span>
   </div>
 </div>
