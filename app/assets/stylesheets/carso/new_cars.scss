@@ -1655,8 +1655,11 @@ label.on .lab_ch-text{
 
 .singlecar__colors-wrapper {
   display: block;
-  position: relative;
+  position: absolute;
   padding: 5px 20px 0 0;
+  left: -175px;
+  bottom: -100px;
+  width: 400px;
   @media all and (max-width: 900px) {
     justify-content: space-around !important;
     margin: 0 0 10px 0;
