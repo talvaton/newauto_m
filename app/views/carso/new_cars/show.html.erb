@@ -173,7 +173,7 @@
           <% if @car.archive %><div class="t_archive">Снят с производства</div><% end %>
           <div class="form-credit-info">Выгодный кредит <span><i>от </i><% snc_price = min_price %><%= number_with_delimiter(count_price(snc_price,PERCENT,MONTH), delimiter: " ") %> ₽</span></div>
           <span class="car_online">
-             <%= image_tag "/assets/carso/icons/group2873.png", alt: '' %>
+             <%= image_tag "carso/icons/group2873.png", alt: '' %>
 
             <% car_count_arr = [] %>
             <% equipments = @equipments.limit(10).shuffle %>
