@@ -85,16 +85,15 @@
     <a href="#" class="button sale_bn" data-show-new-ajax="car-credit-modal" data-eq_id="" rel="nofollow">Получить</a>
   </div>
 </div>
-
+<div class="sale-from" itemprop="offers" itemscope="" itemtype="https://schema.org/Offer"><span>от <%= number_with_delimiter(@car.count_min_price(@region_discount), delimiter: " ") %> ₽</span>
+  <meta itemprop="price" content="<%= number_with_delimiter(@car.count_min_price(@region_discount), delimiter: " ") %>">
+  <meta itemprop="priceCurrency" content="RUB">
+  <meta itemprop="priceValidUntil" content="<%= Date.today %>">
+  <link itemprop="availability" href="https://schema.org/InStock">
+</div>
 <div class="stb-n" itemscope="" itemtype="https://schema.org/Product">
 
   <div class="sale_ftxt">
-    <div class="sale-from" itemprop="offers" itemscope="" itemtype="https://schema.org/Offer"><span>от <%= number_with_delimiter(@car.count_min_price(@region_discount), delimiter: " ") %> ₽</span>
-      <meta itemprop="price" content="<%= number_with_delimiter(@car.count_min_price(@region_discount), delimiter: " ") %>">
-      <meta itemprop="priceCurrency" content="RUB">
-      <meta itemprop="priceValidUntil" content="<%= Date.today %>">
-      <link itemprop="availability" href="https://schema.org/InStock">
-    </div>
     <div class="sf_ul">
       <ul>
         <span>Каждому покупателю</span>
@@ -104,7 +103,6 @@
       </ul>
     </div>
   </div>
-
   <div class="img_col_block">
     <meta itemprop="description" content="❗ Грандиозная распродажа новых автомобилей <%= @car.menutitle %> <%= @car.old ? (Time.current - 2.year).year.to_s : (Time.current - 1.year).year.to_s %> - <%= @car.old ? (Time.current - 1.year).year.to_s : Time.current.year.to_s %> года в <%= @current_region.sklon3 %>! 🚘 Все комплектации в наличии у официального дилера! ❗ Скидка на <%= @car.russian_name %> до <%= number_with_delimiter(max_discount_e,delimeter:' ') %> руб. ✅ Кредит от 1,9%! 🎁 Каско бесплатно! — Autosalon-M ☎️ 8 800 500-03-23.">
     <meta itemprop="brand" content="<%= @car.brand.title %>">
@@ -200,6 +198,7 @@
       </div>
     </div>
   </div>
+
 </div>
 
 
