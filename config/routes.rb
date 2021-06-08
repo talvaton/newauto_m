@@ -408,9 +408,9 @@ Rails.application.routes.draw do
 
 
   # banks
-  resources :banks,:only => [:show],param: :url,path: '/banks',constraints: BankConstraint.new
+ # resources :banks,:only => [:show],param: :url,path: '/banks',constraints: BankConstraint.new
 
-  resources :stories,:only => [:show],param: :url,path: '/news',constraints: NewsConstraint.new
+ # resources :stories,:only => [:show],param: :url,path: '/news',constraints: NewsConstraint.new
 
   # finance
   resources :finances,:only => [:show],param: :url,path: '',constraints: FinanceConstraint.new

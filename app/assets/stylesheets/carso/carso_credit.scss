@@ -19,7 +19,9 @@
     display: block;
   }
 }
-
+h2 {
+  padding: 20px 0 20px 0;
+}
 .rangeslider__handle{
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.35);
   background: #6AD1A6;
@@ -211,14 +213,11 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  width: 50%;
-  background: image-url('carso/icons/frame_line.svg') no-repeat center right #F7F7F7;
-  box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.12);
-  padding: 30px 25px 20px 25px;
-  margin: -70px 0 0 10px;
+  width: auto;
+  padding: 0 0 20px 25px;
+  margin: 0 0 0 10px;
   @media all and (max-width: 1240px) {
     margin: 10px 0 0 0;
-    width: 585px;
   }
   @media all and (max-width: 1180px) {
     margin: 10px auto;
@@ -245,16 +244,33 @@
 }
 
 .form_cr_r{
-  width: 440px;
   margin: 0;
 }
 
 .form__cr-bt{
- /* padding: 0 160px 0 0;*/
+  width: 100%;
+  background: #1C1C1C;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 0 0 0;
   @media all and (max-width: 760px) {
     padding: 0;
   }
 }
+
+.form__cr-bt a{
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 130%;
+  color: #FFFFFF;
+}
+.form__cr-bt a:hover{
+  color: #FFFFFF;
+}
+
  form .frm_credit_k .button{
   font-style: normal;
   font-weight: bold;
@@ -329,7 +345,7 @@
   font-size: 13px;
   line-height: 13px;
   color: #9DA9B6;
-  width: 50%;
+  width: 610px;
   @media all and (max-width: 1400px) {
     margin: 0 auto;
   }
@@ -698,13 +714,13 @@ h1 strong{
 .cr_tl{
   font-style: normal;
   font-weight: normal;
-  font-size: 22px;
+  font-size: 24px;
   line-height: 26px;
   color: #222222;
+  display: block;
+  margin: 30px 0 60px 0;
 }
-.cr_tl b{
-  color: #6AD1A6;
-}
+
 .frg_is{
   display: flex;
   justify-content: space-between;
@@ -717,20 +733,19 @@ h1 strong{
   align-items: center;
 }
 .frg_is div i{
-  position: relative;
   font-style: normal;
   font-weight: bold;
-  font-size: 20px;
-  line-height: 23px;
+  font-size: 30px;
+  line-height: 140%;
+  color: #1C1C1C;
   display: flex;
   align-items: center;
   text-align: center;
-  color: #1260B0;
-  width: 84px;
+  width: auto;
   height: 84px;
-  justify-content: center;
+  margin: 0 10px 0 0;
 }
-.frg_is div i:before{
+/*.frg_is div i:before{
   content: '';
   background-image: image-url("carso/icons/lnstar.svg");
   background-repeat: no-repeat;
@@ -741,21 +756,18 @@ h1 strong{
   top: 0;
   left: 0;
   z-index: -1;
-}
+}*/
 .frg_is div span{
   font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 19px;
-  color: #222222;
-  width: 170px;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 130%;
+  color: #1C1C1C;
+  width: 190px;
   padding: 0 0 0 5px;
 }
 .fcwig{
-  width: 50%;
-  @media all and (max-width: 760px) {
-    width: 100%;
-  }
+
 }
 
 .secur_f {
@@ -769,21 +781,13 @@ h1 strong{
   margin: 15px 0 0 0;
 }
 .big_pr{
-  background: #6AD1A6;
-  border-radius: 10px;
-  width: 255px;
-  height: 100px;
   font-style: normal;
-  font-weight: 900;
-  font-size: 90px;
-  line-height: 90%;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  letter-spacing: -0.1em;
-  color: #FFFFFF;
-  margin: 8px 0 8px 0;
+  font-weight: 600;
+  font-size: 189.403px;
+  line-height: 74.5%;
+  color: #1C1C1C;
+  margin: 40px 0;
+  display: block;
 }
 .form--credit form input, .form--credit form select, .form--credit form button {
   width: 268px;
@@ -791,17 +795,23 @@ h1 strong{
 .sub_tt{
   display: block;
   font-style: normal;
-  font-weight: 500;
-  font-size: 22px;
-  line-height: 110%;
-  color: #222222;
-  width: 185px;
+  font-weight: 600;
+  font-size: 78.8921px;
+  line-height: 140%;
+  color: #1C1C1C;
+}
+.sub_ttr{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30.9818px;
+  line-height: 140%;
+  color: #1C1C1C;
 }
 .frmcr{
   margin: 0 0 40px 0;
 }
 .form_stb{
-  background: #F7F7F7;
+  margin: 60px 0 50px 0;
 }
 .form_st_cr{
   display: flex;
@@ -812,8 +822,11 @@ h1 strong{
     width: 100%;
   }
 }
-
 .frm_credit_k{
+  display: flex;
+  align-items: flex-end;
+}
+/*.frm_credit_k{
   width: 416px;
   height: 360px;
   background: #FFFFFF;
@@ -827,13 +840,13 @@ h1 strong{
     height: auto;
     padding: 30px 15px 30px 15px;
   }
-}
+}*/
 
 .frm_credit_img{
   margin: 0 auto;
 }
 .frm_credit_img img{
-  width: 100%;
+
 }
 .crfc_name{
   font-style: normal;
@@ -858,7 +871,7 @@ h1 strong{
   display: block;
 }
 .form__cr_lb{
-  padding: 30px 0 0 40px;
+  padding: 30px 0 0 0;
   @media all and (max-width: 900px) {
     display: flex;
     flex-wrap: wrap;
@@ -873,9 +886,9 @@ h1 strong{
   }
 }
 .form_crg{
-  width: 820px;
+  width: 680px;
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: space-between;
   @media all and (max-width: 1240px) {
     margin: 0 auto;
@@ -887,10 +900,10 @@ h1 strong{
 }
 .nf_i{
   font-style: normal;
-  font-weight: 500;
-  font-size: 30px;
-  line-height: 120%;
-  color: #222222;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 130%;
+  color: #1C1C1C;
   padding: 0 0 30px 0;
   @media all and (max-width: 1240px) {
    text-align: center;
@@ -902,15 +915,16 @@ h1 strong{
   font-size: 18px;
   line-height: 100%;
   color: #222222;
+  display: flex;
+  margin: 0 0 30px 0;
 }
 .form-credit_subt b{
   font-style: normal;
   font-weight: bold;
   font-size: 28px;
-  line-height: 100%;
-  color: #6AD1A6;
+  color: #000000;
   display: block;
-  padding: 2px 0 5px 0;
+  padding: 0 0 0 5px;
 }
 /***************************************/
 
@@ -1016,21 +1030,26 @@ h1 strong{
   width: 100%;
 }
 .tradein_btt ul{
-  list-style-image: image-url('carso/icons/ok_inf.svg');
-  padding: 0 0 0 20px;
+  list-style-image: image-url('carso/icons/vect_ok_1.svg');
+  padding: 0 0 0 32px;
+  display: flex;
+  flex-wrap: wrap;
 }
 .tradein_btt ul li span{
   font-style: normal;
   font-weight: normal;
-  font-size: 14px;
-  line-height: 120%;
-  color: #222222;
+  font-size: 18px;
+  line-height: 130%;
+  color: #1C1C1C;
   display: block;
   padding: 0 0 0 5px;
 
 }
+.tradein_btt.trb_1 ul li span{
+  width: 325px;
+}
 .tradein_btt ul li{
-  padding: 0 0 15px 0;
+  padding: 0 70px 15px 0;
 }
 
 /***************************************/
@@ -1125,3 +1144,85 @@ h1 strong{
 }
 
 /********************finance__item********************/
+
+.form-bottom{
+  display: flex;
+  justify-content: space-between;
+}
+.form-bottom .drmbbx{
+  margin: 0 60px 25px 0;
+}
+form input, form select, form button, .form_btn, .express_fbn input, .express_fbn button, .express_fbn_o input, .express_fbn_o button, .credit_fbn input, .credit_fbn button {
+  width: 275px;
+}
+form .form_ld .form__cr-bt button{
+  width: 610px;
+  height: 65px;
+  background: #1C1C1C;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 130%;
+  color: #FFFFFF;
+  margin: 15px 0 0 0;
+}
+form .form_ld .form__cr-bt button span{
+  text-transform: initial;
+}
+form .form_ld input{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 130%;
+  color: #1C1C1C;
+}
+.form_input{
+  padding: 40px 0 0px 0;
+}
+ form .form__cr_lb select{
+   border: 1px solid #1C1C1C;
+   border-radius: 0;
+   height: 53px;
+   width: 316px;
+   color: #1C1C1C;
+}
+form .form__cr_lb input{
+  border-radius: 0;
+  height: 53px;
+  width: 316px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 130%;
+  color: #A3A3A3;
+}
+
+form .form__cr_lb .form_input{
+  padding: 20px 0 0px 0;
+}
+
+.tcredit_bp_txt{
+  display: flex;
+}
+.tcredit_bp_txt li span b{
+  display: block;
+}
+main .gos_prb i{
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 130%;
+  color: #1C1C1C;
+  padding: 15px 0 15px 0;
+}
+main .gos_prb div{
+  width: 369px;
+}
+main .gos_prb div a img{
+  width: 100%;
+}
+main .gos_prb p{
+  font-size: 16px;
+  line-height: 22px;
+  color: #1C1C1C;
+}
