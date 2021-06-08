@@ -394,11 +394,12 @@
 }
 .form_tr{
   position: relative;
-  width: 50%;
-  background: image-url('carso/icons/frame_line.svg') no-repeat center right #F7F7F7;
-  box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.12);
-  padding: 30px 25px 20px 25px;
-  margin: -70px 0 0 60px;
+  width: 504px;
+  margin: 0 0 0 60px;
+  display: block;
+  min-width: 504px;
+  border: 1px solid #000000;
+  padding: 30px;
   @media all and (max-width: 1240px) {
     width: 60%;
   }
@@ -497,21 +498,19 @@
 }
 .form-sp{
   font-style: normal;
-  font-weight: bold;
-  font-size: 28px;
-  line-height: 120%;
-  display: flex;
-  align-items: center;
-  color: #1260B0;
-  padding: 20px 0 10px 0;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 140%;
+  color: #1C1C1C;
+  padding: 0 0 10px 0;
   @media all and (max-width: 680px) {
     padding: 0 0 10px 0;
   }
 }
 .form-sp_s{
   font-style: normal;
-  font-weight: normal;
-  font-size: 22px;
+  font-weight: 300;
+  font-size: 18px;
   line-height: 120%;
   color: #222222;
   display: flex;
@@ -534,7 +533,7 @@
   display: flex;
   align-items: center;
   color: #000000;
-  padding: 0 0 10px 0;
+  padding: 0 0 15px 0;
 }
 .tradein_w{
   font-style: normal;
@@ -544,10 +543,10 @@
   display: flex;
   align-items: center;
   color: #222222;
-  padding: 0 0 10px 0;
+  padding: 30px 0 40px 0;
 }
 .form__tradein-l div span{
-  padding: 0 0 15px 0;
+  padding: 0 0 40px 0;
   display: block;
 }
 .form__tradein-l div span strong{
@@ -721,3 +720,25 @@
 }
 
 /************tradein_form**************/
+
+.form_tradein form button{
+  width: 300px;
+  height: 60px;
+  background: #1C1C1C;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 130%;
+  color: #FFFFFF;
+  margin: 35px 0 0 0;
+  text-transform: initial;
+}
+.form_tradein form input, .form_tradein form select, .form_tradein form button {
+  width: 300px;
+}
+.hfc_rb div {
+  padding: 0 0px 0 15px;
+}
+.hf_cell_b {
+  padding: 0;
+}
