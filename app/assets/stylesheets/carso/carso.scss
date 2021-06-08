@@ -442,6 +442,7 @@ header .header_top{
 .bnr{
   display: block;
   position: relative;
+  margin: 0 0 50px 0;
 }
 .bnr_cnt{
 
@@ -451,10 +452,12 @@ header .header_top{
   background: image-url('carso/banners/n/11.jpg')no-repeat center top;
   width: 100%;
   height: 450px;
+  display: block;
+  @media all and (max-width: 1100px) {
+    background-position-x: 70%;
+  }
   @media all and (max-width: 900px) {
-    height: 200px;
-    background-size: 200%;
-    background-position-x: right;
+    background-position-x: 80%;
   }
 }
 
@@ -463,6 +466,17 @@ header .header_top{
   margin: 0 auto;
   width: 1240px;
   padding: 50px 0 0 0;
+  @media all and (max-width: 1240px) {
+    padding: 75px 0 0 20px;
+    width: 100%;
+  }
+  @media all and (max-width: 900px) {
+    padding: 45px 0 0 20px;
+    flex-wrap: wrap;
+  }
+  @media all and (max-width: 430px) {
+    padding: 45px 0 0 15px;
+  }
 }
 .bnr_inf div:nth-child(1){
   font-style: normal;
@@ -470,6 +484,27 @@ header .header_top{
   font-size: 56px;
   line-height: 130%;
   color: #1C1C1C;
+  @media all and (max-width: 1240px) {
+    font-size: 44px;
+  }
+  @media all and (max-width: 1100px) {
+    font-size: 34px;
+  }
+  @media all and (max-width: 900px) {
+    line-height: 40px;
+    width: 100%;
+  }
+  @media all and (max-width: 600px) {
+    font-size: 26px;
+  }
+  @media all and (max-width: 430px) {
+    font-size: 22px;
+    line-height: 30px;
+  }
+  @media all and (max-width: 355px) {
+    font-size: 18px;
+    line-height: 26px;
+  }
 }
 .bnr_inf div b{
   display: block;
@@ -481,12 +516,34 @@ header .header_top{
   line-height: 130%;
   color: #1C1C1C;
   margin: 0 40px;
+  @media all and (max-width: 900px) {
+    margin: 15px 40px 0 0px;
+  }
+  @media all and (max-width: 600px) {
+    font-size: 16px;
+    margin: 15px 20px 0 0px;
+  }
+  @media all and (max-width: 430px) {
+    font-size: 12px;
+  }
+  @media all and (max-width: 355px) {
+    font-size: 10px;
+  }
 }
 .bnr_inf div:nth-child(2) b{
   font-style: normal;
   font-size: 90.4439px;
   line-height: 130%;
   color: #1C1C1C;
+  @media all and (max-width: 1240px) {
+    font-size: 70px;
+  }
+  @media all and (max-width: 1100px) {
+    font-size: 40px;
+  }
+  @media all and (max-width: 430px) {
+    font-size: 34px;
+  }
 }
 .bnr_inf div:nth-child(3){
   font-style: normal;
@@ -494,17 +551,41 @@ header .header_top{
   font-size: 21.6234px;
   line-height: 130%;
   color: #1C1C1C;
+  @media all and (max-width: 600px) {
+    font-size: 16px;
+  }
+  @media all and (max-width: 430px) {
+    font-size: 12px;
+  }
+  @media all and (max-width: 355px) {
+    font-size: 10px;
+  }
 }
 .bnr_inf div:nth-child(3) b{
   font-style: normal;
   font-size: 90.4439px;
   line-height: 130%;
   color: #1C1C1C;
+  @media all and (max-width: 1240px) {
+    font-size: 70px;
+  }
+  @media all and (max-width: 1100px) {
+    font-size: 40px;
+  }
+  @media all and (max-width: 900px) {
+    margin: 15px 40px 0 0px;
+  }
+  @media all and (max-width: 430px) {
+    font-size: 34px;
+  }
 }
 .bnr_btn{
   margin: 140px auto 0 auto;
   width: 1240px;
   display: block;
+  @media all and (max-width: 1240px) {
+    width: 100%;
+  }
 }
 .bn_1 button{
   font-style: normal;
@@ -516,6 +597,22 @@ header .header_top{
   width: 587px;
   height: 71px;
   background: transparent;
+  @media all and (max-width: 1240px) {
+    margin: 0 0 0 20px;
+  }
+  @media all and (max-width: 900px) {
+    background: #FFFFFF;
+    width: 339px;
+    height: 50px;
+    font-size: 18px;
+    border: medium none;
+  }
+  @media all and (max-width: 430px) {
+    width: 300px;
+  }
+  @media all and (max-width: 355px) {
+    width: 280px;
+  }
 }
 
 /***********new****************/
