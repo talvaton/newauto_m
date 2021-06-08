@@ -441,7 +441,7 @@ header .header_top{
 
 .bnr{
   display: block;
-  width: 100%;
+  position: relative;
 }
 .bnr_cnt{
 
@@ -458,7 +458,65 @@ header .header_top{
   }
 }
 
-
+.bnr_inf{
+  display: flex;
+  margin: 0 auto;
+  width: 1240px;
+  padding: 50px 0 0 0;
+}
+.bnr_inf div:nth-child(1){
+  font-style: normal;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 130%;
+  color: #1C1C1C;
+}
+.bnr_inf div b{
+  display: block;
+}
+.bnr_inf div:nth-child(2){
+  font-style: normal;
+  font-weight: normal;
+  font-size: 21.6234px;
+  line-height: 130%;
+  color: #1C1C1C;
+  margin: 0 40px;
+}
+.bnr_inf div:nth-child(2) b{
+  font-style: normal;
+  font-size: 90.4439px;
+  line-height: 130%;
+  color: #1C1C1C;
+}
+.bnr_inf div:nth-child(3){
+  font-style: normal;
+  font-weight: normal;
+  font-size: 21.6234px;
+  line-height: 130%;
+  color: #1C1C1C;
+}
+.bnr_inf div:nth-child(3) b{
+  font-style: normal;
+  font-size: 90.4439px;
+  line-height: 130%;
+  color: #1C1C1C;
+}
+.bnr_btn{
+  margin: 140px auto 0 auto;
+  width: 1240px;
+  display: block;
+}
+.bn_1 button{
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 130%;
+  color: #1C1C1C;
+  border: 1.5px solid #1C1C1C;
+  width: 587px;
+  height: 71px;
+  background: transparent;
+}
 
 /***********new****************/
 
