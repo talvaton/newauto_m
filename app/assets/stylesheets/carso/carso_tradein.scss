@@ -6,7 +6,9 @@
 
 
 
-
+body .main {
+  padding: 0 20px !important;
+}
 
 .tradein_btt .credit_bp_txt{
   display: none;
@@ -409,9 +411,13 @@
   }
   @media all and (max-width: 680px) {
     width: 100%;
+    min-width: 100%;
     order:1;
     margin: 0 0 35px 0;
     padding: 15px 25px 20px 25px;
+  }
+  @media all and (max-width: 380px) {
+    padding: 15px 15px 20px 15px;
   }
 }
 
@@ -436,6 +442,9 @@
     margin: 0 auto;
     justify-content: center;
   }
+  @media all and (max-width: 380px) {
+    display: block;
+}
 }
 .form_tradein div:nth-child(1){
   margin: 0 30px 0 0;
@@ -735,10 +744,42 @@
 }
 .form_tradein form input, .form_tradein form select, .form_tradein form button {
   width: 300px;
+  @media (max-width: 380px) {
+    width: 100%;
+  }
 }
-.hfc_rb div {
+.main .hfc_rb div {
   padding: 0 0px 0 15px;
+  @media (max-width: 500px) {
+    text-align: left;
+  }
 }
+.main  .hfc_rb div span{
+  @media (max-width: 400px) {
+    font-size: 12px;
+  }
+}
+
 .hf_cell_b {
   padding: 0;
+}
+.main .hfc_rb {
+  @media (max-width: 1240px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  @media (max-width: 800px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.hf_cell_b img {
+  @media (max-width: 900px) {
+    max-width: 400px;
+  }
+  @media (max-width: 800px) {
+    margin: 0 auto;
+    display: block;
+  }
+  @media (max-width: 420px) {
+    max-width: 100%;
+  }
 }
