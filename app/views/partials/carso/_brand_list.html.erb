@@ -1,6 +1,6 @@
 <li itemprop="name">
-  <% logo_url = brand_list.logo.url %>
-  <%= link_to(brand_path(brand_list.url), class:'menu-list__link brandlist__link', itemprop:'url',:data=>{:action => 'show-brand-in-menu'},title:brand_list.title) do %>
+  <%# logo_url = brand_list.logo.url %>
+  <%= link_to(brand_path(brand_list.url), class:'menu-list__link brandlist__link', itemprop:'url',:data=>{:action => 'show-brand-in-menu'},title:brand_list.title,style:"color:##{brand_list.description['main_color']}; background-color:##{brand_list.description['add_color']}") do %>
     <span><%= brand_list.title %></span>
   <% end %>
 </li>
