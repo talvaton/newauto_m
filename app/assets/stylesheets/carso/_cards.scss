@@ -111,9 +111,9 @@
 }
 .card-box .sbc-item:before{
   content: '';
-  background: image-url('carso/icons/g_gr.svg')no-repeat left center;
-  width: 9px;
-  height: 7px;
+  background: image-url('carso/icons/group2873.png')no-repeat left center;
+  width: 24px;
+  height: 24px;
   display: inline-block;
   @media all and (max-width: 480px) {
    display: none;
@@ -121,10 +121,10 @@
 }
 .card-box .sbc-i-text{
   font-style: normal;
-  font-weight: 500;
-  font-size: 11px;
-  line-height: 100%;
-  color: #1260B0;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 130%;
+  color: #1C1C1C;
   padding: 0 0 0 5px;
   @media all and (max-width: 480px) {
     font-size: 9px;

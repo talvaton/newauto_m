@@ -345,7 +345,7 @@ Rails.application.routes.draw do
   get '/pravila-provedeniya-akciy' => 'carso#akciy'
   #get '/korporativnym-klientam' => 'carso#corporate'
   #get '/utilizaciya' => 'carso#utilization'
-   get '/stock' => 'carso#stock'
+  # get '/stock' => 'carso#stock'
   get '/contacts' => 'carso#contacts'
   #get '/topsales' => 'carso#topsales'
   get '/credit' => 'carso#credit'
@@ -356,9 +356,9 @@ Rails.application.routes.draw do
   get '/womencars' => 'carso#womencars'
   get '/cheap-auto' => 'carso#cheap'
   get '/reliablecars' => 'carso#secure'
-  get '/taxi' => 'carso#taxi'
-  get '/sell' => 'carso#sell'
-  get '/service' => 'carso#service'
+ # get '/taxi' => 'carso#taxi'
+ # get '/sell' => 'carso#sell'
+ # get '/service' => 'carso#service'
   post '/common_modal' =>  'carso#show_common_modal', as: 'common_modal'
   post '/credit' => 'carso#credit_select'
   post '/car_filter' => 'carso#show_filter', as: 'car_filter'
@@ -410,7 +410,7 @@ Rails.application.routes.draw do
   # banks
   resources :banks,:only => [:show],param: :url,path: '/banks',constraints: BankConstraint.new
 
-  resources :stories,:only => [:show],param: :url,path: '/news',constraints: NewsConstraint.new
+ # resources :stories,:only => [:show],param: :url,path: '/news',constraints: NewsConstraint.new
 
   # finance
   resources :finances,:only => [:show],param: :url,path: '',constraints: FinanceConstraint.new

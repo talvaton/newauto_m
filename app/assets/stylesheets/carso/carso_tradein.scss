@@ -6,7 +6,9 @@
 
 
 
-
+body .main {
+  padding: 0 20px !important;
+}
 
 .tradein_btt .credit_bp_txt{
   display: none;
@@ -151,7 +153,13 @@
     display: inline-block;
   }
 }
+
+.tradein_form .form_input {
+  padding: 30px 0 0 0;
+}
+
 .form_block-right .form_input{
+
   @media all and (max-width: 600px) {
     padding: 0 0 15px 0;
   }
@@ -394,11 +402,12 @@
 }
 .form_tr{
   position: relative;
-  width: 50%;
-  background: image-url('carso/icons/frame_line.svg') no-repeat center right #F7F7F7;
-  box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.12);
-  padding: 30px 25px 20px 25px;
-  margin: -70px 0 0 60px;
+  width: 504px;
+  margin: 0 0 0 60px;
+  display: block;
+  min-width: 504px;
+  border: 1px solid #000000;
+  padding: 30px;
   @media all and (max-width: 1240px) {
     width: 60%;
   }
@@ -408,9 +417,13 @@
   }
   @media all and (max-width: 680px) {
     width: 100%;
+    min-width: 100%;
     order:1;
     margin: 0 0 35px 0;
     padding: 15px 25px 20px 25px;
+  }
+  @media all and (max-width: 380px) {
+    padding: 15px 15px 20px 15px;
   }
 }
 
@@ -435,6 +448,9 @@
     margin: 0 auto;
     justify-content: center;
   }
+  @media all and (max-width: 380px) {
+    display: block;
+}
 }
 .form_tradein div:nth-child(1){
   margin: 0 30px 0 0;
@@ -483,6 +499,21 @@
     width: 100%;
   }
 }
+.form_tradein form input, .form_tradein form select, .form_tradein form button {
+  width: 300px;
+}
+.tradein_form form button {
+  background: #1C1C1C;
+  height: 60px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 130%;
+  color: #FFFFFF;
+  text-transform: initial;
+}
+
+
 .nf_i{
   font-style: normal;
   font-weight: bold;
@@ -497,21 +528,19 @@
 }
 .form-sp{
   font-style: normal;
-  font-weight: bold;
-  font-size: 28px;
-  line-height: 120%;
-  display: flex;
-  align-items: center;
-  color: #1260B0;
-  padding: 20px 0 10px 0;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 140%;
+  color: #1C1C1C;
+  padding: 0 0 10px 0;
   @media all and (max-width: 680px) {
     padding: 0 0 10px 0;
   }
 }
 .form-sp_s{
   font-style: normal;
-  font-weight: normal;
-  font-size: 22px;
+  font-weight: 300;
+  font-size: 18px;
   line-height: 120%;
   color: #222222;
   display: flex;
@@ -534,7 +563,7 @@
   display: flex;
   align-items: center;
   color: #000000;
-  padding: 0 0 10px 0;
+  padding: 0 0 15px 0;
 }
 .tradein_w{
   font-style: normal;
@@ -544,10 +573,10 @@
   display: flex;
   align-items: center;
   color: #222222;
-  padding: 0 0 10px 0;
+  padding: 30px 0 40px 0;
 }
 .form__tradein-l div span{
-  padding: 0 0 15px 0;
+  padding: 0 0 40px 0;
   display: block;
 }
 .form__tradein-l div span strong{
@@ -610,7 +639,7 @@
 .tr_flbl{
   width: 100%;
   padding: 30px 40px 0 40px;
-  background: #F7F7F7;
+  background: transparent;
   @media (max-width: 1180px) {
     padding: 30px 15px 0 15px
   }
@@ -637,7 +666,7 @@
 .tr_frb{
   padding: 40px;
   background: #FFFFFF;
-  border: 1px solid #6AD1A6;
+  border: medium none;
   box-sizing: border-box;
   @media (max-width: 1180px) {
     padding: 40px 15px 15px 15px;
@@ -680,6 +709,12 @@
 }
 .tradein_form form input,.tradein_form form select{
   background-color: #ffffff;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 130%;
+  color: #1C1C1C;
+  height: 53px;
   @media (max-width: 1050px) {
     width: 100%;
     max-width: 100%;
@@ -721,3 +756,57 @@
 }
 
 /************tradein_form**************/
+
+.form_tradein form button{
+  width: 300px;
+  height: 60px;
+  background: #1C1C1C;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 130%;
+  color: #FFFFFF;
+  margin: 35px 0 0 0;
+  text-transform: initial;
+}
+.form_tradein form input, .form_tradein form select, .form_tradein form button {
+  width: 300px;
+  @media (max-width: 380px) {
+    width: 100%;
+  }
+}
+.main .hfc_rb div {
+  padding: 0 0px 0 15px;
+  @media (max-width: 500px) {
+    text-align: left;
+  }
+}
+.main  .hfc_rb div span{
+  @media (max-width: 400px) {
+    font-size: 12px;
+  }
+}
+
+.hf_cell_b {
+  padding: 0;
+}
+.main .hfc_rb {
+  @media (max-width: 1240px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  @media (max-width: 800px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.hf_cell_b img {
+  @media (max-width: 900px) {
+    max-width: 400px;
+  }
+  @media (max-width: 800px) {
+    margin: 0 auto;
+    display: block;
+  }
+  @media (max-width: 420px) {
+    max-width: 100%;
+  }
+}

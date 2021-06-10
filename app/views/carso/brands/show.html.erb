@@ -59,54 +59,19 @@
 <%
   modelsCount = NewCar.where(brand_id: @brand.id, hide: 0, archive: 0).length;
 %>
- <div class="frm_banner">
-  <div>
-    <a href="/banks/vtb" class="banr_img">
-      <%= image_tag "carso/banners/ban_vtb.png", alt:'' %>
-    </a>
-  </div>
-  <div class="frm_bangr">
-    <div>
-      <a href="#" class="banr_img ism">
-        <%= image_tag "carso/banners/3pay-307x.png", alt:'' %>
-      </a>
+<div class="bnr">
+  <a href="/credit" class="bnr_cnt bn_1">
+    <div class="bnr_inf">
+      <div>Совместня акция <b>Дисконт Авто и ВТБ</b></div>
+
+      <div><b>1,3% </b>процентна ставка</div>
+      <div><b>99% </b>одобрение кредита</div>
+
     </div>
-    <div>
-      <a href="#" class="banr_img ism">
-        <%= image_tag "carso/banners/casko-307x.png", alt:'' %>
-      </a>
-    </div>
-    <div>
-      <a href="/credit#gospr" class="banr_img ism">
-        <%= image_tag "carso/banners/gospr-307x.png", alt:'' %>
-      </a>
-    </div>
-    <div>
-      <a href="/tradein" class="banr_img ism">
-        <%= image_tag "carso/banners/tradein-307х.png", alt:'' %>
-      </a>
-    </div>
-  </div>
+    <div class="bnr_btn"><button>Получить предложение</button></div>
+  </a>
 </div>
-
-  <div class="url_pgb">
-    <%= link_to brand_credit_path(@brand.url),class:'b_link' do %>Купить <%= @brand.title %> в Кредит<% end %>
-    <%= link_to brand_tradein_path(@brand.url),class:'b_link' do %>Купить <%= @brand.title %> в Трейд-ин<% end %>
-    <%= link_to brand_taxi_path(@brand.url),class:'b_link' do %>Купить <%= @brand.title %> в Такси<% end %>
-  </div>
-
-
-<div class="url_ft">
-  <span>Тип кузова:</span>
-  <% if @brand.new_cars.where(hide: 0, archive: 0).present? %>
-    <% brand_car_types = NewCar.where(brand_id: @brand.id,hide: 0, archive: 0).distinct.pluck(:car_type) %>
-    <% brand_car_types.each do |t| %>
-      <% if t.present? %>
-        <a href="#<%= t.pluralize(:ru) %>" rel="nofollow" data-role="page-navigation-link"><%= t.pluralize(:ru) %></a>
-      <% end %>
-    <% end %>
-  <% end %>
-</div>
+<div class="container">
 
 <div class="bh_form">
  <div class="mm_url">
@@ -133,32 +98,20 @@
       <%= f.button do %>
           <span>Получить предложение</span>
       <% end %>
-     <span class="act_date_f">Акция действует до <%= l(SALE_DATE, format: :next_monday) %></span>
-      <div class="secur_f">мы гарантируем конфиденциальность и защиту введённых данных</div>
     <% end %>
   </div>
 </div>
 <% unless region %>
-  <% if @brand.description.present? %>
-    <% if @brand.description['brand_desc'].present? %>
-      <div class="row seo_txt">
-        <%= @brand.description['brand_desc'].html_safe %>
-      </div>
-    <% end %>
-  <% end %>
 <% end %>
-
 <h1>Модельный ряд <%= @brand.title %></h1>
-
 <% if region %>
 <%= render partial:'new_cars/region_form' %>
 <% end %>
 <br>
-
 <% if @brand.new_cars.where(hide: 0, archive: 0).present? %>
   <% brand_car_types = NewCar.where(brand_id: @brand.id,hide: 0, archive: 0).distinct.pluck(:car_type) %>
   <% brand_car_types.each do |t| %>
-    <div class="row" id="<%= t.pluralize(:ru) %>"><h3><%= t.pluralize(:ru) %></h3></div>
+
     <div class="row justify-content-start cr_tr_url">
       <div class="cr_tr_hr right row justify-content-start">
         <%= render partial:'new_cars/new_cars_brand', collection: @brand.new_cars.where(hide: 0, archive: 0, car_type: t).min_price_ordered %>
@@ -167,7 +120,6 @@
     <%#<div class="row justify-content-start">%><%#= link_to t.pluralize(:ru), brand_type_path(@brand.url,t("car_types.#{t}")) %><%#</div>%>
   <% end %>
 <% end %>
-
 
 <% if @brand.new_cars.where(hide: 0, archive: 1).present? %>
 
@@ -179,65 +131,26 @@
     </div>
 <% end %>
 
-
 <div class="pr_slog_b">
-  <div><%= image_tag "carso/icons/casco.svg", alt:'' %>
+  <div><%= image_tag "carso/icons/group30.svg", alt:'' %>
     <span>Бесплатное <br> КАСКО</span>
   </div>
-  <div><%= image_tag "carso/icons/tire.svg", alt:'' %>
+  <div><%= image_tag "carso/icons/group101.svg", alt:'' %>
     <span>Зимняя резина в <br> подарок</span>
   </div>
-  <div><%= image_tag "carso/icons/gospr.svg", alt:'' %>
+  <div><%= image_tag "carso/icons/group98.svg", alt:'' %>
     <span>Госпрограммы: <br> -10% на любое авто</span>
   </div>
-  <div><%= image_tag "carso/icons/route.svg", alt:'' %>
+  <div><%= image_tag "carso/icons/group33.svg", alt:'' %>
     <span>Оплата проезда <br> до автосалона</span>
   </div>
 </div>
 
-
-<% if @brand.description.present? %>
-<% if @brand.description['brand_seotext'].present? && !region %>
-<div class="seo_txt_btn">
-  <%= @brand.description['brand_seotext'].html_safe %>
-</div>
-<% end %>
-<% end %>
-
-
 <% if region %>
   <%#= render partial:'new_cars/region_reasons' %>
 <% end %>
-
 <%#= render 'partials/carso/tradein_form' %>
-
-
 <%#= render 'partials/carso/credit_form' %>
-
-
-<% if @current_region.id == 57 %>
-  <% if Story.where(brand_id: @brand.id).present? %>
-  <div>
-    <h2>Новости</h2>
-  </div>
-  <div id="news-block" class="columns columns--news" data-content='news' data-role='columns'>
-    <%= render partial:'carso/news', collection: Story.where(brand_id: @brand.id).order("created_at ASC").last(3) %>
-  </div>
-<% end %>
-<% end %>
-
-
-<% if @current_region.id == 57 %>
-  <% if Articles.where(brand_id: @brand.id).present? %>
-  <div>
-    <h2>Статьи</h2>
-  </div>
-  <div id="articles-block" class="columns columns--news" data-content='articles' data-role='columns'>
-    <%= render partial:'carso/articles', collection: Articles.where(brand_id: @brand.id).order("created_at ASC").last(3) %>
-  </div>
-<% end %>
-<% end %>
-
 
 <%= render 'partials/carso/credit_form' %>
 
@@ -248,3 +161,4 @@
       carid = undefined;
   </script>
 <% end %>
+</div>

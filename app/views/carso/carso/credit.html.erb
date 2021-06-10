@@ -5,53 +5,54 @@
   <div class="form_credit">
     <div class="cr_vr">
       <span class="cr_tl">Заполните заявку онлайн и получите скидку <b>70 000₽</b></span>
-     <div class="frg_is">
-       <div><i>от 0₽ </i><span>первоначальный <br>взнос </span></div>
-       <div><i>98% </i><span>одобрение <br>по кредиту </span></div>
-       <div><i>3.5 млн </i><span>максимальная сумма <br>кредитования </span></div>
-       <div><i>КАСКО </i><span>в подарок <br>по выбору клиента</span></div>
-     </div>
+      <div class="fcwig">
+        <%= form_for Ticket.new,url: {action:"create",controller:"tickets" },remote:true,validate:true,:html => {:class => "common-top__form-inner",:name=>"newcarreq"},:namespace => "creditpage" do |f| %>
+          <%= f.hidden_field :form_name, value:'credit' %>
+          <%= hidden_field_tag 'ticket[other][ttype]',1,id:'credit_ticket_other_ttype' %>
+          <div class="row justify-content-between form_ld">
+            <div class="form-bottom">
+            <div class="drmbbx">
+              <div class="form_input">
+                <%= f.text_field :name,class:"input",placeholder:"Имя" %>
+               </div>
+               <div class="form_input">
+                <%= f.phone_field :phone,class:"input",data:{:role=>"phone"},placeholder:"Телефон для связи *"  %>
+               </div>
+            </div>
+              <div>
+               <div class="form_input">
+                <%= f.text_field :other,class:"input",placeholder:"Дата рождения" %>
+               </div>
+               <div class="form_input">
+                <%= f.text_field :other,class:"input",placeholder:"Город регистрации" %>
+               </div>
+              </div>
+            </div>
+
+            <div class="form__cr-bt">
+              <%= f.button do %>
+                <span>Оставить заявку</span>
+              <% end %>
+            </div>
+
+          </div>
+        <% end %>
+      </div>
     </div>
     <div class="form--credit">
       <div class="fcwig">
-        <div class="fcr_t_top">Заявка на кредит </div>
         <span class="sub_tt">Ставка, от </span>
         <span class="big_pr">1.9% </span>
-        <span class="sub_tt">годовых на срок до 7 лет</span>
+        <span class="sub_ttr">годовых на срок до 7 лет</span>
       </div>
-     <div class="fcwig">
-      <%= form_for Ticket.new,url: {action:"create",controller:"tickets" },remote:true,validate:true,:html => {:class => "common-top__form-inner",:name=>"newcarreq"},:namespace => "creditpage" do |f| %>
-        <%= f.hidden_field :form_name, value:'credit' %>
-        <%= hidden_field_tag 'ticket[other][ttype]',1,id:'credit_ticket_other_ttype' %>
-        <div class="row justify-content-between form_ld">
-          <div class="form-bottom">
-            <div class="form_input">
-              <%= f.text_field :name,class:"input",placeholder:"Имя" %>
-            </div>
-            <div class="form_input">
-              <%= f.phone_field :phone,class:"input",data:{:role=>"phone"},placeholder:"Телефон для связи *"  %>
-            </div>
-            <div class="form_input">
-              <%= f.text_field :other,class:"input",placeholder:"Дата рождения" %>
-            </div>
-            <div class="form_input">
-              <%= f.text_field :other,class:"input",placeholder:"Город регистрации" %>
-            </div>
-          </div>
-
-          <div class="form__cr-bt">
-            <%= f.button do %>
-            <span>Оставить заявку</span>
-            <% end %>
-            <div class="secur_f">мы гарантируем конфиденциальность и защиту введённых данных</div>
-          </div>
-
-        </div>
-      <% end %>
-     </div>
     </div>
   </div>
-
+<div class="frg_is">
+  <div><i>98% </i><span>одобрение <br>по кредиту </span></div>
+  <div><i>от 0₽ </i><span>первоначальный <br>взнос </span></div>
+  <div><i>3.5 млн </i><span>максимальная сумма <br>кредитования </span></div>
+  <div><i>КАСКО </i><span>в подарок <br>по выбору клиента</span></div>
+</div>
 <%= form_for Ticket.new,url: {action:"create",controller:"tickets" },remote:true,validate:true,:html => {:class => "common-top__form-inner frmcr",:name=>"newcarreq"},:namespace => "creditpage" do |f| %>
 <%= f.hidden_field :form_name, value:'credit' %>
 <%= hidden_field_tag 'ticket[other][ttype]',1,id:'credit_ticket_other_ttype' %>
@@ -60,9 +61,9 @@
 <div class="form_st_cr">
   <div class="form__cr_lb">
    <div class="nf_i">Кредитный калькулятор</div>
+    <div class="form-credit_subt">Ставка по кредиту <b>1.9%</b></div>
    <div class="form_crg">
     <div class="form__cr_l">
-    <div class="form-credit_subt">Ставка по кредиту <b>1.9%</b></div>
     <div class="form-credit_subp"></div>
     <div class="form_input">
       <%= select_tag 'ticket[other][marka]', options_from_collection_for_select(@brands, 'id', 'title'), prompt: 'Выберите марку', id:'credit_ticket_other_marka', class:'select' %>
@@ -76,89 +77,38 @@
     </div>
   </div>
     <div class="form_cr_r">
-    <div class="form__component cr_1">
-      <span class="credit__rtitle">Желаемый срок кредита в месяцах</span>
-      <input type="range" id="creditsliderfirst" data-role="persent-range" min="0" max="84" step="12" value="<%= PERCENT %>">
-      <div class="r_diagram"><i class="l0">0</i><i class="l12">12</i><i class="l24">24</i><i class="l36">36</i><i class="l48">48</i><i class="l60">60</i><i class="l72">72</i><i class="l84">84</i></div>
-    </div>
-    <div class="form__component cr_2">
-      <span class="credit__rtitle">Первоначальный взнос</span>
-      <input type="range" id="creditsliderfirstv" data-role="persent-range" min="0" max="1000000" step="200000" value="<%= PERCENT %>">
-      <div class="r_diagram"><i class="r0">0₽</i><i class="r2">200 000₽</i><i class="r4">400 000₽</i><i class="r6">600 000₽</i><i class="r8">800 000₽</i><i class="r10">1 000 000₽</i></div>
-    </div>
+      <div class="form_input">
+        <%= select_tag 'ticket[other][marka]', raw('<option value="">месяцах</option>
+    <option>0</option>
+    <option>12</option>
+    <option>24</option>
+    <option>36</option>
+    <option>48</option>
+    <option>60</option>
+    <option>72</option>
+    <option>84</option>'),class:'select select--new-car',id:'filter_type' %>
+      </div>
+      <div class="form_input">
+      <%= f.text_field :name,class:'input', placeholder:'Первоначальный взнос ...' %>
+      </div>
   </div>
    </div>
-  </div>
-  <div class="frm_credit_k">
-    <div class="frm_credit_img"><%= image_tag 'carso/png/car-temp.png',alt:'',style:'margin: 40px 0 0 0',lazy:false %></div>
     <div class="form__cr-bt">
       <a href="#" class="button str_mcredit" rel="nofollow">Подробная информация</a>
     </div>
+  </div>
+  <div class="frm_credit_k">
+    <div class="frm_credit_img"><%= image_tag 'carso/png/crt.png',alt:'',lazy:false %></div>
    </div>
 </div>
 </div>
 
 <% end %>
-<div class="finance_bl">
- <h2>Спецпрограммы</h2>
- <ul id="finance__item"><%= render partial:'partials/carso/finance', collection: Finance.all, as: :finance %></ul>
-</div>
-<h2 id="gospr">Государственные программы</h2>
-<div class="gos_prb">
-  <div>
-    <b>-10% </b>
-    <a href="/banks/programma-pervyy-avtomobil" title=""><%= image_tag "carso/png/fpr.png", alt:'' %></a>
-    <span>
-     <i>Первый автомобиль </i>
-     <p>Особенностью программы «Первый автомобиль» является то, что при покупке автомобиля – значительную часть кредитной нагрузки на себя берёт Государство, оставляя заёмщику на погашение лишь остаток. Таким образом создаются очень лояльные и привлекательные условия для покупки автомобиля посредством автокредита.</p>
-    </span>
-  </div>
-  <div>
-    <b>-10%</b>
-    <a href="/banks/programma-semeynyy-avtomobil" title=""><%= image_tag "carso/png/fmpr.png", alt:'' %></a>
-    <span>
-     <i>Семейный автомобиль </i>
-     <p>Основной целью это программы является предоставление возможности покупки автомобиля многодетным семьям. К тому же, одним из дополнительных условий должно быть, что приобретаемая машина должна быть или какой-либо российской марки, или зарубежного автомобильного бренда, но собранного на территории России.</p>
-    </span>
-  </div>
-  <div>
-    <b>-10% </b>
-    <a href="/banks/programma-medical" title=""><%= image_tag "carso/png/mpr.png", alt:'' %></a>
-    <span>
-     <i>Для медработников </i>
-     <p>Особенностью программы «Первый автомобиль» является то, что при покупке автомобиля – значительную</p>
-    </span>
-  </div>
-  <div>
-    <b>-10% </b>
-    <a href="/tradein" title=""><%= image_tag "carso/png/trpr.png", alt:'' %></a>
-    <span>
-     <i>Автомобиль в Трейд-ин</i>
-     <p>Особенностью программы «Первый автомобиль» является то, что при покупке автомобиля – значительную</p>
-    </span>
-  </div>
-
-</div>
-
-<div class="pr_slog_b">
-  <div><%= image_tag "carso/icons/casco.svg", alt:'' %>
-    <span>Бесплатное <br> КАСКО </span>
-  </div>
-  <div><%= image_tag "carso/icons/tire.svg", alt:'' %>
-    <span>Зимняя резина в <br> подарок </span>
-  </div>
-  <div><%= image_tag "carso/icons/gospr.svg", alt:'' %>
-    <span>Госпрограммы: <br> -10% на любое авто </span>
-  </div>
-  <div><%= image_tag "carso/icons/route.svg", alt:'' %>
-    <span>Оплата проезда <br> до автосалона</span>
-  </div>
-</div>
 
 
 <div class="tradein_btt">
-  <span class="tradein_tt">Требования</span>
-  <div class="row credit_bp_txt">
+  <h2>Требования</h2>
+  <div class="tcredit_bp_txt">
     <ul>
       <li><span>Гражданство: <b>Россия</b></span></li>
       <li><span>Возраст: <b>от 21 до 60 лет</b></span></li>
@@ -166,9 +116,11 @@
     </ul>
   </div>
 </div>
-<div class="tradein_btt">
-  <span class="tradein_tt">Условия</span>
-  <div class="row credit_bp_txt">
+
+
+<div class="tradein_btt trb_1">
+  <h2>Условия</h2>
+  <div class="tcredit_bp_txt">
     <ul>
       <li><span>Выгодные условия по кредиту <b>от 1.9% </b></span></li>
       <li><span>Первоначальный взнос от <b>0 рублей </b></span></li>
@@ -177,46 +129,53 @@
       <li><span>Досрочное погашение <b>без штрафов и комиссий </b></span></li>
       <li><span>Льготное кредитование по системам <b>"Первый автомобиль" и "Семейный автомобиль"</b></span></li>
     </ul>
-    <div class="pdf_url">
-      <b>Скачать образец договора</b>
-      <a href="/doc/credit_setelem.pdf" title="Договор" target="_blank"><%= image_tag 'carso/png/pdf.png',alt:'Договор',lazy:true %>Договор</a>
-      <a href="/doc/credit_vtb.pdf" title="Договор VTB" target="_blank"><%= image_tag 'carso/png/pdf.png',alt:'Договор VTB',lazy:true %>Договор VTB</a>
-      <a href="/doc/dkp.docx" title="Договор в формате Ворд" target="_blank"><%= image_tag 'carso/png/word.png',alt:'Договор в формате Ворд',lazy:true %>Договор в формате Ворд</a>
-    </div>
-  </div>
-</div>
-
-<div class="tradein_btt">
-  <span class="tradein_tt">Автокредитование</span>
-  <div class="row credit_bp_txt">
-    <p>Старейший и самый крупный действующий российский банк. О Сбербанке в нашей стране знает практически каждый человек и это не удивительно, ведь он обслуживает более 70% населения нашей страны. Представительства банка открыты в 83 регионах страны, а количество отделений превысило 14 000 единиц. Банк осуществляет свою деятельность не только на территории нашей страны, но также в странах СНГ и дальнего зарубежья. О уровне надежности банка может говорить тот факт, что более 50% (контрольный пакет) акций банка принадлежат Центральному Банку Российской Федерации</p><p>Основан банк был в далеком 1841 году. За всю свою практически двухвековую историю – банк пережил множество трансформаций, но, тем не менее, он никогда не останавливался от поступательного пути развития. И, наверное, это единственный российский банк, который за всё своё время существования не испытывал каких-либо серьёзных проблем. Банк был одним из ведущих и в Российской Империи, и во времена СССР, и сейчас он крупнейший банк в новой демократической России. Что уж говорить, если первым, кто был подключен к платежной системе Visa – был именно Сбербанк, причем данное событие произошло в 1989 году во времена Советского Союза. Успешная и продуктивная деятельность банка позволила озвучить весьма смелую и по-хорошему дерзкую стратегию развития, которая была озвучена в 2017-ом году, она ставит перед собой цель к 2020 году стать универсальной технологической компанией, которая встанет в один ряд с такими мировыми корпорациями, как Apple, Amazon и Facebook.</p><p>Сбербанк – безоговорочный лидер банковского сектора в Российской Федерации. По сути он является кровеносной системой экономики нашей страны, так как более 1/3 всех банковских операций проходят через его ресурсы. Банк осуществляет абсолютно все виды банковской деятельности, что позволяет обслуживать клиентов любого уровня и масштаба: от работы с частными лицами, вплоть до обслуживания госкорпорации и целых отраслей экономики нашей страны. Если же мы будем говорить о работе с частными лицами, то банк даёт возможность пользоваться такими услугами, как: потребительский кредит, ипотека, депозиты, вклады, кредитные и дебетовые карты, страхование, денежные переводы и, конечно же, автокредит. К слову, для удобства клиентов было разработано одно из самых лучших мобильных приложений, благодаря которому клиент может легко и комфортно осуществлять любые банковские операции.</p>
-  </div>
-</div>
-
-<div class="tradein_btt">
-  <span class="tradein_tt on">Преимущества автокредитования</span>
-  <div class="row credit_bp_txt on">
-    <p>По автокредитованию Сбербанк предлагает, наверное, самый широкий выбор кредитных программ, которые существуют на рынке банковских услуг в Российской Федерации. Сюда входит, как традиционный автокредит напрямую от банка, так и всевозможные совместные программы сотрудничества с государством или производителями. Также есть ряд программ, которые предоставляются посредством работы через свои дочерние предприятия, такие как Сетелем Банк – главный игрок в среде автокредитования. Таким образом, клиент получает максимальный выбор по условиям автокредитования, который только возможен в Российской Федерации.</p>
-    <b>Преимущества автокредита от Сбербанка:</b>
-    <ul>
-    <li><span>возможность оформления кредита по максимально низким процентным ставкам;</span></li>
-    <li><span>возможность индивидуального подбора клиенту срока кредитования;</span></li>
-    <li><span>возможность покупки автомобиля с абсолютно любым первоначальным взносом;</span></li>
-    <li><span>возможность отказа от оформления дополнительных страховок;</span></li>
-    <li><span>возможность вывода купленного транспортного средства из банковского залога.</span></li>
-    </ul>
   </div>
 </div>
 
 
-<div class="bank_block">
-  <h2>Банки партнеры</h2>
-  <div class="banks__main">
-    <%= render partial:'partials/carso/bank', collection: Bank.all %>
+
+<h2 id="gospr">Государственные программы</h2>
+<div class="gos_prb">
+  <div>
+    <span>
+     <i>Первый автомобиль </i>
+     <p>Особенностью программы «Первый автомобиль» является то, что при покупке автомобиля – значительную часть кредитной нагрузки на себя берёт Государство, оставляя заёмщику на погашение лишь остаток. Таким образом создаются очень лояльные и привлекательные условия для покупки автомобиля посредством автокредита.</p>
+    </span>
+    <a href="/banks/programma-pervyy-avtomobil" title=""><%= image_tag "carso/png/21846.png", alt:'' %></a>
   </div>
-  <div class="bank_an">Внимание!</div>
-  <div class="bank_an_if">К сожалению, банки не кредитуют регионы: Республика Кабардино-Балкария, Республика Чечня, Республика Дагестан, Республика Ингушетия, Республика Карачаево-Черкесия, Магадан.</div>
+
+  <div>
+    <span>
+     <i>Для медработников </i>
+     <p>Особенностью программы «Первый автомобиль» является то, что при покупке автомобиля – значительную</p>
+    </span>
+    <a href="/banks/programma-medical" title=""><%= image_tag "carso/png/mpr.png", alt:'' %></a>
+  </div>
+  <div>
+    <span>
+     <i>Автомобиль в Трейд-ин</i>
+     <p>Особенностью программы «Первый автомобиль» является то, что при покупке автомобиля – значительную</p>
+    </span>
+    <a href="/tradein" title=""><%= image_tag "carso/png/1784.png", alt:'' %></a>
+  </div>
+
 </div>
+
+<div class="pr_slog_b">
+  <div><%= image_tag "carso/icons/group30.svg", alt:'' %>
+    <span>Бесплатное <br> КАСКО</span>
+  </div>
+  <div><%= image_tag "carso/icons/group101.svg", alt:'' %>
+    <span>Зимняя резина в <br> подарок</span>
+  </div>
+  <div><%= image_tag "carso/icons/group98.svg", alt:'' %>
+    <span>Госпрограммы: <br> -10% на любое авто</span>
+  </div>
+  <div><%= image_tag "carso/icons/group33.svg", alt:'' %>
+    <span>Оплата проезда <br> до автосалона</span>
+  </div>
+</div>
+
 
 <div class="card__box">
   <div>

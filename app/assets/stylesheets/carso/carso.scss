@@ -424,7 +424,197 @@ header .container .header_top{
     display: none;
   }
 }
+
+
+.main {
+  padding: 0 !important;
+}
+.main_h .container{
+  padding: 0 20px !important;
+}
+
 /*********banners*************/
+
+/***********new****************/
+
+.bnr{
+  display: block;
+  position: relative;
+  margin: 0 0 50px 0;
+}
+.bnr_cnt{
+
+}
+
+.bn_1{
+  background: image-url('carso/banners/n/11.jpg')no-repeat center top;
+  width: 100%;
+  height: 450px;
+  display: block;
+  @media all and (max-width: 1100px) {
+    background-position-x: 70%;
+  }
+  @media all and (max-width: 900px) {
+    background-position-x: 80%;
+  }
+}
+
+.bnr_inf{
+  display: flex;
+  margin: 0 auto;
+  width: 1240px;
+  padding: 50px 0 0 0;
+  @media all and (max-width: 1240px) {
+    padding: 75px 0 0 20px;
+    width: 100%;
+  }
+  @media all and (max-width: 900px) {
+    padding: 45px 0 0 20px;
+    flex-wrap: wrap;
+  }
+  @media all and (max-width: 430px) {
+    padding: 45px 0 0 15px;
+  }
+}
+.bnr_inf div:nth-child(1){
+  font-style: normal;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 130%;
+  color: #1C1C1C;
+  @media all and (max-width: 1240px) {
+    font-size: 44px;
+  }
+  @media all and (max-width: 1100px) {
+    font-size: 34px;
+  }
+  @media all and (max-width: 900px) {
+    line-height: 40px;
+    width: 100%;
+  }
+  @media all and (max-width: 600px) {
+    font-size: 26px;
+  }
+  @media all and (max-width: 430px) {
+    font-size: 22px;
+    line-height: 30px;
+  }
+  @media all and (max-width: 355px) {
+    font-size: 18px;
+    line-height: 26px;
+  }
+}
+.bnr_inf div b{
+  display: block;
+}
+.bnr_inf div:nth-child(2){
+  font-style: normal;
+  font-weight: normal;
+  font-size: 21.6234px;
+  line-height: 130%;
+  color: #1C1C1C;
+  margin: 0 40px;
+  @media all and (max-width: 900px) {
+    margin: 15px 40px 0 0px;
+  }
+  @media all and (max-width: 600px) {
+    font-size: 16px;
+    margin: 15px 20px 0 0px;
+  }
+  @media all and (max-width: 430px) {
+    font-size: 12px;
+  }
+  @media all and (max-width: 355px) {
+    font-size: 10px;
+  }
+}
+.bnr_inf div:nth-child(2) b{
+  font-style: normal;
+  font-size: 90.4439px;
+  line-height: 130%;
+  color: #1C1C1C;
+  @media all and (max-width: 1240px) {
+    font-size: 70px;
+  }
+  @media all and (max-width: 1100px) {
+    font-size: 40px;
+  }
+  @media all and (max-width: 430px) {
+    font-size: 34px;
+  }
+}
+.bnr_inf div:nth-child(3){
+  font-style: normal;
+  font-weight: normal;
+  font-size: 21.6234px;
+  line-height: 130%;
+  color: #1C1C1C;
+  @media all and (max-width: 600px) {
+    font-size: 16px;
+  }
+  @media all and (max-width: 430px) {
+    font-size: 12px;
+  }
+  @media all and (max-width: 355px) {
+    font-size: 10px;
+  }
+}
+.bnr_inf div:nth-child(3) b{
+  font-style: normal;
+  font-size: 90.4439px;
+  line-height: 130%;
+  color: #1C1C1C;
+  @media all and (max-width: 1240px) {
+    font-size: 70px;
+  }
+  @media all and (max-width: 1100px) {
+    font-size: 40px;
+  }
+  @media all and (max-width: 900px) {
+    margin: 15px 40px 0 0px;
+  }
+  @media all and (max-width: 430px) {
+    font-size: 34px;
+  }
+}
+.bnr_btn{
+  margin: 140px auto 0 auto;
+  width: 1240px;
+  display: block;
+  @media all and (max-width: 1240px) {
+    width: 100%;
+  }
+}
+.bn_1 button{
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 130%;
+  color: #1C1C1C;
+  border: 1.5px solid #1C1C1C;
+  width: 587px;
+  height: 71px;
+  background: transparent;
+  @media all and (max-width: 1240px) {
+    margin: 0 0 0 20px;
+  }
+  @media all and (max-width: 900px) {
+    background: #FFFFFF;
+    width: 339px;
+    height: 50px;
+    font-size: 18px;
+    border: medium none;
+  }
+  @media all and (max-width: 430px) {
+    width: 300px;
+  }
+  @media all and (max-width: 355px) {
+    width: 280px;
+  }
+}
+
+/***********new****************/
+
 .frm_banner{
   display: flex;
   margin: 30px 0 15px 0;
@@ -588,10 +778,11 @@ header .container .header_top{
 }
 .hf_call_t{
   font-style: normal;
-  font-weight: 500;
-  font-size: 30px;
-  line-height: 120%;
-  color: #1260B0;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 130%;
+  color: #1C1C1C;
+
   @media all and (max-width: 940px) {
     font-size: 24px;
   }
@@ -626,10 +817,10 @@ header .container .header_top{
 }
 .hfc_rb div span{
   font-style: normal;
-  font-weight: 500;
-  font-size: 25px;
-  line-height: 100%;
-  color: #1260B0;
+  font-weight: 600;
+  font-size: 19.8532px;
+  line-height: 130%;
+  color: #1C1C1C;
   padding: 0 0 0 20px;
   @media all and (max-width: 1100px) {
     font-size: 20px;
@@ -648,7 +839,6 @@ header .container .header_top{
   }
 }
 .hfc_rb div img{
-  border: 1.66851px solid #DAE1E8;
   box-sizing: border-box;
   border-radius: 8px;
   padding: 12px;
@@ -676,7 +866,25 @@ header .container .header_top{
 .banr_form form button{
   margin: 0;
 }
-
+.home_f_cell .form_input button{
+  background: #1C1C1C;
+  width: 100%;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 130%;
+  color: #FFFFFF;
+  border: medium none;
+  margin: 30px 0px 0px 0px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0;
+}
+.home_f_cell .form_input{
+  margin: 0 0 10px 0;
+}
 .banr_form form .form_input {
   padding: 30px 0 0 0;
 }
@@ -984,11 +1192,19 @@ margin: 15px 0 0 0;
 }
 
 .mc_btn{
-  font-size: 16px;
-  text-align: center;
-  display: block;
-  padding: 5px 0 0 0;
-  color: #6ad1a6;
+  background: #1C1C1C;
+  width: 370px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 130%;
+  color: #FFFFFF;
+  border: medium none;
+  margin: 30px 0px -20px -15px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
