@@ -193,8 +193,8 @@
           <div class="form_input ph">
             <%= f.phone_field :phone,class:"input",data:{:role=>"phone"},placeholder:"Номер телефона"  %>
           </div>
-          <%= f.button class: "button add__form-btn", style:"background-color:##{@car.description['add_color']}" do %><span>Получить условия</span><% end %>
-          <%= f.button class: "button" do %><span>Зарезервировать авто</span><% end %>
+          <%= f.button class: "button add__form-btn" do %><span>Получить условия</span><% end %>
+          <%= f.button class: "button", style:"background-color:##{@brand.description['add_color']}" do %><span>Зарезервировать авто</span><% end %>
         <% end %>
         <%#<button class="but_url" data-show-new-ajax="car-credit-modal">Купить в кредит</button>%>
       </div>
