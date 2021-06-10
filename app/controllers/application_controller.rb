@@ -37,7 +37,8 @@ class ApplicationController < ActionController::Base
   end
 
   def load_brands
-    @brands = Brand.where(menu_show: true).order(:title)
+    allowed_ids = [4,10,13,14,15,16,18,21,22,23,25,26,27,28,32,36]
+    @brands = Brand.where(id: allowed_ids).where(menu_show: true).order(:title)
   end
 
   def load_hit
