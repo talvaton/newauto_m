@@ -7,6 +7,11 @@
 @import '_modals_new_cars';
 @import '_region_blocks';
 
+.main {
+  max-width: initial;
+  padding: 0 !important;
+}
+
 .container {
   @media all and (max-width: 800px) {
     overflow: hidden;

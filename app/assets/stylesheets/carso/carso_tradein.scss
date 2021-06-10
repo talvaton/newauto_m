@@ -153,7 +153,13 @@ body .main {
     display: inline-block;
   }
 }
+
+.tradein_form .form_input {
+  padding: 30px 0 0 0;
+}
+
 .form_block-right .form_input{
+
   @media all and (max-width: 600px) {
     padding: 0 0 15px 0;
   }
@@ -493,6 +499,21 @@ body .main {
     width: 100%;
   }
 }
+.form_tradein form input, .form_tradein form select, .form_tradein form button {
+  width: 300px;
+}
+.tradein_form form button {
+  background: #1C1C1C;
+  height: 60px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 130%;
+  color: #FFFFFF;
+  text-transform: initial;
+}
+
+
 .nf_i{
   font-style: normal;
   font-weight: bold;
@@ -618,7 +639,7 @@ body .main {
 .tr_flbl{
   width: 100%;
   padding: 30px 40px 0 40px;
-  background: #F7F7F7;
+  background: transparent;
   @media (max-width: 1180px) {
     padding: 30px 15px 0 15px
   }
@@ -645,7 +666,7 @@ body .main {
 .tr_frb{
   padding: 40px;
   background: #FFFFFF;
-  border: 1px solid #6AD1A6;
+  border: medium none;
   box-sizing: border-box;
   @media (max-width: 1180px) {
     padding: 40px 15px 15px 15px;
@@ -688,6 +709,12 @@ body .main {
 }
 .tradein_form form input,.tradein_form form select{
   background-color: #ffffff;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 130%;
+  color: #1C1C1C;
+  height: 53px;
   @media (max-width: 1050px) {
     width: 100%;
     max-width: 100%;
