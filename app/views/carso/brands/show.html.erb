@@ -121,15 +121,6 @@
   <% end %>
 <% end %>
 
-<% if @brand.new_cars.where(hide: 0, archive: 1).present? %>
-
-  <h2>Архивные модели</h2>
-    <div class="row justify-content-start cr_tr_url">
-      <div class="cr_tr_hr right row justify-content-start">
-        <%= render partial:'new_cars/new_cars_brand', collection:NewCar.where(brand_id: @brand.id, hide: 0, archive: 1).min_price_ordered %>
-      </div>
-    </div>
-<% end %>
 
 <div class="pr_slog_b">
   <div><%= image_tag "carso/icons/group30.svg", alt:'' %>
