@@ -281,7 +281,7 @@
                 <span data-role="discount_price" class="tableprice" data-real-price="<%= (e.price - real_discount) %>"><%#= number_with_delimiter(e.price - max_discount,delimiter: ' ') %><%#= (e.price - real_discount) %><%= number_with_delimiter(e.price - real_discount,delimiter: ' ') %></span> ₽
               </td>
               <td class=""><a href="#" class="but_traid-in" data-show-new-ajax="car-details-modal" data-eq_id="<%= e.id %>" rel="nofollow">Trade-in</a></td>
-              <td class="cr_ord"><a href="#" class="table__button  table__button--red creditcompl but_credit" data-show-new-ajax="car-credit-modal" data-eq_id="<%= e.id %>" rel="nofollow">В кредит</a></td>
+              <td class="cr_ord"><a href="#" class="table__button  table__button--red creditcompl but_credit" data-show-new-ajax="car-credit-modal" data-eq_id="<%= e.id %>" rel="nofollow" style="background-color:# <%= @brand.description['main_color'] %>">В кредит</a></td>
               <%
                 e_name = e.equipment_description.name.parameterize
               %>
