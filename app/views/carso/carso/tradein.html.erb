@@ -46,10 +46,10 @@
       <div><%= image_tag "carso/icons/group30.svg", alt:'' %>
         <span>Бесплатное <br> КАСКО</span>
       </div>
-      <div><%= image_tag "carso/icons/group101.svg", alt:'' %>
+      <div><%= image_tag "carso/icons/group98.svg", alt:'' %>
         <span>Зимняя резина в <br> подарок</span>
       </div>
-      <div><%= image_tag "carso/icons/group98.svg", alt:'' %>
+      <div><%= image_tag "carso/icons/group101.svg", alt:'' %>
         <span>Госпрограммы: <br> -10% на любое авто</span>
       </div>
       <div><%= image_tag "carso/icons/group33.svg", alt:'' %>
@@ -61,13 +61,12 @@
 
 
 
-
+<div class="tr_fh">Заявка trade in</div>
 <div class="tradein_form">
   <%= form_for Ticket.new,url: {action:'create',controller:'tickets' },remote:true,validate:true,:html => {:class => 'form section-tradein__form spec_modal_new_ticket',:name=>'tradein'},:namespace => 'tradein' do |f| %>
     <%= f.hidden_field :form_name, value:'trade_in' %>
     <%= hidden_field_tag 'ticket[other][tradein_toggle]', '1' %>
     <div class="tr_flbl">
-      <div class="tr_fh">Заявка trade in</div>
       <div class="tr_flb">
         <div>
           <span class="tr_fins">Ваш авто с пробегом</span>
