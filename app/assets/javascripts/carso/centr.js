@@ -1059,10 +1059,11 @@ $(document).ready(function() {
             infinite:false,
             responsive: [
                 {
-                    breakpoint: 380,
+                    breakpoint: 460,
                     settings: {
                         slidesToShow: 1,
                         slidesToScroll: 1,
+                        variableWidth: false,
                         centerMode: true
                     }
                 }

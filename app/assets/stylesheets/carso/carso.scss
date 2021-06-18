@@ -1205,6 +1205,9 @@ margin: 15px 0 0 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  @media all and (max-width: 370px) {
+    width: 100%;
+  }
 }
 
 
