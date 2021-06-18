@@ -1052,9 +1052,9 @@ $(document).ready(function() {
         // $photos.scrollbar('destroy');
         $card_box.slick({
             lazyLoad: 'ondemand',
-            slidesToShow: 5,
+            slidesToShow: 3,
             slidesToScroll: 1,
-            variableWidth: true,
+            variableWidth: false,
             dots: false,
             infinite:false,
             responsive: [
