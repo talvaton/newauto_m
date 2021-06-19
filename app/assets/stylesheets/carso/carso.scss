@@ -1221,6 +1221,14 @@ margin: 15px 0 0 0;
   justify-content: space-between;
   align-items: start;
   margin: 70px 0 40px 0;
+  @media all and (max-width: 700px) {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    margin: 70px 0 40px 0;
+    flex-wrap: wrap;
+  }
+
 }
 .htab__b_n-m{
   font-style: normal;
@@ -1230,6 +1238,19 @@ margin: 15px 0 0 0;
   color: #1C1C1C;
   display: flex;
   width: 100%;
+  @media all and (max-width: 1100px) {
+    font-size: 18px;
+  }
+  @media all and (max-width: 900px) {
+    font-size: 14px;
+  }
+  @media all and (max-width: 700px) {
+    font-size: 18px;
+    display: flex;
+    padding: 0 0 15px 0;
+    justify-content: center;
+    width: 300px;
+  }
 }
 .htab__b_n-m span{
   cursor: pointer;
@@ -1239,6 +1260,15 @@ margin: 15px 0 0 0;
 }
 .hbla_h.hblock-active{
   display: flex;
+  @media all and (max-width: 1240px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 0 40px 0;
+    @media all and (max-width: 700px) {
+      padding: 0;
+    }
+  }
 }
 .htab__b_n-m.hact span{
   border-bottom: 1px solid #1C1C1C;
@@ -1251,6 +1281,9 @@ margin: 15px 0 0 0;
   line-height: 150%;
   color: #1C1C1C;
   padding: 40px;
+  @media all and (max-width: 400px) {
+    padding: 20px;
+  }
 }
 .hbla_t b{
   padding: 0 0 20px 0;
@@ -1266,4 +1299,9 @@ margin: 15px 0 0 0;
 }
 .htab__box_txt{
   background: #F2F2F2;
+}
+.hbla_img img{
+  @media all and (max-width: 700px) {
+    width: 100%;
+  }
 }
