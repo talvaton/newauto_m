@@ -1301,3 +1301,21 @@ $(document).ready(function() {
             slidesToScroll: 1,
         });
 });
+
+/*************************************************/
+
+
+$(".htab__box").on("click", ".htab__box-nav .htab__b_n-m", function() {
+
+    var tabs = $(".htab__box-nav .htab__b_n-m"),
+        cont = $(".htab__box_txt .htab__box_txt_b .hbla_h");
+
+    tabs.removeClass("hact");
+    cont.removeClass("hblock-active");
+
+    $(this).addClass("hact");
+    cont.eq($(this).index()).addClass("hblock-active");
+
+    return false;
+});
+
