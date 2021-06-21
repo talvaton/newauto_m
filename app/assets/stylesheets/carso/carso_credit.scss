@@ -1286,6 +1286,7 @@ main .gos_prb i{
 }
 main .gos_prb div{
   width: 369px;
+  height: 500px;
   @media all and (max-width: 520px) {
     width: 369px;
     min-width: 369px;
@@ -1297,9 +1298,11 @@ main .gos_prb div{
 }
 main .gos_prb div a img{
   width: 100%;
+  position: absolute;
+  bottom: 0;
 }
 main .gos_prb p{
-  font-size: 16px;
-  line-height: 22px;
+  font-size: 14px;
+  line-height: 20px;
   color: #1C1C1C;
 }
