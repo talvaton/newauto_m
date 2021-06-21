@@ -3005,13 +3005,30 @@ footer{
 
 .bnr .slick-dots{
   margin: 0 auto;
+  padding: 3px 0 0 0;
   width: 1600px;
   text-align: center;
   display: flex;
   justify-content: center;
+  @media all and (max-width: 1600px) {
+    width: 100%;
+  }
 }
 
-
+.bnr .slick-dots li button{
+  background: #1C1C1C;
+  color: #FFFFFF;
+  border: 3px solid #fff;
+  padding: 2px 8px;
+}
+.bnr .slick-dots li.slick-active button{
+  background: #FFFFFF;
+  color: #1C1C1C;
+  border: 3px solid #1C1C1C;
+  padding: 0px 6px 0px 6px;
+  margin: 3px 0 0 0;
+  height: 28px;
+}
 
 
 

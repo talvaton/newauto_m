@@ -1321,8 +1321,8 @@ $(".htab__box").on("click", ".htab__box-nav .htab__b_n-m", function() {
 
 $(document).ready(function() {
     $('.bnr').slick({
-        dots: false,
-        arrows: true,
+        dots: true,
+        arrows: false,
         infinite: false,
         //variableWidth: true,
         slidesToShow: 1,
