@@ -874,8 +874,12 @@
   line-height: 24px;
 }
 .modal__inner.crtr .modal__title-name .txt_dcol{
-  display: block;
+  display: inline-block;
   font-weight: 500;
+  background: #1C1C1C;
+  color: #fff;
+  padding: 6px 15px;
+  margin: 5px 0 0 0;
 }
 .modal__inner.crtr .modal__title{
   @media all and (max-width: 480px) {
