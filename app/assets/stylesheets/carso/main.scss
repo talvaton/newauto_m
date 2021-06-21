@@ -2619,6 +2619,64 @@ footer{
   }
 }
 
+.bn_2{
+  background-color: #FBD925;
+  background: image-url('carso/banners/n/22.png')no-repeat right bottom;
+  width: 100%;
+  height: 450px;
+  display: block;
+  @media all and (max-width: 1100px) {
+    background-position-x: 70%;
+  }
+  @media all and (max-width: 900px) {
+    background-position-x: 80%;
+  }
+}
+.bn_3{
+  background: image-url('carso/banners/n/33.png')no-repeat right bottom;
+  padding: 30px 0 0 0;
+}
+
+.abn_2 .bn_2{
+  @media all and (max-width: 1100px) {
+    background-position-x: 100%;
+  }
+  @media all and (max-width: 800px) {
+    background-position-x: 225%;
+  }
+  @media all and (max-width: 680px) {
+    background: image-url('carso/banners/n/m_22.png')no-repeat right bottom;
+  }
+}
+.abn_3 .bn_3{
+  @media all and (max-width: 1100px) {
+    background-position-x: 100%;
+  }
+  @media all and (max-width: 780px) {
+    background-size: 180%;
+    background-position-y: 0%;
+    padding: 200px 0 0 0;
+    background-image: image-url('carso/banners/n/33.png');
+  }
+  @media all and (max-width: 375px) {
+    background-size: 180%;
+    background-position-y: 0%;
+    padding: 200px 0 0 0;
+    background: image-url('carso/banners/n/m_33.png')no-repeat center top;
+  }
+}
+
+.abn_2{
+  max-width: 1600px;
+  margin: 0 auto;
+  background-color: #FBD925;
+  display: block !important;
+  position: relative
+}
+.abn_3{
+  background: transparent;
+}
+
 .bnr_inf{
   display: flex;
   margin: 0 auto;
@@ -2636,6 +2694,31 @@ footer{
     padding: 45px 0 0 15px;
   }
 }
+.abn_2 .bnr_inf{
+  display: block;
+  @media all and (max-width: 900px) {
+    padding: 75px 0 0 20px;
+  }
+  @media all and (max-width: 800px) {
+    padding: 20px 0 0 20px;
+  }
+}
+
+.abn_3 .bnr_inf{
+  margin: 0;
+  padding: 20px 0 27px 180px;
+  width: 903px;
+  background: #fff;
+  @media all and (max-width: 1280px) {
+    padding: 20px 0 27px 10px;
+    width: 520px
+  }
+  @media all and (max-width: 780px) {
+    width: 100%;
+    height: 250px;
+  }
+}
+
 .bnr_inf div:nth-child(1){
   font-style: normal;
   font-weight: 400;
@@ -2664,6 +2747,13 @@ footer{
     line-height: 26px;
   }
 }
+.abn_3 .bnr_inf div:nth-child(1){
+  padding: 0 0 10px 0;
+  @media all and (max-width: 680px) {
+    padding: 0;
+  }
+}
+
 .bnr_inf div b{
   display: block;
 }
@@ -2686,6 +2776,103 @@ footer{
   }
   @media all and (max-width: 355px) {
     font-size: 10px;
+  }
+}
+.abn_2 .bnr_inf div:nth-child(2){
+  font-style: normal;
+  font-weight: bold;
+  font-size: 60px;
+  line-height: 130%;
+  margin: 0;
+  background: #fff;
+  width: 710px;
+  height: 80px;
+  text-align: center;
+  @media all and (max-width: 1000px) {
+    margin: 10px 0 0 0;
+  }
+  @media all and (max-width: 800px) {
+    width: 340px;
+    height: 38px;
+    font-size: 28px;
+  }
+  @media all and (max-width: 380px) {
+    width: 282px;
+    font-size: 22px;
+    line-height: 38px;
+  }
+}
+.abn_3 .bnr_inf div:nth-child(2){
+  font-style: normal;
+  font-weight: 300;
+  font-size: 30px;
+  line-height: 130%;
+  width: initial;
+  height: initial;
+  text-align: left;
+  @media all and (max-width: 780px) {
+    font-size: 22px;
+  }
+}
+
+.abn_2 .bnr_inf div:nth-child(3){
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 130%;
+  margin: 20px 0;
+  @media all and (max-width: 900px) {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 150%;
+  }
+}
+
+.abn_3 .bnr_inf div:nth-child(3){
+  font-style: normal;
+  font-weight: 300;
+  font-size: 30px;
+  line-height: 130%;
+  width: initial;
+  height: initial;
+  text-align: left;
+  margin: 0;
+  @media all and (max-width: 780px) {
+    font-size: 22px;
+  }
+}
+.abn_3 .bnr_inf .skd{
+  font-style: normal;
+  font-weight: 600;
+  font-size: 52.928px;
+  line-height: 130%;
+  color: #1C1C1C;
+  padding: 44px 0 0 0;
+  @media all and (max-width: 780px) {
+    font-size: 44px;
+    font-weight: 500;
+    line-height: 130%;
+    padding: 0;
+  }
+  @media all and (max-width: 360px) {
+    font-size: 38px;
+  }
+}
+
+.abn_2 .bnr_inf div:nth-child(3) span{
+  font-weight: 500;
+  @media all and (max-width: 900px) {
+    display: block;
+  }
+  @media all and (max-width: 680px) {
+    width: 150px;
+    margin: 20px 0 0 0;
+  }
+}
+.abn_2 .bnr_inf div:nth-child(3) span strong{
+  font-size: 26px;
+  @media all and (max-width: 900px) {
+    display: none;
   }
 }
 .bnr_inf div:nth-child(2) b{
@@ -2745,7 +2932,7 @@ footer{
     width: 100%;
   }
 }
-.bn_1 button{
+.bn_1 button, .abn_2 button{
   font-style: normal;
   font-weight: 600;
   font-size: 24px;
@@ -2773,11 +2960,56 @@ footer{
   }
 }
 
+.bn_3 button, .abn_3 button{
+  @media all and (max-width: 1240px) {
+    margin: 0 0 0 5px;
+  }
+}
 
+.abn_2 .bnr_btn{
+  margin: 30px auto 0 auto;
+  @media all and (max-width: 680px) {
+    margin: 140px auto 0 auto;
+  }
+}
+.abn_2 button{
+  background: #1C1C1C;
+  color: #FFFFFF;
+  @media all and (max-width: 900px) {
+    background: #FFFFFF;
+    color: #1C1C1C;
+  }
+}
 
+.abn_3 .bnr_btn{
+  @media all and (max-width: 680px) {
+    margin: 10px auto 0 auto;
+  }
+}
 
+.abn_3 button{
+  @media all and (max-width: 1280px) {
+    width: 485px;
+  }
+  @media all and (max-width: 900px) {
+    background: #1C1C1C;
+    color: #FFFFFF;
+  }
+  @media all and (max-width: 520px) {
+    width: 340px;
+  }
+  @media all and (max-width: 360px) {
+    width: 290px;
+  }
+}
 
-
+.bnr .slick-dots{
+  margin: 0 auto;
+  width: 1600px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
 
 
 
