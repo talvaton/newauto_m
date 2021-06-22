@@ -6,13 +6,13 @@ $.fancybox.open('<div><div>Ваша заявка принята</div><div>Наш
     afterShow: function(){
 
         $('input[value="<%= @ticket.form_name %>"]').closest('form').find('button:submit').prop("disabled", false);
-        gtag('event', 'send', {
+      /*  gtag('event', 'send', {
             'event_category': 'form',
             'event_label': 'send'
-        });
+        });*/
 
           //ADS
-        gtag_report_conversion();
+     //   gtag_report_conversion();
 
 
         // yandex form
