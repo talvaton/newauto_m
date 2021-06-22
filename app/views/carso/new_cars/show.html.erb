@@ -324,6 +324,77 @@
   .order('price ASC')
 %>
 
+
+<div class="equipment-bl">
+  <h2 class="title">Отличие комплектаций</h2>
+  <div class="" id="equipment-bl">
+
+    <% prev_compl = '' %>
+    <% prev_compl_params = [] %>
+
+
+    <% cards.each_with_index do |e, index| %>
+      <% compl_params = [] %>
+      <% doc = Nokogiri::HTML(e.description) %>
+      <% doc.css('li').each do |tag| %>
+        <% compl_params.push(tag.content) %>
+      <% end %>
+
+      <div class="equipment-list">
+        <div class="">
+          <div class="equipment-name">
+            <div class="equ-title"><%= link_to new_car_equipment_path(@brand, @car, e.name.parameterize) do %><%= e.name %><% end %></div>
+            <span class="equ-tip"><%= prev_compl == '' ? 'Базовая комплектация' : 'В дополнение к ' + prev_compl %>, <%= @brand.title %> <%= @car.name %></span>
+          </div>
+          <div class="row equipment-in-bl">
+            <div class="equipment-img">
+              <% c = e.new_car.colors.swap(0,1) %>
+              <% if index < c.length
+                   ind = index
+                 else
+                   ind = 0
+                 end
+              %>
+              <% if e.comparedesc %>
+                <figure class="card__gallery">
+                  <img src="<%= e.compare[0].large.url %>" alt="<%= e.comparedesc[0] %>">
+                </figure>
+              <% end %>
+
+              <%
+                if (@car.discount_count(e) + @region_discount) < e.price*4/10
+                  e_discount = @car.discount_count(e) + @region_discount
+                else
+                  e_discount = e.price*4/10
+                end
+              %>
+              <% unless !@car.available %>
+                <div>
+                  <span class="card-pr"><%= number_with_delimiter(e.price - e_discount, delimiter: ' ') %> ₽</span>
+                  <div class="card-pr-credit">В кредит <span>от <% snc_price = e.equipments.where(hide: 0).minimum(:price) - max_discount_e %><%= number_with_delimiter(count_price(snc_price,PERCENT,MONTH), delimiter: " ") %> ₽/мес</span></div>
+                </div>
+              <% end %>
+              <div class="card-pr-url">
+                <% unless !@car.available %>
+                  <%= link_to new_car_equipment_path(@brand, @car, e.name.parameterize) do %>Подробнее о модели<% end %>
+                <% end %>
+              </div>
+            </div>
+            <ul class="equipment-desc">
+              <% (compl_params - prev_compl_params).each do |p| %>
+                <li class="card__feature"><%= p %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <% prev_compl_params = compl_params %>
+      <% prev_compl = e.name %>
+    <% end %>
+  </div>
+</div>
+
+
 <div class="discount__block">
   <span class="sale-calc-t">Выберите подходящие Вам варианты и получите максимальную выгоду!</span>
   <div class="row justify-content-between discount_block_lab">
