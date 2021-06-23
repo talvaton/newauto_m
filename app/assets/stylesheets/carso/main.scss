@@ -1447,7 +1447,7 @@ footer{
 }
 .toolbar_m.fb_finx{
   @media all and (max-width: 600px) {
-    display: none;
+    display: flex;
     justify-content: space-around;
     align-items: center;
     overflow: hidden;
