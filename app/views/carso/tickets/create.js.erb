@@ -79,6 +79,25 @@ $.fancybox.open('<div><div>Ваша заявка принята</div><div>Наш
       //  fbq('track', 'Lead');
 
 
+        var ct_site_id = 45105;
+        var ct_data = {
+            //fio: 'Иванов Иван Иванович',
+            //phoneNumber: '79000000000',
+            //email: 'test@test.ru',
+            subject: 'Заявка с сайта',
+            //tags: 'Mercedes,Белый',
+            // comment: 'Тест-драйв',
+            sessionId: window.ct('calltracking_params','mod_id').sessionId
+        };
+        jQuery.ajax({
+            url: 'https://api.calltouch.ru/calls-service/RestAPI/requests/'+ct_site_id+'/register/',
+            dataType: 'json',
+            type: 'POST',
+            data: ct_data
+        });
+
+
+
 
     }
 });
