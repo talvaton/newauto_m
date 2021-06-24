@@ -81,8 +81,8 @@ $.fancybox.open('<div><div>Ваша заявка принята</div><div>Наш
 
         var ct_site_id = 45105;
         var ct_data = {
-            //fio: 'Иванов Иван Иванович',
-            //phoneNumber: '79000000000',
+            fio: '<%= @ticket.name %>',
+            phoneNumber: '<%= @ticket.phone %>',
             //email: 'test@test.ru',
             subject: '<%= @ticket.form_name %>',
             //tags: 'Mercedes,Белый',
