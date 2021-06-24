@@ -55,9 +55,7 @@
   padding: 40px 15px 0 15px;
 }
 
-.breadcrumbs {
-  background: #00AAE7;
-}
+
 
 .l_and_b{
   display: flex;
@@ -122,7 +120,7 @@
 .tr_flbl{
   width: 100%;
   padding: 30px 40px 0 40px;
-  background: #F7F7F7;
+  background: #fff;
   @media (max-width: 1240px) {
     margin: 0 0 10px 0;
   }
@@ -285,7 +283,7 @@
 }
 /******************************/
 .gsp_in{
-  display: flex;
+  display: block;
   justify-content: space-between;
   margin: 40px 0 20px 0;
   @media all and (max-width: 1100px) {
@@ -326,12 +324,11 @@
   display: grid;
   padding: 0 0 15px 0;
 }
-.gsp_d.gsp_txt{
-  width: 450px;
-  min-width: 450px;
+.gsp_d.gsp_txt{;
+  width: 100%;
+  min-width: 100%;
   @media all and (max-width: 1240px) {
-    width: 340px;
-    min-width: 340px;
+
   }
   @media all and (max-width: 1100px) {
     width: 100%;
@@ -349,6 +346,10 @@
 .gsp_d ul{
   list-style-image: image-url('carso/icons/ok_inf.svg');
   padding: 0 0 0 20px;
+  display: flex;
+}
+.gsp_d ul li{
+  margin: 0 40px 0 0;
 }
 .gsp_d ul li svg{
   margin: 0 10px 0 0;
@@ -510,4 +511,7 @@
   @media (max-width: 600px){
     margin: 20px 15px;
   }
+}
+form button, .form_btn, .form_block form button, .express_fbn form button, .express_fbn_o form button, .credit_fbn form button, .discount__block button {
+  background: #1C1C1C;
 }

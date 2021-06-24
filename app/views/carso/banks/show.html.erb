@@ -1,21 +1,15 @@
 <% provide :title, "Автокредит #{@bank.name} в Автосалоне Дисконт Авто, #{@current_region.sklon1}" %>
 <% provide :description,"#{@bank.name} предоставляет автокредит в #{@current_region.sklon3} на выгодных условиях в Автосалоне Дисконт Авто! Решение за 30 минут! 🚗 Кредит от 1,9%, Рассрочка 0% 🎁 Бонусы и подарки!" %>
 
-<div class="bbgc"></div>
+
 <div class="bbgct">
-  <h1 class="green">Автокредит <%= @bank.name %></h1>
-  <div class="l_and_b">
-    <div><%= image_tag "/static/images/logo.png", alt:'' %></div>
-    <span>+</span>
-    <div><%= image_tag @bank.image.optimized.url,alt:@bank.name,class:'', lazy:false %></div>
-  </div>
+  <h1>Заявка на кредит</h1>
 
 <div class="tradein_form">
   <%= form_for Ticket.new,url: {action:'create',controller:'tickets' },remote:true,validate:true,:html => {:class => 'form section-tradein__form spec_modal_new_ticket',:name=>'tradein'},:namespace => 'tradein' do |f| %>
     <%= f.hidden_field :form_name, value:'gospr' %>
     <%= hidden_field_tag 'ticket[other][tradein_toggle]', '1' %>
     <div class="tr_flbl">
-      <div class="nf_i">Заявка на кредит</div>
       <div class="tr_flb">
         <div>
           <div class="form-credit_subt">Ставка по кредиту <b>1.9%</b></div>
@@ -52,7 +46,7 @@
       <span class="tr_fin">Контактные данные</span>
       <div class="form_input"><%= f.text_field :name,class:'input',placeholder:'Ваше Имя' %></div>
       <div class="form_input"><%= f.phone_field :phone,class:'input',data:{:role=>'phone'},placeholder:'Номер телефона *' %></div>
-      <div class="form_input"><%= f.button do %><span>Оставить заявку</span><% end %><div class="secur_f">мы гарантируем конфиденциальность и защиту введённых данных</div></div>
+      <div class="form_input"><%= f.button do %><span>Оставить заявку</span><% end %></div>
     </div>
 
   <% end %>
