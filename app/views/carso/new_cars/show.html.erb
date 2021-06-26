@@ -109,7 +109,7 @@
     <div class="img-comp-container" data-content="car-colors-list">
       <% colors_swaped[0..1].each_with_index do |c,index| %>
         <div class="img-comp-img">
-          <%= image_tag "#{c.largecard.url}",class:'', alt:'', itemprop:'image', data:{:image_index=>index} %>
+          <%= image_tag "#{c.largecard.url}",class:'', alt:'', itemprop:'image', data:{:altsrc=>"#{c.largecard.url}",:image_index=>index} %>
         </div>
       <% end %>
       <% if colors_swaped[2..-1].present? %>
