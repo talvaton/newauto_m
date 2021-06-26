@@ -100,7 +100,7 @@ $("#compensation").on('change', function(){
 
 
 $('[data-content=car-colors-list]').slick({
-    lazyLoad: 'ondemand',
+   // lazyLoad: 'ondemand',
     /*slidesToShow: 9,*/
     //rows:2,
     /*slidesToScroll: 50,*/
