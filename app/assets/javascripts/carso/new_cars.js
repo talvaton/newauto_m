@@ -452,7 +452,7 @@ var workWithColorsSlider = function(){
     // setColorsSliderSize();
 
     // загружаем первую и вторую картинку
-    $("[data-content=car-colors-list]").each(function() {
+  /*  $("[data-content=car-colors-list]").each(function() {
         var firstChild = $(this).find('.img-comp-img').first();
         if (firstChild.length) {
             //  firstChild.addClass('showcar img-comp-overlay hidden');
@@ -465,7 +465,7 @@ var workWithColorsSlider = function(){
             var secondChild = secondChild.find('img');
             secondChild.attr("src", secondChild.attr("data-altsrc"));
         }
-    });
+    });*/
 
 
 
