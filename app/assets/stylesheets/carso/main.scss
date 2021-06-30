@@ -2705,6 +2705,9 @@ footer{
   @media all and (max-width: 1240px) {
     width: 100%;
   }
+  @media all and (max-width: 600px) {
+    padding: 0;
+  }
 }
 
 .abn_2 .bnr_inf{
