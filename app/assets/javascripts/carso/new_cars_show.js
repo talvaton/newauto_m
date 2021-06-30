@@ -98,8 +98,8 @@ $("#compensation").on('change', function(){
     };
 });
 
-
-$('[data-content=car-colors-list]').slick({
+$(document).ready(function() {
+  $('[data-content=car-colors-list]').slick({
     lazyLoad: false,
     /*slidesToShow: 9,*/
     //rows:2,
@@ -111,8 +111,8 @@ $('[data-content=car-colors-list]').slick({
     focusOnSelect: true,
     mobileFirst: false
 
+  });
 });
-
 
 $(document).ready(function() {
     $('.colors-list').slick({
