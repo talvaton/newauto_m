@@ -2694,6 +2694,19 @@ footer{
     padding: 45px 0 0 15px;
   }
 }
+
+.bnr_infn{
+  display: flex;
+  margin: 0 auto;
+  width: 1240px;
+  padding: 50px 0 0 0;
+  position: relative;
+  height: 100%;
+  @media all and (max-width: 1240px) {
+    width: 100%;
+  }
+}
+
 .abn_2 .bnr_inf{
   display: block;
   @media all and (max-width: 900px) {
@@ -3002,6 +3015,240 @@ footer{
     width: 290px;
   }
 }
+
+.bn_4{
+  background: image-url('carso/banners/n/4.png')no-repeat center top;
+  width: 100%;
+  height: 450px;
+  display: block;
+  overflow: hidden;
+  @media all and (max-width: 1100px) {
+    background-position-x: 70%;
+  }
+  @media all and (max-width: 900px) {
+    background-position-x: 80%;
+  }
+  @media all and (max-width: 460px) {
+    background: image-url('carso/banners/n/4m.png')no-repeat center bottom;
+    background-size: 100%;
+  }
+}
+.bnr_4_1{
+  background: image-url('carso/banners/n/4-1.png')no-repeat center top;
+  width: 1000px;
+  height: 107px;
+  display: flex;
+  align-items: center;
+  padding: 0 0 0 50px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 65.9217px;
+  line-height: 115.5%;
+  color: #FFFFFF;
+  position: absolute;
+  top: 0;
+  left: -189px;
+  @media all and (max-width: 1600px) {
+    left: -70px;
+  }
+  @media all and (max-width: 1330px) {
+    left: -54px;
+  }
+  @media all and (max-width: 1280px) {
+    left: 0;
+    top: -10px;
+    background-size: 80%;
+    padding: 0 0 0 55px;
+    background-position: center left;
+    font-size: 54px;
+    line-height: 54px;
+    text-align: center;
+  }
+  @media all and (max-width: 1000px) {
+    background-size: 60%;
+    top: -21px;
+    font-size: 36px;
+  }
+  @media all and (max-width: 600px) {
+    background-size: 40%;
+    top: -21px;
+    font-size: 22px;
+  }
+  @media all and (max-width: 410px) {
+    background-size: 34%;
+    top: -21px;
+    font-size: 19px;
+  }
+}
+.bnr_4_23{
+  position: absolute;
+  right: -180px;
+  @media all and (max-width: 1600px) {
+    right: -60px;
+  }
+  @media all and (max-width: 1280px) {
+    right: 0;
+    z-index: 1;
+  }
+  @media all and (max-width: 600px) {
+    right: initial;
+    left: 0;
+    top: 60px;
+  }
+}
+.bnr_4_2{
+  background: image-url('carso/banners/n/4-2.png')no-repeat center right;
+  width: 348px;
+  height: 127px;
+  @media all and (max-width: 1280px) {
+    background-position: right;
+  }
+  @media all and (max-width: 1000px) {
+    background-size: 60%;
+  }
+  @media all and (max-width: 700px) {
+    background-size: 55%;
+  }
+  @media all and (max-width: 600px) {
+    background-size: 100%;
+    background: image-url('carso/banners/n/4-2m.png')no-repeat center left;
+    width: 151px;
+    height: 75px;
+  }
+}
+.bnr_4_3{
+  background: image-url('carso/banners/n/4-3.png')no-repeat center right;
+  width: 348px;
+  height: 127px;
+  @media all and (max-width: 1280px) {
+    background-position: right;
+  }
+  @media all and (max-width: 1000px) {
+    background-size: 48%;
+    margin: -40px 0 0 0;
+  }
+  @media all and (max-width: 700px) {
+    background-size: 40%;
+    margin: -50px 0 0 0;
+  }
+  @media all and (max-width: 600px) {
+    background-size: 35%;
+    margin: -60px 0 0 0;
+    @media all and (max-width: 600px) {
+      background-size: 100%;
+      background: image-url('carso/banners/n/4-3m.png')no-repeat center left;
+      width: 143px;
+      height: 64px;
+      margin: -5px 0 0 0;
+    }
+  }
+}
+.bnr_4_4{
+  background: image-url('carso/banners/n/4-4.png')no-repeat center right;
+  width: 1180px;
+  height: 350px;
+  position: absolute;
+  left: -185px;
+  bottom: 0;
+  @media all and (max-width: 1600px) {
+    background-size: 80%;
+    left: -300px;
+  }
+  @media all and (max-width: 1280px) {
+    left: -240px;
+  }
+  @media all and (max-width: 1000px) {
+    background-size: 100%;
+    left: 0;
+    height: 220px;
+    width: 600px;
+  }
+  @media all and (max-width: 600px) {
+    height: 150px;
+    width: 400px;
+  }
+  @media all and (max-width: 410px) {
+    height: 125px;
+    width: 345px;
+  }
+}
+.bnr_4_5{
+  background: image-url('carso/banners/n/4-5.png')no-repeat center top;
+  width: 200px;
+  height: 100px;
+  position: absolute;
+  left: -78px;
+  bottom: 230px;
+  @media all and (max-width: 1600px) {
+    left: 0;
+  }
+  @media all and (max-width: 1280px) {
+    left: 50px;
+  }
+  @media all and (max-width: 1000px) {
+    left: 20px;
+    bottom: 115px;
+    background-size: 80%;
+  }
+  @media all and (max-width: 600px) {
+    left: -12px;
+    bottom: 125px;
+    background-size: 70%;
+  }
+}
+.bnr_4_6{
+  background: image-url('carso/banners/n/4-6.png')no-repeat center top;
+  width: 200px;
+  height: 100px;
+  position: absolute;
+  left: 245px;
+  bottom: 230px;
+  @media all and (max-width: 1600px) {
+    left: 280px;
+  }
+  @media all and (max-width: 1280px) {
+    left: 340px;
+  }
+  @media all and (max-width: 1000px) {
+    left: 190px;
+    bottom: 115px;
+    background-size: 80%;
+  }
+  @media all and (max-width: 600px) {
+    left: -12px;
+    bottom: 60px;
+    background-size: 70%;
+  }
+}
+.bnr_4_7{
+  background: image-url('carso/banners/n/4-7.png')no-repeat center top;
+  width: 200px;
+  height: 100px;
+  position: absolute;
+  left: 590px;
+  bottom: 230px;
+  @media all and (max-width: 1600px) {
+    left: 560px;
+  }
+  @media all and (max-width: 1280px) {
+    left: 610px;
+    z-index: 1;
+  }
+  @media all and (max-width: 1000px) {
+    left: 360px;
+    bottom: 115px;
+    background-size: 80%;
+  }
+  @media all and (max-width: 600px) {
+    left: 210px;
+    bottom: 125px;
+    background-size: 70%;
+  }
+  @media all and (max-width: 410px) {
+    left: 160px;
+  }
+}
+
 
 .bnr .slick-dots{
   margin: 0 auto;
