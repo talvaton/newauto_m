@@ -3060,6 +3060,19 @@ footer{
     background-size: 100%;
   }
 }
+.bn_6.bn_6{
+  background: image-url('carso/banners/n/6.png')no-repeat 150px bottom;
+  @media all and (max-width: 1500px) {
+    background-position: left bottom;
+  }
+  @media all and (max-width: 700px) {
+    background-size: 100%;
+  }
+  @media all and (max-width: 600px) {
+    background: image-url('carso/banners/n/6-66-6.png')no-repeat center bottom;
+  }
+}
+
 .bnr_4_1{
   background: image-url('carso/banners/n/4-1.png')no-repeat center top;
   width: 1000px;
@@ -3107,6 +3120,7 @@ footer{
     font-size: 19px;
   }
 }
+
 .bn_5 .bnr_4_1{
   height: auto;
   background: transparent;
@@ -3142,6 +3156,47 @@ footer{
   }
   @media all and (max-width: 415px) {
     top: 130px;
+  }
+}
+
+.bn_6 .bnr_4_1{
+  display: block;
+  text-align: right;
+  color: #1C1C1C;
+  text-shadow: none;
+  font-size: 61px;
+  right: -102px;
+  top: 65px;
+  @media all and (max-width: 1600px) {
+    font-size: 44px;
+    right: 0;
+  }
+  @media all and (max-width: 1500px) {
+    top: 90px;
+    right: 20px;
+  }
+  @media all and (max-width: 700px) {
+    top: 50px;
+  }
+  @media all and (max-width: 600px) {
+    right: initial;
+    left: 20px;
+    padding: 0;
+    text-align: left;
+    font-size: 42px;
+  }
+  @media all and (max-width: 500px) {
+    font-size: 32px;
+    top: 0;
+  }
+}
+
+.bn_6 .bnr_4_1 span:nth-child(1){
+  display: block;
+}
+.bn_6 .bnr_4_1 span:nth-child(2){
+  @media all and (max-width: 600px) {
+    display: block;
   }
 }
 
@@ -3240,6 +3295,35 @@ footer{
     top: 0;
   }
 }
+.bn_5 .bn_6  .bnr_4_3{
+  background: image-url('carso/banners/n/6-2-3.png')no-repeat center right;
+  width: 428px;
+  height: 115px;
+  bottom: 60px;
+  @media all and (max-width: 1550px) {
+    right: -10px;
+  }
+  @media all and (max-width: 1500px) {
+    right: 20px;
+  }
+  @media all and (max-width: 1280px) {
+    right: 20px;
+    background-size: 65%;
+  }
+  @media all and (max-width: 960px) {
+    background-size: 50%;
+  }
+  @media all and (max-width: 700px) {
+    background-size: 40%;
+    bottom: 190px;
+  }
+  @media all and (max-width: 600px) {
+    background: image-url('carso/banners/n/6-2-3m.png')no-repeat center right;
+    width: 108px;
+    height: 197px;
+  }
+}
+
 .bnr_4_4{
   background: image-url('carso/banners/n/4-4.png')no-repeat center right;
   width: 1180px;
@@ -3303,6 +3387,33 @@ footer{
     height: 100px;
   }
 }
+.bn_5.bn_6 .bnr_4_4{
+  background: image-url('carso/banners/n/6-66.png')no-repeat center right;
+  width: 1187px;
+  height: 350px;
+  bottom: -25px;
+  @media all and (max-width: 1600px) {
+    background-size: 80%;
+  }
+  @media all and (max-width: 1500px) {
+    background-size: 60%;
+    left: 0;
+    height: 230px;
+    background-position: left 26px;
+  }
+  @media all and (max-width: 960px) {
+    background-size: 50%;
+    height: 201px;
+  }
+
+@media all and (max-width: 700px) {
+  background-size: 46%;
+  height: 189px;
+  }
+  @media all and (max-width: 600px) {
+   display: none;
+  }
+}
 
 .bnr_4_5{
   background: image-url('carso/banners/n/4-5.png')no-repeat center top;
@@ -3349,6 +3460,12 @@ footer{
     left: 20px;
   }
 }
+.bn_6 .bnr_5_5{
+  background: image-url('carso/banners/n/6-5.png')no-repeat center top;
+  width: 217px;
+  height: 111px;
+}
+
 .bn_5 .bnr_5_6{
   background: image-url('carso/banners/n/5-7.png')no-repeat center top;
   width: 217px;
@@ -3374,6 +3491,11 @@ footer{
   @media all and (max-width: 415px) {
     left: 205px;
   }
+}
+.bn_6 .bnr_5_6{
+  background: image-url('carso/banners/n/6-6.png')no-repeat center top;
+  width: 217px;
+  height: 111px;
 }
 .bn_5 .bnr_5_7{
   background: image-url('carso/banners/n/5-6.png')no-repeat center top;
@@ -3403,6 +3525,46 @@ footer{
     top: 300px !important;
   }
 }
+.bn_6 .bnr_5_7{
+  background: image-url('carso/banners/n/6-7.png')no-repeat center top;
+  width: 217px;
+  height: 111px;
+  left: 555px;
+  @media all and (max-width: 1280px){
+    left: 430px;
+  }
+  @media all and (max-width: 960px){
+    left: 350px;
+  }
+  @media all and (max-width: 500px){
+    left: 20px;
+    top: 155px !important;
+  }
+}
+.bn_5 .bn_6 .bnr_5_5,.bn_5 .bn_6 .bnr_5_6,.bn_5 .bn_6 .bnr_5_7{
+  top: 95px;
+  @media all and (max-width: 1500px){
+    top: 185px;
+    background-size: 80%;
+   }
+  @media all and (max-width: 1280px){
+    top: 200px
+  }
+  @media all and (max-width: 700px){
+    top: 280px;
+  }
+  @media all and (max-width: 500px){
+    top: 235px;
+    background-size: 100%;
+  }
+  @media all and (max-width: 415px) {
+    width: 150px;
+  }
+  @media all and (max-width: 359px) {
+    width: 130px;
+  }
+ }
+
 .bn_5 .bnr_5_5,.bn_5 .bnr_5_6,.bn_5 .bnr_5_7{
   @media all and (max-width: 1280px){
     background-size: 100%;

@@ -62,6 +62,21 @@
 
 <div class="bnr">
 
+  <% if @brand.url == 'hyundai' %>
+  <a href="/hyundai" class="bnr_cnt bn_4 bn_5 bn_6">
+    <div class="bnr_cnt bn_4 bn_6">
+      <div class="bnr_infn">
+        <div class="bnr_4_1"><span>Распродажа</span> <span>HYUNDAI</span> в кредит</div>
+        <div class="bnr_4_3"></div>
+        <div class="bnr_4_4"></div>
+        <div class="bnr_5_5"></div>
+        <div class="bnr_5_6"></div>
+        <div class="bnr_5_7"></div>
+      </div>
+    </div>
+  </a>
+  <% else %> <% end %>
+
   <% if @brand.url == 'lada' %>
   <a href="/lada" class="bnr_cnt bn_4 bn_5">
     <div class="bnr_cnt bn_4 bn_5">
