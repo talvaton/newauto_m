@@ -132,7 +132,8 @@ var toggleBrandsMenuPanel = function(){
 
     menuBtn.on('click', function(){
         menuPanel.toggleClass('open');
-        $('body').toggleClass('hid');
+        //$('body').toggleClass('hid');
+        $('body').addClass('hid');
     });
 
     menuHideBtn.on('click', function(){
