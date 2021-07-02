@@ -2,7 +2,8 @@
   <nav class="nav">
     <ul class="row">
       <li class="" itemprop="name">
-        <%= link_to 'Каталог авто',newauto_path, class:'nav__link',title:'Каталог авто', itemprop:'url' %>
+        <div class="nav__link ctma" data-action="top-menu">Каталог авто</div></li>
+        <%#= link_to 'Каталог авто',newauto_path, class:'nav__link menu_catalog', data:{:action=>'top-menu'}, title:'Каталог авто', itemprop:'url' %>
       </li>
       <li class="">
         <%= link_to 'Автокредит',credit_path, class:'nav__link',title:'Автокредит'%>

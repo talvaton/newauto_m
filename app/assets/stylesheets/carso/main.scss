@@ -576,6 +576,7 @@ transform: scale(-1);*/
   overflow-y: scroll;
   position: fixed;
   height: 100%;
+    z-index: 1000;
   }
 }
 .top-menu-home{
@@ -636,8 +637,20 @@ transform: scale(-1);*/
   text-transform: uppercase;
   color: #222222;
   padding: 15px 0 15px 0;
-  margin: 0 15px 0 15px;
+  margin: 0 15px 0 0;
   display: block;
+}
+.nav__link.ctma{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: #222222;
+  padding: 15px 0 15px 0;
+  margin: 20px 15px 0 0;
+  display: block;
+  cursor: pointer;
 }
 
 .top-menu ul{
@@ -645,7 +658,7 @@ transform: scale(-1);*/
   padding: 10px 0;
   background: #F7F7F7;
   @media all and (max-width: 600px) {
-    padding: 25px 0;
+    padding: 60px 0;
   }
 }
 .top-menu ul li{
