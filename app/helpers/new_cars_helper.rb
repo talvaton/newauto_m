@@ -14,7 +14,7 @@ module NewCarsHelper
 
 
   def new_card_page?
-    if action_name == 'show'
+    if controller_name == 'new_cars' and action_name == 'show'
       true
     else
       false

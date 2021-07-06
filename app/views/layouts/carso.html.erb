@@ -11,7 +11,7 @@
   <%# else %>
    <div class="bnr">
     <% if @brand.url == 'hyundai' %>
-      <a href="/hyundai" class="bnr_cnt bn_4 bn_5 bn_6">
+      <a href="#" class="bnr_cnt bn_4 bn_5 bn_6 button sale_bn" data-show-new-ajax="car-credit-modal">
         <div class="bnr_cnt bn_4 bn_6">
           <div class="bnr_infn">
             <div class="bnr_4_1"><span>Распродажа</span> <span>HYUNDAI</span> в кредит</div>
@@ -25,7 +25,7 @@
       </a>
     <% else %> <% end %>
     <% if @brand.url == 'lada' %>
-      <a href="/lada" class="bnr_cnt bn_4 bn_5">
+      <a href="/lada" class="bnr_cnt bn_4 bn_5 button sale_bn" data-show-new-ajax="car-credit-modal">
         <div class="bnr_cnt bn_4 bn_5">
           <div class="bnr_infn">
             <div class="bnr_4_1">Распродажа <br>LADA в кредит</div>
@@ -39,7 +39,7 @@
       </a>
     <% else %> <% end %>
     <% if @brand.url == 'kia' %>
-      <a href="#" class="bnr_cnt bn_4">
+      <a href="#" class="bnr_cnt bn_4 button sale_bn" data-show-new-ajax="car-credit-modal">
         <div class="bnr_cnt bn_4">
           <div class="bnr_infn">
             <div class="bnr_4_1">Распродажа KIA в кредит</div>
