@@ -55,4 +55,6 @@ module ApplicationHelper
     image_tag(source, options.merge(srcset: srcset))
   end
 
+
+
 end

@@ -11,4 +11,14 @@ module NewCarsHelper
     uri = URI.parse(url_str)
     Net::HTTP.get_response(uri).code == '200'
   end
+
+
+  def new_card_page?
+    if action_name == 'show'
+      true
+    else
+      false
+    end
+  end
+
 end
