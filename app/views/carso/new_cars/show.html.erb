@@ -174,6 +174,7 @@
       <div class="form_block">
         <div class="form-sale-info">
           <% if @car.archive %><div class="t_archive">Снят с производства</div><% end %>
+          <span class="fprm_gos_pa">Госпрограмма -10%</span>
           <div class="form-credit-info">Выгодный кредит <span><i>от </i><% snc_price = min_price %><%= number_with_delimiter(count_price(snc_price,PERCENT,MONTH), delimiter: " ") %> ₽</span></div>
           <span class="car_online">
              <%= image_tag "carso/icons/group2873.png", alt: '' %>

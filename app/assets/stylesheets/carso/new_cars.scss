@@ -281,6 +281,9 @@ h2{
   @media all and (max-width: 480px) {
     width: 100%;
     box-shadow: none;
+    border: 1px solid #B2B2B2;
+    background: #ffffff;
+    padding: 60px 20px 20px 20px;
   }
 
 }
@@ -297,6 +300,9 @@ h2{
 }
 #newcarreq_new_ticket .form_input{
     padding: 30px 0 15px 0;
+  @media all and (max-width: 480px) {
+    padding: 20px 0 0px 0;
+  }
 }
 #newcarreq_new_ticket .form_input.nn:before{
   content: '';
@@ -307,6 +313,10 @@ h2{
   height: 30px;
   position: absolute;
   left: 0;
+  @media all and (max-width: 480px) {
+    left: 10px;
+    height: 40px;
+  }
 }
 #newcarreq_new_ticket .form_input.ph:before{
   content: '';
@@ -317,6 +327,10 @@ h2{
   height: 30px;
   position: absolute;
   left: 0;
+  @media all and (max-width: 480px) {
+    left: 10px;
+    height: 40px;
+  }
 }
 #newcarreq_new_ticket .form_input.ph input, #newcarreq_new_ticket .form_input.nn input{
   padding: 0 0 0 35px;
@@ -325,6 +339,11 @@ h2{
   font-size: 18px;
   line-height: 130%;
   color: #1C1C1C;
+  @media all and (max-width: 480px) {
+    border: 1px solid #B2B2B2;
+    width: 100%;
+    height: 45px;
+  }
 }
 
 #newcarreq_new_ticket :focus-visible {
@@ -418,6 +437,9 @@ h2{
     width: 100%;
     padding: 10px 10px;
   }
+  @media all and (max-width: 480px) {
+    height: 45px;
+  }
 }
 .discount__block button{
   width: 370px;
@@ -433,9 +455,19 @@ h2{
 
 #newcarreq_new_ticket .add__form-btn{
   background: #003469;
+  @media all and (max-width: 480px){
+    font-weight: 600;
+    font-size: 16px;
+  }
 }
+
+
 #newcarreq_new_ticket button{
   margin: 20px 0 0 0;
+  @media all and (max-width: 480px){
+    font-weight: 600;
+    font-size: 16px;
+  }
 }
 
 .but_url{
@@ -467,10 +499,17 @@ h2{
   background: #D0D0D0;
   border-radius: 0 0 20px 0;
   width: 170px;
-  display: block;
+  display: none;
   text-align: center;
   padding: 10px 0;
   z-index: 1;
+  @media all and (max-width: 480px) {
+    display: block;
+    background: #003469;
+    width: 220px;
+    font-weight: 600;
+    font-size: 16px;
+  }
 }
 
 .form-sale-info{
