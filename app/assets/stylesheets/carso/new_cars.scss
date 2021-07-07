@@ -1917,4 +1917,48 @@ label.on .lab_ch-text{
     height: 384px;
   }
 }
+
+
+
+.bn_5 .bnr_5_6, .bn_5 .bnr_5_7 {
+  @media (max-width: 480px){
+    display: none;
+  }
+}
+
+.bn_4.bn_5 {
+  @media (max-width: 480px){
+    background-position: center -70px;
+    padding: 0;
+    margin: 0 auto;
+  }
+}
+
+.bn_5 .bnr_5_5 {
+  @media (max-width: 480px){
+    background: image-url('carso/banners/n/5-567m.png')no-repeat center top;
+    width: 296px;
+    height: 91px;
+  }
+  @media (max-width: 415px){
+    top: 185px;
+  }
+}
+
+.bn_5 .bnr_4_4 {
+  @media (max-width: 480px){
+  height: 100px;
+  }
+  @media (max-width: 415px){
+    bottom: 35px;
+    z-index: 1;
+  }
+}
+
+.bn_5 .bnr_4_1 {
+  @media (max-width: 415px){
+  top: 85px;
+  }
+}
+
 /**********************banners*************************/
