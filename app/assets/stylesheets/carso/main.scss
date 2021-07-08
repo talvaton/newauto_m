@@ -184,12 +184,24 @@ header .header_top{
 }
 .menu_catalog:before{
   content: '';
-  background: image-url('carso/icons/vstrau.svg')no-repeat left center;
-  width: 16px;
+  background: image-url('carso/icons/vstrau.svg')no-repeat right center;
+  width: 18px;
   height: 9px;
   margin: 0 10px 0 0;
   display: inline-block;
 }
+
+.nav__link.ctma:after{
+  @media all and (max-width: 600px) {
+    content: '';
+    background: image-url('carso/icons/vstrau.svg') no-repeat left center;
+    width: 18px;
+    height: 9px;
+    margin: 0;
+    display: inline-block;
+  }
+}
+
 .menu_catalog img,.home_location img,.header_phone img{
   padding: 0 10px 0 0;
   @media all and (max-width: 600px) {
@@ -628,7 +640,13 @@ form select:before{
 }
 .top-menu-home.opn nav ul li{
   display: block;
+  @media all and (max-width: 600px) {
+    border-bottom: 1px solid #F2F2F2;
+  }
 }
+
+
+
 .top-menu-home.opn nav ul li a{
   font-style: normal;
   font-weight: normal;
@@ -639,6 +657,10 @@ form select:before{
   padding: 15px 0 15px 0;
   margin: 0 15px 0 0;
   display: block;
+  @media all and (max-width: 600px) {
+    font-size: 16px;
+    text-transform: none;
+  }
 }
 .nav__link.ctma{
   font-style: normal;
@@ -649,8 +671,10 @@ form select:before{
   color: #222222;
   padding: 15px 0 15px 0;
   margin: 20px 15px 0 0;
-  display: block;
+  display: flex;
   cursor: pointer;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .top-menu ul{
@@ -730,6 +754,41 @@ form select:before{
     display: none;
   }
 }
+.mmb_cell{
+  padding: 0 20px 0 20px;
+  display: block;
+  width: 100%;
+}
+.mmb_cell span{
+  font-weight: normal;
+  font-size: 14px;
+  color: #1C1C1C;
+}
+.mmb_cell a.row span{
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 140%;
+  color: #1C1C1C;
+  padding: 10px 0 0 0;
+  display: block;
+}
+.mmb_cell a.sale_bn{
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 130%;
+  color: #FFFFFF;
+  background: #1C1C1C;
+  display: flex;
+  height: 45px;
+  margin: 20px 0 0 0;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  justify-content: center;
+}
+
 
 /****************header********************/
 .bank_block{
