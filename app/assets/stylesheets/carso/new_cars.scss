@@ -1900,8 +1900,9 @@ label.on .lab_ch-text{
   @media (max-width: 600px){
     background-size: 100%;
   }
-  @media (max-width: 375px){
+  @media (max-width: 460px){
     background: image-url('carso/banners/n/7m.png')no-repeat center bottom;
+    background-size: 100%;
   }
 }
 
