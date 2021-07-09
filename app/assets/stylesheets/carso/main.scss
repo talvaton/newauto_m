@@ -3887,7 +3887,7 @@ footer{
 }
 /*******************************/
 .hmbnr{
-  display: flex;
+  display: flex !important;
   justify-content: center;
   margin: 40px 20px;
   @media all and (max-width: 1200px) {
