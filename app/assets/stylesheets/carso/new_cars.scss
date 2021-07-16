@@ -2166,6 +2166,9 @@ label.on .lab_ch-text{
   @media all and (max-width: 600px) {
     background-size: 40%;
   }
+  @media all and (max-width: 500px) {
+    height: 384px;
+  }
   @media all and (max-width: 460px) {
     display: block;
     background: image-url('carso/banners/n/8-22m.png')no-repeat center bottom;
@@ -2184,5 +2187,97 @@ label.on .lab_ch-text{
     background: image-url('carso/banners/n/8m.png')no-repeat center bottom;
   }
 }
-
+.bn_9 .bnr_4_3{
+  background: image-url('carso/banners/n/8-22.png')no-repeat center right;
+  left: -143px;
+  right: initial;
+  top: 175px;
+  @media all and (max-width: 1600px) {
+    left: 0;
+  }
+  @media all and (max-width: 1280px) {
+    left: 20px;
+  }
+  @media all and (max-width: 1100px) {
+    background-size: 70%;
+    width: 298px;
+  }
+  @media all and (max-width: 1000px) {
+    left: initial;
+    right: 40px;
+  }
+  @media all and (max-width: 600px) {
+    background-size: 70%;
+    width: 298px;
+    top: 120px;
+  }
+  @media all and (max-width: 480px) {
+    background-size: 70%;
+    width: 210px;
+    top: 120px;
+  }
+  @media all and (max-width: 430px) {
+    background-size: 90%;
+    width: 210px;
+    top: 200px;
+    left: 0;
+  }
+}
+.bn_9 .bnr_4_1{
+  right: initial;
+  color: #fff;
+  left: -140px;
+  display: block;
+  width: 440px;
+  padding: 0;
+  @media (max-width: 1600px){
+    left: 0;
+  }
+  @media (max-width: 1280px){
+    left: 20px;
+  }
+  @media (max-width: 900px){
+    top: 20px;
+  }
+  @media (max-width: 820px){
+    display: flow-root;
+    width: 420px;
+  }
+  @media (max-width: 480px){
+    font-size: 28px;
+    line-height: 115.5%;
+    left: 20px;
+    width: 250px
+  }
+}
+.bn_7.bn_8.bn_9 .bnr_4_4{
+  background: image-url('carso/banners/n/9-9.png')no-repeat center bottom;
+  width: 1136px;
+  left: initial;
+  right: -140px;
+  @media all and (max-width: 1280px) {
+    background-size: 70%;
+  }
+  @media all and (max-width: 1100px) {
+    background-size: 60%;
+  }
+  @media all and (max-width: 820px) {
+    background-size: 50%;
+    left: 0;
+    background-position: left bottom;
+  }
+  @media all and (max-width: 600px) {
+    background-size: 40%;
+  }
+  @media all and (max-width: 460px) {
+    //background: image-url('carso/banners/n/9-22m.png')no-repeat center bottom;
+    // background-size: initial;
+    left: 0;
+    // width: 357px;
+    height: 100%;
+  }
+  @media all and (max-width: 420px) {
+    background-size: 34%;
+  }
+}
 /**********************banners*************************/

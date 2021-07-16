@@ -11,6 +11,19 @@
   <%# else %>
    <div class="bnr">
 
+     <% if @brand.url == 'geely' %>
+     <a href="#" class="bnr_cnt bn_7 bn_8 bn_9">
+       <div class="bnr_cnt bn_7 bn_8 bn_9">
+         <div class="bnr_infn">
+           <div class="bnr_4_1"><span>Распродажа</span> <span>Geely</span> в кредит</div>
+           <div class="bnr_4_3"></div>
+           <div class="bnr_4_4"></div>
+           <div class="bnr_5_5"></div>
+         </div>
+       </div>
+     </a>
+     <% else %> <% end %>
+
      <% if @brand.url == 'lifan' %>
      <a href="#" class="bnr_cnt bn_6 bn_7 bn_8">
        <div class="bnr_cnt bn_6 bn_7 bn_8">
