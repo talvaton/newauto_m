@@ -1726,6 +1726,19 @@ label.on .lab_ch-text{
   overflow: hidden;
   display: none;
 }
+
+.img-comp-container.clr .img-comp-img{
+  overflow: hidden;
+  display: none;
+}
+.img-comp-container .img-comp-img{
+  overflow: hidden;
+  display: flex;
+}
+.img-comp-container .img-comp-img.img-open {
+  display: flex;
+}
+
 .img-comp-img.img-open {
   display: flex;
 }

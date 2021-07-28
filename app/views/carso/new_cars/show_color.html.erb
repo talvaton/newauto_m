@@ -83,7 +83,7 @@
     <div class="singlecar__car">
       <% puts @colors_to_show %>
 
-      <div class="singlecar__car-imgblock img-comp-container" data-content="car-colors-list">
+      <div class="singlecar__car-imgblock img-comp-container <% @colors_to_show.each_with_index do |c,index| %><% if index == 1 %>clr<% end %><% end %>" data-content="car-colors-list">
         <% first_index = @colors_to_show[0]['index'] %>
         <div class="img-comp-img" data-show-model-ajax="car-colors-modal">
           <%= image_tag @car.colors[2].largecard.url,class:'singlecar__car-img', alt:'', data:{:altsrc=>"#{@car.colors[first_index].largecard.url}",:image_index=>first_index} %>
