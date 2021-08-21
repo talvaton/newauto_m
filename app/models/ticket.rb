@@ -5,7 +5,7 @@ class Ticket < ApplicationRecord
   def send_ticket
      # send_to_crm
     #send_to_roistat
-  #send_to_carso_crm
+    send_to_carso_crm
   end
 
   def send_to_carso_crm
