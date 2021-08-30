@@ -4,7 +4,44 @@
     region = true
   end
 %>
-
+<% if main_page? %><% else %>
+  <div class="over_bl_h2">
+    <h3>Поможет в выборе</h3>
+    <div class="row justify-content-between block_h_url">
+      <ul>
+        <li><%= link_to 'Новые автомобили',newauto_path %></li>
+        <li><%= link_to 'Безопасные автомобили',safecars_path %></li>
+        <li><%= link_to 'Надежные автомобили',reliablecars_path %></li>
+        <li><%= link_to 'Авто для женщин',womencars_path %></li>
+        <li><%= link_to 'Дешевые автомобили',cheap_auto_path %></li>
+      </ul>
+      <ul>
+        <li><%= link_to 'Китайские автомобили',new_car_country_path('china') %></li>
+        <li><%= link_to 'Японские автомобили',new_car_country_path('japan') %></li>
+        <li><%= link_to 'Немецкие автомобили',new_car_country_path('germany') %></li>
+        <li><%= link_to 'Корейские автомобили',new_car_country_path('karya') %></li>
+        <li><%= link_to 'Французские автомобили',new_car_country_path('france') %></li>
+      </ul>
+      <ul>
+        <li><%= link_to 'Хэтчбеки',new_car_type_path('hetchback') %></li>
+        <li><%= link_to 'Седаны',new_car_type_path('sedan') %></li>
+        <li><%= link_to 'Универсалы',new_car_type_path('universal') %></li>
+        <li><%= link_to 'Кроссоверы',new_car_type_path('crossover') %></li>
+      </ul>
+      <ul>
+        <li><%= link_to 'Внедорожники',new_car_type_path('vehicle') %></li>
+        <li><%= link_to 'Лифтбеки',new_car_type_path('liftbeki') %></li>
+        <li><%= link_to 'Минивэны',new_car_type_path('minivenyi') %></li>
+        <li><%= link_to 'Фургоны',new_car_type_path('furgonyi') %></li>
+      </ul>
+      <ul>
+        <li><%= link_to 'Первый автомобиль', first_auto_path %></li>
+        <li><%= link_to 'Семейный автомобиль', family_auto_path %></li>
+        <li><%= link_to 'Пикапы',new_car_type_path('pikapyi') %></li>
+      </ul>
+    </div>
+  </div>
+<% end %>
 <footer class="footer">
  <div class="container">
 

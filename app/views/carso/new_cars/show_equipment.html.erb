@@ -30,11 +30,11 @@
    end
 %>
 
-<% t_mos = "Купить #{@car.menutitle} #{@car.old ? (Time.current - 1.year).year.to_s : Time.current.year.to_s} в комплектации #{@equip.name} по цене от #{compl_price} руб., #{@current_region.sklon1}" %>
-<% t_reg = "#{@car.menutitle} #{@equip.name} #{@car.old ? (Time.current - 1.year).year.to_s : Time.current.year.to_s}, цена комплектации от #{compl_price} руб., купить в #{@current_region.sklon3}" %>
+<% t_mos = "Купить #{@car.menutitle} #{@car.old ? (Time.current - 1.year).year.to_s : Time.current.year.to_s} в комплектации #{@equip.name} по цене от #{compl_price} руб., #{@current_region.sklon1} — автосалон «Дисконт Авто»" %>
+<% t_reg = "#{@car.menutitle} #{@equip.name} #{@car.old ? (Time.current - 1.year).year.to_s : Time.current.year.to_s}, цена комплектации от #{compl_price} руб., купить в #{@current_region.sklon3} — автосалон «Дисконт Авто»" %>
 
-<% d_mos = "Купить #{@car.russian_name} #{@equip.name} по цене от #{compl_price} руб. Trade-in, рассрочка, экспресс кредит. #{@car.menutitle} в комплектации #{@equip.name} в автосалоне, #{@current_region.sklon1}." %>
-<% d_reg = "#{@car.russian_name} в комплектации #{@equip.name} по цене от #{compl_price} руб в #{@current_region.sklon3}. Trade-in, рассрочка, экспресс кредит. Купить #{@car.menutitle} #{@equip.name} в автосалоне." %>
+<% d_mos = "Купить #{@car.russian_name} #{@equip.name} по цене от #{compl_price} руб. Trade-in, рассрочка, экспресс кредит. #{@car.menutitle} в комплектации #{@equip.name} в автосалоне, #{@current_region.sklon1} — автосалон «Дисконт Авто»" %>
+<% d_reg = "#{@car.russian_name} в комплектации #{@equip.name} по цене от #{compl_price} руб в #{@current_region.sklon3}. Trade-in, рассрочка, экспресс кредит. Купить #{@car.menutitle} #{@equip.name}  — автосалон «Дисконт Авто»" %>
 
 <% unless region %>
   <% provide :title,t_mos %>

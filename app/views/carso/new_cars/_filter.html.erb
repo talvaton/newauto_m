@@ -17,7 +17,7 @@
               car_count = 2 if car_count < 2
             %>
                 <div class="row card_f justify-content-between card card--wide" data-eq_id="<%= e.id %>">
-                  <%= link_to "#{@car.name} #{e.equipment_description.name}", new_car_equipment_path(@brand, @car, e.equipment_description.name.parameterize), rel: 'nofollow', class:"card_f_title" %>
+                  <%= link_to "#{@brand.title} #{@car.name} #{e.equipment_description.name}", new_car_equipment_path(@brand, @car, e.equipment_description.name.parameterize), rel: 'nofollow', class:"card_f_title" %>
                   <div class="card_f_sale">от <span><%= number_with_delimiter(e.price - real_discount,delimiter: ' ') %> &#8381;</span></div>
                   <div class="card_f_txt"><%= e.specification.transmission.gsub('Механическая','Механика').gsub('5-ступенчатая механическая','Механика').gsub('5MT','').gsub('6МТ','').gsub('Автоматическая','Автомат').gsub('5-ступенчатая автоматическая','Автомат').gsub('4AT','') %> (<%= e.specification.shorttransmission %>),
                     <% if e.specification.volume.present? %><%= (e.specification.volume / 1000.to_f).round(1) %> л, <% end %>
