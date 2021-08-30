@@ -373,11 +373,6 @@
                   <div class="card-pr-credit">В кредит <span>от <% snc_price = e.equipments.where(hide: 0).minimum(:price) - max_discount_e %><%= number_with_delimiter(count_price(snc_price,PERCENT,MONTH), delimiter: " ") %> ₽/мес</span></div>
                 </div>
               <% end %>
-              <div class="card-pr-url">
-                <% unless !@car.available %>
-                  <%= link_to new_car_equipment_path(@brand, @car, e.name.parameterize) do %>Подробнее о модели<% end %>
-                <% end %>
-              </div>
             </div>
             <ul class="equipment-desc">
               <% (compl_params - prev_compl_params).each do |p| %>
