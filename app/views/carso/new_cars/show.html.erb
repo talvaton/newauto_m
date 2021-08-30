@@ -514,10 +514,18 @@
         <%= link_to 'Все ' + @car.car_type.partition(" ").first.pluralize(:ru), new_car_type_path(t(@car.car_type.partition(" ").first,scope: :car_types)),class:'btn-link' %>
       </div>
     </div>
-
-
   </div>
 <% end %>
+
+
+<div class="card__box" id="other_model">
+  <div>
+    <h2>Другие модели <%= @brand.title %></h2>
+  </div>
+  <div class="card_box_slide row justify-content-between align-items-center">
+    <%= render partial:'new_cars/small_new_cars_model', collection: @brand.new_cars.where(hide: 0).where(archive: 0).where.not(id: @car.id).min_price_ordered, :locals => {:show_brand => false,:credit_flag => true} %>
+  </div>
+</div>
 
 
 <% content_for :rails_to_js_variables do %>
