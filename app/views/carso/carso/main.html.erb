@@ -276,6 +276,14 @@
   </div>
 
 
+  <div class="hit-menu">
+    <div class="row justify-content-start">
+      <h2>Популярные марки</h2>
+    </div>
+    <ul class="nav d-flex">
+      <%= render partial:'carso/main_catalog_main', collection: @brands %>
+    </ul>
+  </div>
 
 
 <% if region %>
