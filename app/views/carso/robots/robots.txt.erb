@@ -1,2 +1,12 @@
+<% if Rails.env.production? %>
 User-Agent: *
-Disallow: /
+Disallow: /404
+Disallow: /common_modal
+Disallow: /*?rb_clickid=
+Disallow: /flag/
+Disallow: /*?
+
+<% else %>
+  User-Agent: *
+  Disallow: /
+<% end %>
