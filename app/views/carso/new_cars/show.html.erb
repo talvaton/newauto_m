@@ -289,11 +289,6 @@
               <%
                 e_name = e.equipment_description.name.parameterize
               %>
-              <td class="mn_b">
-                <%= link_to print_new_car_equipment_id_path(@brand.url,@car.url,e_name,e.id), class:'print', title:'Распечатать', target: '_blank' do %>
-                <%= image_tag "carso/icons/print_a.png", alt:'', lazy:true %>
-                <% end %>
-              </td>
             </tr>
             <%= '<!-- noindex -->'.html_safe if region %>
             <tr class="compl-description" data-role="table-row-description">
