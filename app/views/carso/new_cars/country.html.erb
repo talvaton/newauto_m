@@ -13,8 +13,8 @@
   end
 %>
 
-<% provide :title,"#{@title}  #{(Time.current - 1.year).year.to_s}-#{Time.current.year.to_s} у официального дилера, купить новые машины из #{country_name} в " + @current_region.sklon3 %>
-<% provide :description,"Продажа новых автомобилей из #{country_name}. Наличные и безналичный расчет, кредит, рассрочка, trade-in." %>
+<% provide :title,"#{@title}  #{(Time.current - 1.year).year.to_s}-#{Time.current.year.to_s} у официального дилера, купить новые машины из #{country_name} в " + @current_region.sklon3 + '— автосалон «Дисконт Авто»' %>
+<% provide :description,"Продажа новых автомобилей из #{country_name}. Наличные и безналичный расчет, кредит, рассрочка, trade-in. — автосалон «Дисконт Авто»" %>
 
 
 <h1 class="green"><%= @title %> от официального дилера</h1>
