@@ -538,7 +538,8 @@
           type: 'itemView',
           productid: '<%= @car.id %>',
           pagetype: 'product',
-          list: '2'
+          list: '2',
+          totalvalue: '<%= number_with_delimiter(@car.count_min_price(@region_discount), delimiter: " ") %>'
       });
   </script>
 
