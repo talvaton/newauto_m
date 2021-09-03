@@ -13,7 +13,7 @@
              <% end %>
         </categories>
         <offers>
-         <% @new.where(hide:false).each do |new_car| %>
+         <% @newcars.where(hide:false).each do |new_car| %>
          <% e = new_car.equipments.where(hide:false).order(:price).first %>
             <offer id="<%= new_car.id %>" available="true">
                 <name><%= new_car.menutitle %></name>
