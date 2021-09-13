@@ -258,7 +258,7 @@ h2 {
 
 .form__cr-bt{
   width: 100%;
-  background: #1C1C1C;
+  background: #21BA72;
   height: 65px;
   display: flex;
   align-items: center;
@@ -435,7 +435,9 @@ h2 {
     height: auto;
   }
 }
-
+h1.green{
+ color:#21BA72
+}
 h1 span{
   font-style: normal;
   font-weight: 800;
@@ -1229,7 +1231,7 @@ form input, form select, form button, .form_btn, .express_fbn input, .express_fb
 form .form_ld .form__cr-bt button{
   width: 610px;
   height: 65px;
-  background: #1C1C1C;
+  background: #21BA72;
   font-style: normal;
   font-weight: 600;
   font-size: 24px;
