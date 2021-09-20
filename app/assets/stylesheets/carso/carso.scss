@@ -1567,7 +1567,8 @@ a {
 .head-menu-gift-pic {
   width: 108px;
   height: 100px;
-  background-image: url(img/head-menu/gift.png);
+  background-image: url(carso/img/head-menu/gift.png);
+  background-image:image-url('carso/icons/t_str.svg');
 }
 
 .main {
@@ -1662,13 +1663,13 @@ a {
   width: 27px;
   height: 18px;
   margin-right: 10px;
-  background-image: url(img/arrow-left.svg);
+  background-image: url(carso/img/arrow-left.svg);
 }
 
 .main-title-arrow-right {
   width: 27px;
   height: 18px;
-  background-image: url(img/arrow-right.svg);
+  background-image: url(carso/img/arrow-right.svg);
 }
 
 .main-brand {
@@ -1752,7 +1753,7 @@ a {
   content: "";
   width: 10px;
   height: 10px;
-  background-image: url(img/arrow.svg);
+  background-image: url(carso/img/arrow.svg);
   display: block;
   box-sizing: border-box;
   display: inline-block;
@@ -1845,7 +1846,7 @@ a {
   position: absolute;
   width: 17px;
   height: 12px;
-  background-image: url(img/arrow-bottom.svg);
+  background-image: url(carso/img/arrow-bottom.svg);
   background-repeat: no-repeat;
   left: -26px;
   top: 11px;
@@ -1946,27 +1947,27 @@ a {
 }
 
 .speed {
-  background-image: url(img/speed.svg);
+  background-image: url(carso/img/speed.svg);
 }
 
 .fuel {
-  background-image: url(img/fuel.svg);
+  background-image: url(carso/img/fuel.svg);
 }
 
 .engine {
-  background-image: url(img/engine.svg);
+  background-image: url(carso/img/engine.svg);
 }
 
 .train {
-  background-image: url(img/train.svg);
+  background-image: url(carso/img/train.svg);
 }
 
 .umbrella {
-  background-image: url(img/umbrella.svg);
+  background-image: url(carso/img/umbrella.svg);
 }
 
 .snowflake {
-  background-image: url(img/snowflake.svg);
+  background-image: url(carso/img/snowflake.svg);
 }
 
 .main-map {
@@ -1990,7 +1991,7 @@ a {
   content: "";
   width: 30px;
   height: 37px;
-  background-image: url(img/map.svg);
+  background-image: url(carso/img/map.svg);
   background-size: cover;
   position: absolute;
   top: 26px;
@@ -1998,7 +1999,7 @@ a {
 }
 
 .main-map-wrap:last-child:before  {
-  background-image: url(img/phone.svg);
+  background-image: url(carso/img/phone.svg);
   width: 25px;
   height: 25px;
 
@@ -2243,7 +2244,7 @@ a {
   position: absolute;
   width: 17px;
   height: 12px;
-  background-image: url(img/arrow-bottom-grey.svg);
+  background-image: url(carso/img/arrow-bottom-grey.svg);
   background-repeat: no-repeat;
   left: -18px;
   top: 6px;
@@ -2344,7 +2345,7 @@ a {
   background-color: #820034;
   border: 0;
   border-radius: 3px;
-  background-image: url(img/arrow_white.svg);
+  background-image: url(carso/img/arrow_white.svg);
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -2358,7 +2359,7 @@ a {
 .slide-button {
   width: 80px;
   height: 40px;
-  background-image: url(img/arrow_big.svg);
+  background-image: image-url("carso/img/arrow_big.svg");
 }
 
 .price-green {
@@ -2433,7 +2434,7 @@ a {
 .main-reviews-rating-item {
   width: 15px;
   height: 15px;
-  background-image: url(img/star.png);
+  background-image: url(carso/img/star.png);
   background-repeat: no-repeat;
 }
 
@@ -2450,7 +2451,7 @@ a {
 
 .main-reviews-item:before {
   content: "";
-  background-image: url(img/chat.svg);
+  background-image: url(carso/img/chat.svg);
   width: 26px;
   height: 28px;
   position: absolute;
@@ -2532,22 +2533,22 @@ a {
 }
 
 .item-pay .main-bullets-icon {
-  background-image: url(img/credit/bar.svg);
+  background-image: url(carso/img/credit/bar.svg);
   margin: 0 auto;
 }
 
 .item-credit .main-bullets-icon {
-  background-image: url(img/credit/heart.svg);
+  background-image: url(carso/img/credit/heart.svg);
   margin: 0 auto;
 }
 
 .item-max-pay .main-bullets-icon {
-  background-image: url(img/credit/money.svg);
+  background-image: url(carso/img/credit/money.svg);
   margin: 0 auto;
 }
 
 .item-kasko .main-bullets-icon {
-  background-image: url(img/credit/umbrella.svg);
+  background-image: url(carso/img/credit/umbrella.svg);
   margin: 0 auto;
 }
 
@@ -2608,75 +2609,75 @@ a {
 }
 
 .rus-fin-bank {
-  background-image: url(img/banks/rus-fin-bank.png);
+  background-image: url(carso/img/banks/rus-fin-bank.png);
 }
 
 .vtb-bank {
-  background-image: url(img/banks/vtb-bank.png);
+  background-image: url(carso/img/banks/vtb-bank.png);
 }
 
 .gazprom-bank {
-  background-image: url(img/banks/gazprom-bank.png);
+  background-image: url(carso/img/banks/gazprom-bank.png);
 }
 
 .svyaz-bank {
-  background-image: url(img/banks/svyaz-bank.png);
+  background-image: url(carso/img/banks/svyaz-bank.png);
 }
 
 .rus-fin-bank {
-  background-image: url(img/banks/rus-fin-bank.png);
+  background-image: url(carso/img/banks/rus-fin-bank.png);
 }
 
 .orange-bank {
-  background-image: url(img/banks/orange-bank.png);
+  background-image: url(carso/img/banks/orange-bank.png);
 }
 
 .balt-invest-bank {
-  background-image: url(img/banks/balt-invest-bank.png);
+  background-image: url(carso/img/banks/balt-invest-bank.png);
 }
 
 .sberbank {
-  background-image: url(img/banks/sberbank.png);
+  background-image: url(carso/img/banks/sberbank.png);
 }
 
 .plus-bank {
-  background-image: url(img/banks/plus-bank.png);
+  background-image: url(carso/img/banks/plus-bank.png);
 }
 
 .loko-bank {
-  background-image: url(img/banks/loko-bank.png);
+  background-image: url(carso/img/banks/loko-bank.png);
 }
 
 .prom-svyaz-bank {
-  background-image: url(img/banks/prom-svyaz-bank.png);
+  background-image: url(carso/img/banks/prom-svyaz-bank.png);
 }
 
 .ros-bank {
-  background-image: url(img/banks/prom-svyaz-bank.png);
+  background-image: url(carso/img/banks/prom-svyaz-bank.png);
 }
 
 .prim-soc-bank {
-  background-image: url(img/banks/prim-soc-bank.png);
+  background-image: url(carso/img/banks/prim-soc-bank.png);
 }
 
 .rn-bank {
-  background-image: url(img/banks/rn-bank.png);
+  background-image: url(carso/img/banks/rn-bank.png);
 }
 
 .sovkom-bank {
-  background-image: url(img/banks/sovkom-bank.png);
+  background-image: url(carso/img/banks/sovkom-bank.png);
 }
 
 .yuni-credit-bank {
-  background-image: url(img/banks/yuni-credit-bank.png);
+  background-image: url(carso/img/banks/yuni-credit-bank.png);
 }
 
 .tinkoff-bank {
-  background-image: url(img/banks/tinkoff-bank.png);
+  background-image: url(carso/img/banks/tinkoff-bank.png);
 }
 
 .ural-sib-bank {
-  background-image: url(img/banks/ural-sib-bank.png);
+  background-image: url(carso/img/banks/ural-sib-bank.png);
 }
 
 .main-slide-pic img {
@@ -2927,20 +2928,20 @@ footer {
 }
 
 .footer-soc-icons_fb {
-  background-image: url(img/soc/fb.svg);
+  background-image: url(carso/img/soc/fb.svg);
 }
 
 
 .footer-soc-icons_vk {
-  background-image: url(img/soc/vk.svg);
+  background-image: url(carso/img/soc/vk.svg);
 }
 
 .footer-soc-icons_ok {
-  background-image: url(img/soc/ok.svg);
+  background-image: url(carso/img/soc/ok.svg);
 }
 
 .footer-soc-icons_tg {
-  background-image: url(img/soc/tg.svg);
+  background-image: url(carso/img/soc/tg.svg);
 }
 
 .footer-card-icons_item {
@@ -2963,21 +2964,21 @@ footer {
 
 
 .footer-card-icons_visa {
-  background-image: url(img/card/visa.svg);
+  background-image: url(carso/img/card/visa.svg);
 }
 
 .footer-card-icons_master {
-  background-image: url(img/card/master.svg);
+  background-image: url(carso/img/card/master.svg);
 }
 
 
 .footer-card-icons_mo {
-  background-image: url(img/card/mo.svg);
+  background-image: url(carso/img/card/mo.svg);
 }
 
 
 .footer-card-icons_mir {
-  background-image: url(img/card/mir.svg);
+  background-image: url(carso/img/card/mir.svg);
 }
 
 
@@ -3426,7 +3427,7 @@ footer {
     top: -30px;
     width: 68px;
     height: 25px;
-    background: url(img/main-page/icon/type-auto-1.svg);
+    background: image-url("carso/img/main-page/icon/type-auto-1.svg");
 
   }
 

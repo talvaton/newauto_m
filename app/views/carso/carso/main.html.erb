@@ -8,259 +8,277 @@
   end
 %>
 
-
-<section class="main-slide">
-  <div class="main-slide-item">
-    <div class="main-slide-pic">
-      <%= image_tag "carso/img/main-page/main-slider-pic.png", alt:'', class: 'main-slider-pic-item' %>
-    </div>
-    <div class="main-slide-model">
-      <div class="main-slide-model-cont">
-        <div class="main-slide-wrap">
-          <div class="main-slide-header">Европейская премьера</div>
-          <div class="main-slide-model-name">Kia Seltos</div>
-          <div class="main-slide-text">Новый компактный экономичный кроссовер для города и отдыха на природе.</div>
-          <div class="main-slide-price">
-            <div class="main-slide-price-wrap">
-              <div class="main-slide-price-item">
-                От 960 000₽
+  <section class="main-cont">
+    <section class="catalog">
+      <div class="catalog_item">Каталог авто</div>
+      <div class="catalog-auto">
+        <div class="catalog-auto-wrap">
+          <div class="catalog-auto-item">LADA<span>[3]</span></div>
+          <div class="catalog-auto-item">Geely<span>[5]</span></div>
+          <div class="catalog-auto-item">GAC<span>[1]</span></div>
+          <div class="catalog-auto-item">Kia<span>[7]</span></div>
+          <div class="catalog-auto-item">Hyundai<span>[8]</span></div>
+          <div class="catalog-auto-item">Mitsubishi<span>[6]</span></div>
+          <div class="catalog-auto-item">Renault<span>[7]</span></div>
+          <div class="catalog-auto-item">Chery<span>[2]</span></div>
+          <div class="catalog-auto-item">Mazda<span>[7]</span></div>
+          <div class="catalog-auto-item">Toyota<span>[5]</span></div>
+          <div class="catalog-auto-item">Nissan<span>[2]</span></div>
+          <div class="catalog-auto-item">Haval<span>[6]</span></div>
+          <div class="catalog-auto-item">FAW<span>[7]</span></div>
+          <div class="catalog-auto-item">Skoda<span>[8]</span></div>
+          <div class="catalog-auto-item">Changan<span>[6]</span></div>
+          <div class="catalog-auto-item">Datsun<span>[9]</span></div>
+          <div class="catalog-auto-item">Honda<span>[1]</span></div>
+          <div class="catalog-auto-item">Dongfeng<span>[6]</span></div>
+          <div class="catalog-auto-item">Citroen<span>[7]</span></div>
+          <div class="catalog-auto-item">Peugeot<span>[8]</span></div>
+        </div>
+      </div>
+    </section>
+    <section class="main-slide">
+      <div class="main-slide-item">
+        <div class="main-slide-pic">
+          <%= image_tag "carso/img/main-page/main-slider-pic.png", alt:'', class: 'main-slider-pic-item' %>
+        </div>
+        <div class="main-slide-model">
+          <div class="main-slide-model-cont">
+            <div class="main-slide-wrap">
+              <div class="main-slide-header">Европейская премьера</div>
+              <div class="main-slide-model-name">Kia Seltos</div>
+              <div class="main-slide-text">Новый компактный экономичный кроссовер для города и отдыха на природе.</div>
+              <div class="main-slide-price">
+                <div class="main-slide-price-wrap">
+                  <div class="main-slide-price-item">
+                    От 960 000₽
+                  </div>
+                  <div class="main-slide-price-credit">
+                    <span class="price-green">20 000₽</span>/Мес
+                  </div>
+                </div>
+                <div class="main-slide-button">
+                  <div class="main-button slide-button"><a href="cart-auto.html"></a></div>
+                </div>
               </div>
-              <div class="main-slide-price-credit">
-                <span class="price-green">20 000₽</span>/Мес
-              </div>
-            </div>
-            <div class="main-slide-button">
-              <div class="main-button slide-button"><a href="cart-auto.html"></a></div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-
-<div class="container">
- <h1>Автосалон «AviCAR»</h1>
-</div>
-<div class="hmbnr button sale_bn" data-show-new-ajax="car-credit-modal" data-eq_id="">
-  <div class="hmbnr__1">
-    <div class="hmbnr_bl"><span><b>Госпрограмма</b></span><i>Первый авто Семейный авто</i><%= image_tag "carso/banners/n/mnb3.png", alt:'' %></div>
-    <div class="hmbnr_bl"><span><b>Каско <br> в подарок</b></span><%= image_tag "carso/banners/n/mnb2.png", alt:'' %></div>
-  </div>
-  <div class="hmbnr_bl hmbnr__2"><span><b>3 платежа</b> в подарок</span><%= image_tag "carso/banners/n/mnb1.png", alt:'' %></div>
-</div>
-
-<div class="container">
-<div class="card__box">
-  <div>
-    <h2>Хиты продаж</h2>
-  </div>
-  <div class="card_box_slide row justify-content-between align-items-center">
-    <%= render partial:'new_cars/small_new_cars_main', collection: @hit.limit(20).where('`new_cars`.`hide` = 0').where('`new_cars`.`archive` = 0'), locals: {:show_brand => true, :credit_flag => false} %>
-  </div>
-</div>
-<div class="hf_cell_b">
-<div class="home_f_cell">
-  <%= form_for Ticket.new,url: {action:'create',controller:'tickets' },remote:true,validate:true,:html => {:name=>'expresscredit home'},:namespace => 'expresscredithome' do |f| %>
-    <span class="banr_t">сэкономьте время,<br> закажите</span>
-    <div class="hf_call_t">Обратный звонок</div>
-    <%= f.hidden_field :form_name, value:'express' %>
-    <%= hidden_field_tag 'ticket[other][ttype]',1,id:'credit_ticket_other_ttype' %>
-    <div class="form_input">
-      <%= f.text_field :name,class:'input',placeholder:'Ваше имя' %>
-    </div>
-    <div class="form_input">
-      <%= f.phone_field :phone,class:'phonemask modalphone input',data:{:role=>'phone'},placeholder:'Номер телефона' %>
-    </div>
-    <div class="form_input">
-      <%= f.button do %>
-        <span>Жду звонка</span>
-      <% end %>
-    </div>
-  <% end %>
-</div>
-  <div class="hfc_rbg">
-   <div class="hfc_rb">
-     <div><%= image_tag "carso/icons/group30.svg", alt:'' %>
-       <span>Бесплатное <br> КАСКО</span>
-     </div>
-     <div><%= image_tag "carso/icons/group98.svg", alt:'' %>
-       <span>Зимняя резина в <br> подарок</span>
-     </div>
-     <div><%= image_tag "carso/icons/group101.svg", alt:'' %>
-       <span>Госпрограммы: <br> -10% на любое авто</span>
-     </div>
-     <div><%= image_tag "carso/icons/group33.svg", alt:'' %>
-       <span>Оплата проезда <br> до автосалона</span>
-     </div>
-  </div>
-  </div>
-</div>
-
-
-
-  <div class="htab__box">
-    <div class="htab__box-nav">
-      <div class="htab__b_n-m hact"><span>О салоне</span></div>
-      <div class="htab__b_n-m"><span>Почему стоит обращаться <br> в автосалон AviCAR</span></div>
-      <div class="htab__b_n-m"><span>Автокредитование и Трейд-Ин <br> в автосалоне AviCAR</span></div>
-    </div>
-    <div class="htab__box_txt">
-      <div class="htab__box_txt_b">
-        <div class="hbla_h hblock-active">
-          <div class="hbla_t">
-            <p>Покупка машины － процесс довольно сложный и серьезный. Ведь будущему
-              автовладельцу необходимо подобрать модель, которая будет не только
-              обладать красивой внешностью, но и достаточным функционалом. Помочь
-              в выборе и покупке машины помогут сотрудники автосалона.
-            </p><p>
-            Наш автосалон ведет реализацию как новых, так и поддержанных авто.
-            Благодаря нашему опыту, а также приятным ценам, любой из наших клиентов
-            сможет получить желаемый автомобиль на наиболее выгодных условиях.
-          </p><p>
-            Менеджеры нашего автосалона смогут предложить отличные варианты
-            как абсолютно новых автомобилей, так и поддержанных моделей.
-          </p><p>
-            Благодаря этому Вы можете выбирать в широком диапазоне цен, пробега,
-            а также годов выпуска.
-          </p><p>
-            Главной нашей целью является предоставление максимально комфортных
-            условий для наших клиентов, которые хотят получить качественное авто.
-            Для этого мы:<br>
-            1. Постоянно повышаем квалификацию наших сотрудников.<br>
-            2. Стараемся подобрать индивидуальный подход к каждому клиенту, учитывая
-            его потребности.<br>
-            1. Ответственно относимся к каждой сделке, работая<br>
-            исключительно в рамках профессиональной этики.
-            Именно поэтому к нам
-            обращаются многие, а после покупки советуют наш автосалон своим друзьям
-            и близким
-          </p>
-          </div>
-          <div  class="hbla_img"><%= image_tag "carso/png/h1.png", alt:'' %></div>
-        </div>
-        <div class="hbla_h">
-          <div class="hbla_t">
-            <b>Любой из наших клиентов может воспользоваться преимуществами
-            обращения в автосалон AviCAR:</b>
-            <p>
-            1. Приобретение новых и поддержанных авто на наиболее выгодных условиях. <br>
-            2. Возможность выбора среди множества марок и моделей автомобилей.<br>
-            3. Подбор оптимальной комплектации с учетом всех требований покупателя.<br>
-            4. Участие в различных акциях.<br>
-            5. Получение больших скидок.<br>
-            6. Оформление страховки в солидных компаниях, по наиболее надежным
-            программам.<br>
-            </p>
-            <p>
-            Помимо этого, мы предлагаем возможность приобретения автомобилей
-            в кредит или же по программе Trade-in. Таким образом Вы можете
-            максимально сократить расходы при покупке машины.
-            </p>
-          </div>
-          <div class="hbla_img"><%= image_tag "carso/png/h2.png", alt:'' %></div>
-        </div>
-        <div class="hbla_h">
-          <div class="hbla_t">
-            <p>
-            Не все будущие автовладельцы могут позволить себе покупку нового
-            автомобиля, но мы предоставляем такую возможность. В автосалоне
-            действует программа автокредитования, благодаря которой каждый
-            сможет купить машину мечты без серьезной нагрузки на собственный
-            кошелек.
-            </p><p>
-            <b class="hnp">Автокредитование с нами － это:</b><br>
-            1. Возможность выбора между предложениями от более, чем 30 банков.<br>
-            2. Быстрое одобрение в 95% случаев.<br>
-            3. Первоначальный взнос от 0%.<br>
-            4. Сроки погашения от 6 месяцев до нескольких лет.<br>
-            5. Возможность оформления без приобретения КАСКО.<br>
-            6. Минимальные годовые процентные ставки.
-          </p><p>
-            Также, если у Вас уже имеется старый автомобиль, то <b class="hnp">Вы можете
-            поучаствовать в программе Trade-In.</b> В ее рамках мы готовы
-            обменять машину на денежную сумму, равную текущей стоимости
-            транспорта.
-          </p><p>
-            Таким образом Вы получаете сразу несколько преимуществ:
-            1. Внушительную скидку или первоначальный взнос при покупке
-            нового авто.<br>
-            2. Отсутствие необходимости в трате времени на продажу машины
-            Не нужно  тратить собственных денег на предпродажную подготовку.<br>
-            3. Если Вы хотите приобрести новый и поддержанный автомобиль
-            на наиболее выгодных условиях, то обращение в наш автоцентр
-            станет правильным решением. Не стоит терять времени, ведь
-            лучшие модели от мировых производителей уже жду
-            Вас в нашем автосалоне.
-          </p>
-          </div>
-          <div class="hbla_img"><%= image_tag "carso/png/h3.png", alt:'' %></div>
-        </div>
+    </section>
+    <div class="type-auto-menu">
+      <div class="type-auto-menu-cont">
+        <ul class="type-auto-menu-list">
+          <li class="type-auto-menu-item">Новинки 2021</li>
+          <li class="type-auto-menu-item">Быстрые авто</li>
+          <li class="type-auto-menu-item">подбор до 600 000₽</li>
+          <li class="type-auto-menu-item">Кроссоверы</li>
+          <li class="type-auto-menu-item">Для большой семьи</li>
+          <li class="type-auto-menu-item">Для охоты и рыбалки</li>
+        </ul>
       </div>
     </div>
-  </div>
-
-
-  <div class="hit-menu">
-    <div class="row justify-content-start">
-      <h2>Популярные марки</h2>
-    </div>
-    <ul class="nav d-flex">
-      <%= render partial:'carso/main_catalog_main', collection: @brands %>
-    </ul>
-  </div>
-
-
-<% if region %>
-  <%= render partial: 'new_cars/region_form' %>
-<% end %>
-
-<div class="">
-<h2>Поможет в выборе</h2>
-<div class="row justify-content-between block_h_url">
-  <ul>
-    <li><%= link_to 'Новые автомобили',newauto_path %></li>
-    <li><%= link_to 'Безопасные авто',safecars_path %></li>
-    <li><%= link_to 'Надежные авто',reliablecars_path %></li>
-    <li><%= link_to 'Авто для женщин',womencars_path %></li>
-    <li><%= link_to 'Дешевые авто',cheap_auto_path %></li>
-  </ul>
-  <ul>
-    <li><%= link_to 'Китайские авто',new_car_country_path('china') %></li>
-    <li><%= link_to 'Японские авто',new_car_country_path('japan') %></li>
-    <li><%= link_to 'Немецкие авто',new_car_country_path('germany') %></li>
-    <li><%= link_to 'Корейские авто',new_car_country_path('karya') %></li>
-    <li><%= link_to 'Французские авто',new_car_country_path('france') %></li>
-  </ul>
-  <ul>
-    <li><%= link_to 'Хэтчбеки',new_car_type_path('hetchback') %></li>
-    <li><%= link_to 'Седаны',new_car_type_path('sedan') %></li>
-    <li><%= link_to 'Универсалы',new_car_type_path('universal') %></li>
-    <li><%= link_to 'Кроссоверы',new_car_type_path('crossover') %></li>
-  </ul>
-  <ul>
-    <li><%= link_to 'Внедорожники',new_car_type_path('vehicle') %></li>
-    <li><%= link_to 'Лифтбеки',new_car_type_path('liftbeki') %></li>
-    <li><%= link_to 'Минивэны',new_car_type_path('minivenyi') %></li>
-    <li><%= link_to 'Фургоны',new_car_type_path('furgonyi') %></li>
-  </ul>
-  <ul>
-    <li><%= link_to 'Первый автомобиль', first_auto_path %></li>
-    <li><%= link_to 'Семейный автомобиль', family_auto_path %></li>
-    <li><%= link_to 'Пикапы',new_car_type_path('pikapyi') %></li>
-  </ul>
-</div>
-</div>
-</div>
+    <section class="main-pic-list">
+      <div class="main-pic-list-cont">
+        <div class="main-pic-list-item img-1 casko">
+          <div class="main-pic-list-date">
+            <div class="main-pic-list-date-item">Каско</div>
+            <div class="main-pic-list-date-item">в подарок!</div>
+          </div>
+        </div>
+        <div class="main-pic-list-item img-2 gos">
+          <div class="main-pic-list-date">
+            <div class="main-pic-list-date-item">Госпрограмма</div>
+            <div class="main-pic-list-date-item">первый авто</div>
+            <div class="main-pic-list-date-item">Семейный авто</div>
+          </div>
+        </div>
+        <div class="main-pic-list-item img-3 pay_three">
+          <div class="main-pic-list-date">
+            <div class="main-pic-list-date-item">3</div>
+            <div class="main-pic-list-date-item">Платежа</div>
+            <div class="main-pic-list-date-item">за наш счёт</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="main-nov">
+      <section class="main-title-wrap">
+        <div class="main-title">
+          <div class="main-title-text">Новинки в салоне</div>
+        </div>
+      </section>
+      <div class="main-nov-cont">
+        <div class="main-nov-item">
+          <div class="main-nov-img"><%= image_tag "carso/img/main-page/main-nov-pic.png", alt:'', class: 'main-slider-pic-item' %></div>
+          <div class="main-nov-wrap">
+            <div class="main-nov-head">Новый KIA Sportage — кроссовер ломающий стереотипы</div>
+            <div class="main-nov-text">Обновленный Sportage по-настоящему впечатляет. Знакомые атлетические, мужественные черты дополнены новой светодиодной оптикой, ов	ми 	бамперами и колесными дисками. Обновленный Sportage по-настоящему впечатляет. Знакомые атлетические, мужественные черты дополнены новой светодиоднойоптикой, 	новыми бамперами и колесными дисками.
+            </div>
+          </div>
+        </div>
+        <div class="main-nov-item">
+          <div class="main-nov-img"><%= image_tag "carso/img/main-page/main-nov-pic.png", alt:'', class: 'main-slider-pic-item' %></div>
+          <div class="main-nov-wrap">
+            <div class="main-nov-head">Новый KIA Sportage — кроссовер ломающий стереотипы</div>
+            <div class="main-nov-text">Обновленный Sportage по-настоящему впечатляет. Знакомые атлетические, мужественные черты дополнены новой светодиодной оптикой, ов	ми 	бамперами и колесными дисками. Обновленный Sportage по-настоящему впечатляет. Знакомые атлетические, мужественные черты дополнены новой светодиоднойоптикой, 	новыми бамперами и колесными дисками.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
 
 
-<style>
-  header .header_top{
-    border-bottom: medium none;
-  }
-  #breadcrumbs{
-    display: none;
-  }
-</style>
+
+    <section class="main-brand">
+      <section class="main-title-wrap">
+        <div class="main-title">
+          <div class="main-title-text">
+            Популярные авто
+          </div>
+        </div>
+      </section>
+      <div class="main-brand-item-cont">
+        <%= render partial:'new_cars/small_new_cars_main', collection: @hit.limit(6).where('`new_cars`.`hide` = 0').where('`new_cars`.`archive` = 0'), locals: {:show_brand => true, :credit_flag => false} %>
+
+        <div class="main-brand-item">
+          <div class="main-brand-img-wrap">
+            <div class="main-brand-img">
+              <img src="img/kia-sportage.png" alt="">
+            </div>
+          </div>
+          <div class="main-brand-price-text">
+            <div class="main-brand-model">Kia Celtos</div>
+            <div class="main-brand-price-cont">
+              <div class="main-brand-price">
+                <div class="main-brand-of-price">1 210 200₽</div>
+                <div class="main-brand-price-item">950 000₽</div>
+                <div class="main-price-month">
+                  <span class="main-price-month_green">27200 ₽</span>/мес
+                </div>
+              </div>
+              <div class="main-brand-benefit">
+                <div class="main-brand-benefit_title">Выгода в кредит</div>
+                <div class="main-brand-benefit_price">150 000₽</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="main-brand-item">
+          <div class="main-brand-img-wrap">
+            <div class="main-brand-img">
+              <img src="img/kia-sportage.png" alt="">
+            </div>
+          </div>
+          <div class="main-brand-price-text">
+            <div class="main-brand-model">Kia Celtos</div>
+            <div class="main-brand-price-cont">
+              <div class="main-brand-price">
+                <div class="main-brand-of-price">1 210 200₽</div>
+                <div class="main-brand-price-item">950 000₽</div>
+                <div class="main-price-month">
+                  <span class="main-price-month_green">27200 ₽</span>/мес
+                </div>
+              </div>
+              <div class="main-brand-benefit">
+                <div class="main-brand-benefit_title">Выгода в кредит</div>
+                <div class="main-brand-benefit_price">150 000₽</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="main-brand-item">
+          <div class="main-brand-img-wrap">
+            <div class="main-brand-img">
+              <img src="img/kia-sportage.png" alt="">
+            </div>
+          </div>
+          <div class="main-brand-price-text">
+            <div class="main-brand-model">Kia Celtos</div>
+            <div class="main-brand-price-cont">
+              <div class="main-brand-price">
+                <div class="main-brand-of-price">1 210 200₽</div>
+                <div class="main-brand-price-item">950 000₽</div>
+                <div class="main-price-month">
+                  <span class="main-price-month_green">27200 ₽</span>/мес
+                </div>
+              </div>
+              <div class="main-brand-benefit">
+                <div class="main-brand-benefit_title">Выгода в кредит</div>
+                <div class="main-brand-benefit_price">150 000₽</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="main-brand-item">
+          <div class="main-brand-img-wrap">
+            <div class="main-brand-img">
+              <img src="img/kia-sportage.png" alt="">
+            </div>
+          </div>
+          <div class="main-brand-price-text">
+            <div class="main-brand-model">Kia Celtos</div>
+            <div class="main-brand-price-cont">
+              <div class="main-brand-price">
+                <div class="main-brand-of-price">1 210 200₽</div>
+                <div class="main-brand-price-item">950 000₽</div>
+                <div class="main-price-month">
+                  <span class="main-price-month_green">27200 ₽</span>/мес
+                </div>
+              </div>
+              <div class="main-brand-benefit">
+                <div class="main-brand-benefit_title">Выгода в кредит</div>
+                <div class="main-brand-benefit_price">150 000₽</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="main-brand-item">
+          <div class="main-brand-img-wrap">
+            <div class="main-brand-img">
+              <img src="img/kia-sportage.png" alt="">
+            </div>
+          </div>
+          <div class="main-brand-price-text">
+            <div class="main-brand-model">Kia Celtos</div>
+            <div class="main-brand-price-cont">
+              <div class="main-brand-price">
+                <div class="main-brand-of-price">1 210 200₽</div>
+                <div class="main-brand-price-item">950 000₽</div>
+                <div class="main-price-month">
+                  <span class="main-price-month_green">27200 ₽</span>/мес
+                </div>
+              </div>
+              <div class="main-brand-benefit">
+                <div class="main-brand-benefit_title">Выгода в кредит</div>
+                <div class="main-brand-benefit_price">150 000₽</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="main-brand-item">
+          <div class="main-brand-img-wrap">
+            <div class="main-brand-img">
+              <img src="img/kia-sportage.png" alt="">
+            </div>
+          </div>
+          <div class="main-brand-price-text">
+            <div class="main-brand-model">Kia Celtos</div>
+            <div class="main-brand-price-cont">
+              <div class="main-brand-price">
+                <div class="main-brand-of-price">1 210 200₽</div>
+                <div class="main-brand-price-item">950 000₽</div>
+                <div class="main-price-month">
+                  <span class="main-price-month_green">27200 ₽</span>/мес
+                </div>
+              </div>
+              <div class="main-brand-benefit">
+                <div class="main-brand-benefit_title">Выгода в кредит</div>
+                <div class="main-brand-benefit_price">150 000₽</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>

@@ -1,69 +1,77 @@
-<%
-  region = false
-  unless @current_region.id == 57
-    region = true
-  end
-%>
-<% if main_page? %><% else %>
-  <div class="over_bl_h2">
-    <h3>Поможет в выборе</h3>
-    <div class="row justify-content-between block_h_url">
-      <ul>
-        <li><%= link_to 'Новые авто',newauto_path %></li>
-        <li><%= link_to 'Безопасные авто',safecars_path %></li>
-        <li><%= link_to 'Надежные авто',reliablecars_path %></li>
-        <li><%= link_to 'Авто для женщин',womencars_path %></li>
-        <li><%= link_to 'Дешевые авто',cheap_auto_path %></li>
-      </ul>
-      <ul>
-        <li><%= link_to 'Китайские авто',new_car_country_path('china') %></li>
-        <li><%= link_to 'Японские авто',new_car_country_path('japan') %></li>
-        <li><%= link_to 'Немецкие авто',new_car_country_path('germany') %></li>
-        <li><%= link_to 'Корейские авто',new_car_country_path('karya') %></li>
-        <li><%= link_to 'Французские авто',new_car_country_path('france') %></li>
-      </ul>
-      <ul>
-        <li><%= link_to 'Хэтчбеки',new_car_type_path('hetchback') %></li>
-        <li><%= link_to 'Седаны',new_car_type_path('sedan') %></li>
-        <li><%= link_to 'Универсалы',new_car_type_path('universal') %></li>
-        <li><%= link_to 'Кроссоверы',new_car_type_path('crossover') %></li>
-      </ul>
-      <ul>
-        <li><%= link_to 'Внедорожники',new_car_type_path('vehicle') %></li>
-        <li><%= link_to 'Лифтбеки',new_car_type_path('liftbeki') %></li>
-        <li><%= link_to 'Минивэны',new_car_type_path('minivenyi') %></li>
-        <li><%= link_to 'Фургоны',new_car_type_path('furgonyi') %></li>
-      </ul>
-      <ul>
-        <li><%= link_to 'Первый авто', first_auto_path %></li>
-        <li><%= link_to 'Семейный авто', family_auto_path %></li>
-        <li><%= link_to 'Пикапы',new_car_type_path('pikapyi') %></li>
-      </ul>
-    </div>
-  </div>
-<% end %>
-<footer class="footer">
- <div class="container">
-
-  <div class="f_info">
-    <div class="f_ti">Обращаем ваше внимание на то, что данный интернет-сайт носит исключительно информационный характер и ни при каких условиях не является публичной офертой, определяемой положением ч. 2 ст. 437 Гражданского кодекса Российской Федерации. Для получения подробной информации о стоимости автомобилей, пожалуйста, обращайтесь к менеджеру по продажам. Все цены на сайте указаны с учетом скидок. Условия на покупку автомобиля указаны по кредиту и включают в себя обязательные страховые продукты, которые оплачиваются отдельно.</div>
-    <div class="h_tel">
-      <div class="d-flex">
-       <a href="tel:88005052566" rel="nofollow" class="row"><span itemprop="telephone">8 800 505-25-66</span></a>
+<footer>
+  <div class="footer-wrap">
+    <div class="footer-pop">
+      <div class="footer-pop-title">Популярные марки</div>
+      <div class="footer-pop-brands">
+        <div class="footer-pop-item">Audi<span>[3]</span></div>
+        <div class="footer-pop-item">Changan<span>[23]</span></div>
+        <div class="footer-pop-item">Hyundai<span>[45]</span></div>
+        <div class="footer-pop-item">GAC<span>[13]</span></div>
+        <div class="footer-pop-item">Lada<span>[10]</span></div>
+        <div class="footer-pop-item">Mitsubishi<span>[7]</span></div>
+        <div class="footer-pop-item">Nissan<span>[8]</span></div>
+        <div class="footer-pop-item">Skoda<span>[8]</span></div>
+        <div class="footer-pop-item">Geely<span>[8]</span></div>
+        <div class="footer-pop-item">Chery<span>[12]</span></div>
+        <div class="footer-pop-item">Datsun<span>[16]</span></div>
+        <div class="footer-pop-item">Citroen<span>[55]</span></div>
+        <div class="footer-pop-item">Dongfeng<span>[8]</span></div>
+        <div class="footer-pop-item">Faw<span>[12]</span></div>
+        <div class="footer-pop-item">Haval<span>[12]</span></div>
+        <div class="footer-pop-item">Honda<span>[12]</span></div>
+        <div class="footer-pop-item">Hower<span>[12]</span></div>
+        <div class="footer-pop-item">Toyota<span>[12]</span></div>
+        <div class="footer-pop-item">Volkswagen<span>[12]</span></div>
+        <div class="footer-pop-item">Peugeot<span>[12]</span></div>
       </div>
-      <div class="home_location">Москва, ул. Привольная, 70к1. Метро Котельники</div>
+      <div class="footer-attention">
+        Обращаем ваше внимание на то, что данный интернет-сайт носит исключительно информационный характер и ни при каких условиях не является публичной офертой, определяемой положением ч. 2 ст. 437 Гражданского кодекса Российской Федерации. Для получения подробной информации о стоимости автомобилей, пожалуйста, обращайтесь к менеджеру по продажам. Все цены на сайте указаны с учётом скидок. Условия на покупку автомобиля указаны по кредиту и включают в себя обязательные страховые продукты, которые оплачиваются отдельно.
+      </div>
+      <div class="footer-cookies">
+        Наш сайт использует файлы cookie для лучшего пользовательского опыта. Если вы не хотите их передавать, отключите cookie в настройках браузера.
+        Предоставляя свои персональные данные и используя настоящий веб-сайт, вы соглашаетесь с обработкой ваших персональных данных и принимаете условия их обработки.
+      </div>
+      <div class="footer-links">
+        <div class="footer-links-item"><a href="/">Политика конфиденциальности</a></div>
+        <div class="footer-links-item"><a href="">Правила проведения акций</a></div>
+      </div>
     </div>
   </div>
-<div class="f_info_end">
-   <div>
-    <div class="f_span">Предоставляя свои персональные данные и используя настоящий веб-сайт, Вы соглашаетесь с обработкой Ваших персональных данных и принимаете условия их обработки.</div>
-    <div class="f_info_pol"><a href="/politika-konfidencialnosti" rel="nofollow">Политика конфиденциальности</a><a href="/pravila-provedeniya-akciy" rel="nofollow">Правила проведения акций</a></div>
-   </div>
-</div>
- </div>
+  <div class="footer-wrap">
+    <div class="footer-phones-soc">
+      <div class="footer-phones">
+        <div class="footer-phones-item">
+          +7(495)225-35-45
+        </div>
+        <div class="footer-phones-item">
+          8(800)707-53-51
+        </div>
+      </div>
+      <div class="footer-adress">Москва, Домодедовская ул. Автозаводская, 70, строение 5</div>
+      <div class="footer-soc">
+        <div class="footer-soc-title">Следите за нами в соцсетях</div>
+        <div class="footer-soc-icons">
+          <div class="footer-soc-icons_item">
+            <a href="" class="footer-soc-icons_fb"></a>
+            <a href="" class="footer-soc-icons_vk"></a>
+            <a href="" class="footer-soc-icons_ok"></a>
+            <a href="" class="footer-soc-icons_tg"></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-pay">
+        <div class="footer-pay-title">Мы принимаем</div>
+        <div class="footer-pay-item">
+          <div class="footer-card-icons">
+            <div class="footer-card-icons_item">
+              <a href="" class="footer-card-icons_visa"></a>
+              <a href="" class="footer-card-icons_master"></a>
+              <a href="" class="footer-card-icons_mo"></a>
+              <a href="" class="footer-card-icons_mir"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </footer>
-<div class="toolbar_m fb_finx">
-  <div class="mbrb sale_bn" id="modal_cookie_message"><div class="t_cnt"><%= image_tag "carso/icons/f_tr.png", alt:'' %></div><div class="p_cell">Заявка на кредит</div></div>
-  <a href="tel:88005052566" class="cell_f" rel="nofollow"><div class="t_cnt"><%= image_tag "carso/icons/phone_w.png", alt:'' %></div><div class="p_cell">Позвонить</div></a>
-  <a href="yandexnavi://build_route_on_map?lat_to=55.678354&lon_to=37.852721" class="mbrb" style=""><div class="t_cnt"><%= image_tag "carso/icons/f_adr.png", alt:'' %></div><div class="p_cell">Проезд до автосалона</div></a>
-</div>

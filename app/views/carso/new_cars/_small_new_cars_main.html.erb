@@ -29,27 +29,32 @@
   end
 %>
 
-<div class="card-box">
-  <%#= link_to new_car_path(small_new_cars_main.brand,small_new_cars_main),class:'',title:small_new_cars_main.name do %>
+
+
+<div class="main-brand-item">
   <%= link_to (taxi ? new_car_taxi_path("#{small_new_cars_main.brand.url}-#{ small_new_cars_main.url}") : new_car_path(small_new_cars_main.brand.url,small_new_cars_main.url)  ) do %>
-  <div class="card-media">
+  <div class="main-brand-img-wrap">
+    <div class="main-brand-img">
       <% if small_new_cars_main.colors[0].present? %>
-      <%= image_tag "/static/images/blank.png", alt: '',data:{:lazy=>small_new_cars_main.colors[0].card.url,:original=>small_new_cars_main.colors[0].card.url} %>
+        <%= image_tag "/static/images/blank.png", alt: '',data:{:lazy=>small_new_cars_main.colors[0].card.url,:original=>small_new_cars_main.colors[0].card.url} %>
       <% end %>
     </div>
-    <div class="card-main">
-      <div class="sale_block_center row justify-content-between">
-        <div class="sbc-item"><span class="sbc-i-text">Кредит 1.9%</span></div>
-        <div class="sbc-item"><span class="sbc-i-text">Рассрочка 0%</span></div>
-        <div class="sbc-item"><span class="sbc-i-text">Трейд-ин</span></div>
-        <div class="sbc-item"><span class="sbc-i-text">Гарантия</span></div>
+  </div>
+  <div class="main-brand-price-text">
+    <div class="main-brand-model"><%= small_new_cars_main.brand.title %> <%= small_new_cars_main.name %></div>
+    <div class="main-brand-price-cont">
+      <div class="main-brand-price">
+        <div class="main-brand-of-price">1 210 200₽</div>
+        <div class="main-brand-price-item"><%= credit ? "data-price=#{snc_price}" : '' %>><%= number_with_delimiter((credit ? count_price(snc_price,PERCENT,MONTH):snc_price  ), delimiter: " ") %> ₽</div>
+        <div class="main-price-month">
+          <span class="main-price-month_green">27200 ₽</span>/мес
+        </div>
       </div>
-      <div class="card-title"><%= small_new_cars_main.brand.title %> <%= small_new_cars_main.name %></div>
-      <div class="card-price">
-        <span <%= credit ? "data-price=#{snc_price}" : '' %>><%= number_with_delimiter((credit ? count_price(snc_price,PERCENT,MONTH):snc_price  ), delimiter: " ") %></span> ₽<% if credit %><span>/мес</span><% end %>
+      <div class="main-brand-benefit">
+        <div class="main-brand-benefit_title">Выгода в кредит</div>
+        <div class="main-brand-benefit_price">150 000₽</div>
       </div>
-      <div class="mc_btn">Посмотреть авто</div>
     </div>
+  </div>
   <% end %>
-
 </div>
