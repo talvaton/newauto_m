@@ -4760,11 +4760,11 @@ a {
 
 .main-item-color {
   position: absolute;
-  width: 32px;
-  height: 32px;
-  background: linear-gradient(180deg, #F7F7F7 0%, #DADBDF 100%);
+  /*width: 32px;
+  height: 32px;*/
+  /*background: linear-gradient(180deg, #F7F7F7 0%, #DADBDF 100%);
   border: 1.57447px solid #F2F2F2;
-  box-sizing: border-box;
+  box-sizing: border-box;*/
   border-radius: 17px;
   top: 40px;
   left: 10px;
@@ -4789,7 +4789,7 @@ a {
   content: "";
   width: 10px;
   height: 10px;
-  background-image: url(carso/img/arrow.svg);
+  background-image: image-url("carso/img/arrow.svg");
   display: block;
   box-sizing: border-box;
   display: inline-block;
