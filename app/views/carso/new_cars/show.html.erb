@@ -79,443 +79,1154 @@
 
 
 
-<div class="h_block">
-  <div>
-   <h1 itemprop="name"><%= @car.brand.title %> <br><%= @car.name %></h1>
-   <div class="h_slog"><span> По специальной цене до <%= l(SALE_DATE, format: :next_monday) %> 2021</span></div>
-  </div>
-  <div class="sale_h_pr"><div><span>Получи скидку</span> <i><%= number_with_delimiter(max_discount_e,delimeter:' ') %> ₽ </i></div>
-    <a href="#" class="button sale_bn" data-show-new-ajax="car-credit-modal" data-eq_id="" rel="nofollow">Получить</a>
-  </div>
-</div>
-<div class="sale-from" itemprop="offers" itemscope="" itemtype="https://schema.org/Offer"><span>от <%= number_with_delimiter(@car.count_min_price(@region_discount), delimiter: " ") %> ₽</span>
-  <meta itemprop="price" content="<%= number_with_delimiter(@car.count_min_price(@region_discount), delimiter: " ") %>">
-  <meta itemprop="priceCurrency" content="RUB">
-  <meta itemprop="priceValidUntil" content="<%= Date.today %>">
-  <link itemprop="availability" href="https://schema.org/InStock">
-</div>
-<div class="stb-n" itemscope="" itemtype="https://schema.org/Product">
 
-  <div class="sale_ftxt">
-    <div class="sf_ul">
-      <ul>
-        <span>Каждому покупателю</span>
-        <li>Бесплатное КАСКО</li>
-        <li>Зимняя резина в подарок</li>
-        <li>Оплата проезда до автосалона</li>
-      </ul>
-    </div>
+
+
+<section class="main-item">
+  <div class="main-breadcrumbs">
+    <a href=""><span>Главная</span></a>
+    <a href=""><span>Каталог</span></a>
+    <a href=""><span>KIA</span></a>
+    <a href=""><span>Sportage New</span></a>
   </div>
-  <div class="img_col_block">
-    <meta itemprop="description" content="❗ Грандиозная распродажа новых автомобилей <%= @car.menutitle %> <%= @car.old ? (Time.current - 2.year).year.to_s : (Time.current - 1.year).year.to_s %> - <%= @car.old ? (Time.current - 1.year).year.to_s : Time.current.year.to_s %> года в <%= @current_region.sklon3 %>! 🚘 Все комплектации в наличии у официального дилера! ❗ Скидка на <%= @car.russian_name %> до <%= number_with_delimiter(max_discount_e,delimeter:' ') %> руб. ✅ Кредит от 1,9%! 🎁 Каско бесплатно! — AviCAR ☎️ 8 800 505-25-66.">
-    <meta itemprop="brand" content="<%= @car.brand.title %>">
-    <div class="img-comp-container" data-content="car-colors-list">
-      <% colors_swaped[0..1].each_with_index do |c,index| %>
-        <div class="img-comp-img">
-          <%= image_tag "#{c.largecard.url}",class:'', alt:'', itemprop:'image', data:{:image_index=>index} %>
-        </div>
-      <% end %>
-      <% if colors_swaped[2..-1].present? %>
-      <% colors_swaped[2..-1].each_with_index do |c,index| %>
-        <% index = index + 2 %>
-        <div class="img-comp-img">
-          <%#= image_tag 'blank.png',class:'', alt:'', data:{:altsrc=>"#{c.largecard.url}",:image_index=>index} %>
-          <%= image_tag c.largecard.url, class:'', alt:'', data:{:image_index=>index} %>
-        </div>
-      <% end %>
-      <% end %>
+  <div class="main-item-wrap">
+    <div class="main-item-color">
+
     </div>
-    <div class="singlecar__colors-wrapper" data-content="choose-right-color">
-      <div class="singlecar__colors">
-        <ul class="colors-list">
-          <% color_options_swaped.each_with_index do |c,index| %>
-            <li class="color <% if index == 1 %>color--choosed<% end %>" data-action="show-color" style="background-color: <%= c['color'] %>; background: <%= c['color2'] if c['color2'].present? %>;"
-                data-disable-hover="false" title="<%= c['colorname'] %>" data-color_index="<%= index %>">
-            </li>
-          <% end %>
-        </ul>
+    <div class="main-img">
+      <%= image_tag "carso/img/kia-sportage.png", alt:'', class: '' %>
+    </div>
+    <div class="main-brand-model">
+      <div class="main-brand-name">Kia</div>
+      <div class="main-model-name">Sportage</div>
+      <div class="main-price">
+        <div class="main-price-item">
+          <div class="main-price-unit">121200 ₽</div>
+          <div class="main-price-discount">950 000 ₽</div>
+          <div class="main-price-month"><span class="main-price-month_green">27200 ₽</span>/мес
+          </div>
+        </div>
+        <div class="main-price-item">
+          <div class="main-price-benefit">
+            <div class="main-price-benefit_title">Выгода в кредит</div>
+            <div class="main-price-benefit_cost">170 000₽</div>
+          </div>
+        </div>
       </div>
-      <div class="mrr_bl row justify-content-start">
-        <div class="sbc-item">
-          <span class="sbc-i-text"><%= @car.specifications.joins(:equipment).where('`equipment`.`hide` = 0').maximum(:power) %> л.с.</span>
-          <span class="sbc-i-title">Мощность</span>
+      <div class="main-spec">
+        <div class="main-spec-item">
+          <div class="main-spec-img speed"></div>
+          <div class="main-spec-wrap">
+            <div class="main-spec-title">7.5 с</div>
+            <div class="main-spec-text">Разгон до 100 км/ч</div>
+          </div>
         </div>
-        <% min_acc = @car.specifications.joins(:equipment).where('`equipment`.`hide` = 0').minimum(:acceleration) %>
-        <% if min_acc.present? %>
-          <div class="sbc-item">
-            <span class="sbc-i-text"><%= @car.specifications.joins(:equipment).where('`equipment`.`hide` = 0').minimum(:acceleration).round(1) %> с</span>
-            <span class="sbc-i-title">Разгон до 100 км/ч</span>
+        <div class="main-spec-item">
+          <div class="main-spec-img fuel"></div>
+          <div class="main-spec-wrap">
+            <div class="main-spec-title">7 л</div>
+            <div class="main-spec-text">Расход на 100км</div>
           </div>
-        <% end %>
-        <%
-          min_fh = @car.specifications.joins(:equipment).where('`equipment`.`hide` = 0').minimum(:fuelhigh)
-          min_fc = @car.specifications.joins(:equipment).where('`equipment`.`hide` = 0').minimum(:fuelcity)
-          min_fm = @car.specifications.joins(:equipment).where('`equipment`.`hide` = 0').minimum(:fuelmix)
-          unless min_fc.nil? || min_fh.nil? || min_fm.nil?
 
-            if (min_fc.nil? || min_fh.nil?) && min_fm.present?
-              fuel = min_fm.round(1)
-            else
-              fuel = "#{min_fh.round(1)}"
-            end
-        %>
-          <div class="sbc-item">
-            <span class="sbc-i-text"><%= fuel %> л</span>
-            <span class="sbc-i-title">Расход на 100 км</span>
-          </div>
-        <% end %>
-      </div>
-
-    </div>
-
-  </div>
-  <div class="sbcf">
-    <div class="form_block-right row">
-      <div class="form_block">
-        <div class="form-sale-info">
-          <% if @car.archive %><div class="t_archive">Снят с производства</div><% end %>
-          <span class="fprm_gos_pa">Госпрограмма -10%</span>
-          <div class="form-credit-info">Выгодный кредит <span><i>от </i><% snc_price = min_price %><%= number_with_delimiter(count_price(snc_price,PERCENT,MONTH), delimiter: " ") %> ₽</span></div>
-          <span class="car_online">
-             <%= image_tag "carso/icons/group2873.png", alt: '' %>
-
-            <% car_count_arr = [] %>
-            <% equipments = @equipments.limit(10).shuffle %>
-            <% equipments.each do |e| %>
-              <% car_count = e.id % 5 %>
-              <% car_count = 2 if car_count < 2 %>
-              <% car_count_arr.push(car_count) %>
-            <% end %>
-            В наличии автомобилей: <%= car_count_arr.sum %></span>
         </div>
-        <%= form_for Ticket.new,url: {action:"create",controller:"tickets" },remote:true,validate:true,:html => {:class => "form",:name=>"newcarreq"},:namespace => "newcarreq" do |f| %>
-          <%= hidden_field_tag 'ticket[other][model]',@car.id, id:'newcarreq_ticket_other_model' %>
-          <%= f.hidden_field :form_name, value:"express" %>
-          <div class="form_input nn">
-            <%= f.text_field :name,class:"input",placeholder:"Ваше имя" %>
+        <div class="main-spec-item">
+          <div class="main-spec-img engine"></div>
+          <div class="main-spec-wrap">
+            <div class="main-spec-title">151 л/c</div>
+            <div class="main-spec-text">Мощность двигателя</div>
           </div>
-          <div class="form_input ph">
-            <%= f.phone_field :phone,class:"input",data:{:role=>"phone"},placeholder:"Номер телефона"  %>
-          </div>
-          <%= f.button class: "button add__form-btn" do %><span>Получить условия</span><% end %>
-          <%= f.button class: "button", style:"background-color:##{@brand.description['main_color']}" do %><span>Зарезервировать авто</span><% end %>
-        <% end %>
-        <%#<button class="but_url" data-show-new-ajax="car-credit-modal">Купить в кредит</button>%>
+        </div>
       </div>
     </div>
+    <section class="main-call-map">
+      <div class="main-map-wrap">
+        <div class="main-map-text">Проезд <br> до салона</div>
+      </div>
+      <div class="main-map-wrap">
+        <div class="main-map-text">Позвонить</div>
+      </div>
+    </section>
+    <section class="main-offer">
+      <section class="main-offer-container">
+        <div class="main-offer-title">Персональное предложение на покупку в кредит</div>
+        <div class="main-offer-text">скидка до 395 000₽  / Каско в подарок рассрочка 0%  /  кредит: 1.9% </div>
+        <div class="main-offer-form">
+          <input type="text" class="main-offer-form_input">
+          <label class="main-offer-form_label">Ваше имя</label>
+        </div>
+        <div class="main-offer-form">
+          <input type="text" class="main-offer-form_input">
+          <label class="main-offer-form_label">Телефон для связи</label>
+        </div>
+        <div class="main-offer-button">
+          <button class="main-offer-button_item">получить условия</button>
+          <div class="main-offer-action">Акция до 10 сентября</div>
+        </div>
+        <div class="main-offer-accept">Нажимая на кнопку “Получить условия” Вы даете согласие на обработку своих персональных данных</div>
+      </section>
+    </section>
   </div>
+</section>
+<section class="main-model-menu">
+  <ul class="main-model-menu-list">
+    <li class="main-model-menu-item">Дизайн</li>
+    <li class="main-model-menu-item">Технические характеристики</li>
+    <li class="main-model-menu-item">Комплектации и цены</li>
+    <li class="main-model-menu-item">Галерея</li>
+    <li class="main-model-menu-item">Горячие предложения</li>
+    <li class="main-model-menu-item">Конфигуратор</li>
+    <li class="main-model-menu-item">Тест-драйв</li>
+  </ul>
+</section>
+<section class="main-gifts">
+  <section class="main-gifts-cont">
+    <div class="main-gifts-item">
+      <div class="main-gifts-img umbrella">
 
-</div>
-
-
-
-<div class="pr_slog_b">
-  <div><%= image_tag "carso/icons/group30.svg", alt:'' %>
-    <span>Бесплатное <br> КАСКО</span>
-  </div>
-  <div><%= image_tag "carso/icons/group98.svg", alt:'' %>
-    <span>Зимняя резина в <br> подарок</span>
-  </div>
-  <div><%= image_tag "carso/icons/group101.svg", alt:'' %>
-    <span>Госпрограммы: <br> -10% на любое авто</span>
-  </div>
-  <div><%= image_tag "carso/icons/group33.svg", alt:'' %>
-    <span>Оплата проезда <br> до автосалона</span>
-  </div>
-</div>
-
-<% if region %>
-<%= render partial: 'new_cars/region_form' %>
-<% end %>
-
-<% unless !@car.available %>
-  <%# unless @car.archive %>
-  <div class="complectation">
-
-    <div class="row" id="compl_t">
-      <h2 class="title">Комплектации и цены <%= @car.russian_name %></h2>
+      </div>
+      <div class="main-gifts-title snowflake">
+        Каско
+      </div>
+      <div class="main-gifts-text train">
+        покупателю в подарок
+      </div>
     </div>
-    <div class="table-main">
-      <% spec = Specification.select('specifications.*,MIN(equipment.price) AS min_price')
-          .joins(:equipment)
-          .where('`specifications`.`new_car_id` = ?', @car.id).where('`equipment`.`hide` = 0').group('specifications.id').order('min_price') %>
-      <table class="table">
-        <thead>
-        <tr class="t-header">
-          <th>Комплектация</th>
-          <th class="mn">КПП</th>
-          <th class="mn">Объём л</th>
-          <th class="mn">Мощность л.с</th>
-          <th class="mn">Цена </th>
-          <th class="s_price">Цена со скидкой</th>
-          <th class="mn_n"></th>
-          <th class="mn_n"></th>
-          <th class="mn_n"></th>
-        </tr>
-        </thead>
-        <tbody>
-        <% spec.each_with_index do |cs,index_spec| %>
-          <tr class="compl_gr_title"><td><% if cs.volume.present? %><%= "#{(cs.volume / 1000.to_f).round(1)} л. #{cs.drive == 'Полный' ? '4WD' : '2WD'} "%> <% end %> <% "#{cs.shorttransmission}" %></td></tr>
-          <% cs.equipment.where('`equipment`.`hide` = 0').order(:price).each_with_index do |e,index| %>
-            <%
-              real_discount = @car.discount_count(e) + @region_discount
-              if (@car.discount_count(e) + @region_discount) < e.price*4/10
-                max_discount = @car.discount_count(e) + @region_discount
-              else
-                max_discount = e.price*4/10
-              end
-            %>
+    <div class="main-gifts-item">
+      <div class="main-gifts-img snowflake">
 
-            <tr class="tr" data-action="show-table-row-description" data-url="<%= row_description_path(@brand.url,@car.url,e.id) %>">
-              <th class="">
-                <span><%= e.equipment_description.name %> <%= e.suffix %></span>
-                <span class="mn_s"><%= e.specification.power %> л.с, <%= e.specification.shorttransmission %></span>
-                <i></i>
-              </th>
-              <td class="mn kpp"><%= e.specification.transmission.gsub('Механическая','Механика').gsub('5-ступенчатая механическая','Механика').gsub('5MT','').gsub('6МТ','').gsub('Автоматическая','Автомат').gsub('5-ступенчатая автоматическая','Автомат').gsub('4AT','') %> (<%= e.specification.shorttransmission %>)</td>
-              <td class="mn"><% if e.specification.volume.present? %><%= (e.specification.volume / 1000.to_f).round(1) %><% end %></td>
-              <td class="mn"><% if e.specification.power.present? %><%= e.specification.power %><% end %></td>
-              <td class="mn compl-price">
-                <span class="tablepricesale" data-role="base_price"><%= number_with_delimiter(e.price,delimiter: ' ') %></span> ₽
-              </td>
-              <td style="display: none">
-                <span class="tablepricediscount" data-role="discount_sale" data-real-discount="<%=real_discount %>"><%= number_with_delimiter(max_discount,delimiter: ' ') %></span>
-              </td>
-              <td class="compl-price-discount">
-                <span data-role="discount_price" class="tableprice" data-real-price="<%= (e.price - real_discount) %>"><%#= number_with_delimiter(e.price - max_discount,delimiter: ' ') %><%#= (e.price - real_discount) %><%= number_with_delimiter(e.price - real_discount,delimiter: ' ') %></span> ₽
-              </td>
-              <td class=""><a href="#" class="but_traid-in" data-show-new-ajax="car-details-modal" data-eq_id="<%= e.id %>" rel="nofollow">Trade-in</a></td>
-              <td class="cr_ord"><a href="#" class="table__button  table__button--red creditcompl but_credit" data-show-new-ajax="car-credit-modal" data-eq_id="<%= e.id %>" rel="nofollow" style="background-color:#<%= @brand.description['main_color'] %>">В кредит</a></td>
-              <%
-                e_name = e.equipment_description.name.parameterize
-              %>
-            </tr>
-            <%= '<!-- noindex -->'.html_safe if region %>
-            <tr class="compl-description" data-role="table-row-description">
-              <td colspan="12">
-                <div class="compl-description-content" id='equipment_<%= e.id %>_description'>
-                  <%# if index == 0 && index_spec == 0%>
-                  <% @equipment = e %>
-                  <%= render partial:'carso/new_cars/compl_description_content'  %>
-                  <%# end %>
-                </div>
-              </td>
-            </tr>
-            <tr class="tbm"><td></td></tr>
-            <%= '<!--/ noindex -->'.html_safe if region %>
-          <% end %>
-        <% end %>
-        </tbody>
-      </table>
+      </div>
+      <div class="main-gifts-title">
+        Зимняя резина
+      </div>
+      <div class="main-gifts-text">
+        в подарок с автомобилем
+      </div>
+    </div>
+    <div class="main-gifts-item">
+      <div class="main-gifts-img train">
 
+      </div>
+      <div class="main-gifts-title">
+        Оплата проезда
+      </div>
+      <div class="main-gifts-text">
+        покупателя до автосалона
+      </div>
+    </div>
+  </section>
+</section>
+<section class="main-salon">
+  <section class="main-title-wrap">
+    <div class="main-title">
+      <div class="main-title-text">В салоне</div>
+    </div>
+  </section>
+
+  <div class="main-salon-gallery">
+    <div class="main-salon-gallery-wrap">
+      <%= image_tag "carso/img/200x140.png", alt:'', class: '' %>
     </div>
   </div>
-  <%# end %>
-<% end %>
-<%#= render 'partials/carso/tradein_form' %>
-
-
-<% cards = EquipmentDescription
-  .joins(:equipments)
-  .select('MIN(price) AS price,`equipment_descriptions`.`name`,`equipment_descriptions`.`description`, `equipment_descriptions`.`id`,`equipment_descriptions`.`new_car_id`, MIN(`equipment`.`id`) AS eq_id,`equipment_descriptions`.`compare`,`equipment_descriptions`.`comparedesc`')
-  .where('`equipment_descriptions`.`new_car_id` = ?', @car.id).where('`equipment`.`hide` = 0')
-  .group('`equipment`.`equipment_description_id`')
-  .order('price ASC')
-%>
-
-
-<div class="equipment-bl">
-  <h2 class="title">Отличие комплектаций</h2>
-  <div class="" id="equipment-bl">
-
-    <% prev_compl = '' %>
-    <% prev_compl_params = [] %>
-
-
-    <% cards.each_with_index do |e, index| %>
-      <% compl_params = [] %>
-      <% doc = Nokogiri::HTML(e.description) %>
-      <% doc.css('li').each do |tag| %>
-        <% compl_params.push(tag.content) %>
-      <% end %>
-
-      <div class="equipment-list">
-        <div class="">
-          <div class="equipment-name">
-            <div class="equ-title"><%= link_to new_car_equipment_path(@brand, @car, e.name.parameterize) do %><%= e.name %><% end %></div>
-            <span class="equ-tip"><%= prev_compl == '' ? 'Базовая комплектация' : 'В дополнение к ' + prev_compl %>, <%= @brand.title %> <%= @car.name %></span>
+</section>
+<section class="main-equip">
+  <div class="main-title-wrap">
+    <div class="main-title">
+      <div class="main-title-text">
+        Комплектации и цены
+      </div>
+    </div>
+  </div>
+  <div class="main-equip-wrap">
+    <div class="main-equip-vol-wrap">
+      <div class="main-equip-vol">2.5л. 2WD</div>
+    </div>
+    <div class="main-equip-item">
+      <div class="main-equip-model-wrap">
+        <div class="main-equip-model">Classic</div>
+      </div>
+      <div class="main-equip-price-wrap">
+        <div class="main-equip-price-cont">
+          <div class="main-equip-price">
+            <div class="main-equip-price_item">
+              870 000₽</div>
           </div>
-          <div class="row equipment-in-bl">
-            <div class="equipment-img">
-              <% c = e.new_car.colors.swap(0,1) %>
-              <% if index < c.length
-                   ind = index
-                 else
-                   ind = 0
-                 end
-              %>
-              <% if e.comparedesc %>
-                <figure class="card__gallery">
-                  <img src="<%= e.compare[0].large.url %>" alt="<%= e.comparedesc[0] %>">
-                </figure>
-              <% end %>
-
-              <%
-                if (@car.discount_count(e) + @region_discount) < e.price*4/10
-                  e_discount = @car.discount_count(e) + @region_discount
-                else
-                  e_discount = e.price*4/10
-                end
-              %>
-              <% unless !@car.available %>
-                <div>
-                  <span class="card-pr"><%= number_with_delimiter(e.price - e_discount, delimiter: ' ') %> ₽</span>
-                  <div class="card-pr-credit">В кредит <span>от <% snc_price = e.equipments.where(hide: 0).minimum(:price) - max_discount_e %><%= number_with_delimiter(count_price(snc_price,PERCENT,MONTH), delimiter: " ") %> ₽/мес</span></div>
-                </div>
-              <% end %>
+          <div class="main-equip-spec">
+            1.6 МТ 120 л.с.
+          </div>
+          <div class="main-equip-of-price">1 270 000₽</div>
+        </div>
+        <div class="main-equip-credit">
+          <div class="main-equip-benefit">
+            <div class="main-equip-benefit-title">Выгода в кредит</div>
+            <div class="main-equip-benefit-price">150 000₽</div>
+          </div>
+          <div class="main-equip-mount-pay">
+            <span class="main-equip-mount-pay-green">14 000₽</span>/мес
+          </div>
+          <div class="main-equip-button">
+            <button class="main-equip-button_item">Купить в кредит</button>
+          </div>
+        </div>
+      </div>
+      <div class="main-equip-pop">
+        <div class="main-equip-head">
+          <div class="main-equip-brand">Kia</div>
+          <div class="main-equip-model-name">Sportage</div>
+          <div class="main-equip-compl">Комплектация Classic</div>
+          <div class="main-equip-price">
+            <div class="main-equip-price-wrap">
+              <div class="main-equip-price-pay">27200/мес.</div>
+              <div class="main-equip-price-perc">1 150 000₽</div>
             </div>
-            <ul class="equipment-desc">
-              <% (compl_params - prev_compl_params).each do |p| %>
-                <li class="card__feature"><%= p %></li>
-              <% end %>
+            <div class="main-equip-price-button">Выбрать кредит</div>
+          </div>
+        </div>
+        <div class="main-equip-cont">
+          <div class="main-equip-cont-title">Интерьер</div>
+          <ul class="main-equip-cont-list">
+            <li class="main-equip-cont-item">
+              Рулевое колесо и селектор КПП с отделкой кожей
+            </li>
+            <li class="main-equip-cont-item">
+              Рулевое колесо и селектор КПП с отделкой кожей
+            </li>
+            <li class="main-equip-cont-item">
+              Рулевое колесо и селектор КПП с отделкой кожей
+            </li>
+            <li class="main-equip-cont-item">
+              Рулевое колесо и селектор КПП с отделкой кожей
+            </li>
+            <li class="main-equip-cont-item">
+              Рулевое колесо и селектор КПП с отделкой кожей
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="main-equip-item">
+      <div class="main-equip-model-wrap">
+        <div class="main-equip-model">Classic</div>
+      </div>
+      <div class="main-equip-price-wrap">
+        <div class="main-equip-price-cont">
+          <div class="main-equip-price">
+            <div class="main-equip-price_item">
+              870 000₽</div>
+          </div>
+          <div class="main-equip-spec">
+            1.6 МТ 120 л.с.
+          </div>
+          <div class="main-equip-of-price">1 270 000₽</div>
+        </div>
+        <div class="main-equip-credit">
+          <div class="main-equip-benefit">
+            <div class="main-equip-benefit-title">Выгода в кредит</div>
+            <div class="main-equip-benefit-price">150 000₽</div>
+          </div>
+          <div class="main-equip-mount-pay">
+            <span class="main-equip-mount-pay-green">14 000₽</span>/мес
+          </div>
+          <div class="main-equip-button">
+            <button class="main-equip-button_item">Купить в кредит</button>
+          </div>
+        </div>
+      </div>
+      <div class="main-equip-pop">
+        <div class="main-equip-head">
+          <div class="main-equip-brand">Kia</div>
+          <div class="main-equip-model-name">Sportage</div>
+          <div class="main-equip-compl">Комплектация Classic</div>
+          <div class="main-equip-price">
+            <div class="main-equip-price-wrap">
+              <div class="main-equip-price-pay">27200/мес.</div>
+              <div class="main-equip-price-perc">1 150 000₽</div>
+            </div>
+            <div class="main-equip-price-button">Выбрать кредит</div>
+          </div>
+        </div>
+        <div class="main-equip-cont">
+          <div class="main-equip-cont-title">Интерьер</div>
+          <ul class="main-equip-cont-list">
+            <li class="main-equip-cont-item">
+              Рулевое колесо и селектор КПП с отделкой кожей
+            </li>
+            <li class="main-equip-cont-item">
+              Рулевое колесо и селектор КПП с отделкой кожей
+            </li>
+            <li class="main-equip-cont-item">
+              Рулевое колесо и селектор КПП с отделкой кожей
+            </li>
+            <li class="main-equip-cont-item">
+              Рулевое колесо и селектор КПП с отделкой кожей
+            </li>
+            <li class="main-equip-cont-item">
+              Рулевое колесо и селектор КПП с отделкой кожей
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="main-equip-item">
+      <div class="main-equip-model-wrap">
+        <div class="main-equip-model">Classic</div>
+      </div>
+      <div class="main-equip-price-wrap">
+        <div class="main-equip-price-cont">
+          <div class="main-equip-price">
+            <div class="main-equip-price_item">
+              870 000₽</div>
+          </div>
+          <div class="main-equip-spec">
+            1.6 МТ 120 л.с.
+          </div>
+          <div class="main-equip-of-price">1 270 000₽</div>
+        </div>
+        <div class="main-equip-credit">
+          <div class="main-equip-benefit">
+            <div class="main-equip-benefit-title">Выгода в кредит</div>
+            <div class="main-equip-benefit-price">150 000₽</div>
+          </div>
+          <div class="main-equip-mount-pay">
+            <span class="main-equip-mount-pay-green">14 000₽</span>/мес
+          </div>
+          <div class="main-equip-button">
+            <button class="main-equip-button_item">Купить в кредит</button>
+          </div>
+        </div>
+      </div>
+      <div class="main-equip-pop">
+        <div class="main-equip-head">
+          <div class="main-equip-brand">Kia</div>
+          <div class="main-equip-model-name">Sportage</div>
+          <div class="main-equip-compl">Комплектация Classic</div>
+          <div class="main-equip-price">
+            <div class="main-equip-price-wrap">
+              <div class="main-equip-price-pay">27200/мес.</div>
+              <div class="main-equip-price-perc">1 150 000₽</div>
+            </div>
+            <div class="main-equip-price-button">Выбрать кредит</div>
+          </div>
+        </div>
+        <div class="main-equip-cont">
+          <div class="main-equip-cont-title">Интерьер</div>
+          <ul class="main-equip-cont-list">
+            <li class="main-equip-cont-item">
+              Рулевое колесо и селектор КПП с отделкой кожей
+            </li>
+            <li class="main-equip-cont-item">
+              Рулевое колесо и селектор КПП с отделкой кожей
+            </li>
+            <li class="main-equip-cont-item">
+              Рулевое колесо и селектор КПП с отделкой кожей
+            </li>
+            <li class="main-equip-cont-item">
+              Рулевое колесо и селектор КПП с отделкой кожей
+            </li>
+            <li class="main-equip-cont-item">
+              Рулевое колесо и селектор КПП с отделкой кожей
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main-equip-wrap">
+    <div class="main-equip-vol-wrap">
+      <div class="main-equip-vol">3.5л. 4WD</div>
+    </div>
+    <div class="main-equip-item">
+      <div class="main-equip-model-wrap">
+        <div class="main-equip-model">Classic</div>
+      </div>
+      <div class="main-equip-price-wrap">
+        <div class="main-equip-price-cont">
+          <div class="main-equip-price">
+            <div class="main-equip-price_item">
+              870 000₽</div>
+          </div>
+          <div class="main-equip-spec">
+            1.6 МТ 120 л.с.
+          </div>
+          <div class="main-equip-of-price">1 270 000₽</div>
+        </div>
+        <div class="main-equip-credit">
+          <div class="main-equip-benefit">
+            <div class="main-equip-benefit-title">Выгода в кредит</div>
+            <div class="main-equip-benefit-price">150 000₽</div>
+          </div>
+          <div class="main-equip-mount-pay">
+            <span class="main-equip-mount-pay-green">14 000₽</span>/мес
+          </div>
+          <div class="main-equip-button">
+            <button class="main-equip-button_item">Купить в кредит</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main-equip-item">
+      <div class="main-equip-model-wrap">
+        <div class="main-equip-model">Comfort</div>
+      </div>
+      <div class="main-equip-price-wrap">
+        <div class="main-equip-price-cont">
+          <div class="main-equip-price">
+            <div class="main-equip-price_item">
+              870 000₽</div>
+          </div>
+          <div class="main-equip-spec">
+            1.6 МТ 120 л.с.
+          </div>
+          <div class="main-equip-of-price">1 270 000₽</div>
+        </div>
+        <div class="main-equip-credit">
+          <div class="main-equip-benefit">
+            <div class="main-equip-benefit-title">Выгода в кредит</div>
+            <div class="main-equip-benefit-price">150 000₽</div>
+          </div>
+          <div class="main-equip-mount-pay">
+            <span class="main-equip-mount-pay-green">14 000₽</span>/мес
+          </div>
+          <div class="main-equip-button">
+            <button class="main-equip-button_item">Купить в кредит</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main-equip-item">
+      <div class="main-equip-model-wrap">
+        <div class="main-equip-model">Premium</div>
+      </div>
+      <div class="main-equip-price-wrap">
+        <div class="main-equip-price-cont">
+          <div class="main-equip-price">
+            <div class="main-equip-price_item">
+              870 000₽</div>
+          </div>
+          <div class="main-equip-spec">
+            1.6 МТ 120 л.с.
+          </div>
+          <div class="main-equip-of-price">1 270 000₽</div>
+        </div>
+        <div class="main-equip-credit">
+          <div class="main-equip-benefit">
+            <div class="main-equip-benefit-title">Выгода в кредит</div>
+            <div class="main-equip-benefit-price">150 000₽</div>
+          </div>
+          <div class="main-equip-mount-pay">
+            <span class="main-equip-mount-pay-green">14 000₽</span>/мес
+          </div>
+          <div class="main-equip-button">
+            <button class="main-equip-button_item">Купить в кредит</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="main-compare">
+  <div class="main-compare-cont">
+    <div class="main-compare-item">
+      <div class="main-compare-wrap">
+        <div class="main-compare-img">
+          <%= image_tag "carso/img/80x100.png", alt:'', class: '' %>
+        </div>
+        <div class="main-compare-adittion-wrap">
+          <div class="main-compare-addition">
+            В дополнение к Classic
+          </div>
+          <div class="main-compare-title">Classic Тёплые опции</div>
+          <div class="main-compare-price-credit">В кредит</div>
+          <div class="main-compare-price">
+            <div class="main-compare-price-wrap">
+              <div class="main-compare-price-title">14 200 ₽/мес</div>
+              <button class="main-button"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main-compare-scroll scroll">
+        <div class="main-scroll-bg"></div>
+        <div class="main-compare-scroll_item">
+          Функция складывния задних сидений 60/40
+        </div>
+        <div class="main-compare-scroll_item">
+          Шторка багажного отделения
+        </div>
+        <div class="main-compare-scroll_item">
+          Розетки 12V для передних и задних пассажиров
+        </div>
+        <div class="main-compare-scroll_item">
+          Рулевое колесо и селектор КПП с отделкой кожей
+        </div>
+        <div class="main-compare-scroll_item">
+          Функция складывния задних сидений 60/40
+        </div>
+        <div class="main-compare-scroll_item">
+          Шторка багажного отделения
+        </div>
+        <div class="main-compare-scroll_item">
+          Розетки 12V для передних и задних пассажиров
+        </div>
+        <div class="main-compare-scroll_item">
+          Рулевое колесо и селектор КПП с отделкой кожей
+        </div>
+        <div class="main-compare-scroll_item">
+          Рулевое колесо и селектор КПП с отделкой кожей
+        </div>
+        <div class="main-compare-scroll_item">
+          Функция складывния задних сидений 60/40
+        </div>
+        <div class="main-compare-scroll_item">
+          Шторка багажного отделения
+        </div>
+        <div class="main-compare-scroll_item">
+          Розетки 12V для передних и задних пассажиров
+        </div>
+        <div class="main-compare-scroll_item">
+          Рулевое колесо и селектор КПП с отделкой кожей
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main-compare-cont">
+    <div class="main-compare-item">
+      <div class="main-compare-wrap">
+        <div class="main-compare-img">
+          <%= image_tag "carso/img/80x100.png", alt:'', class: '' %>
+        </div>
+        <div class="main-compare-adittion-wrap">
+          <div class="main-compare-addition">
+            В дополнение к Classic
+          </div>
+          <div class="main-compare-title">Classic Тёплые опции</div>
+          <div class="main-compare-price-credit">В кредит</div>
+          <div class="main-compare-price">
+            <div class="main-compare-price-wrap">
+              <div class="main-compare-price-title">14 200 ₽/мес</div>
+              <button class="main-button"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main-compare-scroll scroll">
+        <div class="main-scroll-bg"></div>
+        <div class="main-compare-scroll_item">
+          Функция складывния задних сидений 60/40
+        </div>
+        <div class="main-compare-scroll_item">
+          Шторка багажного отделения
+        </div>
+        <div class="main-compare-scroll_item">
+          Розетки 12V для передних и задних пассажиров
+        </div>
+        <div class="main-compare-scroll_item">
+          Рулевое колесо и селектор КПП с отделкой кожей
+        </div>
+        <div class="main-compare-scroll_item">
+          Функция складывния задних сидений 60/40
+        </div>
+        <div class="main-compare-scroll_item">
+          Шторка багажного отделения
+        </div>
+        <div class="main-compare-scroll_item">
+          Розетки 12V для передних и задних пассажиров
+        </div>
+        <div class="main-compare-scroll_item">
+          Рулевое колесо и селектор КПП с отделкой кожей
+        </div>
+        <div class="main-compare-scroll_item">
+          Рулевое колесо и селектор КПП с отделкой кожей
+        </div>
+        <div class="main-compare-scroll_item">
+          Функция складывния задних сидений 60/40
+        </div>
+        <div class="main-compare-scroll_item">
+          Шторка багажного отделения
+        </div>
+        <div class="main-compare-scroll_item">
+          Розетки 12V для передних и задних пассажиров
+        </div>
+        <div class="main-compare-scroll_item">
+          Рулевое колесо и селектор КПП с отделкой кожей
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main-compare-cont">
+    <div class="main-compare-item">
+      <div class="main-compare-wrap">
+        <div class="main-compare-img">
+          <%= image_tag "carso/img/80x100.png", alt:'', class: '' %>
+        </div>
+        <div class="main-compare-adittion-wrap">
+          <div class="main-compare-addition">
+            В дополнение к Classic
+          </div>
+          <div class="main-compare-title">Classic Тёплые опции</div>
+          <div class="main-compare-price-credit">В кредит</div>
+          <div class="main-compare-price">
+            <div class="main-compare-price-wrap">
+              <div class="main-compare-price-title">14 200 ₽/мес</div>
+              <button class="main-button"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main-compare-scroll scroll">
+        <div class="main-scroll-bg"></div>
+        <div class="main-compare-scroll_item">
+          Функция складывния задних сидений 60/40
+        </div>
+        <div class="main-compare-scroll_item">
+          Шторка багажного отделения
+        </div>
+        <div class="main-compare-scroll_item">
+          Розетки 12V для передних и задних пассажиров
+        </div>
+        <div class="main-compare-scroll_item">
+          Рулевое колесо и селектор КПП с отделкой кожей
+        </div>
+        <div class="main-compare-scroll_item">
+          Функция складывния задних сидений 60/40
+        </div>
+        <div class="main-compare-scroll_item">
+          Шторка багажного отделения
+        </div>
+        <div class="main-compare-scroll_item">
+          Розетки 12V для передних и задних пассажиров
+        </div>
+        <div class="main-compare-scroll_item">
+          Рулевое колесо и селектор КПП с отделкой кожей
+        </div>
+        <div class="main-compare-scroll_item">
+          Рулевое колесо и селектор КПП с отделкой кожей
+        </div>
+        <div class="main-compare-scroll_item">
+          Функция складывния задних сидений 60/40
+        </div>
+        <div class="main-compare-scroll_item">
+          Шторка багажного отделения
+        </div>
+        <div class="main-compare-scroll_item">
+          Розетки 12V для передних и задних пассажиров
+        </div>
+        <div class="main-compare-scroll_item">
+          Рулевое колесо и селектор КПП с отделкой кожей
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main-compare-cont">
+    <div class="main-compare-item">
+      <div class="main-compare-wrap">
+        <div class="main-compare-img">
+          <%= image_tag "carso/img/80x100.png", alt:'', class: '' %>
+        </div>
+        <div class="main-compare-adittion-wrap">
+          <div class="main-compare-addition">
+            В дополнение к Classic
+          </div>
+          <div class="main-compare-title">Classic Тёплые опции</div>
+          <div class="main-compare-price-credit">В кредит</div>
+          <div class="main-compare-price">
+            <div class="main-compare-price-wrap">
+              <div class="main-compare-price-title">14 200 ₽/мес</div>
+              <button class="main-button"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main-compare-scroll scroll">
+        <div class="main-scroll-bg"></div>
+        <div class="main-compare-scroll_item">
+          Функция складывния задних сидений 60/40
+        </div>
+        <div class="main-compare-scroll_item">
+          Шторка багажного отделения
+        </div>
+        <div class="main-compare-scroll_item">
+          Розетки 12V для передних и задних пассажиров
+        </div>
+        <div class="main-compare-scroll_item">
+          Рулевое колесо и селектор КПП с отделкой кожей
+        </div>
+        <div class="main-compare-scroll_item">
+          Функция складывния задних сидений 60/40
+        </div>
+        <div class="main-compare-scroll_item">
+          Шторка багажного отделения
+        </div>
+        <div class="main-compare-scroll_item">
+          Розетки 12V для передних и задних пассажиров
+        </div>
+        <div class="main-compare-scroll_item">
+          Рулевое колесо и селектор КПП с отделкой кожей
+        </div>
+        <div class="main-compare-scroll_item">
+          Рулевое колесо и селектор КПП с отделкой кожей
+        </div>
+        <div class="main-compare-scroll_item">
+          Функция складывния задних сидений 60/40
+        </div>
+        <div class="main-compare-scroll_item">
+          Шторка багажного отделения
+        </div>
+        <div class="main-compare-scroll_item">
+          Розетки 12V для передних и задних пассажиров
+        </div>
+        <div class="main-compare-scroll_item">
+          Рулевое колесо и селектор КПП с отделкой кожей
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main-compare-cont">
+    <div class="main-compare-item">
+      <div class="main-compare-wrap">
+        <div class="main-compare-img">
+          <%= image_tag "carso/img/80x100.png", alt:'', class: '' %>
+        </div>
+        <div class="main-compare-adittion-wrap">
+          <div class="main-compare-addition">
+            В дополнение к Classic
+          </div>
+          <div class="main-compare-title">Classic Тёплые опции</div>
+          <div class="main-compare-price-credit">В кредит</div>
+          <div class="main-compare-price">
+            <div class="main-compare-price-wrap">
+              <div class="main-compare-price-title">14 200 ₽/мес</div>
+              <button class="main-button"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main-compare-scroll scroll">
+        <div class="main-scroll-bg"></div>
+        <div class="main-compare-scroll_item">
+          Функция складывния задних сидений 60/40
+        </div>
+        <div class="main-compare-scroll_item">
+          Шторка багажного отделения
+        </div>
+        <div class="main-compare-scroll_item">
+          Розетки 12V для передних и задних пассажиров
+        </div>
+        <div class="main-compare-scroll_item">
+          Рулевое колесо и селектор КПП с отделкой кожей
+        </div>
+        <div class="main-compare-scroll_item">
+          Функция складывния задних сидений 60/40
+        </div>
+        <div class="main-compare-scroll_item">
+          Шторка багажного отделения
+        </div>
+        <div class="main-compare-scroll_item">
+          Розетки 12V для передних и задних пассажиров
+        </div>
+        <div class="main-compare-scroll_item">
+          Рулевое колесо и селектор КПП с отделкой кожей
+        </div>
+        <div class="main-compare-scroll_item">
+          Рулевое колесо и селектор КПП с отделкой кожей
+        </div>
+        <div class="main-compare-scroll_item">
+          Функция складывния задних сидений 60/40
+        </div>
+        <div class="main-compare-scroll_item">
+          Шторка багажного отделения
+        </div>
+        <div class="main-compare-scroll_item">
+          Розетки 12V для передних и задних пассажиров
+        </div>
+        <div class="main-compare-scroll_item">
+          Рулевое колесо и селектор КПП с отделкой кожей
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main-compare-cont">
+    <div class="main-compare-item">
+      <div class="main-compare-wrap">
+        <div class="main-compare-img">
+          <%= image_tag "carso/img/80x100.png", alt:'', class: '' %>
+        </div>
+        <div class="main-compare-adittion-wrap">
+          <div class="main-compare-addition">
+            В дополнение к Classic
+          </div>
+          <div class="main-compare-title">Classic Тёплые опции</div>
+          <div class="main-compare-price-credit">В кредит</div>
+          <div class="main-compare-price">
+            <div class="main-compare-price-wrap">
+              <div class="main-compare-price-title">14 200 ₽/мес</div>
+              <button class="main-button"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main-compare-scroll scroll">
+        <div class="main-scroll-bg"></div>
+        <div class="main-compare-scroll_item">
+          Функция складывния задних сидений 60/40
+        </div>
+        <div class="main-compare-scroll_item">
+          Шторка багажного отделения
+        </div>
+        <div class="main-compare-scroll_item">
+          Розетки 12V для передних и задних пассажиров
+        </div>
+        <div class="main-compare-scroll_item">
+          Рулевое колесо и селектор КПП с отделкой кожей
+        </div>
+        <div class="main-compare-scroll_item">
+          Функция складывния задних сидений 60/40
+        </div>
+        <div class="main-compare-scroll_item">
+          Шторка багажного отделения
+        </div>
+        <div class="main-compare-scroll_item">
+          Розетки 12V для передних и задних пассажиров
+        </div>
+        <div class="main-compare-scroll_item">
+          Рулевое колесо и селектор КПП с отделкой кожей
+        </div>
+        <div class="main-compare-scroll_item">
+          Рулевое колесо и селектор КПП с отделкой кожей
+        </div>
+        <div class="main-compare-scroll_item">
+          Функция складывния задних сидений 60/40
+        </div>
+        <div class="main-compare-scroll_item">
+          Шторка багажного отделения
+        </div>
+        <div class="main-compare-scroll_item">
+          Розетки 12V для передних и задних пассажиров
+        </div>
+        <div class="main-compare-scroll_item">
+          Рулевое колесо и селектор КПП с отделкой кожей
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="main-gallery">
+  <div class="main-title-wrap">
+    <div class="main-title">
+      <div class="main-title-text">Фотогалерея</div>
+    </div>
+  </div>
+
+  <div class="main-gallery-item">
+    <%= image_tag "carso/img/kia-sportage-gallery.png", alt:'', class: '' %>
+  </div>
+</section>
+<section class="main-reviews">
+  <section class="main-title">
+    Отзывы
+  </section>
+  <div class="main-reviews-cont">
+    <div class="main-reviews-unit">
+      <div class="main-reviews-item">
+        <div class="main-reviews-wrap">
+          <div class="main-reviews-name">Николай</div>
+          <div class="main-reviews-city">Мытищи</div>
+        </div>
+
+        <div class="main-reviews-text">
+          Отличный автосалон в котором и с выбором помогли и 	посоветовали лучший вариант авто. Автомобиль сразу решил 	покупать новый. Хоч…
+        </div>
+        <div class="main-reviews-rating-wrap">
+          <div class="main-reviews-rating">
+            <ul class="main-reviews-rating-cont">
+              <li class="main-reviews-rating-item"></li>
+              <li class="main-reviews-rating-item"></li>
+              <li class="main-reviews-rating-item"></li>
+              <li class="main-reviews-rating-item"></li>
+              <li class="main-reviews-rating-item"></li>
             </ul>
           </div>
-        </div>
-      </div>
-      <% prev_compl_params = compl_params %>
-      <% prev_compl = e.name %>
-    <% end %>
-  </div>
-</div>
-
-
-<div class="discount__block">
-  <span class="sale-calc-t">Выберите подходящие Вам варианты и получите максимальную выгоду!</span>
-  <div class="row justify-content-between discount_block_lab">
-    <div class="disc_bl_lab_main">
-      <label id="spec_txt" class="row on" for="spec">
-        <div class="saleprice-check on">
-                   <span class="saleprice--lab">
-                    <input id="spec" class="checkbox" type="checkbox" value="<%=@car.discount %>" checked="checked">
-                   </span>
-        </div>
-        <div class="disc_bl_lab_ch">
-          <span class="lab_ch-title">Спецпредложение</span>
-          <span class="lab_ch-price" ><%= number_with_delimiter(@car.discount) %> ₽</span>
-          <span class="lab_ch-text">Специальное предложение от автосалона на <%= @car.menutitle %></span>
-        </div>
-      </label>
-    </div>
-    <div class="disc_bl_lab_main">
-      <label id="credit_txt" class="row on" for="credit">
-        <div class="saleprice-check on">
-                   <span class="saleprice--lab">
-                    <input id="credit" class="checkbox" type="checkbox" value="<%= @car.discount_credit %>" checked="checked">
-                   </span>
-        </div>
-        <div class="disc_bl_lab_ch">
-          <span class="lab_ch-title">В кредит</span>
-          <span class="lab_ch-price" ><%= number_with_delimiter(@car.discount_credit) %> &#8381;</span>
-          <span class="lab_ch-text">Дополнительная скидка на автомобиль при оформлении в кредит</span>
-        </div>
-      </label>
-    </div>
-    <div class="disc_bl_lab_main">
-      <label id="ten_perc_txt" class="row on" for="ten_perc">
-        <div class="saleprice-check on">
-                   <span class="saleprice--lab">
-                    <input id="ten_perc" class="checkbox" data-check-status=""  type="checkbox" value="40000" checked="checked">
-                   </span>
-        </div>
-        <div class="disc_bl_lab_ch">
-          <span class="lab_ch-title">Программа лояльности</span>
-          <span class="lab_ch-price">40 000 ₽</span>
-          <span class="lab_ch-text">Дополнительная скидка при прохождении ТО в нашем сервис-центре</span>
-        </div>
-      </label>
-    </div>
-
-    <div class="disc_bl_lab_main">
-      <label id="trade_in_3y_txt" class="row on" for="trade_in_3y">
-        <div class="saleprice-check on">
-                   <span class="saleprice--lab">
-                    <input id="trade_in_3y" class="checkbox" type="checkbox" value="<%=@car.discount_tradein %>" checked="checked">
-                  </span>
-        </div>
-        <div class="disc_bl_lab_ch">
-          <span class="lab_ch-title">Trade-in</span>
-          <span class="lab_ch-price"><%= number_with_delimiter(@car.discount_tradein) %> ₽</span>
-          <span class="lab_ch-text">Дополнительная скидка при приеме вашего старого авто в счет покупки</span>
-        </div>
-      </label>
-    </div>
-  </div>
-
-  <div class="row justify-content-between total__discount__bl">
-    <div class="row align-items-start">
-      <div class="total__discount">
-        <span>Сумма скидки:</span>
-        <div class="row discount-pr-w">
-          <div id="discount-counted" data-real-discount="<%=@car.discount_count(max_price_e) + @region_discount %>" class="redtext"><%= "#{number_with_delimiter(max_discount_e,delimeter:' ')}" %></div>
-          <div class="discount-r">&nbsp;₽</div>
+          <div class="main-reviews-read">Читать ></div>
         </div>
       </div>
     </div>
-
-    <div class="row align-items-end disc_bl_lab_main">
-      <label class="row on">
-        <div class="saleprice-check on">
-                   <span class="saleprice--lab">
-                    <input class="checkbox" type="checkbox" checked="checked">
-                  </span>
+    <div class="main-reviews-unit">
+      <div class="main-reviews-item">
+        <div class="main-reviews-wrap">
+          <div class="main-reviews-name">Николай</div>
+          <div class="main-reviews-city">Мытищи</div>
         </div>
-        <div class="disc_bl_lab_ch">
-          <span class="lab_ch-title">КАСКО в подарок</span>
-          <span class="lab_ch-text">на 1 год при покупке<br> до <%= l(SALE_DATE, format: :next_monday) %> 2021 года</span>
+
+        <div class="main-reviews-text">
+          Отличный автосалон в котором и с выбором помогли и 	посоветовали лучший вариант авто. Автомобиль сразу решил 	покупать новый. Хоч…
         </div>
-      </label>
+        <div class="main-reviews-rating-wrap">
+          <div class="main-reviews-rating">
+            <ul class="main-reviews-rating-cont">
+              <li class="main-reviews-rating-item"></li>
+              <li class="main-reviews-rating-item"></li>
+              <li class="main-reviews-rating-item"></li>
+              <li class="main-reviews-rating-item"></li>
+              <li class="main-reviews-rating-item"></li>
+            </ul>
+          </div>
+          <div class="main-reviews-read">Читать ></div>
+        </div>
+      </div>
     </div>
+    <div class="main-reviews-unit">
+      <div class="main-reviews-item">
+        <div class="main-reviews-wrap">
+          <div class="main-reviews-name">Николай</div>
+          <div class="main-reviews-city">Мытищи</div>
+        </div>
 
-    <button name="button" data-show-new-ajax="car-details-modal" data-eq_id="<%= @car.id %>"><span>Узнать подробнее</span></button>
-  </div>
-
-</div>
-
-<% if region %>
-  <%#= render partial:'new_cars/region_reasons' %>
-<% end %>
-
-<%= render partial:'carso/new_cars/filter' %>
-
-
-<% if @car.car_type.present? %>
-  <div class="card__box">
-    <div>
-      <h2>Другие автомобили в кузове <%= @car.car_type.partition(" ").first.pluralize(:ru) %></h2>
+        <div class="main-reviews-text">
+          Отличный автосалон в котором и с выбором помогли и 	посоветовали лучший вариант авто. Автомобиль сразу решил 	покупать новый. Хоч…
+        </div>
+        <div class="main-reviews-rating-wrap">
+          <div class="main-reviews-rating">
+            <ul class="main-reviews-rating-cont">
+              <li class="main-reviews-rating-item"></li>
+              <li class="main-reviews-rating-item"></li>
+              <li class="main-reviews-rating-item"></li>
+              <li class="main-reviews-rating-item"></li>
+              <li class="main-reviews-rating-item"></li>
+            </ul>
+          </div>
+          <div class="main-reviews-read">Читать ></div>
+        </div>
+      </div>
     </div>
-    <div class="card_box_slide row justify-content-between align-items-center">
-      <%= render partial:'new_cars/small_new_cars_type', collection: NewCar.where('car_type LIKE ?','%' + @car.car_type.partition(" ").first + '%')
-          .where('`new_cars`.`id` != ?', @car.id).where(hide: 0)
-          .limit(60), :locals => {:show_brand => true,:credit_flag => false} %>
-    </div>
+    <div class="main-reviews-unit">
+      <div class="main-reviews-item">
+        <div class="main-reviews-wrap">
+          <div class="main-reviews-name">Николай</div>
+          <div class="main-reviews-city">Мытищи</div>
+        </div>
 
-    <div class="row justify-content-center cr_tr_url">
-      <div class="cr_tr_hr">
-        <%= link_to 'Все ' + @car.car_type.partition(" ").first.pluralize(:ru), new_car_type_path(t(@car.car_type.partition(" ").first,scope: :car_types)),class:'btn-link' %>
+        <div class="main-reviews-text">
+          Отличный автосалон в котором и с выбором помогли и 	посоветовали лучший вариант авто. Автомобиль сразу решил 	покупать новый. Хоч…
+        </div>
+        <div class="main-reviews-rating-wrap">
+          <div class="main-reviews-rating">
+            <ul class="main-reviews-rating-cont">
+              <li class="main-reviews-rating-item"></li>
+              <li class="main-reviews-rating-item"></li>
+              <li class="main-reviews-rating-item"></li>
+              <li class="main-reviews-rating-item"></li>
+              <li class="main-reviews-rating-item"></li>
+            </ul>
+          </div>
+          <div class="main-reviews-read">Читать ></div>
+        </div>
+      </div>
+    </div>
+    <div class="main-reviews-unit">
+      <div class="main-reviews-item">
+        <div class="main-reviews-wrap">
+          <div class="main-reviews-name">Николай</div>
+          <div class="main-reviews-city">Мытищи</div>
+        </div>
+
+        <div class="main-reviews-text">
+          Отличный автосалон в котором и с выбором помогли и 	посоветовали лучший вариант авто. Автомобиль сразу решил 	покупать новый. Хоч…
+        </div>
+        <div class="main-reviews-rating-wrap">
+          <div class="main-reviews-rating">
+            <ul class="main-reviews-rating-cont">
+              <li class="main-reviews-rating-item"></li>
+              <li class="main-reviews-rating-item"></li>
+              <li class="main-reviews-rating-item"></li>
+              <li class="main-reviews-rating-item"></li>
+              <li class="main-reviews-rating-item"></li>
+            </ul>
+          </div>
+          <div class="main-reviews-read">Читать ></div>
+        </div>
+      </div>
+    </div>
+    <div class="main-reviews-unit">
+      <div class="main-reviews-item">
+        <div class="main-reviews-wrap">
+          <div class="main-reviews-name">Николай</div>
+          <div class="main-reviews-city">Мытищи</div>
+        </div>
+
+        <div class="main-reviews-text">
+          Отличный автосалон в котором и с выбором помогли и 	посоветовали лучший вариант авто. Автомобиль сразу решил 	покупать новый. Хоч…
+        </div>
+        <div class="main-reviews-rating-wrap">
+          <div class="main-reviews-rating">
+            <ul class="main-reviews-rating-cont">
+              <li class="main-reviews-rating-item"></li>
+              <li class="main-reviews-rating-item"></li>
+              <li class="main-reviews-rating-item"></li>
+              <li class="main-reviews-rating-item"></li>
+              <li class="main-reviews-rating-item"></li>
+            </ul>
+          </div>
+          <div class="main-reviews-read">Читать ></div>
+        </div>
       </div>
     </div>
   </div>
-<% end %>
+</section>
+<section class="main-brand">
+  <section class="main-title-wrap">
+    <div class="main-title">
+      <div class="main-title-text">
+        Авто за те же деньги
+      </div>
+    </div>
+  </section>
+  <div class="main-brand-item-cont">
+    <div class="main-brand-item">
+      <div class="main-brand-img-wrap">
+        <div class="main-brand-img">
+          <%= image_tag "carso/img/kia-sportage.png", alt:'', class: '' %>
+        </div>
+      </div>
+      <div class="main-brand-price-text">
+        <div class="main-brand-model">Kia Celtos</div>
+        <div class="main-brand-price-cont">
+          <div class="main-brand-price">
+            <div class="main-brand-of-price">1 210 200₽</div>
+            <div class="main-brand-price-item">950 000₽</div>
+            <div class="main-price-month">
+              <span class="main-price-month_green">27200 ₽</span>/мес
+            </div>
+          </div>
+          <div class="main-brand-benefit">
+            <div class="main-brand-benefit_title">Выгода в кредит</div>
+            <div class="main-brand-benefit_price">150 000₽</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main-brand-item">
+      <div class="main-brand-img-wrap">
+        <div class="main-brand-img">
+          <%= image_tag "carso/img/kia-sportage.png", alt:'', class: '' %>
+        </div>
+      </div>
+      <div class="main-brand-price-text">
+        <div class="main-brand-model">Kia Celtos</div>
+        <div class="main-brand-price-cont">
+          <div class="main-brand-price">
+            <div class="main-brand-of-price">1 210 200₽</div>
+            <div class="main-brand-price-item">950 000₽</div>
+            <div class="main-price-month">
+              <span class="main-price-month_green">27200 ₽</span>/мес
+            </div>
+          </div>
+          <div class="main-brand-benefit">
+            <div class="main-brand-benefit_title">Выгода в кредит</div>
+            <div class="main-brand-benefit_price">150 000₽</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main-brand-item">
+      <div class="main-brand-img-wrap">
+        <div class="main-brand-img">
+          <%= image_tag "carso/img/kia-sportage.png", alt:'', class: '' %>
+        </div>
+      </div>
+      <div class="main-brand-price-text">
+        <div class="main-brand-model">Kia Celtos</div>
+        <div class="main-brand-price-cont">
+          <div class="main-brand-price">
+            <div class="main-brand-of-price">1 210 200₽</div>
+            <div class="main-brand-price-item">950 000₽</div>
+            <div class="main-price-month">
+              <span class="main-price-month_green">27200 ₽</span>/мес
+            </div>
+          </div>
+          <div class="main-brand-benefit">
+            <div class="main-brand-benefit_title">Выгода в кредит</div>
+            <div class="main-brand-benefit_price">150 000₽</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main-brand-item">
+      <div class="main-brand-img-wrap">
+        <div class="main-brand-img">
+          <%= image_tag "carso/img/kia-sportage.png", alt:'', class: '' %>
+        </div>
+      </div>
+      <div class="main-brand-price-text">
+        <div class="main-brand-model">Kia Celtos</div>
+        <div class="main-brand-price-cont">
+          <div class="main-brand-price">
+            <div class="main-brand-of-price">1 210 200₽</div>
+            <div class="main-brand-price-item">950 000₽</div>
+            <div class="main-price-month">
+              <span class="main-price-month_green">27200 ₽</span>/мес
+            </div>
+          </div>
+          <div class="main-brand-benefit">
+            <div class="main-brand-benefit_title">Выгода в кредит</div>
+            <div class="main-brand-benefit_price">150 000₽</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main-brand-item">
+      <div class="main-brand-img-wrap">
+        <div class="main-brand-img">
+          <%= image_tag "carso/img/kia-sportage.png", alt:'', class: '' %>
+        </div>
+      </div>
+      <div class="main-brand-price-text">
+        <div class="main-brand-model">Kia Celtos</div>
+        <div class="main-brand-price-cont">
+          <div class="main-brand-price">
+            <div class="main-brand-of-price">1 210 200₽</div>
+            <div class="main-brand-price-item">950 000₽</div>
+            <div class="main-price-month">
+              <span class="main-price-month_green">27200 ₽</span>/мес
+            </div>
+          </div>
+          <div class="main-brand-benefit">
+            <div class="main-brand-benefit_title">Выгода в кредит</div>
+            <div class="main-brand-benefit_price">150 000₽</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main-brand-item">
+      <div class="main-brand-img-wrap">
+        <div class="main-brand-img">
+          <%= image_tag "carso/img/kia-sportage.png", alt:'', class: '' %>
+        </div>
+      </div>
+      <div class="main-brand-price-text">
+        <div class="main-brand-model">Kia Celtos</div>
+        <div class="main-brand-price-cont">
+          <div class="main-brand-price">
+            <div class="main-brand-of-price">1 210 200₽</div>
+            <div class="main-brand-price-item">950 000₽</div>
+            <div class="main-price-month">
+              <span class="main-price-month_green">27200 ₽</span>/мес
+            </div>
+          </div>
+          <div class="main-brand-benefit">
+            <div class="main-brand-benefit_title">Выгода в кредит</div>
+            <div class="main-brand-benefit_price">150 000₽</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
-<div class="card__box" id="other_model">
-  <div>
-    <h2>Другие модели <%= @brand.title %></h2>
-  </div>
-  <div class="card_box_slide row justify-content-between align-items-center">
-    <%= render partial:'new_cars/small_new_cars_model', collection: @brand.new_cars.where(hide: 0).where(archive: 0).where.not(id: @car.id).min_price_ordered, :locals => {:show_brand => false,:credit_flag => true} %>
-  </div>
-</div>
+
+
+
+
+
 
 
 <% content_for :rails_to_js_variables do %>

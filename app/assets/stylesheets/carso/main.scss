@@ -46,7 +46,7 @@ body{
   }
 }
 .main{
-  max-width:1240px;
+ /* max-width:1240px;*/
   margin: 0 auto;
   padding: 0;
 }
@@ -4930,7 +4930,7 @@ a {
 }
 
 .main-price-item {
-  text-decoration-line: line-through;
+ /* text-decoration-line: line-through;*/
 }
 
 .main-price-benefit {
@@ -4983,27 +4983,27 @@ a {
 }
 
 .speed {
-  background-image: url(carso/img/speed.svg);
+  background-image: image-url("carso/img/speed.svg");
 }
 
 .fuel {
-  background-image: url(carso/img/fuel.svg);
+  background-image: image-url("carso/img/fuel.svg");
 }
 
 .engine {
-  background-image: url(carso/img/engine.svg);
+  background-image: image-url("carso/img/engine.svg");
 }
 
 .train {
-  background-image: url(carso/img/train.svg);
+  background-image: image-url("carso/img/train.svg");
 }
 
 .umbrella {
-  background-image: url(carso/img/umbrella.svg);
+  background-image: image-url("carso/img/umbrella.svg");
 }
 
 .snowflake {
-  background-image: url(carso/img/snowflake.svg);
+  background-image: image-url("carso/img/snowflake.svg");
 }
 
 .main-map {
@@ -5027,7 +5027,7 @@ a {
   content: "";
   width: 30px;
   height: 37px;
-  background-image: url(carso/img/map.svg);
+  background-image: image-url("carso/img/map.svg");
   background-size: cover;
   position: absolute;
   top: 26px;
@@ -5035,7 +5035,7 @@ a {
 }
 
 .main-map-wrap:last-child:before  {
-  background-image: url(carso/img/phone.svg);
+  background-image: image-url("carso/img/phone.svg");
   width: 25px;
   height: 25px;
 
@@ -5280,7 +5280,7 @@ a {
   position: absolute;
   width: 17px;
   height: 12px;
-  background-image: url(carso/img/arrow-bottom-grey.svg);
+  background-image: image-url("carso/img/arrow-bottom-grey.svg");
   background-repeat: no-repeat;
   left: -18px;
   top: 6px;
@@ -5381,7 +5381,7 @@ a {
   background-color: #820034;
   border: 0;
   border-radius: 3px;
-  background-image: url(carso/img/arrow_white.svg);
+  background-image: image-url("carso/img/arrow_white.svg");
   background-repeat: no-repeat;
   background-position: center;
 }

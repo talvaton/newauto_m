@@ -43,7 +43,7 @@ class ApplicationController < ActionController::Base
 
   def load_hit
     # @hit = NewCar.where(special_options: 'Хит-продаж').limit(12)
-    @hit = NewCar.where("`new_cars`.`special_options` LIKE ?",'%Хит-продаж%').limit(12)
+    @hit = NewCar.where("`new_cars`.`special_options` LIKE ?",'%Хит-продаж%')
   end
 
   def robots
