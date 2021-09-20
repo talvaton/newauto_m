@@ -122,43 +122,73 @@
       <div class="main-model-name"><%= @car.name %></div>
       <div class="main-price">
         <div class="main-price-item">
-          <div class="main-price-unit">121200 ₽</div>
-          <div class="main-price-discount">950 000 ₽</div>
-          <div class="main-price-month"><span class="main-price-month_green">27200 ₽</span>/мес
+
+
+
+          <div class="main-price-discount"><%= number_with_delimiter(@car.count_min_price(@region_discount), delimiter: " ") %> ₽</div>
+          <div class="main-price-month"><span class="main-price-month_green"><% snc_price = min_price %><%= number_with_delimiter(count_price(snc_price,PERCENT,MONTH), delimiter: " ") %> ₽</span>/мес
           </div>
         </div>
         <div class="main-price-item">
           <div class="main-price-benefit">
             <div class="main-price-benefit_title">Выгода в кредит</div>
-            <div class="main-price-benefit_cost">170 000₽</div>
+            <div class="main-price-benefit_cost"><%= number_with_delimiter(max_discount_e,delimeter:' ') %> ₽</div>
           </div>
         </div>
       </div>
       <div class="main-spec">
         <div class="main-spec-item">
-          <div class="main-spec-img speed"></div>
-          <div class="main-spec-wrap">
-            <div class="main-spec-title">7.5 с</div>
-            <div class="main-spec-text">Разгон до 100 км/ч</div>
-          </div>
-        </div>
-        <div class="main-spec-item">
-          <div class="main-spec-img fuel"></div>
-          <div class="main-spec-wrap">
-            <div class="main-spec-title">7 л</div>
-            <div class="main-spec-text">Расход на 100км</div>
-          </div>
-
-        </div>
-        <div class="main-spec-item">
           <div class="main-spec-img engine"></div>
           <div class="main-spec-wrap">
-            <div class="main-spec-title">151 л/c</div>
+            <div class="main-spec-title"><%= @car.specifications.joins(:equipment).where('`equipment`.`hide` = 0').maximum(:power) %> л/c</div>
             <div class="main-spec-text">Мощность двигателя</div>
           </div>
         </div>
+        <% min_acc = @car.specifications.joins(:equipment).where('`equipment`.`hide` = 0').minimum(:acceleration) %>
+        <% if min_acc.present? %>
+          <div class="main-spec-item">
+            <div class="main-spec-img speed"></div>
+            <div class="main-spec-wrap">
+              <div class="main-spec-title"><%= @car.specifications.joins(:equipment).where('`equipment`.`hide` = 0').minimum(:acceleration).round(1) %> с</div>
+              <div class="main-spec-text">Разгон до 100 км/ч</div>
+            </div>
+          </div>
+        <% end %>
+        <%
+          min_fh = @car.specifications.joins(:equipment).where('`equipment`.`hide` = 0').minimum(:fuelhigh)
+          min_fc = @car.specifications.joins(:equipment).where('`equipment`.`hide` = 0').minimum(:fuelcity)
+          min_fm = @car.specifications.joins(:equipment).where('`equipment`.`hide` = 0').minimum(:fuelmix)
+          unless min_fc.nil? || min_fh.nil? || min_fm.nil?
+
+            if (min_fc.nil? || min_fh.nil?) && min_fm.present?
+              fuel = min_fm.round(1)
+            else
+              fuel = "#{min_fh.round(1)}"
+            end
+        %>
+            <div class="main-spec-item">
+              <div class="main-spec-img fuel"></div>
+              <div class="main-spec-wrap">
+                <div class="main-spec-title"><%= fuel %> л</div>
+                <div class="main-spec-text">Расход на 100км</div>
+              </div>
+          <% end %>
       </div>
     </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
     <section class="main-call-map">
       <div class="main-map-wrap">
         <div class="main-map-text">Проезд <br> до салона</div>
@@ -167,25 +197,33 @@
         <div class="main-map-text">Позвонить</div>
       </div>
     </section>
+
+
+
     <section class="main-offer">
       <section class="main-offer-container">
         <div class="main-offer-title">Персональное предложение на покупку в кредит</div>
-        <div class="main-offer-text">скидка до 395 000₽  / Каско в подарок рассрочка 0%  /  кредит: 1.9% </div>
-        <div class="main-offer-form">
-          <input type="text" class="main-offer-form_input">
-          <label class="main-offer-form_label">Ваше имя</label>
-        </div>
-        <div class="main-offer-form">
-          <input type="text" class="main-offer-form_input">
-          <label class="main-offer-form_label">Телефон для связи</label>
-        </div>
-        <div class="main-offer-button">
-          <button class="main-offer-button_item">получить условия</button>
-          <div class="main-offer-action">Акция до 10 сентября</div>
-        </div>
+        <div class="main-offer-text">скидка до <%= number_with_delimiter(max_discount_e,delimeter:' ') %> ₽ / Каско в подарок рассрочка 0%  /  кредит: 1.9% </div>
+
+
+        <%= form_for Ticket.new,url: {action:"create",controller:"tickets" },remote:true,validate:true,:html => {:class => "form",:name=>"newcarreq"},:namespace => "newcarreq" do |f| %>
+          <%= hidden_field_tag 'ticket[other][model]',@car.id, id:'newcarreq_ticket_other_model' %>
+          <%= f.hidden_field :form_name, value:"express" %>
+          <div class="main-offer-form">
+            <%= f.text_field :name,class:"input main-offer-form_input",placeholder:"Ваше имя" %>
+          </div>
+          <div class="main-offer-form">
+            <%= f.phone_field :phone,class:"input main-offer-form_input",data:{:role=>"phone"},placeholder:"Номер телефона"  %>
+          </div>
+          <%= f.button class: "button main-offer-button_item" do %><span>Получить условия</span><% end %>
+        <% end %>
+        <div class="main-offer-action">Акция до <%= l(SALE_DATE, format: :next_monday) %></div>
         <div class="main-offer-accept">Нажимая на кнопку “Получить условия” Вы даете согласие на обработку своих персональных данных</div>
       </section>
     </section>
+
+
+
   </div>
 </section>
 <section class="main-model-menu">
