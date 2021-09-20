@@ -86,8 +86,8 @@
   <div class="main-breadcrumbs">
     <a href=""><span>Главная</span></a>
     <a href=""><span>Каталог</span></a>
-    <a href=""><span>KIA</span></a>
-    <a href=""><span>Sportage New</span></a>
+    <a href=""><span><%= @car.brand.title %></span></a>
+    <a href=""><span><%= @car.name %></span></a>
   </div>
   <div class="main-item-wrap">
     <div class="main-item-color">
@@ -97,8 +97,8 @@
       <%= image_tag "carso/img/kia-sportage.png", alt:'', class: '' %>
     </div>
     <div class="main-brand-model">
-      <div class="main-brand-name">Kia</div>
-      <div class="main-model-name">Sportage</div>
+      <div class="main-brand-name"><%= @car.brand.title %></div>
+      <div class="main-model-name"><%= @car.name %></div>
       <div class="main-price">
         <div class="main-price-item">
           <div class="main-price-unit">121200 ₽</div>
@@ -1087,7 +1087,7 @@
         </div>
       </div>
       <div class="main-brand-price-text">
-        <div class="main-brand-model">Kia Celtos</div>
+        <div class="main-brand-model"><%= @car.brand.title %> <br><%= @car.name %></div>
         <div class="main-brand-price-cont">
           <div class="main-brand-price">
             <div class="main-brand-of-price">1 210 200₽</div>
