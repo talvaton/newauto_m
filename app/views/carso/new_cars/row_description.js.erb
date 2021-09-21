@@ -3,3 +3,32 @@ $('<%= "#equipment_#{@equipment.id}_description" %>').html('<%= j render partial
 $("[data-action=hide-table-row-description]").on('click', function(){
     $(this).closest('[data-role="table-row-description"]').hide();
 });
+
+
+    $("[data-show-new-ajax]").on('click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        var eq_id = $(this).data('eq_id'),
+            // car_id = $(this).data('car_id');
+            modal = $(this).data('show-new-ajax'),
+            carId = carid ? carid : $(this).data('car-id');
+        if (!DISABLE_FANCYBOX) {
+            DISABLE_FANCYBOX = true;
+            $.ajax({
+                url: "/" + car_brand + "/" + carId,
+                type: 'POST',
+                data: {
+                    // put data here
+                    modal: modal,
+                    eq_id: eq_id,
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            }).then(function(){
+                initAjaxModalCallback._callback();
+            });
+        }
+    });
+
+

@@ -7,7 +7,7 @@
     <div><span>Стоимость:</span> <i><%= number_with_delimiter(@equipment.price,delimiter: ' ') %> ₽</i></div>
     <div><span>Цена со скидкой:</span> <i><%= number_with_delimiter(@equipment.price - real_discount,delimiter: ' ') %> ₽</i></div>
     </div>
-    <a href="#" class="main-equip-button_item" data-show-new-ajax="car-credit-modal" data-eq_id="<%= @equipment.id %>" rel="nofollow">Выбрать кредит</a>
+    <a href="#" class="main-equip-button_item" data-show-new-ajax="car-credit-modal" data-eq_id="<%= @equipment.id %>" rel="nofollow">Купить в кредит</a>
   </div>
 </div>
 <div class="compl-des-col">
