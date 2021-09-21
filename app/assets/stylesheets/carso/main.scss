@@ -343,8 +343,9 @@ header .header_top{
   margin: 0 0 0 20px;
   padding: 10px 0 10px 0;
   @media all and (max-width: 600px) {
-    padding: 10px 20px;
+    padding: 0px 20px 10px 20px !important;
     margin: 5px 0 0px 0;
+
   }
 }
 .breadcrumbs li{
@@ -358,17 +359,28 @@ header .header_top{
 .breadcrumbs li a{
   font-style: normal;
   font-weight: normal;
-  font-size: 12px;
+  font-size: 10px;
   color: #9DA9B6;
+  line-height: 110%;
 }
 .breadcrumbs li:first-child a{
 
 }
 .breadcrumbs li a:after {
-  content: "\00a0\00a0\00BB\00a0\00a0";
+  content: "";
+  background-image: image-url("carso/img/arrow.svg");
+  width: 10px;
+  height: 10px;
+  box-sizing: border-box;
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  margin: 0 5px;
 }
 .breadcrumbs li a.active:after {
   content: "";
+  background: transparent;
 }
 /*******breadcrumbs******/
 
@@ -4872,6 +4884,9 @@ a {
   position: relative;
   text-align: center;
   cursor: pointer;
+  display: block;
+  width: 176px;
+  margin: 0 auto;
 }
 
 .catalog-auto {
@@ -4899,10 +4914,10 @@ a {
   position: absolute;
   width: 17px;
   height: 12px;
-  background-image: url(carso/img/arrow-bottom.svg);
+  background-image: image-url("carso/img/arrow-bottom.svg");
   background-repeat: no-repeat;
-  left: -26px;
-  top: 11px;
+  left: 0;
+  top: 15px;
 }
 
 .main-brand-model {
