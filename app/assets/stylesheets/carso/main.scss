@@ -4924,7 +4924,7 @@ a {
   text-transform: uppercase;
   font-weight: 900;
   padding-bottom: 0;
-  margin: 20px;
+  margin: 20px 0;
 }
 
 
@@ -4952,6 +4952,7 @@ a {
   text-transform: uppercase;
   font-weight: 900;
   justify-content: space-between;
+  align-items: flex-end;
 }
 
 .main-price-unit {
