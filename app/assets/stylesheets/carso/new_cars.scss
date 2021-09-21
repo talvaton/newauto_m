@@ -991,16 +991,32 @@ h2{
   margin: 20px 0 0 0;
   font-size: 19px;
   font-weight: 900;
-  border-bottom: 3px solid #7E8691;
+ // border-bottom: 3px solid #7E8691;
   @media all and (max-width: 340px) {
     font-size: 18px;
   }
 }
 
-.table-main .table th, .table-main .table td{
+.table-main .table th, .table-main .table .compl_gr_title td{
   border: medium none;
   padding: 0.75rem 0.75rem 0.75rem 0;
+
 }
+
+.table-main .table .compl_gr_title td{
+  @media all and (max-width: 600px) {
+    text-align: right;
+  }
+}
+
+.table-main .table .compl_gr_title td div{
+  display: inline-block;
+  justify-content: flex-end;
+  border-bottom: 3px solid #7E8691;
+  width: max-content;
+  text-align: right;
+}
+
 .table-main .table .tr{
  /* border-bottom: 1px solid #9da9b65e;*/
   cursor: pointer;
@@ -1021,11 +1037,11 @@ h2{
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
     position: relative;
-    border: 1px solid #F2F2F2;
+    //border: 1px solid #F2F2F2;
     box-sizing: border-box;
     border-radius: 2px;
-    margin: 0 0 10px 0;
-    padding: 0 0 8px 0;
+    margin: 0 0 5px 0;
+    padding: 0;
   }
 }
 .tbm td{
@@ -1059,7 +1075,7 @@ h2{
      font-size: 16px;
    }
    @media all and (max-width: 600px) {
-     padding: 17px 5px 17px 50px;
+     padding: 15px 5px 17px 35px;
      width: 60%;
    }
 }
@@ -1117,7 +1133,7 @@ h2{
 .table-main .table .tr th i{
   width: 25px;
   height: 15px;
-  background: image-url('carso/icons/vstrab.svg')no-repeat;
+  background: image-url('carso/img/arrow-bottom-grey.svg')no-repeat;
   z-index: -1;
   @media all and (max-width: 800px) {
     position: absolute;
@@ -1136,6 +1152,7 @@ h2{
   font-size: 18px;
   color: #949DA7;
   font-weight: 700;
+  border-top: 0;
 }
 .table-main .table .tr td.kpp{
   width: 220px;

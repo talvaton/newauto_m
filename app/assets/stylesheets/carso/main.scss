@@ -1,4 +1,4 @@
-@import 'carso/normalize';
+//@import 'carso/normalize';
 @import 'carso/fonts';
 @import "jquery.fancybox.min";
 @import 'slick';
@@ -5228,7 +5228,16 @@ a {
   text-transform: uppercase;
   font-weight: 900;
 }
-
+.main-gifts-text{
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #444444;
+}
 .main-equip {
   margin-top: 60px;
   padding: 0;
@@ -6845,4 +6854,7 @@ footer {
 }
 .main-compare-img img{
   width: 100%;
+}
+.table th, .table td{
+  border-top:medium none;
 }

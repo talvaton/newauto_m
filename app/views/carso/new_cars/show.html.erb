@@ -333,7 +333,7 @@
       <table class="table">
         <tbody>
         <% spec.each_with_index do |cs,index_spec| %>
-          <tr class="compl_gr_title"><td><% if cs.volume.present? %><%= "#{(cs.volume / 1000.to_f).round(1)} л. #{cs.drive == 'Полный' ? '4WD' : '2WD'} "%> <% end %> <% "#{cs.shorttransmission}" %></td></tr>
+          <tr class="compl_gr_title"><td><div><% if cs.volume.present? %><%= "#{(cs.volume / 1000.to_f).round(1)} л. #{cs.drive == 'Полный' ? '4WD' : '2WD'} "%> <% end %> <% "#{cs.shorttransmission}" %></div></td></tr>
           <% cs.equipment.where('`equipment`.`hide` = 0').order(:price).each_with_index do |e,index| %>
             <%
               real_discount = @car.discount_count(e) + @region_discount
