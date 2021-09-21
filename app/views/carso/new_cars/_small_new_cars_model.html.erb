@@ -34,7 +34,9 @@
 
 <div class="main-brand-item">
   <div class="main-brand-img-wrap">
-    <div class="main-brand-img">
+    <%= link_to (taxi ? new_car_taxi_path("#{small_new_cars_model.brand.url}-#{ small_new_cars_model.url}") : new_car_path(small_new_cars_model.brand.url,small_new_cars_model.url)  ) do %>
+
+  <div class="main-brand-img">
       <% if small_new_cars_model.colors[0].present? %>
         <%= image_tag "/static/images/blank.png", alt: '',data:{:lazy=>small_new_cars_model.colors[0].card.url,:original=>small_new_cars_model.colors[0].card.url} %>
       <% end %>
@@ -52,5 +54,6 @@
         </div>
       </div>
     </div>
+    <% end %>
   </div>
 </div>
