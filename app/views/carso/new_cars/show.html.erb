@@ -84,6 +84,16 @@
 
 <section class="main-item">
   <div class="main-item-wrap">
+    <div class="avt_nc">
+      <% car_count_arr = [] %>
+      <% equipments = @equipments.limit(10).shuffle %>
+      <% equipments.each do |e| %>
+        <% car_count = e.id % 3 %>
+        <% car_count = 2 if car_count < 2 %>
+        <% car_count_arr.push(car_count) %>
+      <% end %>
+      В наличии: <b><%= car_count_arr.sum %></b>
+    </div>
     <div class="main-item-color">
       <div class="singlecar__colors">
         <ul class="colors-list">

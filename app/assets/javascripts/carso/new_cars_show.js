@@ -121,7 +121,7 @@ $(document).ready(function() {
         arrows: true,
         //  infinite: false,
         //variableWidth: true,
-        slidesToShow: 3,
+        slidesToShow: 1,
         slidesToScroll: 1
     });
 });

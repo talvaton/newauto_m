@@ -9,7 +9,9 @@
 //@import '_region_blocks';
 
 body{
-  font-family: Roboto;
+  //font-family: Roboto;
+ /* font-family: Inter;
+  font-style: normal;*/
 }
 .row{
   margin: 0;
@@ -341,7 +343,6 @@ header .header_top{
   padding: 10px 0 10px 0;
   @media all and (max-width: 600px) {
     padding: 10px 20px;
-    border-top: 1px solid #1c1c1c73;
     margin: 5px 0 0px 0;
   }
 }

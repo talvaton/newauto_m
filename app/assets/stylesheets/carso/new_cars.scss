@@ -1703,6 +1703,7 @@ label.on .lab_ch-text{
   @media all and (max-width: 900px) {
     display: flex;
     justify-content: space-evenly;
+    margin: 0 -20px 0 -20px;
   }
   @media all and (max-width: 480px) {
     min-height: 100%;
@@ -1763,12 +1764,16 @@ label.on .lab_ch-text{
   max-width: 196px;
   overflow: hidden;
   height: 35px;
-  @media all and (max-width: 450px) {
-    margin: 0;
-  }
   @media all and (max-width: 900px) {
     display: flex;
     justify-content: space-evenly;
+  }
+  @media all and (max-width: 600px) {
+    width: 35px;
+    max-width: 35px;
+  }
+  @media all and (max-width: 450px) {
+    margin: 0;
   }
 }
 .colors-list{
@@ -1811,6 +1816,9 @@ label.on .lab_ch-text{
   height: 35px;
   top: 0;
   right: 30px;
+  @media all and (max-width: 600px) {
+    display: none !important;
+  }
 }
 
 .singlecar__colors-wrapper {
@@ -2298,3 +2306,26 @@ label.on .lab_ch-text{
   }
 }
 /**********************banners*************************/
+.avt_nc{
+  display: none;
+  @media all and (max-width: 600px) {
+    display: flex;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    text-align: right;
+
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 11px;
+    line-height: 110%;
+    align-items: center;
+    text-transform: uppercase;
+    justify-content: flex-end;
+    color: #949DA7;
+  }
+}
+.avt_nc b{
+  color: #82D266;
+}
