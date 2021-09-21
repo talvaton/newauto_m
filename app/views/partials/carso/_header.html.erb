@@ -74,26 +74,7 @@
   <div class="catalog_item">Каталог авто</div>
   <div class="catalog-auto">
     <div class="catalog-auto-wrap">
-      <div class="catalog-auto-item">LADA<span>[3]</span></div>
-      <div class="catalog-auto-item">Geely<span>[5]</span></div>
-      <div class="catalog-auto-item">GAC<span>[1]</span></div>
-      <div class="catalog-auto-item">Kia<span>[7]</span></div>
-      <div class="catalog-auto-item">Hyundai<span>[8]</span></div>
-      <div class="catalog-auto-item">Mitsubishi<span>[6]</span></div>
-      <div class="catalog-auto-item">Renault<span>[7]</span></div>
-      <div class="catalog-auto-item">Chery<span>[2]</span></div>
-      <div class="catalog-auto-item">Mazda<span>[7]</span></div>
-      <div class="catalog-auto-item">Toyota<span>[5]</span></div>
-      <div class="catalog-auto-item">Nissan<span>[2]</span></div>
-      <div class="catalog-auto-item">Haval<span>[6]</span></div>
-      <div class="catalog-auto-item">FAW<span>[7]</span></div>
-      <div class="catalog-auto-item">Skoda<span>[8]</span></div>
-      <div class="catalog-auto-item">Changan<span>[6]</span></div>
-      <div class="catalog-auto-item">Datsun<span>[9]</span></div>
-      <div class="catalog-auto-item">Honda<span>[1]</span></div>
-      <div class="catalog-auto-item">Dongfeng<span>[6]</span></div>
-      <div class="catalog-auto-item">Citroen<span>[7]</span></div>
-      <div class="catalog-auto-item">Peugeot<span>[8]</span></div>
+      <%= render partial:'partials/carso/brand_list', collection: @brands %>
     </div>
   </div>
 </section>

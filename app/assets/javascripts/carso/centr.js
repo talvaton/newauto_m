@@ -444,25 +444,7 @@ var workWithSideFixedNav = function(){
 };
 
 
-/* кнопка Наверх */
-var toggleToTopBtn = function(){
-    var $btn = $('[data-action="go-to-top"]'),
-        windowH = $(window).height(),
-        windowTop = $(window).scrollTop(),
-        footerOffsetTop = $('.footer').offset().top;
-    if ($btn.length) {
-        if (windowTop > windowH) $btn.addClass('btn-totop--visible');
-        else $btn.removeClass('btn-totop--visible');
 
-        if (windowTop + windowH > footerOffsetTop){
-            $btn.addClass('btn-totop--abs');
-            $btn[0].style.setProperty('--btn-bottom', (footerOffsetTop - 50));
-        }
-        else $btn.removeClass('btn-totop--abs');
-    }
-
-};
-var toggleToTopBtnDebounce = debounce(toggleToTopBtn, 10);
 
 var goToTop = function(){
     var $btn = $('[data-action="go-to-top"]');

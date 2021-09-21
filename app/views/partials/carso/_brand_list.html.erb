@@ -1,6 +1,6 @@
-<li itemprop="name">
+<div class="catalog-auto-item">
   <%# logo_url = brand_list.logo.url %>
   <%= link_to(brand_path(brand_list.url), class:'menu-list__link brandlist__link', itemprop:'url',:data=>{:action => 'show-brand-in-menu'},title:brand_list.title) do %>
     <span><%= brand_list.title %></span>
   <% end %>
-</li>
+</div>

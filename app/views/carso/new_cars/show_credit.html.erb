@@ -25,8 +25,8 @@
   t_mos = "#{@car.russian_name} в кредит #{@car.old ? 'купить' : 'купить новый'} #{@car.menutitle} #{@car.old ? (Time.current - 2.year).year.to_s + '-' + (Time.current - 1.year).year.to_s : (Time.current - 1.year).year.to_s + '-' + Time.current.year.to_s} в рассрочку в автосалоне, #{@current_region.sklon1}"
   t_reg = "Кредит на #{@car.menutitle} #{@car.old ? 'купить' : 'купить новый'} #{@car.russian_name} #{@car.old ? (Time.current - 2.year).year.to_s + '-' + (Time.current - 1.year).year.to_s : (Time.current - 1.year).year.to_s + '-' + Time.current.year.to_s} в рассрочку в #{@current_region.sklon3} (автосалон)"
 
-  d_mos = "Выгодные условия на покупку #{@car.menutitle} в кредит в автосалоне AviCAR #{@car.old ? 'купить' : 'купить новый'} #{@car.russian_name} в рассрочку под 0% у официального дилера в #{@current_region.sklon3}."
-  d_reg = "#{@car.old ? 'Купить' : 'Купить новый'} #{@car.russian_name} в рассрочку под 0% у официального дилера в #{@current_region.sklon3}. Выгодные условия на покупку #{@car.menutitle} в кредит от 1.9% в автосалоне AviCAR."
+  d_mos = "Выгодные условия на покупку #{@car.menutitle} в кредит в автосалоне Авимоторс #{@car.old ? 'купить' : 'купить новый'} #{@car.russian_name} в рассрочку под 0% у официального дилера в #{@current_region.sklon3}."
+  d_reg = "#{@car.old ? 'Купить' : 'Купить новый'} #{@car.russian_name} в рассрочку под 0% у официального дилера в #{@current_region.sklon3}. Выгодные условия на покупку #{@car.menutitle} в кредит от 1.9% в автосалоне Авимоторс."
 
   o_mos = "#{@car.russian_name} по цене от #{number_with_delimiter(@car.equipments.where(hide:0).minimum(:price)  - min_discount_e,delimeter: ' ') } руб. Все комплектации в наличии! Купить новый автомобиль #{@car.menutitle} #{@car.old ? (Time.current - 2.year).year.to_s : (Time.current - 1.year).year.to_s + '-' + Time.current.year.to_s} годов! Скидка до #{number_with_delimiter(max_discount_e,delimeter:' ')} рублей у официального дилера в #{@current_region.sklon3}. Бонусы и Подарки!"
   o_reg = "Продажа #{@car.russian_name} в #{@current_region.sklon3}. Скидка до #{number_with_delimiter(max_discount_e,delimeter:' ')} рублей! Экспресс кредит 1,9%, Рассрочка 0%, trade-in. Новый #{@car.menutitle} #{@car.old ? (Time.current - 2.year).year.to_s : (Time.current - 1.year).year.to_s + '-' + Time.current.year.to_s} всех комплектаций у официального дилера."
@@ -43,7 +43,7 @@
 
   provide :og_tags,
 "<meta property='og:type' content='article'>
-<meta property='og:site_name' content='AviCAR'>
+<meta property='og:site_name' content='Авимоторс'>
 <meta property='og:url' content='#{request.original_url}'>
 <meta property='og:title' content='#{@car.name}'>
 <meta property='og:description' content='#{ogdesc}'>
