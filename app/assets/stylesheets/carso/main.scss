@@ -5327,6 +5327,9 @@ a {
   text-transform: uppercase;
   font-weight: 900;
   font-size: 12px;
+  line-height: 12px;
+  width: 79px;
+  height: 37px;
 }
 
 .main-equip-name {
@@ -5956,14 +5959,23 @@ a {
 }
 
 .main-price-month {
-  text-transform: initial;
-  font-size: 11px;
+  font-style: normal;
   font-weight: 900;
+  font-size: 12px;
+  line-height: 110%;
+  display: flex;
+  align-items: center;
+  color: #40464E;
 }
 
 .main-price-month_green {
+  font-style: normal;
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 110%;
+  display: flex;
+  align-items: center;
   color: #7CCB2D;
-  text-transform: uppercase;
 }
 
 .main-equip-of-price {

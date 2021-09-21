@@ -1075,8 +1075,10 @@ h2{
      font-size: 16px;
    }
    @media all and (max-width: 600px) {
-     padding: 15px 5px 17px 35px;
-     width: 60%;
+     padding: 0 0 0 20px;
+     width: 100%;
+     display: flex;
+     align-items: flex-end;
    }
 }
 .table-main .table .tr th span:nth-child(1){
@@ -1112,7 +1114,29 @@ h2{
     line-height: 14px;
     color: #BDC7D1;
   }
+  @media all and (max-width: 600px) {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    color: #949DA7;
+    margin: 3px 0 0 0;
+  }
 }
+.table-main .table .mn_s b{
+  display: none;
+  @media all and (max-width: 600px) {
+    display: block;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: uppercase;
+    color: #D7AD48;
+  }
+}
+
+
 .table-main .compl-price-discount .but_credit{
   display: none;
   @media all and (max-width: 700px) {
@@ -1137,8 +1161,8 @@ h2{
   z-index: -1;
   @media all and (max-width: 800px) {
     position: absolute;
-    left: 15px;
-    top: 20px;
+    left: 0;
+    top: 6px;
   }
 }
 
@@ -1177,9 +1201,11 @@ h2{
     text-align: center;
   }
   @media all and (max-width: 600px) {
-    width: 40%;
+    display: none;
   }
 }
+
+
 .table-main .table .tr td.compl-price-discount .tableprice{
   @media all and (max-width: 700px) {
     padding: 0 0 0 7px;
@@ -1372,6 +1398,14 @@ h2{
 .cr_tr_hr .btn-link:hover{
   text-decoration: none;
 }
+
+.table-main .table .tr td.cr_ord,.table-main .but_traid-in{
+  @media all and (max-width: 600px) {
+    display: none;
+  }
+}
+
+
 /*********banners*************/
 .sale_bn{
   display: none;
@@ -2383,4 +2417,35 @@ label.on .lab_ch-text{
   line-height: 140%;
   text-transform: uppercase;
   color: #444444;
+}
+.vgdm_p{
+  @media all and (max-width: 600px) {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 9px;
+    line-height: 11px;
+    text-transform: uppercase;
+    color: #40464E;
+  }
+}
+.vgdm_p b{
+  @media all and (max-width: 600px) {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 12px;
+    line-height: 21px;
+    text-transform: uppercase;
+    color: #7CCB2D;
+    border: 1px solid #7CCB2D;
+    box-sizing: border-box;
+    border-radius: 4px;
+    display: block;
+    height: 23px;
+    text-align: center;
+    padding: 0 13px;
+    margin: 2px 10px 0 0;
+  }
+}
+.vgdm_dv{
+  display: flex;
 }

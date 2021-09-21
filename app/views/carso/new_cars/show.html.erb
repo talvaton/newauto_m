@@ -346,9 +346,16 @@
 
             <tr class="tr" data-action="show-table-row-description" data-url="<%= row_description_path(@brand.url,@car.url,e.id) %>">
               <th class="">
-                <span><%= e.equipment_description.name %> <%= e.suffix %></span>
-                <span class="mn_s"><%= e.specification.power %> л.с, <%= e.specification.shorttransmission %></span>
-                <i></i>
+                <div>
+                 <span><%= e.equipment_description.name %> <%= e.suffix %></span>
+                 <span class="mn_s">
+                     <b data-role="discount_price" class="tableprice" data-real-price="<%= (e.price - real_discount) %>"><%#= number_with_delimiter(e.price - max_discount,delimiter: ' ') %><%#= (e.price - real_discount) %><%= number_with_delimiter(e.price - real_discount,delimiter: ' ') %> ₽</b>
+                     <%= e.specification.power %> л.с, <%= e.specification.shorttransmission %></span><i></i>
+                </div>
+                <div class="vgdm_dv">
+                  <span class="vgdm_p">Выгода в кредит <b><%= number_with_delimiter(max_discount_e,delimeter:' ') %> ₽</b></span>
+                  <a href="#" class="main-equip-button_item" data-show-new-ajax="car-credit-modal" data-eq_id="<%= e.id %>" rel="nofollow">Выбрать кредит</a>
+                </div>
               </th>
               <td class="mn kpp"><%= e.specification.transmission.gsub('Механическая','Механика').gsub('5-ступенчатая механическая','Механика').gsub('5MT','').gsub('6МТ','').gsub('Автоматическая','Автомат').gsub('5-ступенчатая автоматическая','Автомат').gsub('4AT','') %> (<%= e.specification.shorttransmission %>)</td>
               <td class="mn"><% if e.specification.volume.present? %><%= (e.specification.volume / 1000.to_f).round(1) %><% end %></td>
