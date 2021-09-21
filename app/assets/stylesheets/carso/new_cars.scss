@@ -965,6 +965,7 @@ h2{
 }
 .table-main .table{
   position: relative;
+  margin-bottom: 5rem;
 }
 .table-main .t-header{
   background: #F7F7F7;
@@ -985,12 +986,12 @@ h2{
 
 .compl_gr_title{
   font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
   line-height: 100%;
-  color: #1260B0;
+  color: #1c1c1c;
   margin: 20px 0 0 0;
-  display: block;
+  font-size: 19px;
+  font-weight: 900;
+  border-bottom: 3px solid #7E8691;
   @media all and (max-width: 340px) {
     font-size: 18px;
   }
@@ -1041,11 +1042,11 @@ h2{
 }
 .table-main .table .tr th{
   font-style: normal;
-  font-weight: 400;
+  text-transform: uppercase;
+  font-weight: 900;
   font-size: 20px;
   line-height: 140%;
   color: #1C1C1C;
-  text-transform: uppercase;
   padding: 15px 20px 15px 0;
   vertical-align: middle;
   display: flex;
@@ -1127,28 +1128,29 @@ h2{
 
 .table-main .table .tr td{
   font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
+  /* font-weight: normal; */
+  /* font-size: 14px; */
   line-height: 20px;
-  color: #222222;
+  /* color: #222222; */
   vertical-align: middle;
+  font-size: 18px;
+  color: #949DA7;
+  font-weight: 700;
 }
 .table-main .table .tr td.kpp{
   width: 220px;
 }
 
 .table-main .table .tr td.compl-price{
-   font-style: normal;
-   font-weight: 400;
-   font-size: 16px;
-   color: #1C1C1C;
+  font-size: 18px;
+  color: #949DA7;
 }
 .table-main .table .tr td.compl-price-discount{
-  font-style: normal;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 140%;
-  color: #003469;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 900;
+  margin-bottom: 5px;
+  color: #D7AD48;
   @media all and (max-width: 700px) {
     font-weight: bold;
     font-size: 16px;
@@ -1185,18 +1187,20 @@ h2{
 }
 .table-main .but_traid-in{
   font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
+  font-size: 15px;
   line-height: 130%;
-  color: #003469;
   background: #fff;
-  padding: 0;
-  border: 1px solid #003469;
-  height: 45px;
+  height: 36px;
   width: 152px;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #7CCB2D;
+  border: 1px solid #7CCB2D;
+  text-align: center;
+  padding: 3px 10px;
+  border-radius: 3px;
+  font-weight: 900;
 }
 .table-main .but_traid-in.mtdb_tr{
   display: none;
@@ -1273,7 +1277,7 @@ h2{
   font-style: normal;
   font-weight: 800;
   font-size: 16px;
-  color: #0551A1;
+  color: #000000;
 }
 .compl-des-col p{
   margin: 0;
@@ -1881,7 +1885,7 @@ label.on .lab_ch-text{
  }
 .fancybox-container .button{
   margin: 10px 0 0 0;
-  background: #1C1C1C;
+  background: #7CCB2D;
 }
 /*.img-comp-container .slick-track{
   width: auto !important;

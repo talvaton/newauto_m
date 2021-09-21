@@ -29,20 +29,28 @@
   end
 %>
 
-<div class="card-box">
-  <%#= link_to new_car_path(small_new_cars_model.brand,small_new_cars_model),class:'',title:small_new_cars_model.name do %>
-  <%= link_to (taxi ? new_car_taxi_path("#{small_new_cars_model.brand.url}-#{ small_new_cars_model.url}") : new_car_path(small_new_cars_model.brand.url,small_new_cars_model.url)  ) do %>
-  <div class="card-media">
+
+
+
+<div class="main-brand-item">
+  <div class="main-brand-img-wrap">
+    <div class="main-brand-img">
       <% if small_new_cars_model.colors[0].present? %>
-      <%= image_tag "/static/images/blank.png", alt: '',data:{:lazy=>small_new_cars_model.colors[0].card.url,:original=>small_new_cars_model.colors[0].card.url} %>
+        <%= image_tag "/static/images/blank.png", alt: '',data:{:lazy=>small_new_cars_model.colors[0].card.url,:original=>small_new_cars_model.colors[0].card.url} %>
       <% end %>
     </div>
-    <div class="card-main">
-      <div class="card-title"><%= small_new_cars_model.brand.title %> <%= small_new_cars_model.name %></div>
-      <div class="card-price">
-        <span <%= credit ? "data-price=#{snc_price}" : '' %>><%= number_with_delimiter((credit ? count_price(snc_price,PERCENT,MONTH):snc_price  ), delimiter: " ") %></span> ₽<% if credit %><span>/мес</span><% end %>
+  </div>
+  <div class="main-brand-price-text">
+    <div class="main-brand-model"><%= small_new_cars_model.brand.title %> <%= small_new_cars_model.name %></div>
+    <div class="main-brand-price-cont">
+      <div class="main-brand-price">
+
+      </div>
+      <div class="main-brand-benefit">
+        <div class="main-brand-benefit_title">Выгода в кредит</div>
+        <div class="main-brand-benefit_price"><span <%= credit ? "data-price=#{snc_price}" : '' %>><%= number_with_delimiter((credit ? count_price(snc_price,PERCENT,MONTH):snc_price  ), delimiter: " ") %></span> ₽<% if credit %><span>/мес</span><% end %>
+        </div>
       </div>
     </div>
-  <% end %>
-
+  </div>
 </div>

@@ -84,6 +84,7 @@ ul{
   position: absolute;
   bottom: 0;
   left: 10px;
+  display: none !important;
 }
 .input.input--error{
   border-bottom: 1px solid rgb(255, 85, 85);
@@ -4748,10 +4749,21 @@ a {
   padding: 0 20px;
 
 }
-
+.main-salon-gallery{
+  display: flex;
+  @media all and (max-width: 600px) {
+    display: block;
+  }
+}
+.main-salon-gallery a{
+  margin: 0 10px 0 0;
+}
 .main-salon-gallery-wrap img {
-  width: 200px;
-  height: 140px;
+ /* width: 200px;
+  height: 140px;*/
+  @media all and (max-width: 600px) {
+    width: 200px;
+  }
 }
 
 .main-stock_count {
@@ -5180,7 +5192,7 @@ a {
 
 .main-equip {
   margin-top: 60px;
-  padding: 0 40px;
+  padding: 0;
 }
 
 .main-equip-item {
@@ -5261,7 +5273,6 @@ a {
   text-transform: uppercase;
   font-weight: 900;
   font-size: 12px;
-  line-height: 12px;
 }
 
 .main-equip-name {
@@ -5434,6 +5445,11 @@ a {
 .main-gallery .main-gallery-item {
   margin-top: 30px;
   margin-bottom: 50px;
+  margin-right: 10px;
+  @media all and (max-width: 600px) {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 }
 
 .main-reviews {
@@ -6777,4 +6793,10 @@ footer {
     margin-bottom: 15px;
   }
 
+}
+.mg_fr-f{
+  display: flex;
+  @media all and (max-width: 600px) {
+    display: block;
+  }
 }
