@@ -4786,7 +4786,13 @@ a {
 .main-salon-gallery{
   display: flex;
   @media all and (max-width: 600px) {
-    display: block;
+    max-height: 250px;
+    padding: 1rem;
+    overflow-y: auto;
+    direction: ltr;
+    scrollbar-color: #d4aa70 #e4e4e4;
+    scrollbar-width: thin;
+    padding: 0;
   }
 }
 .main-salon-gallery a{
@@ -4796,7 +4802,7 @@ a {
  /* width: 200px;
   height: 140px;*/
   @media all and (max-width: 600px) {
-    width: 200px;
+   /* width: 200px;*/
   }
 }
 
@@ -6497,7 +6503,6 @@ footer {
 
   .main-salon {
     padding: 0 60px;
-
   }
 
   .main-reviews {
@@ -6857,4 +6862,9 @@ footer {
 }
 .table th, .table td{
   border-top:medium none;
+}
+.main-salon {
+  @media all and (max-width: 600px) {
+    padding: 0;
+  }
 }
