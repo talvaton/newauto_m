@@ -2447,5 +2447,8 @@ label.on .lab_ch-text{
   }
 }
 .vgdm_dv{
-  display: flex;
+  display: none;
+  @media all and (max-width: 600px) {
+    display: flex;
+  }
 }
