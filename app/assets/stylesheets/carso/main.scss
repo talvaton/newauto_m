@@ -12,6 +12,7 @@ body{
   //font-family: Roboto;
  /* font-family: Inter;
   font-style: normal;*/
+  font-family: 'Inter';
 }
 .row{
   margin: 0;
@@ -4612,7 +4613,7 @@ a {
 }
 
 .main {
-  font-family: Inter;
+
 }
 
 .main-menu {
@@ -4959,8 +4960,10 @@ a {
 }
 
 .main-price-benefit_cost {
+  font-style: normal;
+  font-weight: 900;
   font-size: 25px;
-  letter-spacing: 0.1em;
+  line-height: 110%;
 }
 
 .main-price-benefit_title {

@@ -1,60 +1,13 @@
 /* roboto-regular - thin */
+
+
+/* inter*/
 @font-face {
-  font-family: 'roboto';
-  font-style: normal;
-  font-display: fallback;
-  font-weight: 100;
-  src: font-url('roboto-thin.woff2') format('woff2');
-  src: local('roboto'), local('roboto-thin'),
-  font-url('roboto-thin.woff') format('woff');
-}
-/* roboto-regular - light */
-@font-face {
-  font-family: 'roboto';
-  font-style: normal;
-  font-display: fallback;
-  font-weight: 300;
-  src: font-url('roboto-light.woff2') format('woff2');
-  src: local('roboto'), local('roboto-light'),
-  font-url('roboto-light.woff') format('woff');
-}
-/* roboto-regular - reg */
-@font-face {
-  font-family: 'roboto';
-  font-style: normal;
-  font-display: fallback;
-  font-weight: 400;
-  src: font-url('roboto-regular.woff2') format('woff2');
-  src: local('roboto'), local('roboto-regular'),
-  font-url('roboto-regular.woff') format('woff');
-}
-/* roboto-500 - med */
-@font-face {
-  font-family: 'roboto';
-  font-style: normal;
-  font-display: fallback;
-  font-weight: 500;
-  src: font-url('roboto-medium.woff2') format('woff2');
-  src: local('roboto-medium'), local('roboto-light'),
-  font-url('roboto-medium.woff') format('woff');
-}
-/* roboto-700 - bold */
-@font-face {
-  font-family: 'roboto';
-  font-style: normal;
-  font-display: fallback;
-  font-weight: 700;
-  src: font-url('roboto-bold.woff2') format('woff2');
-  src: local('roboto-bold'), local('roboto-bold'),
-  font-url('roboto-bold.woff') format('woff');
-}
-/* roboto-900 - black */
-@font-face {
-  font-family: 'roboto';
+  font-family: 'Inter';
   font-style: normal;
   font-display: fallback;
   font-weight: 900;
-  src: font-url('roboto-black.woff2') format('woff2');
-  src: local('roboto-black'), local('roboto-black'),
-  font-url('roboto-black.woff') format('woff');
+  src: font-url('Inter-Bold.woff2') format('woff2');
+  src: local('Inter-Bold'), local('Inter-Bold'),
+  font-url('Inter-Bold.woff') format('woff');
 }
