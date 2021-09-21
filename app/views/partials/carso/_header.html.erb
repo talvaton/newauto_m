@@ -96,3 +96,19 @@
     </div>
   </div>
 </section>
+<ul id="breadcrumbs" class="container row breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
+  <% if main_page? %><% else %>
+    <% crumb_position = 1 %>
+    <% breadcrumb_trail do |crumb| %>
+      <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+        <% unless crumb.current? %>
+          <%= link_to "<span itemprop='name'>#{crumb.name}</span>".html_safe, crumb.url,itemprop:'item' %>
+        <% else %>
+          <%= link_to "<span itemprop='name'>#{crumb.name}</span>".html_safe, crumb.url,itemprop:'item',class:'active' %>
+        <% end %>
+        <meta itemprop="position"  content="<%= crumb_position %>" />
+      </li>
+      <% crumb_position = crumb_position + 1 %>
+    <% end %>
+  <% end %>
+</ul>

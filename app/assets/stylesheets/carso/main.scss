@@ -337,6 +337,8 @@ header .header_top{
 /*******breadcrumbs******/
 .breadcrumbs{
   z-index: 1;
+  margin: 0 0 0 20px;
+  padding: 10px 0 10px 0;
   @media all and (max-width: 600px) {
     padding: 10px 20px;
     border-top: 1px solid #1c1c1c73;
@@ -358,7 +360,7 @@ header .header_top{
   color: #9DA9B6;
 }
 .breadcrumbs li:first-child a{
-  color: #0551A1;
+
 }
 .breadcrumbs li a:after {
   content: "\00a0\00a0\00BB\00a0\00a0";
