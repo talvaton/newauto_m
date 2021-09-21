@@ -6192,12 +6192,6 @@ footer {
   .main-compare-wrap {
 
   }
-  .main-compare-img{
-    width: 180px;
-  }
-.main-compare-img img{
-  width: 100%;
-}
 
   .footer-wrap {
     display: initial;
@@ -6805,4 +6799,10 @@ footer {
   @media all and (max-width: 600px) {
     display: block;
   }
+}
+.main-compare-img{
+  width: 180px;
+}
+.main-compare-img img{
+  width: 100%;
 }
