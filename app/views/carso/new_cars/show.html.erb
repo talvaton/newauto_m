@@ -354,7 +354,7 @@
                 </div>
                 <div class="vgdm_dv">
                   <span class="vgdm_p">Выгода в кредит <b><%= number_with_delimiter(max_discount_e,delimeter:' ') %> ₽</b></span>
-                  <a href="#" class="main-equip-button_item" data-show-new-ajax="car-credit-modal" data-eq_id="<%= e.id %>" rel="nofollow">Выбрать кредит</a>
+                  <a href="#" class="main-equip-button_item" data-show-new-ajax="car-credit-modal" data-eq_id="<%= e.id %>" rel="nofollow">Купить в кредит</a>
                 </div>
               </th>
               <td class="mn kpp"><%= e.specification.transmission.gsub('Механическая','Механика').gsub('5-ступенчатая механическая','Механика').gsub('5MT','').gsub('6МТ','').gsub('Автоматическая','Автомат').gsub('5-ступенчатая автоматическая','Автомат').gsub('4AT','') %> (<%= e.specification.shorttransmission %>)</td>
