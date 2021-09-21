@@ -122,6 +122,17 @@
       <% end %>
     </div>
     <div class="main-brand-model">
+      <div class="vk_mp"></div>
+      <div class="vk_mp_mn">
+        <% unless !@car.available %>
+        <a href="#compl_t" rel="nofollow" data-role="page-navigation-link" class="main-model-menu-item">Комплектации и цены</a><% end %>
+        <a href="#car-features" rel="nofollow" data-role="page-navigation-link" class="main-model-menu-item">Технические характеристики</a>
+        <% unless !@car.available %><a href="#filter_list" rel="nofollow" data-role="page-navigation-link" class="main-model-menu-item">Автомобили в наличии</a><% end %>
+        <% if @car.description.present? && @car.description['text_lower'].present? %>
+        <% end %>
+        <% if @car.images.present? %>
+        <a href="#photo_car" rel="nofollow" class="main-model-menu-item">Фото и видео</a><% end %>
+      </div>
       <div class="main-brand-name"><%= @car.brand.title %></div>
       <div class="main-model-name"><%= @car.name %></div>
       <div class="main-price">

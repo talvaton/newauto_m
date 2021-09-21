@@ -130,3 +130,11 @@ $(document).ready(function() {
     $('.mrr_bl').clone().prependTo('.sbcf');
       }
 });
+
+
+/************************/
+$('.vk_mp').on('click', function(){
+    $('.vk_mp_mn').toggleClass('on');
+});
+
+

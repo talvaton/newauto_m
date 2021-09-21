@@ -2329,3 +2329,41 @@ label.on .lab_ch-text{
 .avt_nc b{
   color: #82D266;
 }
+.vk_mp{
+  display: none;
+  @media all and (max-width: 600px) {
+    display: block;
+    background: image-url('carso/img/vk_mp.png')no-repeat center bottom;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+  }
+}
+.vk_mp_mn{
+  display: none;
+}
+.vk_mp_mn.on{
+  display: block;
+  position: absolute;
+  background: #fff;
+  width: 100%;
+  top: 35px;
+}
+.vk_mp_mn a{
+  text-align: center;
+  width: 100%;
+  display: block;
+  padding: 10px 20px;
+  background: #F2F2F2;
+  margin: 1px 0px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 140%;
+  text-transform: uppercase;
+  color: #444444;
+}
