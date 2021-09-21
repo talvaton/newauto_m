@@ -24,22 +24,26 @@
   end
 %>
 
-<div class="card-box <% if new_cars_brand.archive %>card-archive<% end %>">
-    <%= link_to ( new_car_path(new_cars_brand.brand.url,new_cars_brand.url)  ) do %>
-<div class="card-media">
-        <% if new_cars_brand.colors[0].present? %>
-          <%= image_tag "/static/images/blank.png", alt: '',data:{:lazy=>new_cars_brand.colors[0].card.url,:original=>new_cars_brand.colors[0].card.url} %>
-        <% end %>
-      </div>
-      <div class="card-main">
-        <div class="sale_block_center row justify-content-between">
-          <%= render partial:'new_cars/new_cars_content', :remote => true %>
-        </div>
-        <div class="card-title"><%= new_cars_brand.name %></div>
-        <div class="card-price">
-          <span <%= credit ? "data-price=#{snc_price}" : '' %>><%= number_with_delimiter((credit ? count_price(snc_price,PERCENT,MONTH):snc_price  ), delimiter: " ") %></span> ₽<% if credit %><span>/мес</span><% end %>
-        </div>
-      </div>
-    <% end %>
 
+
+
+<%= link_to ( new_car_path(new_cars_brand.brand.url,new_cars_brand.url)  ) do %>
+<div class="main-brand-item">
+  <div class="main-brand-img-wrap">
+    <div class="main-brand-img">
+      <% if new_cars_brand.colors[0].present? %>
+        <%= image_tag "/static/images/blank.png", alt: '',data:{:lazy=>new_cars_brand.colors[0].card.url,:original=>new_cars_brand.colors[0].card.url} %>
+      <% end %>
+    </div>
   </div>
+  <div class="main-brand-price-text">
+    <div class="main-brand-model"><%= new_cars_brand.name %></div>
+    <div class="main-brand-price-cont">
+      <div class="main-brand-benefit">
+        <div class="main-brand-benefit_title">Выгода в кредит</div>
+        <div class="main-brand-benefit_price"><%= number_with_delimiter((credit ? count_price(snc_price,PERCENT,MONTH):snc_price  ), delimiter: " ") %> ₽</div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

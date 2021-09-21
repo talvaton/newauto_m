@@ -60,198 +60,109 @@
   modelsCount = NewCar.where(brand_id: @brand.id, hide: 0, archive: 0).length;
 %>
 
-<div class="bnr">
+<section class="main-cont">
 
-  <% if @brand.url == 'haval' %>
-    <a href="#" class="bnr_cnt bn_7 bn_8 bn_9 bn_10">
-      <div class="bnr_cnt bn_7 bn_8 bn_9 bn_10">
-        <div class="bnr_infn">
-          <div class="bnr_4_1"><span>Распродажа</span> <span>Haval</span> в кредит</div>
-          <div class="bnr_4_3"></div>
-          <div class="bnr_4_4"></div>
-          <div class="bnr_5_5"></div>
+  <section class="main-gifts">
+    <section class="main-gifts-cont">
+      <div class="main-gifts-item">
+        <div class="main-gifts-img umbrella">
+
+        </div>
+        <div class="main-gifts-title snowflake">
+          Каско
+        </div>
+        <div class="main-gifts-text train">
+          покупателю в подарок
         </div>
       </div>
-    </a>
-  <% else %> <% end %>
+      <div class="main-gifts-item">
+        <div class="main-gifts-img snowflake">
 
-  <% if @brand.url == 'geely' %>
-  <a href="#" class="bnr_cnt bn_7 bn_8 bn_9">
-    <div class="bnr_cnt bn_7 bn_8 bn_9">
-      <div class="bnr_infn">
-        <div class="bnr_4_1"><span>Распродажа</span> <span>Geely</span> в кредит</div>
-        <div class="bnr_4_3"></div>
-        <div class="bnr_4_4"></div>
-        <div class="bnr_5_5"></div>
-      </div>
-    </div>
-  </a>
-  <% else %> <% end %>
-
-  <% if @brand.url == 'lifan' %>
-  <a href="#" class="bnr_cnt bn_6 bn_7 bn_8">
-    <div class="bnr_cnt bn_6 bn_7 bn_8">
-      <div class="bnr_infn">
-        <div class="bnr_4_1"><span>Распродажа</span> <span>Lifan</span> в кредит</div>
-        <div class="bnr_4_3"></div>
-        <div class="bnr_4_4"></div>
-      </div>
-    </div>
-  </a>
-  <% else %> <% end %>
-
-  <% if @brand.url == 'renault' %>
-  <a href="#" class="bnr_cnt bn_6 bn_7">
-    <div class="bnr_cnt bn_6 bn_7">
-      <div class="bnr_infn">
-        <div class="bnr_4_1"><span>Распродажа</span> <span>Renault</span> в кредит</div>
-        <div class="bnr_4_3"></div>
-        <div class="bnr_4_4"></div>
-        <div class="bnr_5_5"></div>
-        <div class="bnr_5_6"></div>
-        <div class="bnr_5_7"></div>
-      </div>
-    </div>
-  </a>
-  <% else %> <% end %>
-
-  <% if @brand.url == 'hyundai' %>
-  <a href="#" class="bnr_cnt bn_4 bn_5 bn_6">
-    <div class="bnr_cnt bn_4 bn_6">
-      <div class="bnr_infn">
-        <div class="bnr_4_1"><span>Распродажа</span> <span>HYUNDAI</span> в кредит</div>
-        <div class="bnr_4_3"></div>
-        <div class="bnr_4_4"></div>
-        <div class="bnr_5_5"></div>
-        <div class="bnr_5_6"></div>
-        <div class="bnr_5_7"></div>
-      </div>
-    </div>
-  </a>
-  <% else %> <% end %>
-
-  <% if @brand.url == 'lada' %>
-  <a href="#" class="bnr_cnt bn_4 bn_5">
-    <div class="bnr_cnt bn_4 bn_5">
-      <div class="bnr_infn">
-        <div class="bnr_4_1">Распродажа <br>LADA в кредит</div>
-        <div class="bnr_4_3"></div>
-        <div class="bnr_4_4"></div>
-        <div class="bnr_5_5"></div>
-        <div class="bnr_5_6"></div>
-        <div class="bnr_5_7"></div>
-      </div>
-    </div>
-  </a>
-  <% else %> <% end %>
-
-  <% if @brand.url == 'kia' %>
-  <a href="#" class="bnr_cnt bn_4">
-    <div class="bnr_cnt bn_4">
-      <div class="bnr_infn">
-        <div class="bnr_4_1">Распродажа KIA в кредит</div>
-        <div class="bnr_4_23">
-          <div class="bnr_4_2"></div>
-          <div class="bnr_4_3"></div>
         </div>
-        <div class="bnr_4_4"></div>
-        <div class="bnr_4_5"></div>
-        <div class="bnr_4_6"></div>
-        <div class="bnr_4_7"></div>
-      </div>
-    </div>
-  </a>
-  <% else %> <% end %>
-  <a href="/credit" class="bnr_cnt bn_1">
-    <div class="bnr_inf">
-      <div>Совместня акция <b>AviCAR и ВТБ</b></div>
-
-      <div><b>1,3% </b>процентна ставка</div>
-      <div><b>99% </b>одобрение кредита</div>
-
-    </div>
-    <div class="bnr_btn"><button>Получить предложение</button></div>
-  </a>
-</div>
-<div class="container">
-
-<div class="bh_form">
- <div class="mm_url">
-  <ul>
-   <%= render partial:'new_cars/new_cars_url_brand', collection:NewCar.where(brand_id: @brand.id, hide: 0, archive: 0).min_price_ordered %>
-  </ul>
- </div>
- <div class="form_block credit">
-    <span class="fprm_gos_pa">Госпрограмма -10%</span>
-        <div class="form-sale-info">
-          <span class="frins">Получите</span>
-          <div class="form-credit-info">специальную цену в кредит</div>
+        <div class="main-gifts-title">
+          Зимняя резина
         </div>
+        <div class="main-gifts-text">
+          в подарок с автомобилем
+        </div>
+      </div>
+      <div class="main-gifts-item">
+        <div class="main-gifts-img train">
 
-    <%= form_for Ticket.new,url: {action:"create",controller:"tickets" },remote:true,validate:true,:html => {:class => "form",:name=>"newcarreq"},:namespace => "newcarreq" do |f| %>
-      <%= hidden_field_tag 'ticket[other][model]',@brand.id, id:'newcarreq_ticket_other_model' %>
-      <%= f.hidden_field :form_name, value:"express" %>
-      <div class="form_input">
-        <%= f.text_field :name,class:"input",placeholder:"Ваше имя" %>
+        </div>
+        <div class="main-gifts-title">
+          Оплата проезда
+        </div>
+        <div class="main-gifts-text">
+          покупателя до автосалона
+        </div>
       </div>
-      <div class="form_input">
-        <%= f.phone_field :phone,class:"input",data:{:role=>"phone"},placeholder:"Номер телефона"  %>
+    </section>
+  </section>
+
+
+
+  <section class="main-brand">
+    <section class="main-title-wrap">
+      <div class="main-title">
+        <div class="main-title-text">
+          Модельный ряд <%= @brand.title %>
+        </div>
       </div>
-      <%= f.button do %>
-          <span>Получить предложение</span>
+    </section>
+    <div class="main-brand-item-head">
+      Хэтчбеки
+    </div>
+    <div class="main-brand-item-cont">
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+  <% if @brand.new_cars.where(hide: 0, archive: 0).present? %>
+    <% brand_car_types = NewCar.where(brand_id: @brand.id,hide: 0, archive: 0).distinct.pluck(:car_type) %>
+    <% brand_car_types.each do |t| %>
+
+      <div class="main-brand-item-cont">
+
+          <%= render partial:'new_cars/new_cars_brand', collection: @brand.new_cars.where(hide: 0, archive: 0, car_type: t).min_price_ordered %>
+
+      </div>
       <% end %>
-    <% end %>
-  </div>
-</div>
-<% unless region %>
-<% end %>
-<h1>Модельный ряд <%= @brand.title %></h1>
-<% if region %>
-<%= render partial:'new_cars/region_form' %>
-<% end %>
-<br>
-<% if @brand.new_cars.where(hide: 0, archive: 0).present? %>
-  <% brand_car_types = NewCar.where(brand_id: @brand.id,hide: 0, archive: 0).distinct.pluck(:car_type) %>
-  <% brand_car_types.each do |t| %>
+  <% end %>
 
-    <div class="row justify-content-start cr_tr_url">
-      <div class="cr_tr_hr right row justify-content-start">
-        <%= render partial:'new_cars/new_cars_brand', collection: @brand.new_cars.where(hide: 0, archive: 0, car_type: t).min_price_ordered %>
+
+
+
+
+
+  <section class="main-pic-list">
+    <div class="main-pic-list-cont">
+      <div class="main-pic-list-item img-1 casko">
+        <div class="main-pic-list-date">
+          <div class="main-pic-list-date-item">Каско</div>
+          <div class="main-pic-list-date-item">в подарок!</div>
+        </div>
+      </div>
+      <div class="main-pic-list-item img-2 gos">
+        <div class="main-pic-list-date">
+          <div class="main-pic-list-date-item">Госпрограмма</div>
+          <div class="main-pic-list-date-item">первый авто</div>
+          <div class="main-pic-list-date-item">Семейный авто</div>
+        </div>
+      </div>
+      <div class="main-pic-list-item img-3 pay_three">
+        <div class="main-pic-list-date">
+          <div class="main-pic-list-date-item">3</div>
+          <div class="main-pic-list-date-item">Платежа</div>
+          <div class="main-pic-list-date-item">за наш счёт</div>
+        </div>
       </div>
     </div>
-    <%#<div class="row justify-content-start">%><%#= link_to t.pluralize(:ru), brand_type_path(@brand.url,t("car_types.#{t}")) %><%#</div>%>
-  <% end %>
-<% end %>
-
-
-<div class="pr_slog_b">
-  <div><%= image_tag "carso/icons/group30.svg", alt:'' %>
-    <span>Бесплатное <br> КАСКО</span>
-  </div>
-  <div><%= image_tag "carso/icons/group98.svg", alt:'' %>
-    <span>Зимняя резина в <br> подарок</span>
-  </div>
-  <div><%= image_tag "carso/icons/group101.svg", alt:'' %>
-    <span>Госпрограммы: <br> -10% на любое авто</span>
-  </div>
-  <div><%= image_tag "carso/icons/group33.svg", alt:'' %>
-    <span>Оплата проезда <br> до автосалона</span>
-  </div>
-</div>
-
-<% if region %>
-  <%#= render partial:'new_cars/region_reasons' %>
-<% end %>
-<%#= render 'partials/carso/tradein_form' %>
-<%#= render 'partials/carso/credit_form' %>
-
-<%= render 'partials/carso/credit_form' %>
-
-<% content_for :additional_javascript do %>
-
-  <script>
-      car_brand = '<%= @brand.url %>';
-      carid = undefined;
-  </script>
-<% end %>
-</div>
+  </section>
+</section>

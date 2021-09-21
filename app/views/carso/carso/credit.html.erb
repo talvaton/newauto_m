@@ -1,213 +1,302 @@
 <% provide :title,"Автокредит в #{@current_region.sklon3} 🚗 купить авто в кредит без первоначального взноса — автосалон «AviCAR»" %>
 <% provide :description,'Выгодные условия на покупку автомобиля в кредит под 1.9% 🚘 Купить машину в рассрочку 0% без первоначального взноса 🏦 Более 40 банков партнеров. — автосалон «AviCAR» 8 (800) 500-03-23, ' + @current_region.sklon1 + '.' %>
 
-  <h1 class="green">Автокредит по госпрограмме</h1>
-  <div class="form_credit">
-    <div class="cr_vr">
-      <span class="cr_tl">Заполните заявку онлайн и получите скидку <b>70 000₽</b></span>
-      <div class="fcwig">
-        <%= form_for Ticket.new,url: {action:"create",controller:"tickets" },remote:true,validate:true,:html => {:class => "common-top__form-inner",:name=>"newcarreq"},:namespace => "creditpage" do |f| %>
-          <%= f.hidden_field :form_name, value:'credit' %>
-          <%= hidden_field_tag 'ticket[other][ttype]',1,id:'credit_ticket_other_ttype' %>
-          <div class="row justify-content-between form_ld">
-            <div class="form-bottom">
-            <div class="drmbbx">
-              <div class="form_input">
-                <%= f.text_field :name,class:"input",placeholder:"Имя" %>
-               </div>
-               <div class="form_input">
-                <%= f.phone_field :phone,class:"input",data:{:role=>"phone"},placeholder:"Телефон для связи *"  %>
-               </div>
-            </div>
-              <div>
-               <div class="form_input">
-                <%#= f.text_field :other,class:"input",placeholder:"Дата рождения" %>
-                <%= date_field_tag(:datetime_ida, class:"input") %>
-               </div>
-               <div class="form_input">
-                <%= f.text_field :other,class:"input",placeholder:"Город регистрации" %>
-               </div>
+<section class="main-cont">
+  <section class="main-item">
+    <div class="main-item-wrap">
+      <div class="main-img">
+        <%= image_tag "carso/img/kia-sportage.png", alt:'', class: '' %>
+      </div>
+      <div class="main-brand-model">
+        <div class="main-model-name auto-credit">Автокредит</div>
+        <div class="main-model-item">
+          <div class="main-model-item-green">1.9%</div>
+          <div class="main-model-item-text">годовых на срок до 7 лет</div>
+        </div>
+        <div class="main-model-name-side">Простые условия</div>
+        <div class="main-model-item">
+          <div class="main-model-item-list">Гражданство</div>
+          <div class="main-model-item-list">Россия</div>
+        </div>
+        <div class="main-model-item">
+          <div class="main-model-item-list">Возраст</div>
+          <div class="main-model-item-list">от 21 до 60 лет</div>
+        </div>
+        <div class="main-model-item">
+          <div class="main-model-item-list">Два документа:</div>
+          <div class="main-model-item-list">паспорт и права</div>
+        </div>
+      </div>
+
+      <section class="main-call-map">
+        <div class="main-map-wrap">
+          <div class="main-map-text">Проезд <br> до салона</div>
+        </div>
+        <div class="main-map-wrap">
+          <div class="main-map-text">Позвонить</div>
+        </div>
+      </section>
+      <section class="main-offer">
+        <section class="main-offer-container">
+          <div class="main-offer-title">Заявка на покупку в кредит</div>
+          <div class="main-offer-text">Оставьте заявку на сайте и получите скидку 70 000₽</div>
+          <div class="main-offer-form">
+            <input type="text" class="main-offer-form_input">
+            <label class="main-offer-form_label">Ваше имя</label>
+          </div>
+          <div class="main-offer-form">
+            <input type="text" class="main-offer-form_input">
+            <label class="main-offer-form_label">Телефон для связи</label>
+          </div>
+          <div class="main-offer-button">
+            <button class="main-offer-button_item">получить условия</button>
+          </div>
+          <div class="main-offer-accept">ВНИМАНИЕ! К сожалению, банки не кредитуют регионы: Республика Кабардино-Балкария, Республика Чечня, Республика Дагестан, Республика Ингушетия, Республика Карачаево-Черкесия, Магадан.</div>
+        </section>
+      </section>
+    </div>
+  </section>
+  <section class="main-pic-list">
+    <div class="main-pic-list-cont">
+      <div class="main-pic-list-item img-1 casko">
+        <div class="main-pic-list-date">
+          <div class="main-pic-list-date-item">Каско</div>
+          <div class="main-pic-list-date-item">в подарок!</div>
+        </div>
+      </div>
+      <div class="main-pic-list-item img-2 gos">
+        <div class="main-pic-list-date">
+          <div class="main-pic-list-date-item">Госпрограмма</div>
+          <div class="main-pic-list-date-item">первый авто</div>
+          <div class="main-pic-list-date-item">Семейный авто</div>
+        </div>
+      </div>
+      <div class="main-pic-list-item img-3 pay_three">
+        <div class="main-pic-list-date">
+          <div class="main-pic-list-date-item">3</div>
+          <div class="main-pic-list-date-item">Платежа</div>
+          <div class="main-pic-list-date-item">за наш счёт</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="main-bullets">
+    <div class="main-bullets-cont">
+      <div class="main-bullets-item item-pay">
+        <div class="main-bullets-icon">
+
+        </div>
+        <div class="main-bullets-text">
+          <div class="main-bullets-text-item bullet-head">Первоначальный взнос</div>
+          <div class="main-bullets-text-item bullet-side">от 0₽</div>
+        </div>
+      </div>
+      <div class="main-bullets-item item-credit">
+        <div class="main-bullets-icon">
+
+        </div>
+        <div class="main-bullets-text">
+          <div class="main-bullets-text-item bullet-head">98%</div>
+          <div class="main-bullets-text-item bullet-side">одобрения по кредиту</div>
+        </div>
+      </div>
+      <div class="main-bullets-item item-max-pay">
+        <div class="main-bullets-icon">
+
+        </div>
+        <div class="main-bullets-text">
+          <div class="main-bullets-text-item bullet-head">3.5 млн</div>
+          <div class="main-bullets-text-item bullet-side">макс. сумма кредита</div>
+        </div>
+      </div>
+      <div class="main-bullets-item item-kasko">
+        <div class="main-bullets-icon">
+
+        </div>
+        <div class="main-bullets-text">
+          <div class="main-bullets-text-item bullet-head">Каско</div>
+          <div class="main-bullets-text-item bullet-side">В подарок</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="main-brand">
+    <section class="main-title-wrap">
+      <div class="main-title">
+        <div class="main-title-text">
+          Горячие предложения
+        </div>
+      </div>
+    </section>
+    <div class="main-brand-item-cont">
+      <div class="main-brand-item">
+        <div class="main-brand-img-wrap">
+          <div class="main-brand-img">
+            <%= image_tag "carso/img/kia-sportage.png", alt:'', class: '' %>
+          </div>
+        </div>
+        <div class="main-brand-price-text">
+          <div class="main-brand-model">Kia Celtos</div>
+          <div class="main-brand-price-cont">
+            <div class="main-brand-price">
+              <div class="main-brand-of-price">1 210 200₽</div>
+              <div class="main-brand-price-item">950 000₽</div>
+              <div class="main-price-month">
+                <span class="main-price-month_green">27200 ₽</span>/мес
               </div>
             </div>
-
-            <div class="form__cr-bt">
-              <%= f.button do %>
-                <span>Оставить заявку</span>
-              <% end %>
+            <div class="main-brand-benefit">
+              <div class="main-brand-benefit_title">Выгода в кредит</div>
+              <div class="main-brand-benefit_price">150 000₽</div>
             </div>
-
           </div>
-        <% end %>
+        </div>
+      </div>
+      <div class="main-brand-item">
+        <div class="main-brand-img-wrap">
+          <div class="main-brand-img">
+            <%= image_tag "carso/img/kia-sportage.png", alt:'', class: '' %>
+          </div>
+        </div>
+        <div class="main-brand-price-text">
+          <div class="main-brand-model">Kia Celtos</div>
+          <div class="main-brand-price-cont">
+            <div class="main-brand-price">
+              <div class="main-brand-of-price">1 210 200₽</div>
+              <div class="main-brand-price-item">950 000₽</div>
+              <div class="main-price-month">
+                <span class="main-price-month_green">27200 ₽</span>/мес
+              </div>
+            </div>
+            <div class="main-brand-benefit">
+              <div class="main-brand-benefit_title">Выгода в кредит</div>
+              <div class="main-brand-benefit_price">150 000₽</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main-brand-item">
+        <div class="main-brand-img-wrap">
+          <div class="main-brand-img">
+            <%= image_tag "carso/img/kia-sportage.png", alt:'', class: '' %>
+          </div>
+        </div>
+        <div class="main-brand-price-text">
+          <div class="main-brand-model">Kia Celtos</div>
+          <div class="main-brand-price-cont">
+            <div class="main-brand-price">
+              <div class="main-brand-of-price">1 210 200₽</div>
+              <div class="main-brand-price-item">950 000₽</div>
+              <div class="main-price-month">
+                <span class="main-price-month_green">27200 ₽</span>/мес
+              </div>
+            </div>
+            <div class="main-brand-benefit">
+              <div class="main-brand-benefit_title">Выгода в кредит</div>
+              <div class="main-brand-benefit_price">150 000₽</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main-brand-item">
+        <div class="main-brand-img-wrap">
+          <div class="main-brand-img">
+            <%= image_tag "carso/img/kia-sportage.png", alt:'', class: '' %>
+          </div>
+        </div>
+        <div class="main-brand-price-text">
+          <div class="main-brand-model">Kia Celtos</div>
+          <div class="main-brand-price-cont">
+            <div class="main-brand-price">
+              <div class="main-brand-of-price">1 210 200₽</div>
+              <div class="main-brand-price-item">950 000₽</div>
+              <div class="main-price-month">
+                <span class="main-price-month_green">27200 ₽</span>/мес
+              </div>
+            </div>
+            <div class="main-brand-benefit">
+              <div class="main-brand-benefit_title">Выгода в кредит</div>
+              <div class="main-brand-benefit_price">150 000₽</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main-brand-item">
+        <div class="main-brand-img-wrap">
+          <div class="main-brand-img">
+            <%= image_tag "carso/img/kia-sportage.png", alt:'', class: '' %>
+          </div>
+        </div>
+        <div class="main-brand-price-text">
+          <div class="main-brand-model">Kia Celtos</div>
+          <div class="main-brand-price-cont">
+            <div class="main-brand-price">
+              <div class="main-brand-of-price">1 210 200₽</div>
+              <div class="main-brand-price-item">950 000₽</div>
+              <div class="main-price-month">
+                <span class="main-price-month_green">27200 ₽</span>/мес
+              </div>
+            </div>
+            <div class="main-brand-benefit">
+              <div class="main-brand-benefit_title">Выгода в кредит</div>
+              <div class="main-brand-benefit_price">150 000₽</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main-brand-item">
+        <div class="main-brand-img-wrap">
+          <div class="main-brand-img">
+            <%= image_tag "carso/img/kia-sportage.png", alt:'', class: '' %>
+          </div>
+        </div>
+        <div class="main-brand-price-text">
+          <div class="main-brand-model">Kia Celtos</div>
+          <div class="main-brand-price-cont">
+            <div class="main-brand-price">
+              <div class="main-brand-of-price">1 210 200₽</div>
+              <div class="main-brand-price-item">950 000₽</div>
+              <div class="main-price-month">
+                <span class="main-price-month_green">27200 ₽</span>/мес
+              </div>
+            </div>
+            <div class="main-brand-benefit">
+              <div class="main-brand-benefit_title">Выгода в кредит</div>
+              <div class="main-brand-benefit_price">150 000₽</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="form--credit">
-      <div class="fcwig">
-        <span class="sub_tt">Ставка, от </span>
-        <span class="big_pr">1.9% </span>
-        <span class="sub_ttr">годовых на срок до 7 лет</span>
+  </section>
+  <section class="main-banks">
+    <section class="main-title-wrap">
+      <div class="main-title">
+        <div class="main-title-text">
+          Банки-партнеры
+        </div>
       </div>
+    </section>
+    <div class="main-banks-cont">
+      <div class="main-banks-item rus-fin-bank"></div>
+      <div class="main-banks-item vtb-bank"></div>
+      <div class="main-banks-item gazprom-bank"></div>
+      <div class="main-banks-item svyaz-bank"></div>
+      <div class="main-banks-item rus-fin-bank"></div>
+      <div class="main-banks-item orange-bank"></div>
+      <div class="main-banks-item balt-invest-bank"></div>
+      <div class="main-banks-item sberbank"></div>
+      <div class="main-banks-item plus-bank"></div>
+      <div class="main-banks-item loko-bank"></div>
+      <div class="main-banks-item prom-svyaz-bank"></div>
+      <div class="main-banks-item ros-bank"></div>
+      <div class="main-banks-item prim-soc-bank"></div>
+      <div class="main-banks-item rn-bank"></div>
+      <div class="main-banks-item sovkom-bank"></div>
+      <div class="main-banks-item yuni-credit-bank"></div>
+      <div class="main-banks-item tinkoff-bank"></div>
+      <div class="main-banks-item ural-sib-bank"></div>
     </div>
-  </div>
-<div class="frg_is">
-  <div><i>98% </i><span>одобрение <br>по кредиту </span></div>
-  <div><i>от 0₽ </i><span>первоначальный <br>взнос </span></div>
-  <div><i>3.5 млн </i><span>максимальная сумма <br>кредитования </span></div>
-  <div><i>КАСКО </i><span>в подарок <br>по выбору клиента</span></div>
-</div>
-<%= form_for Ticket.new,url: {action:"create",controller:"tickets" },remote:true,validate:true,:html => {:class => "common-top__form-inner frmcr",:name=>"newcarreq"},:namespace => "creditpage" do |f| %>
-<%= f.hidden_field :form_name, value:'credit' %>
-<%= hidden_field_tag 'ticket[other][ttype]',1,id:'credit_ticket_other_ttype' %>
+  </section>
 
-<div class="form_stb">
-<div class="form_st_cr">
-  <div class="form__cr_lb">
-   <div class="nf_i">Кредитный калькулятор</div>
-    <div class="form-credit_subt">Ставка по кредиту <b>1.9%</b></div>
-   <div class="form_crg">
-    <div class="form__cr_l">
-    <div class="form-credit_subp"></div>
-    <div class="form_input">
-      <%= select_tag 'ticket[other][marka]', options_from_collection_for_select(@brands, 'id', 'title'), prompt: 'Выберите марку', id:'credit_ticket_other_marka', class:'select' %>
-    </div>
-    <div class="form_input">
-      <%= select_tag 'ticket[other][model]', raw('<option>Выберите модель</option>'), id:'credit_ticket_other_model', class:'select', disabled: 'true' %>
-    </div>
-
-    <div class="form_input">
-      <%= select_tag 'ticket[other][equipment]', raw('<option>Выберите комплектацию</option>'), id:'credit_ticket_other_complect', class:'select', disabled: 'true' %>
-    </div>
-  </div>
-    <div class="form_cr_r">
-      <div class="form_input">
-        <%= select_tag 'ticket[other][marka]', raw('<option value="">месяцах</option>
-    <option>0</option>
-    <option>12</option>
-    <option>24</option>
-    <option>36</option>
-    <option>48</option>
-    <option>60</option>
-    <option>72</option>
-    <option>84</option>'),class:'select select--new-car',id:'filter_type' %>
-      </div>
-      <div class="form_input">
-      <%= f.text_field :name,class:'input', placeholder:'Первоначальный взнос ...' %>
-      </div>
-  </div>
-   </div>
-    <div class="form__cr-bt">
-      <a href="#" class="button str_mcredit" rel="nofollow">Подробная информация</a>
-    </div>
-  </div>
-  <div class="frm_credit_k">
-    <div class="frm_credit_img"><%= image_tag 'carso/png/crt.png',alt:'',lazy:false %></div>
-   </div>
-</div>
-</div>
-
-<% end %>
-
-
-<div class="tradein_btt">
-  <h2>Требования</h2>
-  <div class="tcredit_bp_txt">
-    <ul>
-      <li><span>Гражданство: <b>Россия</b></span></li>
-      <li><span>Возраст: <b>от 21 до 60 лет</b></span></li>
-      <li><span>Два документа: <b>паспорт и права</b></span></li>
-    </ul>
-  </div>
-</div>
-
-
-<div class="tradein_btt trb_1">
-  <h2>Условия</h2>
-  <div class="tcredit_bp_txt">
-    <ul>
-      <li><span>Выгодные условия по кредиту <b>от 1.9% </b></span></li>
-      <li><span>Первоначальный взнос от <b>0 рублей </b></span></li>
-      <li><span>Срок кредитования <b>от 6 месяцев до 8 лет </b></span></li>
-      <li><span>Сумма кредитования <b>до 3 000 000 рублей </b></span></li>
-      <li><span>Досрочное погашение <b>без штрафов и комиссий </b></span></li>
-      <li><span>Льготное кредитование по системам <b>"Первый автомобиль" и "Семейный автомобиль"</b></span></li>
-    </ul>
-  </div>
-</div>
-
-
-
-<h2 id="gospr">Государственные программы</h2>
-<div class="gos_prb">
-  <div>
-    <span>
-     <i>Первый автомобиль </i>
-     <p>"Первый автомобиль" — по программе существенная часть кредитной нагрузки возмещается государством, а непосредственно сам заемщик гасит лишь остаток. Поэтому участие в этой программе — возможность приобрести авто в кредит на максимально выгодных и лояльных условиях.</p>
-    </span>
-    <a href="/banks/programma-pervyy-avtomobil" title=""><%= image_tag "carso/png/21846.png", alt:'' %></a>
-  </div>
-
-  <div>
-    <span>
-     <i>Для медработников </i>
-     <p>"Медицинский работник" — программа, стартовавшая в 2021 году Теперь при
-покупке нового автомобиля
-медицинскими работниками государство
-компенсирует им 10% от его стоимости.
-Льгота распространяется только на
-сотрудников государственных
-медицинских учреждений. При это
-автомобиль должен быть отечественной
-марки или сборки, не превышать
-по стоимости 1,5 миллиона рублей и быть
-не позднее 2020 года выпуска.</p>
-    </span>
-    <a href="/banks/programma-medical" title=""><%= image_tag "carso/png/mpr.png", alt:'' %></a>
-  </div>
-  <div>
-    <span>
-     <i>Автомобиль в Трейд-ин</i>
-     <p>"Автомобиль в Трейд—ин" — суть
-программы, действующей в нашем
-автосалоне, заключается в сдаче
-старого автомобиля и приобретении
-нового на более выгодных условиях.
-То есть вы получаете новый автомобиль
-по наиболее привлекательной цене,
-избавляя себя от необходимости
-самостоятельно заниматься продажей
-старого транспортного средства.
-Далее рассмотрим механизм действия
-программы:
-</p>
-    </span>
-    <a href="/tradein" title=""><%= image_tag "carso/png/1784.png", alt:'' %></a>
-  </div>
-
-</div>
-
-<div class="pr_slog_b">
-  <div><%= image_tag "carso/icons/group30.svg", alt:'' %>
-    <span>Бесплатное <br> КАСКО</span>
-  </div>
-  <div><%= image_tag "carso/icons/group101.svg", alt:'' %>
-    <span>Зимняя резина в <br> подарок</span>
-  </div>
-  <div><%= image_tag "carso/icons/group98.svg", alt:'' %>
-    <span>Госпрограммы: <br> -10% на любое авто</span>
-  </div>
-  <div><%= image_tag "carso/icons/group33.svg", alt:'' %>
-    <span>Оплата проезда <br> до автосалона</span>
-  </div>
-</div>
-
-
-<div class="card__box">
-  <div>
-    <h2>Популярные модели</h2>
-  </div>
-  <div class="card_box_slide row justify-content-between align-items-center">
-    <%= render partial:'new_cars/small_new_cars', collection: @hit.limit(10).where('`new_cars`.`hide` = 0'), locals: {:show_brand => true, :credit_flag => false} %>
-  </div>
-</div>
-
-
-<%= render 'partials/carso/credit_form' %>
+</section>
