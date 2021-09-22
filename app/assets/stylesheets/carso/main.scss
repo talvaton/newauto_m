@@ -6865,7 +6865,7 @@ footer {
 .mg_fr-f{
   display: flex;
   @media all and (max-width: 600px) {
-    display: block;
+    overflow-y: scroll;
   }
 }
 .main-compare-img{
