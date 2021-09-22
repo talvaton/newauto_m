@@ -1754,7 +1754,7 @@ label.on .lab_ch-text{
   @media all and (max-width: 900px) {
     display: flex;
     justify-content: space-evenly;
-    margin: 0 -20px 0 -20px;
+    margin: 0 -20px 20px -20px;
   }
   @media all and (max-width: 480px) {
     min-height: 100%;
