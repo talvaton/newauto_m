@@ -45,7 +45,8 @@ body{
   line-height: 100%;
   color: #1C1C1C;
   @media all and (max-width: 900px) {
-    font-size: 34px;
+    font-size: 28px;
+    padding: 0 20px;
   }
 }
 .main{
@@ -4472,7 +4473,7 @@ a {
   position: fixed;
   top: -10px;
   right: 0;
-  z-index: 30;
+  z-index: 101;
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -4538,9 +4539,9 @@ a {
 
 .burger-menu__nav {
   top: 0;
-  padding-top: 80px;
+  padding-top: 45px;
   position: fixed;
-  z-index: 20;
+  z-index: 100;
   display: flex;
   flex-flow: column;
   height: 100%;
@@ -4555,7 +4556,7 @@ a {
 
 
 .burger-menu__link {
-  padding: 7px 30px;
+  padding: 7px 30px 0 30px;
   font-family: sans-serif;
   font-size: 32px;
   text-decoration: none;
@@ -6880,4 +6881,36 @@ footer {
   @media all and (max-width: 600px) {
     padding: 0;
   }
+}
+.cst_st{
+  padding: 7px 44px;
+}
+.cst_st ul{
+
+}
+.cst_st ul li{
+  list-style-type: none;
+  counter-increment: list;
+  position: relative;
+}
+.cst_st ul li:after{
+  content: ".";
+  position: absolute;
+  left: -2.5em;
+  top: -5px;
+  width: 2em;
+  text-align: right;
+  color: #C4CCD3;
+}
+.cst_st ul li a{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 110%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  color: #444444;
+  padding: 5px 0;
 }

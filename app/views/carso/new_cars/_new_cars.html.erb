@@ -32,12 +32,6 @@
         <% end %>
       </div>
       <div class="card-main">
-        <div class="sale_block_center row justify-content-between">
-          <div class="sbc-item"><span class="sbc-i-text">Кредит 1.9%</span></div>
-          <div class="sbc-item"><span class="sbc-i-text">Рассрочка 0%</span></div>
-          <div class="sbc-item"><span class="sbc-i-text">Трейд-ин</span></div>
-          <div class="sbc-item"><span class="sbc-i-text">Гарантия</span></div>
-        </div>
         <div class="card-title"><%= new_cars.brand.title %> <%= new_cars.name %></div>
         <div class="card-price">
           <span <%= credit ? "data-price=#{snc_price}" : '' %>><%= number_with_delimiter((credit ? count_price(snc_price,PERCENT,MONTH):snc_price  ), delimiter: " ") %></span> ₽<% if credit %><span>/мес</span><% end %>

@@ -27,10 +27,15 @@
 
 
 
-
-<h1><%= @title %> от официального дилера</h1>
-  <div class="row justify-content-center cr_tr_url">
-    <div class="cr_tr_hr right row justify-content-center">
+  <section class="main-brand">
+    <section class="main-title-wrap">
+      <div class="main-title">
+        <div class="main-title-text">
+          <%= @title %> от официального дилера
+        </div>
+      </div>
+    </section>
+    <div class="row main-brand-item-cont">
       <%= render partial:'new_cars/small_new_cars', collection: @cars.where(hide: 0), locals: {:show_brand => true, :credit_flag => false} %>
     </div>
-  </div>
+  </section>

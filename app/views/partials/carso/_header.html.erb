@@ -42,8 +42,37 @@
       <span class="burger-menu__lines"></span>
     </a>
     <nav class="burger-menu__nav">
-      <a href="/newauto" class="burger-menu__link">Автомобили</a>
+      <b class="burger-menu__link">Автомобили</b>
+
+
+      <div class="cst_st">
+        <ul>
+          <li><%= link_to 'Безопасные авто',safecars_path %></li>
+          <li><%= link_to 'Надежные авто',reliablecars_path %></li>
+          <li><%= link_to 'Авто для женщин',womencars_path %></li>
+          <li><%= link_to 'Дешевые авто',cheap_auto_path %></li>
+        </ul>
+        <ul>
+          <li><%= link_to 'Хэтчбеки',new_car_type_path('hetchback') %></li>
+          <li><%= link_to 'Седаны',new_car_type_path('sedan') %></li>
+          <li><%= link_to 'Универсалы',new_car_type_path('universal') %></li>
+          <li><%= link_to 'Кроссоверы',new_car_type_path('crossover') %></li>
+        </ul>
+        <ul>
+          <li><%= link_to 'Внедорожники',new_car_type_path('vehicle') %></li>
+          <li><%= link_to 'Лифтбеки',new_car_type_path('liftbeki') %></li>
+          <li><%= link_to 'Минивэны',new_car_type_path('minivenyi') %></li>
+          <li><%= link_to 'Фургоны',new_car_type_path('furgonyi') %></li>
+        </ul>
+        <ul>
+          <li><%= link_to 'Первый автомобиль', first_auto_path %></li>
+          <li><%= link_to 'Семейный автомобиль', family_auto_path %></li>
+        </ul>
+      </div>
+
       <%= link_to 'Автокредит',credit_path, class:'burger-menu__link',title:'Автокредит'%>
+      <%= link_to 'Контакты',contacts_path, class:'burger-menu__link',title:'Контакты', rel:'nofollow'%>
+
       <div class="burger-menu__bar">
         <div class="burger-menu__bar-item">+7 495 221 34 56</div>
         <div class="burger-menu__bar-item">Москва, ул. Туполева, 16</div>

@@ -29,26 +29,32 @@
   end
 %>
 
-<div class="card-box">
-  <%#= link_to new_car_path(small_new_cars.brand,small_new_cars),class:'',title:small_new_cars.name do %>
+
+
+
+
+
+
+
+<div class="main-brand-item">
   <%= link_to (taxi ? new_car_taxi_path("#{small_new_cars.brand.url}-#{ small_new_cars.url}") : new_car_path(small_new_cars.brand.url,small_new_cars.url)  ) do %>
-  <div class="card-media">
-      <% if small_new_cars.colors[0].present? %>
-      <%= image_tag "/static/images/blank.png", alt: '',data:{:lazy=>small_new_cars.colors[0].card.url,:original=>small_new_cars.colors[0].card.url} %>
-      <% end %>
-    </div>
-    <div class="card-main">
-      <div class="sale_block_center row justify-content-between">
-        <div class="sbc-item"><span class="sbc-i-text">Кредит 1.9%</span></div>
-        <div class="sbc-item"><span class="sbc-i-text">Рассрочка 0%</span></div>
-        <div class="sbc-item"><span class="sbc-i-text">Трейд-ин</span></div>
-        <div class="sbc-item"><span class="sbc-i-text">Гарантия</span></div>
+    <div class="main-brand-img-wrap">
+      <div class="main-brand-img">
+        <% if small_new_cars.colors[0].present? %>
+          <%= image_tag "/static/images/blank.png", alt: '',data:{:lazy=>small_new_cars.colors[0].card.url,:original=>small_new_cars.colors[0].card.url} %>
+        <% end %>
       </div>
-      <div class="card-title"><%= small_new_cars.brand.title %> <%= small_new_cars.name %></div>
-      <div class="card-price">
-        <span <%= credit ? "data-price=#{snc_price}" : '' %>><%= number_with_delimiter((credit ? count_price(snc_price,PERCENT,MONTH):snc_price  ), delimiter: " ") %></span> ₽<% if credit %><span>/мес</span><% end %>
+    </div>
+    <div class="main-brand-price-text">
+      <div class="main-brand-model"><%= small_new_cars.brand.title %> <%= small_new_cars.name %></div>
+      <div class="main-brand-price-cont">
+        <div class="main-brand-price">
+          <div class="main-price-month">
+            <span class="main-price-month_green"><%= credit ? "data-price=#{snc_price}" : '' %> <%= number_with_delimiter((credit ? count_price(snc_price,PERCENT,MONTH):snc_price  ), delimiter: " ") %> ₽</span>
+          </div>
+        </div>
       </div>
     </div>
   <% end %>
-
 </div>
+

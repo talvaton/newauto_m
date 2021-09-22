@@ -44,15 +44,9 @@
     <div class="main-brand-model"><%= small_new_cars_main.brand.title %> <%= small_new_cars_main.name %></div>
     <div class="main-brand-price-cont">
       <div class="main-brand-price">
-        <div class="main-brand-of-price">1 210 200₽</div>
-        <div class="main-brand-price-item"><%= credit ? "data-price=#{snc_price}" : '' %>><%= number_with_delimiter((credit ? count_price(snc_price,PERCENT,MONTH):snc_price  ), delimiter: " ") %> ₽</div>
         <div class="main-price-month">
-          <span class="main-price-month_green">27200 ₽</span>/мес
+          <span class="main-price-month_green"><%= credit ? "data-price=#{snc_price}" : '' %> <%= number_with_delimiter((credit ? count_price(snc_price,PERCENT,MONTH):snc_price  ), delimiter: " ") %> ₽</span>
         </div>
-      </div>
-      <div class="main-brand-benefit">
-        <div class="main-brand-benefit_title">Выгода в кредит</div>
-        <div class="main-brand-benefit_price">150 000₽</div>
       </div>
     </div>
   </div>
