@@ -1,7 +1,7 @@
 <% if credit_page?
      # m = 60
      # p = 25
-     credit = true
+     credit = false
    end %>
 <% if tradein_page?
      # m = 60
@@ -50,7 +50,8 @@
       <div class="main-brand-price-cont">
         <div class="main-brand-price">
           <div class="main-price-month">
-            <span class="main-price-month_green"><%= credit ? "data-price=#{snc_price}" : '' %> <%= number_with_delimiter((credit ? count_price(snc_price,PERCENT,MONTH):snc_price  ), delimiter: " ") %> ₽</span>
+            <span class="main-price-month_green">
+              <%= credit ? "data-price=#{snc_price}" : '' %> <%= number_with_delimiter((credit ? count_price(snc_price,PERCENT,MONTH):snc_price  ), delimiter: " ") %> ₽</span>
           </div>
         </div>
       </div>
