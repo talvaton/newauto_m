@@ -1,6 +1,6 @@
-<li itemprop="name">
-  <% logo_url = brand_list_main.logo.url %>
+<div class="footer-pop-item">
+  <%# logo_url = brand_list.logo.url %>
   <%= link_to(brand_path(brand_list_main.url), class:'menu-list__link brandlist__link', itemprop:'url',:data=>{:action => 'show-brand-in-menu'},title:brand_list_main.title) do %>
-    <span><%= brand_list_main.title %></span>
+   <%= brand_list_main.title %>
   <% end %>
-</li>
+</div>

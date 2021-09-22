@@ -6150,12 +6150,16 @@ footer {
   margin-bottom: 35px;
 }
 
-.footer-pop-item {
+.footer-pop-item,.footer-pop-item a {
   font-size: 15px;
   color: #fff;
   text-transform: uppercase;
   width: 50%;
   margin-bottom: 10px;
+}
+
+.footer-pop-item a:hover {
+ color: #fff;
 }
 
 .footer-pop-item span {

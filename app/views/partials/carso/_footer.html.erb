@@ -3,26 +3,7 @@
     <div class="footer-pop">
       <div class="footer-pop-title">Популярные марки</div>
       <div class="footer-pop-brands">
-        <div class="footer-pop-item">Audi<span>[3]</span></div>
-        <div class="footer-pop-item">Changan<span>[23]</span></div>
-        <div class="footer-pop-item">Hyundai<span>[45]</span></div>
-        <div class="footer-pop-item">GAC<span>[13]</span></div>
-        <div class="footer-pop-item">Lada<span>[10]</span></div>
-        <div class="footer-pop-item">Mitsubishi<span>[7]</span></div>
-        <div class="footer-pop-item">Nissan<span>[8]</span></div>
-        <div class="footer-pop-item">Skoda<span>[8]</span></div>
-        <div class="footer-pop-item">Geely<span>[8]</span></div>
-        <div class="footer-pop-item">Chery<span>[12]</span></div>
-        <div class="footer-pop-item">Datsun<span>[16]</span></div>
-        <div class="footer-pop-item">Citroen<span>[55]</span></div>
-        <div class="footer-pop-item">Dongfeng<span>[8]</span></div>
-        <div class="footer-pop-item">Faw<span>[12]</span></div>
-        <div class="footer-pop-item">Haval<span>[12]</span></div>
-        <div class="footer-pop-item">Honda<span>[12]</span></div>
-        <div class="footer-pop-item">Hower<span>[12]</span></div>
-        <div class="footer-pop-item">Toyota<span>[12]</span></div>
-        <div class="footer-pop-item">Volkswagen<span>[12]</span></div>
-        <div class="footer-pop-item">Peugeot<span>[12]</span></div>
+        <%= render partial:'partials/carso/brand_list_main', collection: @brands %>
       </div>
       <div class="footer-attention">
         Обращаем ваше внимание на то, что данный интернет-сайт носит исключительно информационный характер и ни при каких условиях не является публичной офертой, определяемой положением ч. 2 ст. 437 Гражданского кодекса Российской Федерации. Для получения подробной информации о стоимости автомобилей, пожалуйста, обращайтесь к менеджеру по продажам. Все цены на сайте указаны с учётом скидок. Условия на покупку автомобиля указаны по кредиту и включают в себя обязательные страховые продукты, которые оплачиваются отдельно.
