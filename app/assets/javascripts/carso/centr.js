@@ -100,9 +100,6 @@ $(document).ready(function() {
     };
 });
 
-$(window).on('scroll', function(){
-    toggleToTopBtnDebounce();
-});
 
 WINDOW_WIDTH = $(window).width();
 $(window).on('resize', function(){
