@@ -40,17 +40,22 @@
         <section class="main-offer-container">
           <div class="main-offer-title">Заявка на покупку в кредит</div>
           <div class="main-offer-text">Оставьте заявку на сайте и получите скидку 70 000₽</div>
-          <div class="main-offer-form">
-            <input type="text" class="main-offer-form_input">
-            <label class="main-offer-form_label">Ваше имя</label>
-          </div>
-          <div class="main-offer-form">
-            <input type="text" class="main-offer-form_input">
-            <label class="main-offer-form_label">Телефон для связи</label>
-          </div>
-          <div class="main-offer-button">
-            <button class="main-offer-button_item">получить условия</button>
-          </div>
+
+
+          <%= form_for Ticket.new,url: {action:"create",controller:"tickets" },remote:true,validate:true,:html => {:class => "common-top__form-inner",:name=>"newcarreq"},:namespace => "creditpage" do |f| %>
+            <%= f.hidden_field :form_name, value:'credit' %>
+            <%= hidden_field_tag 'ticket[other][ttype]',1,id:'credit_ticket_other_ttype' %>
+            <div class="main-offer-form">
+              <%= f.text_field :name,class:"input main-offer-form_input",placeholder:"Ваше имя" %>
+            </div>
+            <div class="main-offer-form">
+              <%= f.phone_field :phone,class:"input main-offer-form_input",data:{:role=>"phone"},placeholder:"Номер телефона"  %>
+            </div>
+            <%= f.button class: "button main-offer-button_item" do %><span>Получить условия</span><% end %>
+          <% end %>
+
+
+
           <div class="main-offer-accept">ВНИМАНИЕ! К сожалению, банки не кредитуют регионы: Республика Кабардино-Балкария, Республика Чечня, Республика Дагестан, Республика Ингушетия, Республика Карачаево-Черкесия, Магадан.</div>
         </section>
       </section>
