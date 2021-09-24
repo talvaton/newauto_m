@@ -36,7 +36,7 @@
   <div class="main-brand-img-wrap">
     <div class="main-brand-img">
       <% if small_new_cars_main.colors[0].present? %>
-        <%= image_tag "/static/images/blank.png", alt: '',data:{:lazy=>small_new_cars_main.colors[0].card.url,:original=>small_new_cars_main.colors[0].card.url} %>
+        <%= image_tag small_new_cars_main.colors[0].card.url, alt: '' %>
       <% end %>
     </div>
   </div>
