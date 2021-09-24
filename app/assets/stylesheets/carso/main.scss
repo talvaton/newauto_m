@@ -5617,7 +5617,7 @@ a {
 }
 
 .main-brand-item {
-  margin-bottom: 100px;
+  margin-bottom: 0px;
 }
 
 .main-banks-cont {
@@ -5946,6 +5946,7 @@ a {
 
 .main-brand-price-cont {
   display: flex;
+  justify-content: center;
 }
 
 .main-brand-price {
@@ -6210,6 +6211,9 @@ footer {
 .main-pic-list-date .main-pic-list-date-item:first-child  {
   text-transform: uppercase;
 
+}
+.main-pic-list{
+  margin: 30px 0 0 0;
 }
 .main-pic-list-date {
   line-height: 1;
