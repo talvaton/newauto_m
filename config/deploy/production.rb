@@ -10,4 +10,4 @@ set :bundle_without, %w{test}.join(' ')
 
 set :deploy_to, "/var/www/autosalon_production"
 
-server "62.109.5.245", user: "khan", roles: %w{web app}, port: 32221
+server "188.120.229.83", user: "khan", roles: %w{web app}, port: 32221
