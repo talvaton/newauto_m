@@ -1,7 +1,7 @@
 #lock "~> 3.15.0"
 
 set :application, "autosalon_m"
-set :repo_url, "git@bitbucket.org:andreevmap_work/autosalon_m.git"
+set :repo_url, "git@bitbucket.org:andreevmap_work/newauto_m.git"
 
 set :linked_files, %w{config/master.key config/database.yml}
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets','public/uploads','public/images','public/sitemaps','node_modules','bundle')
