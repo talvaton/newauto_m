@@ -52,6 +52,7 @@ GEM
     autoprefixer-rails (10.2.5.1)
       execjs (> 0)
     bcrypt (3.1.16)
+    bcrypt_pbkdf (1.1.0)
     better_errors (2.9.1)
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
@@ -126,6 +127,7 @@ GEM
     device_detector (1.0.5)
     diff-lcs (1.4.4)
     docile (1.4.0)
+    ed25519 (1.2.4)
     erubi (1.10.0)
     excon (0.82.0)
     execjs (2.8.1)
@@ -372,6 +374,7 @@ PLATFORMS
 DEPENDENCIES
   actionpack-action_caching
   bcrypt
+  bcrypt_pbkdf (>= 1.0, < 2.0)
   better_errors
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.2.1)
@@ -390,6 +393,7 @@ DEPENDENCIES
   colorize
   database_cleaner
   device_detector
+  ed25519 (>= 1.2, < 2.0)
   factory_bot_rails
   faker
   fog-aws

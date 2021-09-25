@@ -256,8 +256,8 @@ sudo certbot --nginx -d carso.ru  -d www.carso.ru  -d astrakhan.carso.ru  -d bal
      gzip_types text/plain text/css application/json application/javascript application/x-javascript text/javascript text/xml application/xml application/rss+xml application/atom+xml application/rdf+xml image/svg+xml;
  
  
-    # ssl_certificate /etc/letsencrypt/live/carso.ru/fullchain.pem; # managed by Certbot
-    # ssl_certificate_key /etc/letsencrypt/live/carso.ru/privkey.pem; # managed by Certbot
+    # ssl_certificate /etc/letsencrypt/live/autosalon-m.ru/fullchain.pem; # managed by Certbot
+    # ssl_certificate_key /etc/letsencrypt/live/autosalon-m.ru/privkey.pem; # managed by Certbot
     # include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
     # ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
  
@@ -324,8 +324,8 @@ server {
     gzip_types text/plain text/css application/json application/javascript application/x-javascript text/javascript text/xml application/xml application/rss+xml application/atom+xml application/rdf+xml image/svg+xml;
 
 
-   # ssl_certificate /etc/letsencrypt/live/carso.ru/fullchain.pem; # managed by Certbot
-   # ssl_certificate_key /etc/letsencrypt/live/carso.ru/privkey.pem; # managed by Certbot
+   # ssl_certificate /etc/letsencrypt/live/autosalon-m.ru/fullchain.pem; # managed by Certbot
+   # ssl_certificate_key /etc/letsencrypt/live/autosalon-m.ru/privkey.pem; # managed by Certbot
    # include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
    # ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 
