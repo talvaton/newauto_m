@@ -1876,6 +1876,9 @@ a {
   background: -webkit-linear-gradient(left, #a09e9e, #333);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  @media all and (max-width: 400px) {
+    font-size: 38px;
+  }
 }
 
 
@@ -2081,10 +2084,25 @@ a {
   font-weight: 900;
   padding-top: 5px;
   padding-bottom: 20px;
+
+  @media all and (max-width: 600px) {
+    text-transform: initial;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 110%;
+  display: flex;
+  align-items: center;
+  color: #820034;
+    background: #F2F2F2;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 15px 0;
+}
 }
 
 .main-offer-button_item {
-  background-color: #7CCB2D;
+  background-color: #D7AD48;
   width: 100%;
   border: 0;
   color: #fff;
@@ -2525,7 +2543,7 @@ a {
 
 .main-bullets {
   margin-top: 60px;
-  margin-bottom: 120px;
+  margin-bottom: 40px;
 }
 .main-bullets-icon {
   background-repeat: no-repeat;
@@ -3183,17 +3201,26 @@ footer {
 }
 
 .main-model-item-green {
-  font-size: 23px;
+  width: 70px;
+  height: 42px;
+  font-size: 21px;
   color: #fff;
   background: #7CCB2D;
-  padding: 14px 7px;
+  padding: 7px 7px;
   border-radius: 8px;
+  @media all and (max-width: 600px) {
+    margin: 0 10px 0 0;
+  }
 }
 
 .main-model-item-text {
   font-size: 23px;
   width: 260px;
-  text-transform: uppercase;
+  @media all and (max-width: 600px) {
+    font-weight: 900;
+    font-size: 21px;
+    line-height: 100%;
+  }
 }
 
 .main-model-name-side {

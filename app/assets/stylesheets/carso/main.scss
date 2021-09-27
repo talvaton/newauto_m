@@ -4967,6 +4967,9 @@ a {
   background: -webkit-linear-gradient(left, #a09e9e, #333);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  @media all and (max-width: 400px) {
+    font-size: 38px;
+  }
 }
 
 
