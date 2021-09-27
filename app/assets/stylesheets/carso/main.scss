@@ -5609,6 +5609,12 @@ a {
   flex-direction: initial;
   overflow-y: scroll;
 }
+.main-brand-item-cont a{
+  @media all and (max-width: 420px) {
+    width: 50%;
+  }
+}
+
 
 .main-brand-item-cont::-webkit-scrollbar {
   display: none;
@@ -5617,6 +5623,10 @@ a {
 .main-brand-item {
   padding-left: 23px;
   padding-right: 23px;
+  @media all and (max-width: 470px) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 
 .main-brand-item {
@@ -5903,7 +5913,10 @@ a {
 
 .main-brand-img img {
   height: 100px;
-
+  @media all and (max-width: 420px) {
+    height: initial;
+    width: 160px;
+  }
 }
 
 .main-brand-model {
