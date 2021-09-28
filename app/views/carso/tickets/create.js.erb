@@ -79,7 +79,22 @@ $.fancybox.open('<div><div>Ваша заявка принята</div><div>Наш
       //  fbq('track', 'Lead');
 
 
-
+        var ct_site_id = 46877;
+        var ct_data = {
+            fio: '<%= @ticket.name %>',
+            phoneNumber: '<%= @ticket.phone %>',
+            //email: 'test@test.ru',
+            subject: '<%= @ticket.form_name %>',
+            //tags: 'Mercedes,Белый',
+            // comment: 'Тест-драйв',
+            sessionId: window.ct('calltracking_params','sa2tc4eo').sessionId
+        };
+        jQuery.ajax({
+            url: 'https://api.calltouch.ru/calls-service/RestAPI/requests/46877/register/',
+            dataType: 'json',
+            type: 'POST',
+            data: ct_data
+        });
 
 
     }
