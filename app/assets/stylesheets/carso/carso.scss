@@ -1778,8 +1778,11 @@ a {
 }
 
 .head {
-  padding: 10px;
-
+  padding: 30px 60px;
+  background: #F2F2F2;
+  @media all and (max-width: 600px) {
+    padding: 8px;
+  }
 }
 
 .head-logo {
@@ -1810,7 +1813,7 @@ a {
   justify-content: center;
   text-transform: uppercase;
   font-weight: 900;
-  margin: 10px 0px;
+  margin: 0px 0px 10px 0px;
 
 }
 

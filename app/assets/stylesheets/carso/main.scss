@@ -342,7 +342,7 @@ header .header_top{
 .breadcrumbs{
   z-index: 1;
   margin: 0 0 0 20px;
-  padding: 10px 0 10px 0;
+  padding: 10px 30px 10px 40px;
   @media all and (max-width: 600px) {
     padding: 0px 20px 10px 20px !important;
     margin: 5px 0 0px 0;
@@ -4657,7 +4657,7 @@ a {
 }
 
 .main-pic-list-cont {
-  display:flex;
+  display: block !important;
 }
 
 .main-nov {
@@ -4865,8 +4865,11 @@ a {
 }
 
 .head {
-  padding: 10px;
-
+  padding: 30px 60px;
+  background: #F2F2F2;
+  @media all and (max-width: 600px) {
+    padding: 8px;
+  }
 }
 
 .head-logo {
@@ -4897,7 +4900,7 @@ a {
   justify-content: center;
   text-transform: uppercase;
   font-weight: 900;
-  margin: 10px 0px;
+  margin: 0px 0px 10px 0px;
 
 }
 
