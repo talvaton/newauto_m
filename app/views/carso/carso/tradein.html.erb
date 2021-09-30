@@ -1,45 +1,86 @@
 <% provide :title,'Трейд Ин авто в ' + @current_region.sklon3 + ' 🚗 обмен автомобилей с пробегом по Trade-In — автосалон «Авимоторс»' %>
 <% provide :description,'Программа «Trade-In» от автосалона «Авимоторс» — это выгодный обмен Вашего подержанного автомобиля с пробегом на новый в ' + @current_region.sklon3 + ' 🚘 Сдайте старый Б/У авто по Трейд-Ин и получите скидку на покупку новой машины и выгодные условия по кредиту! — автосалон «Авимоторс»' %>
-<h1 class="green">Trade in</h1>
-<div class="form__tradein">
-  <div class="form_tr">
-    <span class="form-sp">Экспресс заявка на трейд-ин</span>
-    <span class="form-sp_s">Наш менеджер свяжется с вами в течение 5 минут</span>
-  <div class="form_tradein">
-   <div>
-     <div class="form-sale-info">
+
+
+<section class="main-cont">
+  <section class="main-item">
+    <div class="main-item-wrap">
+      <div class="main-img">
+        <%= image_tag "carso/png/crt.png", alt:'', class: '' %>
+      </div>
+      <div class="main-brand-model">
+        <div class="main-model-name auto-credit">Trade in</div>
+      </div>
+
+
+      <section class="main-offer">
+        <section class="main-offer-container">
+          <div class="main-offer-title">Заявка на Trade in</div>
+          <div class="main-model-item">
+          </div>
+
+
+          <%= form_for Ticket.new,url: {action:"create",controller:"tickets" },remote:true,validate:true,:html => {:class => "form",:name=>"newcarreq"},:namespace => "tradeinpage" do |f| %>
+            <%= f.hidden_field :form_name, value:'trade_in' %>
+            <%= hidden_field_tag 'ticket[other][tradein_toggle]', '1' %>
+            <div class="main-offer-form">
+              <%= f.text_field :name,class:"input main-offer-form_input",placeholder:"Ваше имя" %>
+            </div>
+            <div class="main-offer-form">
+              <%= f.phone_field :phone,class:"input main-offer-form_input",data:{:role=>"phone"},placeholder:"Номер телефона"  %>
+            </div>
+            <div class="main-offer-form">
+              <%= f.text_field :other,class:"input main-offer-form_input",placeholder:"Марка и модель вашего авто" %>
+            </div>
+            <%= f.button class: "button main-offer-button_item" do %><span>Оставить заявку</span><% end %>
+          <% end %>
+
+   </section>
+      </section>
+    </div>
+  </section>
+  <section class="main-pic-list">
+    <div class="main-pic-list-cont">
+      <div class="main-pic-list-item img-2 gos">
+        <a href="/banks/programma-pervyy-avtomobil" title="" style="color: #FFFFFF">
+          <div class="main-pic-list-date">
+            <div class="main-pic-list-date-item">Госпрограмма</div>
+            <div class="main-pic-list-date-item">первый авто</div>
+            <div class="main-pic-list-date-item">Семейный авто</div>
+          </div>
+        </a>
+      </div>
+      <div class="main-pic-list-item img-1 casko">
+        <div class="main-pic-list-date">
+          <div class="main-pic-list-date-item">Каско</div>
+          <div class="main-pic-list-date-item">в подарок!</div>
         </div>
-     <%= form_for Ticket.new,url: {action:"create",controller:"tickets" },remote:true,validate:true,:html => {:class => "form",:name=>"newcarreq"},:namespace => "tradeinpage" do |f| %>
-    <%= f.hidden_field :form_name, value:'trade_in' %>
-    <%= hidden_field_tag 'ticket[other][tradein_toggle]', '1' %>
-        <div class="form_input">
-          <%= f.text_field :name,class:"input",placeholder:"Ваше имя" %>
+      </div>
+      <div class="main-pic-list-item img-3 pay_three">
+        <div class="main-pic-list-date">
+          <div class="main-pic-list-date-item">3</div>
+          <div class="main-pic-list-date-item">Платежа</div>
+          <div class="main-pic-list-date-item">за наш счёт</div>
         </div>
-        <div class="form_input">
-          <%= f.phone_field :phone,class:"input",data:{:role=>"phone"},placeholder:"Номер телефона"  %>
-        </div>
-        <div class="form_input">
-          <%= f.text_field :other,class:"input",placeholder:"Марка и модель вашего авто" %>
-        </div>
-        <%= f.button do %>
-        <span>Оставить заявку</span>
-        <% end %>
-        <% end %>
-   </div>
-  </div>
+      </div>
+    </div>
+  </section>
+  <div class="f__block__center">
+    <div class="tradein_w">Как это работает?</div>
+    <div class="form__tradein-l">
+      <b class="abn">1. Укажите желаемый и старый авто</b>
+      <div class="row"><span>Вы выбираете понравившуюся модель в нашем салоне, мы оцениваем Ваш старый автомобиль с пробегом и предлагаем его стоимость. Эта цена будет учтена при определении стоимости новой машины. Вам достаточно будет доплатить лишь разницу.</span></div>
+      <b class="abn">2. Дополнительные услуги</b>
+      <div class="row"><span>Далее мы можем поставить Ваш новый автомобиль на учёт в ГИБДД, и установить необходимое дополнительное оборудование согласно Вашим пожеланиям.<strong>И всё! Вы обладатель нового желанного автомобиля!</strong></span></div>
+    </div>
   </div>
 
- </div>
 
-<div class="f__block__center">
-  <div class="tradein_w">Как это работает?</div>
-  <div class="form__tradein-l">
-    <b class="abn">1. Укажите желаемый и старый авто</b>
-    <div class="row"><span>Вы выбираете понравившуюся модель в нашем салоне, мы оцениваем Ваш старый автомобиль с пробегом и предлагаем его стоимость. Эта цена будет учтена при определении стоимости новой машины. Вам достаточно будет доплатить лишь разницу.</span></div>
-    <b class="abn">2. Дополнительные услуги</b>
-    <div class="row"><span>Далее мы можем поставить Ваш новый автомобиль на учёт в ГИБДД, и установить необходимое дополнительное оборудование согласно Вашим пожеланиям.<strong>И всё! Вы обладатель нового желанного автомобиля!</strong></span></div>
-  </div>
-</div>
+
+
+
+
+
 
 
 
@@ -52,7 +93,7 @@
     <%= hidden_field_tag 'ticket[other][tradein_toggle]', '1' %>
     <div class="tr_flbl">
       <div class="tr_flb">
-        <div>
+        <div class="tr_flb-1">
           <span class="tr_fins">Ваш авто с пробегом</span>
           <div class="form_input">
             <%= f.text_field :other,class:'input',placeholder:'Марка' %>
@@ -97,7 +138,7 @@
             </select>
           </div>
         </div>
-        <div>
+        <div class="tr_flb-2">
           <span class="tr_fins">Новый авто</span>
           <div class="form_input">
             <%= select_tag 'ticket[other][marka]', options_from_collection_for_select(@brands, 'id', 'title'), prompt: 'Выберите марку', id:'credit_ticket_other_marka', class:'select' %>
@@ -137,3 +178,5 @@
 </div>
 
 <%= render 'partials/carso/credit_form' %>
+
+</section>

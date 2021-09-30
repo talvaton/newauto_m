@@ -643,7 +643,8 @@ body .main {
   border: 8px solid #D7AD48;
   border-radius: 16px;
   margin: 30px 0 40px 0;
-  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
   padding: 30px 15px 20px 15px;
   width: 100%;
   background: transparent;
@@ -655,16 +656,28 @@ body .main {
     margin: 0 auto;
     padding: 30px 15px 20px 15px;
   }
+  @media (max-width: 600px) {
+    display: block;
+    width: 100%;
+  }
   @media (max-width: 400px) {
     width: 100%;
   }
 }
+.tr_flb-2{
+  margin: 0 0 0 40px;
+  @media (max-width: 600px) {
+    margin: 0;
+  }
+}
+
 .tr_flb{
   display: flex;
   justify-content: space-between;
   align-items: center;
   @media (max-width: 1000px) {
     flex-wrap: wrap;
+    justify-content: center;
   }
   @media (max-width: 400px) {
     display: block;
@@ -815,5 +828,10 @@ body .main {
   }
   @media (max-width: 420px) {
     max-width: 100%;
+  }
+}
+.main-img{
+  @media (max-width: 600px) {
+    display: none;
   }
 }
