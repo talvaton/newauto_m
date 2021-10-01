@@ -340,6 +340,7 @@ header .header_top{
 }
 /*******breadcrumbs******/
 .breadcrumbs{
+  display: none;
   z-index: 1;
   margin: 0 0 0 20px;
   padding: 10px 30px 10px 40px;
@@ -4817,8 +4818,11 @@ a {
   box-sizing: border-box;*/
   border-radius: 17px;
   top: 40px;
-  left: 10px;
+  left: 65px;
   z-index: 1;
+  @media all and (max-width: 600px) {
+    left: 10px;
+  }
 }
 
 
@@ -4955,14 +4959,21 @@ a {
 
 
 .main-brand-name {
-  font-size: 17px;
-
+  font-weight: 900;
+  font-size: 21px;
+  color: #949DA7;
+  text-transform: uppercase;
+  text-align: left;
 }
 
 .main-model-name {
-  font-size: 33px;
+  font-style: normal;
   font-weight: 900;
-
+  font-size: 47px;
+  color: #444444;
+  text-transform: uppercase;
+  text-align: left;
+  line-height: 34px;
 }
 
 .main-model-name.auto-credit {
@@ -4982,6 +4993,7 @@ a {
   font-weight: 900;
   justify-content: space-between;
   align-items: flex-end;
+  margin: 20px 0 0 0;
 }
 
 .main-price-unit {
@@ -5131,7 +5143,7 @@ a {
 .main-offer {
   border: 8px solid #D7AD48;
   border-radius: 0 0 16px 16px;
-  padding: 30px;
+  padding: 40px 50px 40px 50px;
   margin: 30px 0 0 0;
 }
 
@@ -5179,6 +5191,9 @@ a {
   font-weight: 900;
   padding-top: 5px;
   padding-bottom: 20px;
+  color: #949DA7;
+  font-size: 15px;
+  line-height: 140%;
 }
 
 .main-offer-button_item {
@@ -5931,9 +5946,10 @@ a {
   text-transform: uppercase;
   font-weight: 900;
   font-size: 14px;
-  margin-bottom: 5px;
   position: relative;
   text-align: center;
+  width: 400px;
+  margin: 30px 0 0 0;
 }
 
 .main-brand-model-price {
@@ -6723,10 +6739,13 @@ footer {
     border: initial;
   }
   .main-offer {
-    width: 30%;
+    width: 545px;
     background-color: #fff;
-    border: initial;
-    border-radius: 0 0 4px 4px;
+    box-shadow: 0px 12px 24px #0000003d;
+    border-radius: 4px 0px 0px 4px;
+  }
+  .main-offer-container{
+    width: 382px;
   }
   .main-offer-title {
     font-size: 34px;
