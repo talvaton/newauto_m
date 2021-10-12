@@ -5950,6 +5950,9 @@ a {
   text-align: center;
   width: 400px;
   margin: 30px 0 0 0;
+  @media all and (max-width: 440px) {
+    width: 100%;
+  }
 }
 
 .main-brand-model-price {
