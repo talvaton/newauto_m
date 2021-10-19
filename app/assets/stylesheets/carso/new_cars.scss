@@ -47,3 +47,21 @@
   align-items: flex-end;
   height: 46px;
 }
+@media all and (max-width: 600px) {
+.mbl_nf{
+  background: #D7AD48;
+  box-shadow: 0 16px 32px #0000001f;
+  padding: 0 0 20px 0;
+}
+  .model_page_special__value {
+    color: #000000;
+  }
+.model_page_special__subtitle {
+  color: #000000;
+}
+  .model_page_form .btn {
+    background: #000000;
+  }
+
+
+}

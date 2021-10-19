@@ -1,5 +1,5 @@
 <div id="callback">
-  <h2>Получить скидку до 40%</h2>
+  <h2>Получить скидку до 50%</h2>
   <p>Мы перезвоним в ближайшее время.</p>
   <%= form_for Ticket.new,url: {action:'create',controller:'tickets' },remote:true,validate:true,:html => {:class => 'main_callback_form',:name=>'callback'},:namespace => 'callback' do |f| %>
     <%= f.hidden_field :form_name, value:'callback_sale' %>
