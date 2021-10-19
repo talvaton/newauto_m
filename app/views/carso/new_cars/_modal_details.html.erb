@@ -1,23 +1,18 @@
-<div class="main_carso_popup" id="special_tradein">
-  <%= form_for Ticket.new,url: {action:'create',controller:'tickets' },remote:true,validate:true,:html => {:class => 'main_carso_popup_form',:name=>'new_details_modal'},:namespace => 'new_details_modal' do |f| %>
+
+<div id="callback">
+  <h2>Получите спецпредложение по <br>обмену на <span><%= @car.menutitle %></span></h2>
+  <p>Trade-in с выгодой до 150 000 рублей!</p>
+  <%= form_for Ticket.new,url: {action:'create',controller:'tickets' },remote:true,validate:true,:html => {:class => 'main_callback_form',:name=>'new_details_modal'},:namespace => 'new_details_modal' do |f| %>
     <%= f.hidden_field :form_name, value:'trade_in_new' %>
     <%= hidden_field_tag 'ticket[other][model]',@car.id, id:'new_details_modal_ticket_other_model' %>
     <%= hidden_field_tag 'ticket[other][equipment]',@equip.id, id:'new_details_modal_ticket_other_equipment' %>
-    <div class="main_carso_popup_form_inner">
-      <div class="special_credit_text">
-        <div class="special_credit_text__title">Получите <br>спецпредложение <br>по обмену <br>на <span><%= @car.menutitle %></span></div>
-        <div class="special_credit_text__subtitle">Trade-in <br>с выгодой <br>до 150 000 рублей!</div>
-      </div>
-      <div class="main_carso_popup_form__images">
-        <div class="mcpfi_image lazy entered loaded" style="background-image: url('/img/special_tradein_popup_image_01.png');"></div>
-        <div class="mcpfi_image lazy entered loaded" style="background-image: url('<% if @car %><% if @car.colors.present? %><%= @car.colors[1] %><% end %><% end %>');"></div>
-      </div>
-    </div>
-    <div class="main_carso_popup_form_inputs">
+    <div class="form__component">
       <%= f.text_field :name,class:'input', placeholder:'ФИО' %>
-      <%= f.phone_field :phone,class:'input',data:{:role=>'phone'}, placeholder:'+7 (___) ___-__-__' %>
-      <%= f.button 'Получить предложение', class: "btn btn-blue" %>
     </div>
+    <div class="form__component">
+      <%= f.phone_field :phone,class:'input',data:{:role=>'phone'}, placeholder:'+7 (___) ___-__-__' %>
+    </div>
+    <%= f.button 'Получить предложение', class: "btn btn-blue" %>
   <% end %>
 </div>
 

@@ -1,5 +1,9 @@
-<div class="main_carso_popup" id="special_credit">
-  <%= form_for Ticket.new,url: {action:'create',controller:'tickets' },remote:true,validate:true,:html => {:class => 'main_carso_popup_form',:name=>'new_credit_modal'},:namespace => 'new_credit_modal' do |f| %>
+
+
+<div id="callback">
+  <h2>Успейте купить <span><%= @car.menutitle %></span></h2>
+  <p>В кредит на специальных условиях!</p>
+  <%= form_for Ticket.new,url: {action:'create',controller:'tickets' },remote:true,validate:true,:html => {:class => 'main_callback_form',:name=>'new_credit_modal'},:namespace => 'new_credit_modal' do |f| %>
     <%# f.invisible_captcha :ticket_text %>
     <%= f.hidden_field :form_name, value:'pack' %>
 
@@ -7,25 +11,12 @@
     <%= hidden_field_tag 'ticket[other][equipment]',@equip.id, id:'new_credit_modal_ticket_other_equipment' %>
 
     <%= hidden_field_tag 'ticket[other][ttype]',1,id:'credit_ticket_other_ttype' %>
-
-    <div class="main_carso_popup_form_inner">
-      <div class="special_credit_text">
-        <div class="special_credit_text__title">Успейте купить <br><span><%= @car.menutitle %></span></div>
-        <div class="special_credit_text__subtitle">В кредит <br>на специальных <br>условиях!</div>
-      </div>
-      <div class="main_carso_popup_form__images">
-        <div class="mcpfi_image lazy entered loaded" style="background-image: url('/img/special_credit_popup_image_01.png');"></div>
-        <div class="mcpfi_image lazy entered loaded" style="background-image: url('<% if @car %><% if @car.colors.present? %><%= @car.colors[1] %><% end %><% end %>');"></div>
-      </div>
+    <div class="form__component">
+    <%= f.text_field :name,class:'input', placeholder:'ФИО' %>
     </div>
-
-    <div class="main_carso_popup_form_inputs">
-
-      <%= f.text_field :name,class:'input', placeholder:'ФИО' %>
+    <div class="form__component">
       <%= f.phone_field :phone,class:'input',data:{:role=>'phone'}, placeholder:'+7 (___) ___-__-__' %>
-      <%= f.button 'Получить предложение', class: "btn btn-blue" %>
-
     </div>
-
-<% end %>
+    <%= f.button 'Отправить заявку', class: "btn btn-blue" %>
+  <% end %>
 </div>
