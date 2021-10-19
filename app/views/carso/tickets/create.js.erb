@@ -6,18 +6,18 @@ $.fancybox.open('<div><div>Ваша заявка принята</div><div>Наш
     afterShow: function(){
 
         $('input[value="<%= @ticket.form_name %>"]').closest('form').find('button:submit').prop("disabled", false);
-      /*  gtag('event', 'send', {
-            'event_category': 'form',
-            'event_label': 'send'
-        });*/
+        /*  gtag('event', 'send', {
+              'event_category': 'form',
+              'event_label': 'send'
+          });*/
 
-          //ADS
-     //   gtag_report_conversion();
+        //ADS
+        //   gtag_report_conversion();
 
 
         // yandex form
         //ym(85464109,'reachGoal','AllForms'); //all form
-       // yaCounter85464109.reachGoal("AllForms");
+        // yaCounter85464109.reachGoal("AllForms");
         ym(85464109,'reachGoal','AllForms');
 
         if ( $("body form.new_ticket").is("#expresscredithome_new_ticket")) {
@@ -63,7 +63,7 @@ $.fancybox.open('<div><div>Ваша заявка принята</div><div>Наш
         _tmr.push({id: "3225409", type: "reachGoal", goal: "send"});
 
 
-       // var _tmr = window._tmr || (window._tmr = []); _tmr.push({ id: "3063561", type: "reachGoal", goal: "vsezayavki"})
+        // var _tmr = window._tmr || (window._tmr = []); _tmr.push({ id: "3063561", type: "reachGoal", goal: "vsezayavki"})
 
 
         //console.log("<%#= @ticket.form_name %>");
@@ -76,7 +76,7 @@ $.fancybox.open('<div><div>Ваша заявка принята</div><div>Наш
 
 
         //fb
-      //  fbq('track', 'Lead');
+        //  fbq('track', 'Lead');
 
 
         var ct_site_id = 46877;

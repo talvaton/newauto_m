@@ -16,6 +16,24 @@
 
 //= require sourcebuster.min
 
+
+//new_diz
+
+//= require lazyload.min
+//= require aos.min
+//= require rellax.min
+//= require gsap.min
+//= require ScrollTrigger.min
+//= require ion.rangeSlider.min
+//= require swiper-bundle.min
+//= require select2.min
+//= require ResizeSensor.min
+//= require sticky-sidebar.min
+//= require justwe-boilerplate.min
+//= require common
+
+
+
 // ПУскаем sourcebuster
 sbjs.init();
 
@@ -442,7 +460,6 @@ var workWithSideFixedNav = function(){
 
 
 
-
 var goToTop = function(){
     var $btn = $('[data-action="go-to-top"]');
     $btn.on('click', function(){
@@ -511,6 +528,81 @@ $(".str_mcredit").on('click', function(e){
         type: 'POST',
         data: {
             common_modal_type: 'modal_str_credit',
+        },
+        error: function (e) {
+            console.log(e);
+        }
+    })
+});
+
+
+$(".feed_b").on('click', function(){
+    $.ajax({
+        url: '/common_modal',
+        type: 'POST',
+        data: {
+            common_modal_type: 'modal_feedback_call',
+        },
+        error: function (e) {
+            console.log(e);
+        }
+    })
+});
+$(".feed_sale").on('click', function(){
+    $.ajax({
+        url: '/common_modal',
+        type: 'POST',
+        data: {
+            common_modal_type: 'modal_feedback_sale',
+        },
+        error: function (e) {
+            console.log(e);
+        }
+    })
+});
+$(".feed_sale_h").on('click', function(){
+    $.ajax({
+        url: '/common_modal',
+        type: 'POST',
+        data: {
+            common_modal_type: 'modal_feedback_sale_h',
+        },
+        error: function (e) {
+            console.log(e);
+        }
+    })
+});
+
+$(".feed_credit").on('click', function(){
+    $.ajax({
+        url: '/common_modal',
+        type: 'POST',
+        data: {
+            common_modal_type: 'modal_feedback_credit',
+        },
+        error: function (e) {
+            console.log(e);
+        }
+    })
+});
+$(".feed_tradein").on('click', function(){
+    $.ajax({
+        url: '/common_modal',
+        type: 'POST',
+        data: {
+            common_modal_type: 'modal_feedback_tradein',
+        },
+        error: function (e) {
+            console.log(e);
+        }
+    })
+});
+$(".gifts_popup").on('click', function(){
+    $.ajax({
+        url: '/common_modal',
+        type: 'POST',
+        data: {
+            common_modal_type: 'modal_gifts_popup',
         },
         error: function (e) {
             console.log(e);
@@ -1309,73 +1401,3 @@ $(document).ready(function() {
         slidesToScroll: 1,
     });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*****************new*********************/
-
-$('.main-pic-list-cont').slick({
-    slidesToShow: 3,
-    responsive: [
-
-        {
-            breakpoint: 1000,
-            settings: {
-                slidesToShow: 1
-            }
-        }
-    ]
-});
-
-$('.catalog_item').on('click', (e) => {
-
-    $('.catalog-auto').toggleClass("show");
-});
-
-$('.main-equip-item').on('click', (e) => {
-
-    $('.main-equip-item').find(".main-equip-pop").toggleClass("show");
-});
-
-
-function burgerMenu(selector) {
-    let menu = $(selector);
-    let button = menu.find('.burger-menu__button');
-    let links = menu.find('.burger-menu__link');
-    let overlay = menu.find('.burger-menu__overlay')
-
-
-    button.on('click', (e) => {
-        e.preventDefault();
-        toggleMenu();
-    });
-
-    links.on('click', () => toggleMenu());
-    overlay.on('click', () => toggleMenu());
-
-    function toggleMenu () {
-        menu.toggleClass('burger-menu_active');
-
-        if (menu.hasClass('burger-menu_active')) {
-            $('body').css('overflow', 'hidden');
-        } else {
-            $('body').css('overflow', 'visible');
-        }
-    }
-
-}
-burgerMenu('.burger-menu');
-
-
-

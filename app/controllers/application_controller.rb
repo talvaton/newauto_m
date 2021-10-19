@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   #layout 'rcar' if (Rails.env.rcar? || Rails.env.rcar_dev?)
   # include SessionsHelper
 
-  breadcrumb 'Главная', :root_path
+  breadcrumb 'Авимоторс', :root_path
 
   #def extract_region_from_subdomain 
     #parsed_locale = request.subdomains.first
@@ -43,7 +43,7 @@ class ApplicationController < ActionController::Base
 
   def load_hit
     # @hit = NewCar.where(special_options: 'Хит-продаж').limit(12)
-    @hit = NewCar.where("`new_cars`.`special_options` LIKE ?",'%Хит-продаж%')
+    @hit = NewCar.where("`new_cars`.`special_options` LIKE ?",'%Хит-продаж%').limit(12)
   end
 
   def robots

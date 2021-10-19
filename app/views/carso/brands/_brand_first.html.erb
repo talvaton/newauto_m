@@ -1,0 +1,12 @@
+  <div class="main_catalog_heading main_catalog_heading--first">
+    <div class="container">
+      <div class="main_catalog_heading_content">
+        <div class="main_catalog_heading_content__icon">
+          <% if brand.logo.present? %>
+            <%= image_tag brand.logo.url,alt:brand.title %>
+          <% end %>
+        </div>
+        <div class="main_catalog_heading_content__title"><%= brand.title %></div>
+      </div>
+    </div>
+  </div>

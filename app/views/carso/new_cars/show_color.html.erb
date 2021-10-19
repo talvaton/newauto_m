@@ -648,9 +648,9 @@
           </li>
           <li class="offer card card--standard profit">
             <div class="offer__inner">
-              <input id="ten_perc" class="checkbox" type="checkbox" value="<%= @car.discount_credit + 30000 %>" checked="checked">
+              <input id="ten_perc" class="checkbox" type="checkbox" value="<%= @car.discount_credit_3 + 30000 %>" checked="checked">
               <label id="ten_perc_txt" class="checkbox-label offer__label" for="ten_perc">
-                <span class="offer__label-price" ><%= number_with_delimiter(@car.discount_credit + 30000) %> &#8381;</span>
+                <span class="offer__label-price" ><%= number_with_delimiter(@car.discount_credit_3 + 30000) %> &#8381;</span>
                 <span class="offer__label-text">Первоначальный Взнос&nbsp;от 10% и выше</span>
                 <span class="offer__label-link" data-show-model-ajax="profit__fee">Подробнее об акции</span>
               </label>
@@ -668,9 +668,9 @@
           </li>
           <li class="offer card card--standard profit">
             <div class="offer__inner">
-              <input id="trade_in_3y" class="checkbox" type="checkbox" value="<%=@car.discount_tradein %>" checked="checked">
+              <input id="trade_in_3y" class="checkbox" type="checkbox" value="<%=@car.discount_tradein_3 %>" checked="checked">
               <label id="trade_in_3y_txt" class="checkbox-label offer__label" for="trade_in_3y">
-                <span class="offer__label-price" ><%= number_with_delimiter(@car.discount_tradein) %> &#8381;</span>
+                <span class="offer__label-price" ><%= number_with_delimiter(@car.discount_tradein_3) %> &#8381;</span>
                 <span class="offer__label-text">Выгода за Trade-in&nbsp;от автосалона Авимоторс</span>
                 <span class="offer__label-link" data-show-model-ajax="profit__tradein">Подробнее об акции</span>
               </label>
@@ -689,9 +689,9 @@
 
           <li class="offer card card--standard profit">
             <div class="offer__inner">
-              <input id="credit" class="checkbox" type="checkbox" value="<%= @car.discount_credit %>">
+              <input id="credit" class="checkbox" type="checkbox" value="<%= @car.discount_credit_3 %>">
               <label id="credit_txt" class="checkbox-label offer__label" for="credit">
-                <span class="offer__label-price" ><%= number_with_delimiter(@car.discount_credit) %> &#8381;</span>
+                <span class="offer__label-price" ><%= number_with_delimiter(@car.discount_credit_3) %> &#8381;</span>
                 <span class="offer__label-text">Скидка при оформлении&nbsp;авто в кредит 1,9% + каско на 1 год</span>
                 <span class="offer__label-link" data-show-model-ajax="profit__credit">Подробнее об акции</span>
               </label>

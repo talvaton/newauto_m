@@ -1,13 +1,255 @@
-<% provide :title,'Авимоторс — отзывы клиентов' %>
-<% provide :description,'Реальные отзывы клиентов автосалона Авимоторс в Москве. Вы можете оставить свой отзыв с помощью специальной формы.' %>
-
-
-<h1 class="green">Отзывы</h1>
-<div class="row justify-content-between reviews_list" id="reviews_list">
-  <%= render partial:'reviews/review', collection: @reviews %>
+<div id="main">
+  <div class="main_heading">
+    <div class="container">Отзывы клиентов</div>
+  </div>
+  <div class="reviews_page">
+    <div class="container">
+      <div class="row">
+        <div class="col-6">
+          <div class="reviews_page_item">
+            <div class="reviews_page_item__photo lazy" data-bg="img/reviews_photo.png"></div>
+            <div class="reviews_page_item__content">
+              <div class="reviews_page_item__content__title">Елманова Марина Маихайловна</div>
+              <div class="reviews_page_item__content__desc">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны. </div>
+              <div class="reviews_page_item__content__footer">
+                <div class="rpicf_car">Покупка: <span>Volkswagen Jetta New</span></div>
+                <a href="#" class="rpicf_link">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23.0607 13.0607C23.6464 12.4749 23.6464 11.5251 23.0607 10.9393L13.5147 1.3934C12.9289 0.807611 11.9792 0.807611 11.3934 1.3934C10.8076 1.97919 10.8076 2.92893 11.3934 3.51472L19.8787 12L11.3934 20.4853C10.8076 21.0711 10.8076 22.0208 11.3934 22.6066C11.9792 23.1924 12.9289 23.1924 13.5147 22.6066L23.0607 13.0607ZM0 13.5H22V10.5H0V13.5Z" fill="#D7AD48"/>
+                  </svg>
+                  <span>Смотреть авто</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="reviews_page_item">
+            <div class="reviews_page_item__photo lazy" data-bg="img/reviews_photo.png"></div>
+            <div class="reviews_page_item__content">
+              <div class="reviews_page_item__content__title">Елманова Марина Маихайловна</div>
+              <div class="reviews_page_item__content__desc">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              <div class="reviews_page_item__content__footer">
+                <div class="rpicf_car">Покупка: <span>Volkswagen Jetta New</span></div>
+                <a href="#" class="rpicf_link">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23.0607 13.0607C23.6464 12.4749 23.6464 11.5251 23.0607 10.9393L13.5147 1.3934C12.9289 0.807611 11.9792 0.807611 11.3934 1.3934C10.8076 1.97919 10.8076 2.92893 11.3934 3.51472L19.8787 12L11.3934 20.4853C10.8076 21.0711 10.8076 22.0208 11.3934 22.6066C11.9792 23.1924 12.9289 23.1924 13.5147 22.6066L23.0607 13.0607ZM0 13.5H22V10.5H0V13.5Z" fill="#D7AD48"/>
+                  </svg>
+                  <span>Смотреть авто</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="reviews_page_item">
+            <div class="reviews_page_item__photo lazy" data-bg="img/reviews_photo.png"></div>
+            <div class="reviews_page_item__content">
+              <div class="reviews_page_item__content__title">Елманова Марина Маихайловна</div>
+              <div class="reviews_page_item__content__desc">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              <div class="reviews_page_item__content__footer">
+                <div class="rpicf_car">Покупка: <span>Volkswagen Jetta New</span></div>
+                <a href="#" class="rpicf_link">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23.0607 13.0607C23.6464 12.4749 23.6464 11.5251 23.0607 10.9393L13.5147 1.3934C12.9289 0.807611 11.9792 0.807611 11.3934 1.3934C10.8076 1.97919 10.8076 2.92893 11.3934 3.51472L19.8787 12L11.3934 20.4853C10.8076 21.0711 10.8076 22.0208 11.3934 22.6066C11.9792 23.1924 12.9289 23.1924 13.5147 22.6066L23.0607 13.0607ZM0 13.5H22V10.5H0V13.5Z" fill="#D7AD48"/>
+                  </svg>
+                  <span>Смотреть авто</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="reviews_page_item">
+            <div class="reviews_page_item__photo lazy" data-bg="img/reviews_photo.png"></div>
+            <div class="reviews_page_item__content">
+              <div class="reviews_page_item__content__title">Елманова Марина Маихайловна</div>
+              <div class="reviews_page_item__content__desc">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              <div class="reviews_page_item__content__footer">
+                <div class="rpicf_car">Покупка: <span>Volkswagen Jetta New</span></div>
+                <a href="#" class="rpicf_link">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23.0607 13.0607C23.6464 12.4749 23.6464 11.5251 23.0607 10.9393L13.5147 1.3934C12.9289 0.807611 11.9792 0.807611 11.3934 1.3934C10.8076 1.97919 10.8076 2.92893 11.3934 3.51472L19.8787 12L11.3934 20.4853C10.8076 21.0711 10.8076 22.0208 11.3934 22.6066C11.9792 23.1924 12.9289 23.1924 13.5147 22.6066L23.0607 13.0607ZM0 13.5H22V10.5H0V13.5Z" fill="#D7AD48"/>
+                  </svg>
+                  <span>Смотреть авто</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="reviews_page_item">
+            <div class="reviews_page_item__photo lazy" data-bg="img/reviews_photo.png"></div>
+            <div class="reviews_page_item__content">
+              <div class="reviews_page_item__content__title">Елманова Марина Маихайловна</div>
+              <div class="reviews_page_item__content__desc">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              <div class="reviews_page_item__content__footer">
+                <div class="rpicf_car">Покупка: <span>Volkswagen Jetta New</span></div>
+                <a href="#" class="rpicf_link">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23.0607 13.0607C23.6464 12.4749 23.6464 11.5251 23.0607 10.9393L13.5147 1.3934C12.9289 0.807611 11.9792 0.807611 11.3934 1.3934C10.8076 1.97919 10.8076 2.92893 11.3934 3.51472L19.8787 12L11.3934 20.4853C10.8076 21.0711 10.8076 22.0208 11.3934 22.6066C11.9792 23.1924 12.9289 23.1924 13.5147 22.6066L23.0607 13.0607ZM0 13.5H22V10.5H0V13.5Z" fill="#D7AD48"/>
+                  </svg>
+                  <span>Смотреть авто</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="reviews_page_item">
+            <div class="reviews_page_item__photo lazy" data-bg="img/reviews_photo.png"></div>
+            <div class="reviews_page_item__content">
+              <div class="reviews_page_item__content__title">Елманова Марина Маихайловна</div>
+              <div class="reviews_page_item__content__desc">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              <div class="reviews_page_item__content__footer">
+                <div class="rpicf_car">Покупка: <span>Volkswagen Jetta New</span></div>
+                <a href="#" class="rpicf_link">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23.0607 13.0607C23.6464 12.4749 23.6464 11.5251 23.0607 10.9393L13.5147 1.3934C12.9289 0.807611 11.9792 0.807611 11.3934 1.3934C10.8076 1.97919 10.8076 2.92893 11.3934 3.51472L19.8787 12L11.3934 20.4853C10.8076 21.0711 10.8076 22.0208 11.3934 22.6066C11.9792 23.1924 12.9289 23.1924 13.5147 22.6066L23.0607 13.0607ZM0 13.5H22V10.5H0V13.5Z" fill="#D7AD48"/>
+                  </svg>
+                  <span>Смотреть авто</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="reviews_page_item">
+            <div class="reviews_page_item__photo lazy" data-bg="img/reviews_photo.png"></div>
+            <div class="reviews_page_item__content">
+              <div class="reviews_page_item__content__title">Елманова Марина Маихайловна</div>
+              <div class="reviews_page_item__content__desc">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              <div class="reviews_page_item__content__footer">
+                <div class="rpicf_car">Покупка: <span>Volkswagen Jetta New</span></div>
+                <a href="#" class="rpicf_link">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23.0607 13.0607C23.6464 12.4749 23.6464 11.5251 23.0607 10.9393L13.5147 1.3934C12.9289 0.807611 11.9792 0.807611 11.3934 1.3934C10.8076 1.97919 10.8076 2.92893 11.3934 3.51472L19.8787 12L11.3934 20.4853C10.8076 21.0711 10.8076 22.0208 11.3934 22.6066C11.9792 23.1924 12.9289 23.1924 13.5147 22.6066L23.0607 13.0607ZM0 13.5H22V10.5H0V13.5Z" fill="#D7AD48"/>
+                  </svg>
+                  <span>Смотреть авто</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="reviews_page_item">
+            <div class="reviews_page_item__photo lazy" data-bg="img/reviews_photo.png"></div>
+            <div class="reviews_page_item__content">
+              <div class="reviews_page_item__content__title">Елманова Марина Маихайловна</div>
+              <div class="reviews_page_item__content__desc">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              <div class="reviews_page_item__content__footer">
+                <div class="rpicf_car">Покупка: <span>Volkswagen Jetta New</span></div>
+                <a href="#" class="rpicf_link">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23.0607 13.0607C23.6464 12.4749 23.6464 11.5251 23.0607 10.9393L13.5147 1.3934C12.9289 0.807611 11.9792 0.807611 11.3934 1.3934C10.8076 1.97919 10.8076 2.92893 11.3934 3.51472L19.8787 12L11.3934 20.4853C10.8076 21.0711 10.8076 22.0208 11.3934 22.6066C11.9792 23.1924 12.9289 23.1924 13.5147 22.6066L23.0607 13.0607ZM0 13.5H22V10.5H0V13.5Z" fill="#D7AD48"/>
+                  </svg>
+                  <span>Смотреть авто</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main_heading">
+    <div class="container">Подарки <span>всем покупателям!</span></div>
+  </div>
+  <div class="main_gifts">
+    <div class="container">
+      <div class="main_gifts_tabs_content mgtc__01">
+        <div class="main_gifts_content">
+          <div class="main_gifts_content__date">Только до <%= l(SALE_DATE, format: :next_monday) %>!</div>
+          <div class="main_gifts_content__title">Зимняя резина</div>
+          <div class="main_gifts_content__subtitle">В подарок!</div>
+          <div class="main_gifts_content__action">
+            <a href="#" class="btn btn-blue gifts_popup">Участвовать в акции</a>
+          </div>
+        </div>
+        <div class="main_gifts_images">
+          <div class="main_gifts_images__backimage lazy" data-bg="img/gifts_section_back_image_01.png"></div>
+          <div class="main_gifts_images__frontimage lazy" data-bg="img/gifts_section_front_image_01.png"></div>
+          <div class="main_gifts_images__smallimages_left lazy" data-bg="img/gifts_section_smallfront_left_01.png"></div>
+          <div class="main_gifts_images__smallimages_right lazy" data-bg="img/gifts_section_smallfront_right_01.png"></div>
+        </div>
+      </div>
+      <div class="main_gifts_tabs_content mgtc__02">
+        <div class="main_gifts_content">
+          <div class="main_gifts_content__date">Только до <%= l(SALE_DATE, format: :next_monday) %>!</div>
+          <div class="main_gifts_content__title">Страховка <br>КАСКО</div>
+          <div class="main_gifts_content__subtitle">В подарок!</div>
+          <div class="main_gifts_content__action">
+            <a href="#" class="btn btn-blue gifts_popup">Участвовать в акции</a>
+          </div>
+        </div>
+        <div class="main_gifts_images">
+          <div class="main_gifts_images__backimage lazy" data-bg="img/gifts_section_back_image_02.png"></div>
+          <div class="main_gifts_images__frontimage lazy" data-bg="img/gifts_section_front_image_02.png"></div>
+          <div class="main_gifts_images__smallimages_left lazy" data-bg="img/gifts_section_smallfront_left_02.png"></div>
+          <div class="main_gifts_images__smallimages_right lazy" data-bg="img/gifts_section_smallfront_right_02.png"></div>
+          <div class="main_gifts_images__smallimages_abs lazy" data-bg="img/gifts_section_smallfront_abs_02_01.png"></div>
+          <div class="main_gifts_images__smallimages_abs lazy" data-bg="img/gifts_section_smallfront_abs_02_02.png"></div>
+        </div>
+      </div>
+      <div class="main_gifts_tabs_content mgtc__03">
+        <div class="main_gifts_content">
+          <div class="main_gifts_content__date">Только до <%= l(SALE_DATE, format: :next_monday) %>!</div>
+          <div class="main_gifts_content__title">3 платежа <br>по кредиту</div>
+          <div class="main_gifts_content__subtitle">В подарок!</div>
+          <div class="main_gifts_content__action">
+            <a href="#" class="btn btn-blue gifts_popup">Участвовать в акции</a>
+          </div>
+        </div>
+        <div class="main_gifts_images">
+          <div class="main_gifts_images__backimage"></div>
+          <div class="main_gifts_images__frontimage lazy" data-bg="img/gifts_section_front_image_03.png"></div>
+          <div class="main_gifts_images__smallimages_left lazy" data-bg="img/gifts_section_smallfront_left_03.png"></div>
+          <div class="main_gifts_images__smallimages_right lazy" data-bg="img/gifts_section_smallfront_right_03.png"></div>
+        </div>
+      </div>
+      <div class="main_gifts_tabs_content mgtc__04">
+        <div class="main_gifts_content">
+          <div class="main_gifts_content__date">Только до <%= l(SALE_DATE, format: :next_monday) %>!</div>
+          <div class="main_gifts_content__title">200 литров топлива</div>
+          <div class="main_gifts_content__subtitle">В подарок!</div>
+          <div class="main_gifts_content__action">
+            <a href="#" class="btn btn-blue gifts_popup">Участвовать в акции</a>
+          </div>
+        </div>
+        <div class="main_gifts_images">
+          <div class="main_gifts_images__backimage lazy" data-bg="img/gifts_section_back_image_04.png"></div>
+          <div class="main_gifts_images__frontimage lazy" data-bg="img/gifts_section_front_image_04.png"></div>
+          <div class="main_gifts_images__smallimages_left lazy" data-bg="img/gifts_section_smallfront_left_04.png"></div>
+          <div class="main_gifts_images__smallimages_right lazy" data-bg="img/gifts_section_smallfront_right_04.png"></div>
+        </div>
+      </div>
+      <div class="main_gifts_tabs_nav">
+        <div class="main_gifts_tabs_nav__item">Зимняя резина <br><span>в подарок!</span></div>
+        <div class="main_gifts_tabs_nav__item">Страховка КАСКО <br><span>в подарок!</span></div>
+        <div class="main_gifts_tabs_nav__item">3 платежа по кредиту <br><span>в подарок!</span></div>
+        <div class="main_gifts_tabs_nav__item">200 литров топлива <br><span>в подарок!</span></div>
+      </div>
+    </div>
+    <svg height="0" width="0">
+      <defs>
+        <clipPath id="main_gifts_arrow_clip" clipPathUnits="userSpaceOnUse">
+          <path d="M0 131.063V0L352.257 212.415L700 0V140.103L352.257 348L0 131.063Z"/>
+        </clipPath>
+      </defs>
+    </svg>
+  </div>
+  <div class="main_help_find">
+    <div class="container">
+      <div class="main_help_find__title">Затрудняетесь с выбором автомобиля?</div>
+      <div class="main_help_find__subtitle">Мы вам поможем!</div>
+      <div class="main_help_find__clients" data-aos="fade-down" data-aos-duration="600" data-aos-delay="300" data-aos-once="true">Счастливых клиентов: <span>3 599</span></div>
+      <form class="main_help_find__form">
+        <div>
+          <input type="text" placeholder="ФИО">
+          <input name="telephone" type="tel" onpaste="return false;" placeholder="+7 (___) ___-__-__" pattern="\d*" autocomplete="on">
+        </div>
+        <button class="btn btn-blue" type="submit">Отправить запрос</button>
+      </form>
+    </div>
+  </div>
 </div>
-<div id="reviews_pagitane">
-  <%= paginate @reviews, remote: true %>
-</div>
-
-<%= render 'partials/carso/credit_form' %>

@@ -44,7 +44,7 @@
 
   max_price = ordered_cars.last.equipments.where(hide:0).maximum(:price)
 
-  max_discount = ordered_cars.last.discount.to_i + ordered_cars.last.discount_tradein.to_i + ordered_cars.last.discount_credit.to_i + 50000 + 30000 +(max_price * 0.1).to_i
+  max_discount = ordered_cars.last.discount.to_i + ordered_cars.last.discount_tradein_3.to_i + ordered_cars.last.discount_credit_3.to_i + 50000 + 30000 +(max_price * 0.1).to_i
 
   if (max_discount + @region_discount) < max_price*4/10
     max_discount_e = max_discount + @region_discount

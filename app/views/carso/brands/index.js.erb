@@ -1,0 +1,4 @@
+$('#brand_first').html("<%= j render partial: 'carso/brands/brand_first', object: @newauto_brands.first, as: :brand %>");
+$('.main_catalog_page__content').html("<%= j render partial: 'carso/brands/brand_first_card', object: @newauto_brands.first, as: :brand %>");
+$('.main_catalog_page__content').append("<%= j render partial: 'carso/brands/brand_card', collection: @newauto_brands[1..-1], as: :brand %>");
+

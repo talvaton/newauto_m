@@ -1,0 +1,11 @@
+<% logo_url = brand_sidefilter.logoblack.url %>
+<div class="col-4 main_marks_item_col">
+  <%= link_to(brand_path(brand_sidefilter.url), class:'main_marks_item') do %>
+    <div class="main_marks_item__icon">
+      <% if logo_url.present? %>
+        <%= image_tag logo_url, class:"",alt:brand_sidefilter.title %>
+      <% end %>
+    </div>
+    <div class="main_marks_item__title"><%= brand_sidefilter.title %></div>
+  <% end %>
+</div>

@@ -1,7 +1,7 @@
 <%
   max_price_e = @car.equipments.where(hide:0).order(price: :desc).first
-  if (@car.discount_count(max_price_e) + @region_discount) < max_price_e.price*4/10
-    max_discount_e = @car.discount_count(max_price_e) + @region_discount
+  if (@car.discount_count + @region_discount) < max_price_e.price*4/10
+    max_discount_e = @car.discount_count + @region_discount
   else
     max_discount_e = max_price_e.price*4/10
   end
@@ -14,45 +14,6 @@
   min_price = @car.equipments.where(hide:false).minimum(:price) - max_discount_e
 %>
 <%
-  region = false
-  unless @current_region.id == 57
-    region = true
-  end
-
-  t_mos = "Купить #{@car.russian_name} #{@car.old ? (Time.current - 2.year).year.to_s : (Time.current - 1.year).year.to_s}-#{@car.old ? (Time.current - 1.year).year.to_s : Time.current.year.to_s} у официального дилера в #{@current_region.sklon3} 🚗  новый #{@car.menutitle} — автосалон «Авимоторс»"
-  t_reg = "Купить #{@car.russian_name} в #{@current_region.sklon3} 🚗 цена на #{'новый' unless @car.old} #{@car.menutitle} #{@car.old ? (Time.current - 1.year).year.to_s : Time.current.year.to_s} у официального дилера — автосалон «Авимоторс»"
-
-  d_mos = "❗ Грандиозная распродажа новых автомобилей #{@car.menutitle} #{@car.old ? (Time.current - 2.year).year.to_s : (Time.current - 1.year).year.to_s} - #{@car.old ? (Time.current - 1.year).year.to_s : Time.current.year.to_s} года в #{@current_region.sklon3}! 🚘 Все комплектации в наличии у официального дилера! ❗ Скидка на #{@car.russian_name} до #{number_with_delimiter(max_discount_e,delimeter:' ')} руб. ✅ Кредит от 1,9%! 🎁 — автосалон «Авимоторс» ☎️ 8 (800) 707-53-51."
-  d_reg = "❗️Грандиозная распродажа новых автомобилей #{@car.menutitle} #{@car.old ? (Time.current - 2.year).year.to_s : (Time.current - 1.year).year.to_s} - #{@car.old ? (Time.current - 1.year).year.to_s : Time.current.year.to_s} года! 🚘 Все комплектации в наличии у официального дилера в #{@current_region.sklon3}!❗️ Скидка на #{@car.russian_name} до #{number_with_delimiter(max_discount_e,delimeter:' ')} руб. ✅ Кредит от 1,9%! 🎁 — автосалон «Авимоторс» ☎️ 8 (800) 707-53-51."
-
-  o_mos = "Купить #{'новый' unless @car.old} #{@car.russian_name} в #{@current_region.sklon3}. Скидка до #{number_with_delimiter(max_discount_e,delimeter:' ')} рублей! Экспресс кредит от 1.9%, Рассрочка 0%, Trade-in. Продажа #{@car.menutitle} #{@car.old ? (Time.current - 2.year).year.to_s : (Time.current - 1.year).year.to_s + '-' + Time.current.year.to_s} года, все комплектации в наличии у официального дилера — автосалон «Авимоторс»"
-  o_reg = "Продажа #{@car.russian_name} в #{@current_region.sklon3}. Скидка до #{number_with_delimiter(max_discount_e,delimeter:' ')} рублей! Экспресс кредит 1,9%, Рассрочка 0%, trade-in. #{'Новый ' unless @car.old}#{@car.menutitle} #{@car.old ? (Time.current - 2.year).year.to_s : (Time.current - 1.year).year.to_s + '-' + Time.current.year.to_s} всех комплектаций у официального дилера — автосалон «Авимоторс»"
-
-  if !region
-    provide :title,t_mos
-    provide :description,d_mos
-    ogdesc = o_mos
-  else
-    provide :title,t_reg
-    provide :description,d_reg
-    ogdesc = o_reg
-  end
-
-  if @car.colors[0].present?
-    pimage = @car.colors[0].url
-  end
-
-  provide :og_tags,"<meta property='og:type' content='article'>
-  <meta property='og:site_name' content='Авимоторс'>
-  <meta property='og:url' content='#{request.original_url}'>
-  <meta property='og:title' content='#{@car.name}'>
-  <meta property='og:description' content='#{ogdesc}'>
-  <meta property='og:locale' content='ru_RU'>
-  <meta property='og:image' content='#{pimage}'>".html_safe
-
-%>
-
-<%
   if @car.colors.length > 2
     colors_swaped = @car.colors.swap(0,1)
     color_options_swaped =  @car.color_options.swap(0,1)
@@ -61,457 +22,637 @@
     color_options_swaped = @car.color_options
   end
 %>
-
-<% if @car.archive
-     if @car.url.include? '-old'
-       model = @car.url[0...-4]
-     else
-       model = @car.url
-     end
-
-     if UsedCar.used_cars.where(brand_id: @car.brand_id, url: model).present?
-       name = @car.menutitle
-     else
-       name = @car.brand.title
-     end
-   end
-%>
-
-
-
-
-
-
-<section class="main-item">
-  <div class="main-item-wrap">
-    <div class="avt_nc">
-      <% car_count_arr = [] %>
-      <% equipments = @equipments.limit(10).shuffle %>
-      <% equipments.each do |e| %>
-        <% car_count = e.id % 3 %>
-        <% car_count = 2 if car_count < 2 %>
-        <% car_count_arr.push(car_count) %>
-      <% end %>
-      В наличии:&nbsp;<b><%= car_count_arr.sum %></b>
-    </div>
-    <div class="main-item-color">
-      <div class="singlecar__colors">
-        <ul class="colors-list">
-          <% color_options_swaped.each_with_index do |c,index| %>
-            <li class="color <% if index == 1 %>color--choosed<% end %>" data-action="show-color" style="background-color: <%= c['color'] %>; background: <%= c['color2'] if c['color2'].present? %>;"
-                data-disable-hover="false" title="<%= c['colorname'] %>" data-color_index="<%= index %>">
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-      <div class="main-img img-comp-container" data-content="car-colors-list">
-      <% colors_swaped[0..1].each_with_index do |c,index| %>
-        <div class="img-comp-img">
-          <%= image_tag "#{c.largecard.url}",class:'', alt:'', itemprop:'image', data:{:image_index=>index} %>
-        </div>
-      <% end %>
-      <% if colors_swaped[2..-1].present? %>
-        <% colors_swaped[2..-1].each_with_index do |c,index| %>
-          <% index = index + 2 %>
-          <div class="img-comp-img">
-            <%#= image_tag 'blank.png',class:'', alt:'', data:{:altsrc=>"#{c.largecard.url}",:image_index=>index} %>
-            <%= image_tag c.largecard.url, class:'', alt:'', data:{:image_index=>index} %>
+<div id="main">
+  <div class="model_page">
+    <div class="container">
+      <div class="row">
+        <div class="col-3" data-aos="fade" data-aos-duration="700" data-aos-once="true">
+          <div class="model_page_finance">
+            <%# <img class="lazy" data-src="/img/finance_icon.png" alt="Hyundai Finance" src="/img/lazy_placeholder.png">%>
           </div>
-        <% end %>
-      <% end %>
-    </div>
-    <div class="main-brand-model">
-      <div class="vk_mp"></div>
-      <div class="vk_mp_mn">
-        <% unless !@car.available %>
-        <a href="#compl_t" rel="nofollow" data-role="page-navigation-link" class="main-model-menu-item">Комплектации и цены</a><% end %>
-        <a href="#car-features" rel="nofollow" data-role="page-navigation-link" class="main-model-menu-item">Технические характеристики</a>
-        <% unless !@car.available %><a href="#filter_list" rel="nofollow" data-role="page-navigation-link" class="main-model-menu-item">Автомобили в наличии</a><% end %>
-        <% if @car.description.present? && @car.description['text_lower'].present? %>
-        <% end %>
-        <% if @car.images.present? %>
-        <a href="#photo_car" rel="nofollow" class="main-model-menu-item">Фото и видео</a><% end %>
-      </div>
-      <div class="main-brand-name"><%= @car.brand.title %></div>
-      <div class="main-model-name"><%= @car.name %></div>
-      <div class="main-price">
-        <div class="main-price-item">
-
-
-
-          <div class="main-price-discount"><%= number_with_delimiter(@car.count_min_price(@region_discount), delimiter: " ") %> ₽</div>
-          <div class="main-price-month"><span class="main-price-month_green"><% snc_price = min_price %><%= number_with_delimiter(count_price(snc_price,PERCENT,MONTH), delimiter: " ") %> ₽</span>/мес
+          <div class="model_page_special">
+            <div class="model_page_special__title">Спецпредложение</div>
+            <div class="model_page_special__value">от <span>0%</span></div>
+            <div class="model_page_special__subtitle">при покупке в кредит</div>
           </div>
-        </div>
-        <div class="main-price-item">
-          <div class="main-price-benefit">
-            <div class="main-price-benefit_title">Выгода в кредит</div>
-            <div class="main-price-benefit_cost"><%= number_with_delimiter(max_discount_e,delimeter:' ') %> ₽</div>
-          </div>
-        </div>
-      </div>
-      <div class="main-spec">
-        <div class="main-spec-item">
-          <div class="main-spec-img engine"></div>
-          <div class="main-spec-wrap">
-            <div class="main-spec-title"><%= @car.specifications.joins(:equipment).where('`equipment`.`hide` = 0').maximum(:power) %> л/c</div>
-            <div class="main-spec-text">Мощность двигателя</div>
-          </div>
-        </div>
-        <% min_acc = @car.specifications.joins(:equipment).where('`equipment`.`hide` = 0').minimum(:acceleration) %>
-        <% if min_acc.present? %>
-          <div class="main-spec-item">
-            <div class="main-spec-img speed"></div>
-            <div class="main-spec-wrap">
-              <div class="main-spec-title"><%= @car.specifications.joins(:equipment).where('`equipment`.`hide` = 0').minimum(:acceleration).round(1) %> с</div>
-              <div class="main-spec-text">Разгон до 100 км/ч</div>
+          <%= form_for Ticket.new,url: {action:"create",controller:"tickets" },remote:true,validate:true,:html => {:class => "model_page_form",:name=>"newcarreq"},:namespace => "newcarreq" do |f| %>
+            <%= hidden_field_tag 'ticket[other][model]',@car.id, id:'newcarreq_ticket_other_model' %>
+            <%= f.hidden_field :form_name, value:"express" %>
+            <div class="form_input">
+              <%= f.text_field :name,class:"input",placeholder:"ФИО" %>
             </div>
+            <div class="form_input">
+              <%= f.phone_field :phone,class:"input",data:{:role=>"phone"},placeholder:"+7 (___) ___-__-__" %>
+            </div>
+            <%= f.button class: "btn btn-blue" do %><span>Отправить запрос</span><% end %>
+            <%# end %>
+          <% end %>
+        </div>
+        <div class="col-6">
+          <div class="model_page_title" data-aos="fade" data-aos-duration="700">
+            <div class="model_page_title__icon">
+              <%# <img class="lazy" data-src="/img/catalog_mark_icon.png" alt="Lada Granta" src="/img/lazy_placeholder.png">%>
+            </div>
+            <div class="model_page_title__data"><%= @car.brand.title %> <span><%= @car.name %></span></div>
           </div>
-        <% end %>
-        <%
-          min_fh = @car.specifications.joins(:equipment).where('`equipment`.`hide` = 0').minimum(:fuelhigh)
-          min_fc = @car.specifications.joins(:equipment).where('`equipment`.`hide` = 0').minimum(:fuelcity)
-          min_fm = @car.specifications.joins(:equipment).where('`equipment`.`hide` = 0').minimum(:fuelmix)
-          unless min_fc.nil? || min_fh.nil? || min_fm.nil?
+          <div class="model_page_count">
+            <% car_count_arr = [] %>
+            <% equipments = @equipments.limit(10).shuffle %>
+            <% equipments.each do |e| %>
+              <% car_count = e.id % 3 %>
+              <% car_count = 2 if car_count < 2 %>
+              <% car_count_arr.push(car_count) %>
+            <% end %>
+            <div class="main_catalog_count__data" data-aos="fade-down" data-aos-duration="600" data-aos-delay="400">Осталось в наличии: <span><%= car_count_arr.sum %> авто</span></div>
+          </div>
+          <div class="model_page_preview">
+            <div class="parallax_down_arrow" data-pda-start="1" data-pda-delay="0"></div>
+            <svg height="0" width="0">
+              <defs>
+                <clipPath id="parallax_down_arrow__path" clipPathUnits="userSpaceOnUse">
+                  <path d="M0 131.063V0L352.257 212.415L700 0V140.103L352.257 348L0 131.063Z"/>
+                </clipPath>
+              </defs>
+            </svg>
 
-            if (min_fc.nil? || min_fh.nil?) && min_fm.present?
-              fuel = min_fm.round(1)
-            else
-              fuel = "#{min_fh.round(1)}"
-            end
-        %>
-            <div class="main-spec-item">
-              <div class="main-spec-img fuel"></div>
-              <div class="main-spec-wrap">
-                <div class="main-spec-title"><%= fuel %> л</div>
-                <div class="main-spec-text">Расход на 100км</div>
+            <div class="img-comp-container" data-content="car-colors-list">
+              <% colors_swaped[0..1].each_with_index do |c,index| %>
+                <div class="img-comp-img">
+                  <%= image_tag c.largecard.url, class:'', alt:'', data:{:image_index=>index} %>
+                </div>
+              <% end %>
+              <% if colors_swaped[2..-1].present? %>
+                <% colors_swaped[2..-1].each_with_index do |c,index| %>
+                  <% index = index + 2 %>
+                  <div class="img-comp-img">
+                    <%#= image_tag 'blank.png',class:'', alt:'', data:{:altsrc=>"#{c.largecard.url}",:image_index=>index} %>
+                    <%= image_tag c.largecard.url, class:'', alt:'', data:{:image_index=>index} %>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+            <div class="singlecar__colors-wrapper" data-content="choose-right-color">
+              <div class="singlecar__colors">
+                <ul class="colors-list">
+                  <% color_options_swaped.each_with_index do |c,index| %>
+                    <li class="color <% if index == 1 %>color--choosed<% end %>" data-action="show-color" style="background-color: <%= c['color'] %>; background: <%= c['color2'] if c['color2'].present? %>;"
+                        data-disable-hover="false" title="<%= c['colorname'] %>" data-color_index="<%= index %>">
+                    </li>
+                  <% end %>
+                </ul>
               </div>
-          <% end %>
-      </div>
-    </div>
-    </div>
+            </div>
 
 
 
-
-
-
-
-
-
-
-
-
-
-    <section class="main-offer">
-      <section class="main-offer-container">
-        <div class="main-offer-title">Персональное предложение</div>
-        <div class="main-offer-text">скидка до <%= number_with_delimiter(max_discount_e,delimeter:' ') %> ₽ / Каско в подарок рассрочка 0%  /  кредит: 1.9% </div>
-
-
-        <%= form_for Ticket.new,url: {action:"create",controller:"tickets" },remote:true,validate:true,:html => {:class => "form",:name=>"newcarreq"},:namespace => "newcarreq" do |f| %>
-          <%= hidden_field_tag 'ticket[other][model]',@car.id, id:'newcarreq_ticket_other_model' %>
-          <%= f.hidden_field :form_name, value:"express" %>
-          <div class="main-offer-form">
-            <%= f.text_field :name,class:"input main-offer-form_input",placeholder:"Ваше имя" %>
           </div>
-          <div class="main-offer-form">
-            <%= f.phone_field :phone,class:"input main-offer-form_input",data:{:role=>"phone"},placeholder:"Номер телефона"  %>
-          </div>
-          <%= f.button class: "button main-offer-button_item" do %><span>Получить условия</span><% end %>
-        <% end %>
-        <div class="main-offer-action">Акция до <%= l(SALE_DATE, format: :next_monday) %></div>
-        <div class="main-offer-accept">Нажимая на кнопку “Получить условия” Вы даете согласие на обработку своих персональных данных</div>
-      </section>
-    </section>
-
-
-
-  </div>
-</section>
-<section class="main-model-menu">
-
-
-  <div class="main-model-menu-list">
-    <% unless !@car.available %>
-      <a href="#compl_t" rel="nofollow" data-role="page-navigation-link" class="main-model-menu-item">Комплектации и цены</a><% end %>
-    <a href="#car-features" rel="nofollow" data-role="page-navigation-link" class="main-model-menu-item">Технические характеристики</a>
-    <% unless !@car.available %><a href="#filter_list" rel="nofollow" data-role="page-navigation-link" class="main-model-menu-item">Автомобили в наличии</a><% end %>
-    <% if @car.description.present? && @car.description['text_lower'].present? %>
-    <% end %>
-    <% if @car.images.present? %>
-      <a href="#photo_car" rel="nofollow" class="main-model-menu-item">Фото и видео</a><% end %>
-  </div>
-
-</section>
-<section class="main-gifts">
-  <section class="main-gifts-cont">
-    <div class="main-gifts-item">
-      <div class="main-gifts-img umbrella">
-
-      </div>
-      <div class="main-gifts-title snowflake">
-        Каско
-      </div>
-      <div class="main-gifts-text train">
-        покупателю в подарок
-      </div>
-    </div>
-    <div class="main-gifts-item">
-      <div class="main-gifts-img snowflake">
-
-      </div>
-      <div class="main-gifts-title">
-        Зимняя резина
-      </div>
-      <div class="main-gifts-text">
-        в подарок с автомобилем
-      </div>
-    </div>
-    <div class="main-gifts-item">
-      <div class="main-gifts-img train">
-
-      </div>
-      <div class="main-gifts-title">
-        Оплата проезда
-      </div>
-      <div class="main-gifts-text">
-        покупателя до автосалона
-      </div>
-    </div>
-  </section>
-</section>
-
-<section class="main-salon">
-  <section class="main-title-wrap">
-    <div class="main-title">
-      <div class="main-title-text">В салоне</div>
-    </div>
-  </section>
-
-  <div class="main-salon-gallery">
-      <% @car.images_available.each do |image|%>
-        <%= link_to image.url,class:'photo-link', data:{:fancybox => 'car-exterior'} do %>
-        <div class="main-salon-gallery-wrap">
-            <%= image_tag image.thumb.url, alt: '' %>
-      </div>
-        <% end %>
-      <% end %>
-   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-</section>
-
-
-
-
-<section class="main-equip">
-<% unless !@car.available %>
-  <%# unless @car.archive %>
-  <div class="complectation">
-
-    <div class="main-title" id="compl_t">
-      <div class="main-title-text">Комплектации и цены</div>
-    </div>
-
-
-    <div class="table-main">
-      <% spec = Specification.select('specifications.*,MIN(equipment.price) AS min_price')
-          .joins(:equipment)
-          .where('`specifications`.`new_car_id` = ?', @car.id).where('`equipment`.`hide` = 0').group('specifications.id').order('min_price') %>
-      <table class="table">
-        <tbody>
-        <% spec.each_with_index do |cs,index_spec| %>
-          <tr class="compl_gr_title"><td><div><% if cs.volume.present? %><%= "#{(cs.volume / 1000.to_f).round(1)} л. #{cs.drive == 'Полный' ? '4WD' : '2WD'} "%> <% end %> <% "#{cs.shorttransmission}" %></div></td></tr>
-          <% cs.equipment.where('`equipment`.`hide` = 0').order(:price).each_with_index do |e,index| %>
-            <%
-              real_discount = @car.discount_count(e) + @region_discount
-              if (@car.discount_count(e) + @region_discount) < e.price*4/10
-                max_discount = @car.discount_count(e) + @region_discount
-              else
-                max_discount = e.price*4/10
-              end
-            %>
-
-            <tr class="tr" data-action="show-table-row-description" data-url="<%= row_description_path(@brand.url,@car.url,e.id) %>">
-              <th class="">
-                <div>
-                 <span><%= e.equipment_description.name %> <%= e.suffix %></span>
-                 <span class="mn_s">
-                     <b data-role="discount_price" class="tableprice" data-real-price="<%= (e.price - real_discount) %>"><%#= number_with_delimiter(e.price - max_discount,delimiter: ' ') %><%#= (e.price - real_discount) %><%= number_with_delimiter(e.price - real_discount,delimiter: ' ') %> ₽</b>
-                     <%= e.specification.power %> л.с, <%= e.specification.shorttransmission %></span><i></i>
-                </div>
-                <div class="vgdm_dv">
-                  <span class="vgdm_p">Выгода в кредит <b><%= number_with_delimiter(max_discount_e,delimeter:' ') %> ₽</b></span>
-                  <a href="#" class="main-equip-button_item" data-show-new-ajax="car-credit-modal" data-eq_id="<%= e.id %>" rel="nofollow">Купить в кредит</a>
-                </div>
-              </th>
-              <td class="mn kpp"><%= e.specification.transmission.gsub('Механическая','Механика').gsub('5-ступенчатая механическая','Механика').gsub('5MT','').gsub('6МТ','').gsub('Автоматическая','Автомат').gsub('5-ступенчатая автоматическая','Автомат').gsub('4AT','') %> (<%= e.specification.shorttransmission %>)</td>
-              <td class="mn"><% if e.specification.volume.present? %><%= (e.specification.volume / 1000.to_f).round(1) %><% end %></td>
-              <td class="mn"><% if e.specification.power.present? %><%= e.specification.power %><% end %></td>
-              <td class="mn compl-price">
-                <span class="tablepricesale" data-role="base_price"><%= number_with_delimiter(e.price,delimiter: ' ') %></span> ₽
-              </td>
-              <td style="display: none">
-                <span class="tablepricediscount" data-role="discount_sale" data-real-discount="<%=real_discount %>"><%= number_with_delimiter(max_discount,delimiter: ' ') %></span>
-              </td>
-              <td class="compl-price-discount">
-                <span data-role="discount_price" class="tableprice" data-real-price="<%= (e.price - real_discount) %>"><%#= number_with_delimiter(e.price - max_discount,delimiter: ' ') %><%#= (e.price - real_discount) %><%= number_with_delimiter(e.price - real_discount,delimiter: ' ') %></span> ₽
-              </td>
-              <td class=""><a href="#" class="but_traid-in" data-show-new-ajax="car-details-modal" data-eq_id="<%= e.id %>" rel="nofollow">Trade-in</a></td>
-              <td class="cr_ord">
-                <a href="#" class="main-equip-button_item" data-show-new-ajax="car-credit-modal" data-eq_id="<%= e.id %>" rel="nofollow">Купить в кредит</a></td>
-              <%
-                e_name = e.equipment_description.name.parameterize
-              %>
-            </tr>
-            <%= '<!-- noindex -->'.html_safe if region %>
-            <tr class="compl-description" data-role="table-row-description">
-              <td colspan="12">
-                <div class="main-equip-pop show" id='equipment_<%= e.id %>_description'>
-                  <%# if index == 0 && index_spec == 0%>
-                  <% @equipment = e %>
-                  <%= render partial:'carso/new_cars/compl_description_content' %>
-                  <%# end %>
-                </div>
-              </td>
-            </tr>
-            <tr class="tbm"><td></td></tr>
-            <%= '<!--/ noindex -->'.html_safe if region %>
-          <% end %>
-        <% end %>
-        </tbody>
-      </table>
-
-    </div>
-  </div>
-  <%# end %>
-<% end %>
-<%#= render 'partials/carso/tradein_form' %>
-</section>
-
-<% cards = EquipmentDescription
-    .joins(:equipments)
-    .select('MIN(price) AS price,`equipment_descriptions`.`name`,`equipment_descriptions`.`description`, `equipment_descriptions`.`id`,`equipment_descriptions`.`new_car_id`, MIN(`equipment`.`id`) AS eq_id,`equipment_descriptions`.`compare`,`equipment_descriptions`.`comparedesc`')
-    .where('`equipment_descriptions`.`new_car_id` = ?', @car.id).where('`equipment`.`hide` = 0')
-    .group('`equipment`.`equipment_description_id`')
-    .order('price ASC')
-%>
-
-
-
-<section class="main-compare">
-  <% prev_compl = '' %>
-  <% prev_compl_params = [] %>
-
-
-  <% cards.each_with_index do |e, index| %>
-    <% compl_params = [] %>
-    <% doc = Nokogiri::HTML(e.description) %>
-    <% doc.css('li').each do |tag| %>
-      <% compl_params.push(tag.content) %>
-    <% end %>
-  <div class="main-compare-cont">
-    <div class="main-compare-item">
-      <div class="main-compare-wrap">
-        <div class="main-compare-img">
-          <% c = e.new_car.colors.swap(0,1) %>
-          <% if index < c.length
-               ind = index
-             else
-               ind = 0
-             end
-          %>
-          <% if e.comparedesc %>
-              <img src="<%= e.compare[0].large.url %>" alt="<%= e.comparedesc[0] %>">
-          <% end %>
         </div>
-        <div class="main-compare-adittion-wrap">
-          <div class="main-compare-addition">
-            <%= prev_compl == '' ? 'Базовая комплектация' : 'В дополнение к ' + prev_compl %>
+
+
+        <div class="col-3">
+          <div class="model_page_pricing__section">
+            <div class="model_page_price" data-aos="fade-right" data-aos-duration="700" data-aos-once="true">
+              <div class="model_page_price__title">Цена в кредит</div>
+              <div class="model_page_price__price">от <%= number_with_delimiter(@car.count_min_price, delimiter: " ") %> р.</div>
+            </div>
+            <div class="model_page_discountprice" data-aos="fade-right" data-aos-duration="700" data-aos-once="true">
+              <div class="model_page_discountprice__title">Цена без скидки</div>
+              <div class="model_page_discountprice__value">от <%= number_with_delimiter(@car.count_min_price_no_sale, delimiter: " ") %> р.</div>
+            </div>
           </div>
-          <div class="main-compare-title"><%= e.name %></div>
-          <div class="main-compare-price-credit">В кредит</div>
-          <div class="main-compare-price">
-            <div class="main-compare-price-wrap">
-              <div class="main-compare-price-title"><% snc_price = e.equipments.where(hide: 0).minimum(:price) - max_discount_e %><%= number_with_delimiter(count_price(snc_price,PERCENT,MONTH), delimiter: " ") %> ₽/мес</div>
-              <button class="main-button"></button>
+          <div class="model_page_pricing__actions">
+            <div class="model_page_tradein" data-aos="fade" data-aos-duration="700" data-aos-delay="300" data-aos-once="true">
+              <div class="model_page_tradein__title">Скидка по <span>Trade-in</span></div>
+              <div class="model_page_tradein__value">до 150 000<%#= number_with_delimiter(max_discount_e,delimeter:' ') %> р.</div>
+              <div class="model_page_tradein__action">
+                <a href="#" class="btn btn-black" data-show-new-ajax="car-details-modal" data-eq_id="<%= @car.id %>">Trade-in</a>
+              </div>
+            </div>
+            <div class="model_page_creditprice" data-aos="fade" data-aos-duration="700" data-aos-delay="300" data-aos-once="true">
+              <div class="model_page_creditprice__title">В кредит</div>
+              <div class="model_page_creditprice__value">от <% snc_price = min_price %><%= number_with_delimiter(count_price(snc_price,PERCENT,MONTH), delimiter: " ") %> р./мес.</div>
+              <div class="model_page_creditprice__action">
+                <a href="#" class="btn btn-blue" data-show-new-ajax="car-credit-modal" data-eq_id="<%= @car.id %>">Купить в кредит</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+      </div>
+    </div>
+  </div>
+  <div class="model_gallery" data-aos="fade-up" data-aos-duration="700" data-aos-once="true">
+    <div class="container">
+
+      <% if @car.images_available.count >= 3 %>
+            <% @car.images_available.each do |image|%>
+              <%= link_to image.url,class:'model_gallery__item', data:{:fancybox => 'images'} do %>
+                <div class="lazy" data-bg="<%= image.thumb.url %>">
+                  <%#= image_tag image.thumb.url, alt: '' %>
+                </div>
+              <% end %>
+            <% end %>
+      <% else %>
+        <% if @car.images.present? %>
+              <% @car.images[1..-1].each do |image| %>
+                <%= link_to image.large.url ,class:'model_gallery__item',data:{:fancybox => 'images'} do %>
+                  <div class="lazy" data-bg="<%= image.thumb.url %>">
+                    <%#= image_tag image.thumb.url,alt: "#{@car.brand.title} #{@car.name}", class:'photo' %>
+                  </div>
+                <% end %>
+              <% end %>
+         <% end %>
+      <% end %>
+
+
+    </div>
+  </div>
+  <div class="main_heading">
+    <div class="container">Подарки <span>всем покупателям!</span></div>
+  </div>
+  <div class="main_gifts">
+    <div class="container">
+      <div class="main_gifts_tabs_content mgtc__01">
+        <div class="main_gifts_content">
+          <div class="main_gifts_content__date">Только до <%= l(SALE_DATE, format: :next_monday) %>!</div>
+          <div class="main_gifts_content__title">Зимняя резина</div>
+          <div class="main_gifts_content__subtitle">В подарок!</div>
+          <div class="main_gifts_content__action">
+            <a href="#" class="btn btn-blue gifts_popup">Участвовать в акции</a>
+          </div>
+        </div>
+        <div class="main_gifts_images">
+          <div class="main_gifts_images__backimage lazy" data-bg="/img/gifts_section_back_image_01.png"></div>
+          <div class="main_gifts_images__frontimage lazy" data-bg="/img/gifts_section_front_image_01.png"></div>
+          <div class="main_gifts_images__smallimages_left lazy" data-bg="/img/gifts_section_smallfront_left_01.png"></div>
+          <div class="main_gifts_images__smallimages_right lazy" data-bg="/img/gifts_section_smallfront_right_01.png"></div>
+        </div>
+      </div>
+      <div class="main_gifts_tabs_content mgtc__02">
+        <div class="main_gifts_content">
+          <div class="main_gifts_content__date">Только до <%= l(SALE_DATE, format: :next_monday) %>!</div>
+          <div class="main_gifts_content__title">Страховка <br>КАСКО</div>
+          <div class="main_gifts_content__subtitle">В подарок!</div>
+          <div class="main_gifts_content__action">
+            <a href="#" class="btn btn-blue gifts_popup">Участвовать в акции</a>
+          </div>
+        </div>
+        <div class="main_gifts_images">
+          <div class="main_gifts_images__backimage lazy" data-bg="/img/gifts_section_back_image_02.png"></div>
+          <div class="main_gifts_images__frontimage lazy" data-bg="/img/gifts_section_front_image_02.png"></div>
+          <div class="main_gifts_images__smallimages_left lazy" data-bg="/img/gifts_section_smallfront_left_02.png"></div>
+          <div class="main_gifts_images__smallimages_right lazy" data-bg="/img/gifts_section_smallfront_right_02.png"></div>
+          <div class="main_gifts_images__smallimages_abs lazy" data-bg="/img/gifts_section_smallfront_abs_02_01.png"></div>
+          <div class="main_gifts_images__smallimages_abs lazy" data-bg="/img/gifts_section_smallfront_abs_02_02.png"></div>
+        </div>
+      </div>
+      <div class="main_gifts_tabs_content mgtc__03">
+        <div class="main_gifts_content">
+          <div class="main_gifts_content__date">Только до <%= l(SALE_DATE, format: :next_monday) %>!</div>
+          <div class="main_gifts_content__title">3 платежа <br>по кредиту</div>
+          <div class="main_gifts_content__subtitle">В подарок!</div>
+          <div class="main_gifts_content__action">
+            <a href="#" class="btn btn-blue gifts_popup">Участвовать в акции</a>
+          </div>
+        </div>
+        <div class="main_gifts_images">
+          <div class="main_gifts_images__backimage"></div>
+          <div class="main_gifts_images__frontimage lazy" data-bg="/img/gifts_section_front_image_03.png"></div>
+          <div class="main_gifts_images__smallimages_left lazy" data-bg="/img/gifts_section_smallfront_left_03.png"></div>
+          <div class="main_gifts_images__smallimages_right lazy" data-bg="/img/gifts_section_smallfront_right_03.png"></div>
+        </div>
+      </div>
+      <div class="main_gifts_tabs_content mgtc__04">
+        <div class="main_gifts_content">
+          <div class="main_gifts_content__date">Только до <%= l(SALE_DATE, format: :next_monday) %>!</div>
+          <div class="main_gifts_content__title">200 литров топлива</div>
+          <div class="main_gifts_content__subtitle">В подарок!</div>
+          <div class="main_gifts_content__action">
+            <a href="#" class="btn btn-blue gifts_popup">Участвовать в акции</a>
+          </div>
+        </div>
+        <div class="main_gifts_images">
+          <div class="main_gifts_images__backimage lazy" data-bg="/img/gifts_section_back_image_04.png"></div>
+          <div class="main_gifts_images__frontimage lazy" data-bg="/img/gifts_section_front_image_04.png"></div>
+          <div class="main_gifts_images__smallimages_left lazy" data-bg="/img/gifts_section_smallfront_left_04.png"></div>
+          <div class="main_gifts_images__smallimages_right lazy" data-bg="/img/gifts_section_smallfront_right_04.png"></div>
+        </div>
+      </div>
+      <div class="main_gifts_tabs_nav">
+        <div class="main_gifts_tabs_nav__item">Зимняя резина <br><span>в подарок!</span></div>
+        <div class="main_gifts_tabs_nav__item">Страховка КАСКО <br><span>в подарок!</span></div>
+        <div class="main_gifts_tabs_nav__item">3 платежа по кредиту <br><span>в подарок!</span></div>
+        <div class="main_gifts_tabs_nav__item">200 литров топлива <br><span>в подарок!</span></div>
+      </div>
+    </div>
+    <svg height="0" width="0">
+      <defs>
+        <clipPath id="main_gifts_arrow_clip" clipPathUnits="userSpaceOnUse">
+          <path d="M0 131.063V0L352.257 212.415L700 0V140.103L352.257 348L0 131.063Z"/>
+        </clipPath>
+      </defs>
+    </svg>
+  </div>
+  <div class="model_page_tabs">
+    <div class="container">
+      <div class="model_page_tabs_nav"></div>
+    </div>
+
+
+
+
+
+
+    <div class="model_page_tabs_content" data-link-title="Комплектации и цены">
+      <form class="model_page_options_form">
+        <% spec = Specification.select('specifications.*,MIN(equipment.price) AS min_price')
+            .joins(:equipment)
+            .where('`specifications`.`new_car_id` = ?', @car.id).where('`equipment`.`hide` = 0').group('specifications.id').order('min_price') %>
+
+        <% spec.each_with_index do |cs,index_spec| %>
+
+        <div class="model_page_options">
+          <div class="container">
+            <div class="model_page_options_heading">
+              <div class="model_page_options_row">
+                <div class="model_page_options_col"><% if cs.volume.present? %><%= "#{(cs.volume / 1000.to_f).round(1)}"%> <% end %> <% "#{cs.shorttransmission}" %> <% if cs.power.present? %>(<%= cs.power %> л.с.)<% end %> <%= cs.drive == 'Полный' ? '4WD' : '2WD' %></div>
+                <div class="model_page_options_col">Цена без скидки</div>
+                <div class="model_page_options_col">Цена со скидкой</div>
+                <div class="model_page_options_col">Кредит в месяц</div>
+                <div class="model_page_options_col"></div>
+                <div class="model_page_options_col"></div>
+              </div>
+            </div>
+
+            <% cs.equipment.where('`equipment`.`hide` = 0').order(:price).each_with_index do |e,index| %>
+              <%
+                real_discount = @car.discount_count + @region_discount
+                if (@car.discount_count + @region_discount) < e.price*4/10
+                  max_discount = @car.discount_count + @region_discount
+                else
+                  max_discount = e.price*4/10
+                end
+                price_with_disount = e.price - max_discount
+              %>
+
+            <div class="model_page_options_item">
+
+              <div class="model_page_options_row">
+                <div class="model_page_options_col mpoc_name">
+                  <%#<label class="main_checkbox">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                  </label>%>
+                  <div class="mpoc_name__data" data-show="mpohc_description"><%= e.equipment_description.name %> <%= e.suffix %></div>
+                </div>
+                <div class="model_page_options_col mpoc_price">
+                  <div class="mpoc_price__data">от <%= number_with_delimiter(e.price,delimiter: ' ') %> руб.</div>
+                </div>
+                <div class="model_page_options_col mpoc_discountprice">
+                  <div class="mpoc_discountprice__data" data-show="mpohc_price" data-role="discount_price" data-real-price="<%= (e.price - real_discount) %>">от <%= number_with_delimiter(e.price - real_discount,delimiter: ' ') %> руб.</div>
+                </div>
+                <div class="model_page_options_col mpoc_credit">
+                  <div class="mpoc_credit__data" data-role="credit_price" data-price="<%= price_with_disount %>">от <%= number_with_delimiter(count_price(price_with_disount,PERCENT,MONTH)) %> руб.</div>
+                </div>
+                <div class="model_page_options_col mpoc_actions">
+                  <a href="#" class="btn btn-blue" data-show-new-ajax="car-credit-modal" data-eq_id="<%= e.id %>">Купить в кредит</a>
+                  <a href="#" class="btn btn-black" data-show-new-ajax="car-details-modal" data-eq_id="<%= e.id %>">Trade-in</a>
+                </div>
+                <div class="model_page_options_col mpoc_subactions">
+                  <% e_name = e.equipment_description.name.parameterize %>
+                  <%= link_to print_new_car_equipment_id_path(@brand.url,@car.url,e_name,e.id), class:'btn btn-print', title:'Распечатать комплектацию', target: '_blank', rel:'nofollow' do %>Распечатать комплектацию<% end %>
+                  <%= link_to print_new_car_equipment_id_path(@brand.url,@car.url,e_name,e.id), class:'btn btn-download', title:'Скачать комплектацию', target: '_blank', rel:'nofollow' do %>Скачать комплектацию<% end %>
+                </div>
+              </div>
+
+              <div class="model_page_options_hidden_content mpohc_description" id='equipment_<%= e.id %>_description'>
+                <% @equipment = e %>
+                <%= render partial:'carso/new_cars/compl_description_content' %>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+
+
+
+
+
+        <% end %>
+
+
+
+        <%#<div class="model_page_options_compare">
+          <div class="container">
+            <button type="submit" class="btn btn-blue">Сравнить комплектации</button>
+          </div>
+        </div>%>
+      </form>
+    </div>
+
+
+
+
+
+
+    <div class="model_page_tabs_content" data-link-title="Характеристики">
+      <div class="container">
+
+        <% car_spec = @car.specifications %>
+        <div class="table-wrapper">
+        <table class="table table--features table--compare">
+          <thead>
+
+          <tr class="table__header t_mb">
+            <th class="table__header-title t_m"><div>Параметры</div><span></span></th>
+            <th class="table__col-title"></th>
+            <% car_spec.each do |s| %>
+              <th class="table__col-title"></th>
+            <% end %>
+          </tr>
+
+          <tr class="table__header">
+            <th class="table__header-title"><span>Параметры</span></th>
+            <% car_spec.each do |s| %>
+              <th class="table__col-title"><%= s.name %></th>
+            <% end %>
+          </tr>
+          </thead>
+          <tbody>
+          <tr class="table__row">
+            <th class="table__row-title">Тип двигателя:</th>
+            <% car_spec.each do |s| %>
+              <td class="table__cell"><%= s.enginetype %></td>
+            <% end %>
+          </tr>
+          <tr class="table__row">
+            <th class="table__row-title">Объём двигателя:</th>
+            <% car_spec.each do |s| %>
+              <td class="table__cell"><%= s.volume %></td>
+            <% end %>
+          </tr>
+          <tr class="table__row">
+            <th class="table__row-title">Мощность:</th>
+            <% car_spec.each do |s| %>
+              <td class="table__cell"><%= s.power %> л.с</td>
+            <% end %>
+          </tr>
+          <tr class="table__row">
+            <th class="table__row-title">Разгон до 100км/час:</th>
+            <% car_spec.each do |s| %>
+              <td class="table__cell"><%= s.acceleration %> с</td>
+            <% end %>
+          </tr>
+          <tr class="table__row">
+            <th class="table__row-title">Максимальная скорость:</th>
+            <% car_spec.each do |s| %>
+              <td class="table__cell"><%= s.topspeed %> км/ч</td>
+            <% end %>
+          </tr>
+
+          <tr class="table__row">
+            <th class="table__row-title">Расход в городском цикле:</th>
+            <% car_spec.each do |s| %>
+              <td class="table__cell"><%= s.fuelcity %>/100км</td>
+            <% end %>
+          </tr>
+          <tr class="table__row">
+            <th class="table__row-title">Расход в загородном цикле:</th>
+            <% car_spec.each do |s| %>
+              <td class="table__cell"><%= s.fuelhigh %>/100км</td>
+            <% end %>
+          </tr>
+          <tr class="table__row">
+            <th class="table__row-title">Расход в смешанном цикле:</th>
+            <% car_spec.each do |s| %>
+              <td class="table__cell"><%= s.fuelmix %>/100км</td>
+            <% end %>
+          </tr>
+          <tr class="table__row">
+            <th class="table__row-title">Объем топливного бака:</th>
+            <% car_spec.each do |s| %>
+              <td class="table__cell"><%= s.tank %> л</td>
+            <% end %>
+          </tr>
+
+          <tr class="table__row">
+            <th class="table__row-title">Длина:</th>
+            <% car_spec.each do |s| %>
+              <td class="table__cell"><%= s.length %> мм</td>
+            <% end %>
+          </tr>
+          <tr class="table__row">
+            <th class="table__row-title">Ширина:</th>
+            <% car_spec.each do |s| %>
+              <td class="table__cell"><%= s.width %> мм</td>
+            <% end %>
+          </tr>
+          <tr class="table__row">
+            <th class="table__row-title">Высота:</th>
+            <% car_spec.each do |s| %>
+              <td class="table__cell"><%= s.height %> мм</td>
+            <% end %>
+          </tr>
+          <tr class="table__row">
+            <th class="table__row-title">Колёсная база:</th>
+            <% car_spec.each do |s| %>
+              <td class="table__cell"><%= s.wheelbase %> мм</td>
+            <% end %>
+          </tr>
+          <tr class="table__row">
+            <th class="table__row-title">Клиренс:</th>
+            <% car_spec.each do |s| %>
+              <td class="table__cell"><%= s.clearance %> мм</td>
+            <% end %>
+          </tr>
+          <tr class="table__row">
+            <th class="table__row-title">Масса:</th>
+            <% car_spec.each do |s| %>
+              <td class="table__cell"><%= s.mass %> кг</td>
+            <% end %>
+          </tr>
+          <tr class="table__row">
+            <th class="table__row-title">Объём багажника:</th>
+            <% car_spec.each do |s| %>
+              <td class="table__cell"><%= s.trunk %> л</td>
+            <% end %>
+          </tr>
+
+          <tr class="table__row">
+            <th class="table__row-title">Трансмиссия:</th>
+            <% car_spec.each do |s| %>
+              <td class="table__cell"><%= s.transmission %></td>
+            <% end %>
+          </tr>
+          <tr class="table__row">
+            <th class="table__row-title">Привод:</th>
+            <% car_spec.each do |s| %>
+              <td class="table__cell"><%= s.drive %></td>
+            <% end %>
+          </tr>
+          <tr class="table__row">
+            <th class="table__row-title">Передняя подвеска:</th>
+            <% car_spec.each do |s| %>
+              <td class="table__cell"><%= s.frontsusp %></td>
+            <% end %>
+          </tr>
+          <tr class="table__row">
+            <th class="table__row-title">Задняя подвеска:</th>
+            <% car_spec.each do |s| %>
+              <td class="table__cell"><%= s.rearsusp %></td>
+            <% end %>
+          </tr>
+          <tr class="table__row">
+            <th class="table__row-title">Передние тормоза:</th>
+            <% car_spec.each do |s| %>
+              <td class="table__cell"><%= s.frontbrakes %></td>
+            <% end %>
+          </tr>
+          <tr class="table__row">
+            <th class="table__row-title">Задние тормоза:</th>
+            <% car_spec.each do |s| %>
+              <td class="table__cell"><%= s.rearbrakes %></td>
+            <% end %>
+          </tr>
+          </tbody>
+        </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="main_benefit">
+    <div class="main_benefit_leftbg">
+      <div class="main_benefit_leftbg__image"></div>
+    </div>
+    <div class="main_benefit_rightbg">
+      <div class="main_benefit_rightbg__image"></div>
+    </div>
+    <div class="main_benefit_content">
+      <div class="container">
+        <div class="main_benefit_content__title">Выгода</div>
+        <div class="main_benefit_content__value">до <span><%= number_with_delimiter(max_discount_e,delimeter:' ') %></span> р.</div>
+        <div class="main_benefit_content__subtitle">При покупке автомобиля в кредит</div>
+
+        <%= form_for Ticket.new,url: {action:"create",controller:"tickets" },remote:true,validate:true,:html => {:class => "main_benefit_content__form",:name=>"newcarreq"},:namespace => "newcarreq" do |f| %>
+          <%= hidden_field_tag 'ticket[other][model]',@car.id, id:'newcarreq_ticket_other_model' %>
+          <%= f.hidden_field :form_name, value:"benefit" %>
+          <div>
+            <%= f.text_field :name,class:"input",placeholder:"ФИО" %>
+            <%= f.phone_field :phone,class:"input",data:{:role=>"phone"},placeholder:"+7 (___) ___-__-__" %>
+          </div>
+          <%= f.button class: "btn btn-white" do %><span>Получить выгоду</span><% end %>
+        <% end %>
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="main_help_find">
+    <div class="container">
+      <div class="main_help_find__title">Затрудняетесь с выбором автомобиля?</div>
+      <div class="main_help_find__subtitle">Мы вам поможем!</div>
+      <div class="main_help_find__clients" data-aos="fade-down" data-aos-duration="600" data-aos-delay="300" data-aos-once="true">Счастливых клиентов: <span>3 599</span></div>
+
+      <%= form_for Ticket.new,url: {action:"create",controller:"tickets" },remote:true,validate:true,:html => {:class => "main_help_find__form",:name=>"newcarreq"},:namespace => "newcarreq" do |f| %>
+        <%= hidden_field_tag 'ticket[other][model]',@car.id, id:'newcarreq_ticket_other_model' %>
+        <%= f.hidden_field :form_name, value:"help_find" %>
+        <div>
+          <%= f.text_field :name,class:"input",placeholder:"ФИО" %>
+          <%= f.phone_field :phone,class:"input",data:{:role=>"phone"},placeholder:"+7 (___) ___-__-__" %>
+        </div>
+        <%= f.button class: "btn btn-blue" do %><span>Отправить запрос</span><% end %>
+      <% end %>
+
+    </div>
+  </div>
+  <div class="main_heading">
+    <div class="container">Отзывы клиентов <span>Авимоторс</span></div>
+  </div>
+  <div class="main_reviews">
+    <div class="container">
+      <div class="swiper main_reviews_slider">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="main_reviews_item">
+              <div class="main_reviews_item__photo lazy" data-bg="/img/reviews_photo.png"></div>
+              <div class="main_reviews_item__content">
+                <div class="main_reviews_item__content__title">Елманова Марина Маихайловна</div>
+                <div class="main_reviews_item__content__description">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="main_reviews_item">
+              <div class="main_reviews_item__photo lazy" data-bg="/img/reviews_photo.png"></div>
+              <div class="main_reviews_item__content">
+                <div class="main_reviews_item__content__title">Елманова Марина Маихайловна</div>
+                <div class="main_reviews_item__content__description">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="main_reviews_item">
+              <div class="main_reviews_item__photo lazy" data-bg="/img/reviews_photo.png"></div>
+              <div class="main_reviews_item__content">
+                <div class="main_reviews_item__content__title">Елманова Марина Маихайловна</div>
+                <div class="main_reviews_item__content__description">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="main_reviews_item">
+              <div class="main_reviews_item__photo lazy" data-bg="/img/reviews_photo.png"></div>
+              <div class="main_reviews_item__content">
+                <div class="main_reviews_item__content__title">Елманова Марина Маихайловна</div>
+                <div class="main_reviews_item__content__description">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="main_reviews_item">
+              <div class="main_reviews_item__photo lazy" data-bg="/img/reviews_photo.png"></div>
+              <div class="main_reviews_item__content">
+                <div class="main_reviews_item__content__title">Елманова Марина Маихайловна</div>
+                <div class="main_reviews_item__content__description">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="main_reviews_item">
+              <div class="main_reviews_item__photo lazy" data-bg="/img/reviews_photo.png"></div>
+              <div class="main_reviews_item__content">
+                <div class="main_reviews_item__content__title">Елманова Марина Маихайловна</div>
+                <div class="main_reviews_item__content__description">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="main-compare-scroll scroll">
-        <div class="main-scroll-bg"></div>
-
-
-        <% (compl_params - prev_compl_params).each do |p| %>
-          <div class="main-compare-scroll_item"><%= p %></div>
-        <% end %>
-
+      <div class="main_reviews_slider_navigation">
+        <div class="swiper-button-prev swiper-button-prev--custom">
+          <svg width="30" height="52" viewBox="0 0 30 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M23.299 50.5227L1.02513 28.2489C-0.341707 26.882 -0.341707 24.6659 1.02513 23.2991L23.299 1.02525C24.6658 -0.341583 26.8819 -0.341583 28.2487 1.02525C29.6156 2.39208 29.6156 4.60816 28.2487 5.975L8.44975 25.774L28.2487 45.573C29.6156 46.9398 29.6156 49.1559 28.2487 50.5227C26.8819 51.8896 24.6658 51.8896 23.299 50.5227Z" fill="#9D9D9D"/>
+          </svg>
+        </div>
+        <div class="swiper-button-next swiper-button-next--custom">
+          <svg width="30" height="52" viewBox="0 0 30 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.97487 50.5227L28.2487 28.2489C29.6156 26.882 29.6156 24.6659 28.2487 23.2991L5.97487 1.02525C4.60804 -0.341583 2.39196 -0.341583 1.02513 1.02525C-0.341709 2.39208 -0.341709 4.60816 1.02513 5.975L20.8241 25.774L1.02513 45.573C-0.341709 46.9398 -0.341709 49.1559 1.02513 50.5227C2.39196 51.8896 4.60804 51.8896 5.97487 50.5227Z" fill="#9D9D9D"/>
+          </svg>
+        </div>
+      </div>
+      <div class="main_reviews_more">
+        <a href="/reviews" class="btn btn-black">Все отзывы</a>
       </div>
     </div>
   </div>
-    <% prev_compl_params = compl_params %>
-    <% prev_compl = e.name %>
-  <% end %>
-</section>
-
-
-<% if @car.images.present? %>
-<section class="main-gallery">
-  <div class="main-title-wrap">
-    <div class="main-title">
-      <div class="main-title-text">Фотогалерея</div>
-    </div>
-  </div>
-
-  <div class="mg_fr-f">
-    <% @car.images[1..-1].each do |image|%>
-      <div class="main-gallery-item">
-        <%= link_to image.large.url, itemprop:'url' ,class:'photo-link',data:{:fancybox => 'car-exterior'} do %>
-          <%= image_tag image.thumb.url,alt: "#{@car.brand.title} #{@car.name}", class:'photo' %>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-</section>
-<% end %>
-
-
-
-<section class="main-brand">
-  <section class="main-title-wrap">
-    <div class="main-title">
-      <div class="main-title-text">
-        Другие модели <%= @brand.title %>
-      </div>
-    </div>
-  </section>
-  <div class="main-brand-item-cont">
-    <%= render partial:'new_cars/small_new_cars_model', collection: @brand.new_cars.where(hide: 0).where(archive: 0).where.not(id: @car.id).min_price_ordered.limit(6), :locals => {:show_brand => false,:credit_flag => true} %>
-
-  </div>
-</section>
-
-
-
-
-
-
-
-
-
+</div>
 
 
 <% content_for :rails_to_js_variables do %>
@@ -528,14 +669,14 @@
       car_brand = '<%= @car.brand.url %>';
   </script>
 
+
   <script type="text/javascript">
       var _tmr = _tmr || [];
       _tmr.push({
           type: 'itemView',
           productid: '<%= @car.id %>',
           pagetype: 'product',
-          list: '2',
-          totalvalue: '<%= number_with_delimiter(@car.count_min_price(@region_discount), delimiter: "") %>'
+          list: '2'
       });
   </script>
 

@@ -1,79 +1,259 @@
-<% provide :title,'Автосалон «Авимоторс» 🚗 МКАД 11 км (м. Котельники, Жулебино) | Контакты' %>
-<% provide :description,'Контакты автосалона официального дилера "Авимоторс" в ' + @current_region.sklon3 + ' - адреса, телефоны, электронная почта, режим работы.' %>
-
-<h1 class="green">Контакты</h1>
-
-<div class="cnt_p">
-  <div class="cnt_if">
-    <div class=" cnt_info">
-
-      <div class="c_i_b">
-        <div class="addr_info">
-
-          <svg width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M46.9094 35.6911V42.4655C46.912 43.0943 46.7832 43.7168 46.5312 44.293C46.2793 44.8693 45.9098 45.3865 45.4464 45.8117C44.983 46.2368 44.4359 46.5605 43.8401 46.762C43.2444 46.9634 42.6131 47.0383 41.9868 46.9817C35.0382 46.2266 28.3636 43.8523 22.4993 40.0493C17.0434 36.5823 12.4177 31.9566 8.95071 26.5007C5.13446 20.6097 2.75954 13.9027 2.01833 6.92289C1.9619 6.29845 2.03611 5.6691 2.23624 5.07491C2.43636 4.48072 2.75802 3.93471 3.18072 3.47165C3.60343 3.00858 4.11792 2.63861 4.69145 2.38528C5.26498 2.13194 5.88497 2.00081 6.51196 2.00022H13.2863C14.3821 1.98943 15.4445 2.3775 16.2755 3.09209C17.1064 3.80667 17.6491 4.79902 17.8025 5.88416C18.0884 8.05209 18.6187 10.1807 19.3832 12.2294C19.687 13.0377 19.7527 13.916 19.5726 14.7605C19.3925 15.605 18.9741 16.3801 18.367 16.994L15.4992 19.8618C18.7137 25.5151 23.3946 30.1959 29.0478 33.4105L31.9156 30.5427C32.5296 29.9355 33.3047 29.5171 34.1492 29.337C34.9936 29.157 35.872 29.2227 36.6802 29.5265C38.7289 30.291 40.8576 30.8213 43.0255 31.1072C44.1224 31.2619 45.1242 31.8144 45.8403 32.6596C46.5564 33.5048 46.9369 34.5837 46.9094 35.6911Z" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-
-
-          Отдел продаж</div>
-        <div class="phone_info">8 (800) 707-53-51</div>
-      </div>
-    </div>
-    <div class="row contacts_info">
-      <div class="tlx">
-        <div class="tl_info">
-
-          <svg width="41" height="49" viewBox="0 0 41 49" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M38.8182 20.4091C38.8182 34.7273 20.4091 47 20.4091 47C20.4091 47 2 34.7273 2 20.4091C2 15.5267 3.93952 10.8443 7.3919 7.3919C10.8443 3.93952 15.5267 2 20.4091 2C25.2915 2 29.9739 3.93952 33.4263 7.3919C36.8787 10.8443 38.8182 15.5267 38.8182 20.4091Z" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M20.4088 26.5454C23.7978 26.5454 26.5452 23.7981 26.5452 20.4091C26.5452 17.02 23.7978 14.2727 20.4088 14.2727C17.0198 14.2727 14.2725 17.02 14.2725 20.4091C14.2725 23.7981 17.0198 26.5454 20.4088 26.5454Z" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-
-
+<div id="main">
+  <div class="main_heading">
+    <div class="container">Контакты</div>
+  </div>
+  <div class="contacts_page">
+    <div class="container">
+      <div class="contacts_page_wrap">
+        <div class="row">
+          <div class="col-6">
+            <div class="contacts_page_infoblock">
+              <div class="contacts_page_infoblock__icon">
+                <svg width="28" height="39" viewBox="0 0 28 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14.0004 0C6.28111 0 0 6.15489 0 13.7183C0 17.1272 1.29905 20.4006 3.65717 22.9392C3.68384 22.9677 3.708 22.9971 3.728 23.029L3.84216 23.14C3.99131 23.296 4.1288 23.4364 4.27212 23.572C6.28277 25.6132 11.9664 32.8157 14.0004 39C16.0327 32.8157 21.7131 25.6165 23.7095 23.5891C23.8695 23.4356 24.0087 23.2943 24.1453 23.1523L24.2728 23.0282C24.2937 22.9963 24.3162 22.9669 24.3428 22.9383C26.7009 20.3998 28 17.1256 28 13.7174C28 6.15489 21.7197 0 14.0004 0ZM14.0004 21.093C9.78329 21.093 6.35193 17.7322 6.35193 13.5999C6.35193 9.46749 9.78246 6.10671 14.0004 6.10671C18.2167 6.10671 21.6472 9.46749 21.6472 13.5999C21.6472 17.7322 18.2167 21.093 14.0004 21.093Z" fill="#D7AD48"/>
+                </svg>
+              </div>
+              <div class="contacts_page_infoblock__content">
+                г. Москва, ул. Привольная 70 к.1. Метро Котельники
+              </div>
+            </div>
+            <div class="contacts_page_infoblock">
+              <div class="contacts_page_infoblock__icon">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0.873353 13.5749C0.308005 12.0478 -0.101385 10.4882 0.0220815 8.83113C0.100061 7.8109 0.483458 6.94014 1.23076 6.22533C2.04304 5.45853 2.80983 4.65275 3.60912 3.87296C4.64884 2.84624 5.95499 2.85273 6.99471 3.87296C7.63804 4.50329 8.27487 5.14662 8.9117 5.78994C9.52903 6.40728 10.1529 7.02461 10.7702 7.64845C11.8554 8.74665 11.8619 10.0268 10.7767 11.1185C9.9969 11.8983 9.22361 12.6846 8.43082 13.4514C8.22288 13.6528 8.20339 13.8218 8.31386 14.0752C8.83372 15.3229 9.58751 16.4341 10.4323 17.4738C12.1348 19.5662 14.0583 21.4247 16.3522 22.8609C16.8461 23.1663 17.3854 23.3937 17.8988 23.6731C18.1652 23.8161 18.3407 23.7706 18.5551 23.5497C19.3284 22.7504 20.1212 21.9641 20.914 21.1778C21.9537 20.1511 23.2533 20.1446 24.2931 21.1778C25.5667 22.4385 26.8339 23.7056 28.0945 24.9793C29.1538 26.045 29.1473 27.3512 28.0816 28.4234C27.3602 29.1512 26.5999 29.84 25.9241 30.6003C24.9364 31.705 23.6887 32.0689 22.2721 31.9909C20.2057 31.8804 18.3017 31.1916 16.4627 30.3014C12.3818 28.3194 8.8987 25.5706 5.98098 22.1006C3.82356 19.5264 2.04304 16.733 0.873353 13.5749ZM32 15.9012C32 7.13508 24.8649 0 16.0988 0V3.02819C23.1949 3.02819 28.9718 8.80514 28.9718 15.9012H32ZM23.2923 15.9012H26.3205C26.3205 10.2672 21.7328 5.67948 16.0988 5.67948V8.70766C18.0223 8.70766 19.8288 9.45496 21.1869 10.8131C22.545 12.1712 23.2923 13.9769 23.2923 15.9012Z" fill="#D7AD48"/>
+                </svg>
+              </div>
+              <div class="contacts_page_infoblock__content">
+                <a href="tel:+74951168738">+7 (495) 116-87-38</a>
+                <a href="tel:+74951168738">+7 (495) 116-87-38</a>
+              </div>
+            </div>
+            <div class="contacts_page_infoblock">
+              <div class="contacts_page_infoblock__icon">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="16" cy="16" r="16" fill="#D7AD48"/>
+                  <rect x="17" y="15" width="11" height="3" fill="#F6F6F6"/>
+                  <rect x="17" y="4" width="14" height="3" transform="rotate(90 17 4)" fill="#F6F6F6"/>
+                </svg>
+              </div>
+              <div class="contacts_page_infoblock__content">
+                с 9:00 до 21:00, без выходных
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/213/moscow/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Москва</a><a href="https://yandex.ru/maps/213/moscow/?ll=37.622504%2C55.753215&utm_medium=mapframe&utm_source=maps&z=10" style="color:#eee;font-size:12px;position:absolute;top:14px;">Яндекс.Карты — транспорт, навигация, поиск мест</a><iframe src="https://yandex.ru/map-widget/v1/-/CGW1A~q" height="460" allowfullscreen="allowfullscreen" style="position:relative;"></iframe></div>
+          </div>
         </div>
-        <div class="tx_info">г. Москва, Привольная 70к1 <br>(м. Котельники)</div>
-
-      </div>
-      <div class="tlx">
-        <div class="tl_info">
-
-          <svg width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M24.5 47C36.9264 47 47 36.9264 47 24.5C47 12.0736 36.9264 2 24.5 2C12.0736 2 2 12.0736 2 24.5C2 36.9264 12.0736 47 24.5 47Z" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M24.5 14.8571V24.4999L29.3214 29.3213" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-
-
-        </div>
-        <div class="tx_info">с 8:00 до 21:00 <br>ежедневно</div>
-      </div>
-      <div class="tlx">
-        <div class="tl_info">
-
-          <svg width="60" height="49" viewBox="0 0 60 49" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7.625 2H52.625C55.7188 2 58.25 4.53125 58.25 7.625V41.375C58.25 44.4688 55.7188 47 52.625 47H7.625C4.53125 47 2 44.4688 2 41.375V7.625C2 4.53125 4.53125 2 7.625 2Z" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M58.25 7.625L30.125 27.3125L2 7.625" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-
-
-        </div>
-        <div class="tx_info">info@newauto-m.ru</div>
       </div>
     </div>
   </div>
-  <div class="row_map">
-      <div class="map" id="map">
-        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3AaRbBBmsWMTt1ArFmc9rw9dHyTTTh5D-C&amp;width=100%25&amp;height=500&amp;lang=ru_RU&amp;scroll=true"></script>
+  <div class="main_benefit">
+    <div class="main_benefit_leftbg">
+      <div class="main_benefit_leftbg__image"></div>
+    </div>
+    <div class="main_benefit_rightbg">
+      <div class="main_benefit_rightbg__image"></div>
+    </div>
+    <div class="main_benefit_content">
+      <div class="container">
+        <div class="main_benefit_content__title">Выгода</div>
+        <div class="main_benefit_content__value">до <span>500 000</span> р.</div>
+        <div class="main_benefit_content__subtitle">При покупке автомобиля в кредит</div>
+        <%= form_for Ticket.new,url: {action:"create",controller:"tickets" },remote:true,validate:true,:html => {:class => "main_benefit_content__form",:name=>"newcarreq"},:namespace => "newcarreq" do |f| %>
+          <%= hidden_field_tag 'ticket[other][model]', id:'newcarreq_ticket_other_model' %>
+          <%= f.hidden_field :form_name, value:"benefit" %>
+          <div>
+            <%= f.text_field :name,class:"input",placeholder:"ФИО" %>
+            <%= f.phone_field :phone,class:"input",data:{:role=>"phone"},placeholder:"+7 (___) ___-__-__" %>
+          </div>
+          <%= f.button class: "btn btn-white" do %><span>Получить выгоду</span><% end %>
+        <% end %>
       </div>
+    </div>
+  </div>
+  <div class="main_heading">
+    <div class="container">Подарки <span>всем покупателям!</span></div>
+  </div>
+  <div class="main_gifts">
+    <div class="container">
+      <div class="main_gifts_tabs_content mgtc__01">
+        <div class="main_gifts_content">
+          <div class="main_gifts_content__date">Только до <%= l(SALE_DATE, format: :next_monday) %>!</div>
+          <div class="main_gifts_content__title">Зимняя резина</div>
+          <div class="main_gifts_content__subtitle">В подарок!</div>
+          <div class="main_gifts_content__action">
+            <a href="#" class="btn btn-blue gifts_popup">Участвовать в акции</a>
+          </div>
+        </div>
+        <div class="main_gifts_images">
+          <div class="main_gifts_images__backimage lazy" data-bg="img/gifts_section_back_image_01.png"></div>
+          <div class="main_gifts_images__frontimage lazy" data-bg="img/gifts_section_front_image_01.png"></div>
+          <div class="main_gifts_images__smallimages_left lazy" data-bg="img/gifts_section_smallfront_left_01.png"></div>
+          <div class="main_gifts_images__smallimages_right lazy" data-bg="img/gifts_section_smallfront_right_01.png"></div>
+        </div>
+      </div>
+      <div class="main_gifts_tabs_content mgtc__02">
+        <div class="main_gifts_content">
+          <div class="main_gifts_content__date">Только до <%= l(SALE_DATE, format: :next_monday) %>!</div>
+          <div class="main_gifts_content__title">Страховка <br>КАСКО</div>
+          <div class="main_gifts_content__subtitle">В подарок!</div>
+          <div class="main_gifts_content__action">
+            <a href="#" class="btn btn-blue gifts_popup">Участвовать в акции</a>
+          </div>
+        </div>
+        <div class="main_gifts_images">
+          <div class="main_gifts_images__backimage lazy" data-bg="img/gifts_section_back_image_02.png"></div>
+          <div class="main_gifts_images__frontimage lazy" data-bg="img/gifts_section_front_image_02.png"></div>
+          <div class="main_gifts_images__smallimages_left lazy" data-bg="img/gifts_section_smallfront_left_02.png"></div>
+          <div class="main_gifts_images__smallimages_right lazy" data-bg="img/gifts_section_smallfront_right_02.png"></div>
+          <div class="main_gifts_images__smallimages_abs lazy" data-bg="img/gifts_section_smallfront_abs_02_01.png"></div>
+          <div class="main_gifts_images__smallimages_abs lazy" data-bg="img/gifts_section_smallfront_abs_02_02.png"></div>
+        </div>
+      </div>
+      <div class="main_gifts_tabs_content mgtc__03">
+        <div class="main_gifts_content">
+          <div class="main_gifts_content__date">Только до <%= l(SALE_DATE, format: :next_monday) %>!</div>
+          <div class="main_gifts_content__title">3 платежа <br>по кредиту</div>
+          <div class="main_gifts_content__subtitle">В подарок!</div>
+          <div class="main_gifts_content__action">
+            <a href="#" class="btn btn-blue gifts_popup">Участвовать в акции</a>
+          </div>
+        </div>
+        <div class="main_gifts_images">
+          <div class="main_gifts_images__backimage"></div>
+          <div class="main_gifts_images__frontimage lazy" data-bg="img/gifts_section_front_image_03.png"></div>
+          <div class="main_gifts_images__smallimages_left lazy" data-bg="img/gifts_section_smallfront_left_03.png"></div>
+          <div class="main_gifts_images__smallimages_right lazy" data-bg="img/gifts_section_smallfront_right_03.png"></div>
+        </div>
+      </div>
+      <div class="main_gifts_tabs_content mgtc__04">
+        <div class="main_gifts_content">
+          <div class="main_gifts_content__date">Только до <%= l(SALE_DATE, format: :next_monday) %>!</div>
+          <div class="main_gifts_content__title">200 литров топлива</div>
+          <div class="main_gifts_content__subtitle">В подарок!</div>
+          <div class="main_gifts_content__action">
+            <a href="#" class="btn btn-blue gifts_popup">Участвовать в акции</a>
+          </div>
+        </div>
+        <div class="main_gifts_images">
+          <div class="main_gifts_images__backimage lazy" data-bg="img/gifts_section_back_image_04.png"></div>
+          <div class="main_gifts_images__frontimage lazy" data-bg="img/gifts_section_front_image_04.png"></div>
+          <div class="main_gifts_images__smallimages_left lazy" data-bg="img/gifts_section_smallfront_left_04.png"></div>
+          <div class="main_gifts_images__smallimages_right lazy" data-bg="img/gifts_section_smallfront_right_04.png"></div>
+        </div>
+      </div>
+      <div class="main_gifts_tabs_nav">
+        <div class="main_gifts_tabs_nav__item">Зимняя резина <br><span>в подарок!</span></div>
+        <div class="main_gifts_tabs_nav__item">Страховка КАСКО <br><span>в подарок!</span></div>
+        <div class="main_gifts_tabs_nav__item">3 платежа по кредиту <br><span>в подарок!</span></div>
+        <div class="main_gifts_tabs_nav__item">200 литров топлива <br><span>в подарок!</span></div>
+      </div>
+    </div>
+    <svg height="0" width="0">
+      <defs>
+        <clipPath id="main_gifts_arrow_clip" clipPathUnits="userSpaceOnUse">
+          <path d="M0 131.063V0L352.257 212.415L700 0V140.103L352.257 348L0 131.063Z"/>
+        </clipPath>
+      </defs>
+    </svg>
+  </div>
+  <div class="main_help_find">
+    <div class="container">
+      <div class="main_help_find__title">Затрудняетесь с выбором автомобиля?</div>
+      <div class="main_help_find__subtitle">Мы вам поможем!</div>
+      <div class="main_help_find__clients" data-aos="fade-down" data-aos-duration="600" data-aos-delay="300" data-aos-once="true">Счастливых клиентов: <span>3 599</span></div>
+      <%= form_for Ticket.new,url: {action:"create",controller:"tickets" },remote:true,validate:true,:html => {:class => "main_help_find__form",:name=>"newcarreq"},:namespace => "newcarreq" do |f| %>
+        <%= hidden_field_tag 'ticket[other][model]', id:'newcarreq_ticket_other_model' %>
+        <%= f.hidden_field :form_name, value:"help_find" %>
+        <div>
+          <%= f.text_field :name,class:"input",placeholder:"ФИО" %>
+          <%= f.phone_field :phone,class:"input",data:{:role=>"phone"},placeholder:"+7 (___) ___-__-__" %>
+        </div>
+        <%= f.button class: "btn btn-blue" do %><span>Отправить запрос</span><% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="main_heading">
+    <div class="container">Отзывы клиентов <span>Авимоторс</span></div>
+  </div>
+  <div class="main_reviews">
+    <div class="container">
+      <div class="swiper main_reviews_slider">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="main_reviews_item">
+              <div class="main_reviews_item__photo lazy" data-bg="img/reviews_photo.png"></div>
+              <div class="main_reviews_item__content">
+                <div class="main_reviews_item__content__title">Елманова Марина Маихайловна</div>
+                <div class="main_reviews_item__content__description">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="main_reviews_item">
+              <div class="main_reviews_item__photo lazy" data-bg="img/reviews_photo.png"></div>
+              <div class="main_reviews_item__content">
+                <div class="main_reviews_item__content__title">Елманова Марина Маихайловна</div>
+                <div class="main_reviews_item__content__description">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="main_reviews_item">
+              <div class="main_reviews_item__photo lazy" data-bg="img/reviews_photo.png"></div>
+              <div class="main_reviews_item__content">
+                <div class="main_reviews_item__content__title">Елманова Марина Маихайловна</div>
+                <div class="main_reviews_item__content__description">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="main_reviews_item">
+              <div class="main_reviews_item__photo lazy" data-bg="img/reviews_photo.png"></div>
+              <div class="main_reviews_item__content">
+                <div class="main_reviews_item__content__title">Елманова Марина Маихайловна</div>
+                <div class="main_reviews_item__content__description">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="main_reviews_item">
+              <div class="main_reviews_item__photo lazy" data-bg="img/reviews_photo.png"></div>
+              <div class="main_reviews_item__content">
+                <div class="main_reviews_item__content__title">Елманова Марина Маихайловна</div>
+                <div class="main_reviews_item__content__description">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="main_reviews_item">
+              <div class="main_reviews_item__photo lazy" data-bg="img/reviews_photo.png"></div>
+              <div class="main_reviews_item__content">
+                <div class="main_reviews_item__content__title">Елманова Марина Маихайловна</div>
+                <div class="main_reviews_item__content__description">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main_reviews_slider_navigation">
+        <div class="swiper-button-prev swiper-button-prev--custom">
+          <svg width="30" height="52" viewBox="0 0 30 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M23.299 50.5227L1.02513 28.2489C-0.341707 26.882 -0.341707 24.6659 1.02513 23.2991L23.299 1.02525C24.6658 -0.341583 26.8819 -0.341583 28.2487 1.02525C29.6156 2.39208 29.6156 4.60816 28.2487 5.975L8.44975 25.774L28.2487 45.573C29.6156 46.9398 29.6156 49.1559 28.2487 50.5227C26.8819 51.8896 24.6658 51.8896 23.299 50.5227Z" fill="#9D9D9D"/>
+          </svg>
+        </div>
+        <div class="swiper-button-next swiper-button-next--custom">
+          <svg width="30" height="52" viewBox="0 0 30 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.97487 50.5227L28.2487 28.2489C29.6156 26.882 29.6156 24.6659 28.2487 23.2991L5.97487 1.02525C4.60804 -0.341583 2.39196 -0.341583 1.02513 1.02525C-0.341709 2.39208 -0.341709 4.60816 1.02513 5.975L20.8241 25.774L1.02513 45.573C-0.341709 46.9398 -0.341709 49.1559 1.02513 50.5227C2.39196 51.8896 4.60804 51.8896 5.97487 50.5227Z" fill="#9D9D9D"/>
+          </svg>
+        </div>
+      </div>
+      <div class="main_reviews_more">
+        <a href="/reviews" class="btn btn-black">Все отзывы</a>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="card__box">
-  <div>
-    <h2>Популярные модели</h2>
-  </div>
-  <div class="card_box_slide row justify-content-between align-items-center">
-    <%= render partial:'new_cars/small_new_cars', collection: @hit.limit(10).where('`new_cars`.`hide` = 0'), locals: {:show_brand => true, :credit_flag => false} %>
-  </div>
-</div>
-
-
-<%= render 'partials/carso/credit_form' %>
+<script>window.lazyLoadOptions={threshold:0};</script>

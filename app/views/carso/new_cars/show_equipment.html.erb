@@ -263,12 +263,12 @@
       <label id="credit_txt" class="row on" for="credit">
         <div class="saleprice-check on">
                    <span class="saleprice--lab">
-                    <input id="credit" class="checkbox" type="checkbox" value="<%= @car.discount_credit %>" checked="checked">
+                    <input id="credit" class="checkbox" type="checkbox" value="<%= @car.discount_credit_3 %>" checked="checked">
                    </span>
         </div>
         <div class="disc_bl_lab_ch">
           <span class="lab_ch-title">В кредит</span>
-          <span class="lab_ch-price" ><%= number_with_delimiter(@car.discount_credit) %> &#8381;</span>
+          <span class="lab_ch-price" ><%= number_with_delimiter(@car.discount_credit_3) %> &#8381;</span>
           <span class="lab_ch-text">Дополнительная скидка на автомобиль при оформлении в кредит</span>
         </div>
       </label>
@@ -292,12 +292,12 @@
       <label id="trade_in_3y_txt" class="row on" for="trade_in_3y">
         <div class="saleprice-check on">
                    <span class="saleprice--lab">
-                    <input id="trade_in_3y" class="checkbox" type="checkbox" value="<%=@car.discount_tradein %>" checked="checked">
+                    <input id="trade_in_3y" class="checkbox" type="checkbox" value="<%=@car.discount_tradein_3 %>" checked="checked">
                   </span>
         </div>
         <div class="disc_bl_lab_ch">
           <span class="lab_ch-title">Trade-in</span>
-          <span class="lab_ch-price"><%= number_with_delimiter(@car.discount_tradein) %> руб</span>
+          <span class="lab_ch-price"><%= number_with_delimiter(@car.discount_tradein_3) %> руб</span>
           <span class="lab_ch-text">Дополнительная скидка при приеме вашего старого авто в счет покупки</span>
         </div>
       </label>

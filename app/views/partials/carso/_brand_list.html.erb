@@ -1,6 +1,11 @@
-<div class="catalog-auto-item">
-  <%# logo_url = brand_list.logo.url %>
-  <%= link_to(brand_path(brand_list.url), class:'menu-list__link brandlist__link', itemprop:'url',:data=>{:action => 'show-brand-in-menu'},title:brand_list.title) do %>
-    <span><%= brand_list.title %></span>
+<% logo_url = brand_list.logoblack.url %>
+<div class="main_marks_col">
+  <%= link_to(brand_path(brand_list.url), class:'main_marks_item', itemprop:'url',:data=>{:action => 'show-brand-in-menu'},title:brand_list.title) do %>
+   <div class="main_marks_item__icon">
+     <% if logo_url.present? %>
+       <%= image_tag logo_url, class:"",alt:brand_list.title %>
+     <% end %>
+    </div>
+    <div class="main_marks_item__title"><%= brand_list.title %></div>
   <% end %>
 </div>

@@ -1,0 +1,14 @@
+<div id="callback">
+  <h2>Скидки до 20% в честь Хеллоуин</h2>
+  <p>Мы перезвоним в ближайшее время.</p>
+  <%= form_for Ticket.new,url: {action:'create',controller:'tickets' },remote:true,validate:true,:html => {:class => 'main_callback_form',:name=>'callback'},:namespace => 'callback' do |f| %>
+    <%= f.hidden_field :form_name, value:'callback_sale' %>
+    <div class="form__component">
+      <%= f.text_field :name,class:'input', placeholder:'ФИО' %>
+    </div>
+    <div class="form__component">
+      <%= f.phone_field :phone,class:'input',data:{:role=>'phone'}, placeholder:'+7 (___) ___-__-__' %>
+    </div>
+    <%= f.button 'Отправить заявку', class: "btn btn-blue" %>
+  <% end %>
+</div>

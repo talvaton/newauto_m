@@ -1,111 +1,98 @@
-<div class="top-menu-home" data-role="top-menu-home-open">
-  <nav class="nav">
-    <ul class="row">
-      <li class="" itemprop="name">
-        <div class="nav__link ctma" data-action="top-menu"><b>Каталог автомобилей</b></div></li>
-        <%#= link_to 'Каталог авто',newauto_path, class:'nav__link menu_catalog', data:{:action=>'top-menu'}, title:'Каталог авто', itemprop:'url' %>
-      </li>
-      <li class="">
+<div id="header" data-aos="fade-down" data-aos-delay="700" data-aos-duration="500" data-aos-easing="ease-in-out-cubic" data-aos-once="true">
+  <div class="header_top">
+    <div class="container">
+      <div class="header_top__arrow"></div>
+      <div class="header_top__geo">
+        <i class="icon icon__geo"></i>
+        <span>Москва, ул. Привольная 70 к.1</span>
+      </div>
+      <div class="header_top__worktime">Без выходных, <br>с 9:00 до 21:00</div>
+      <div class="header_top__callback">
+        <a href="#" class="feed_b">Заказать обратный звонок</a>
+      </div>
+      <div class="header_top__phone">
+        <i class="icon icon__phone"></i>
+        <a href="tel:+74951168738">+7 (495) 116-87-38</a>
+      </div>
+    </div>
+  </div>
+  <div class="header_main">
+    <div class="container">
+      <div class="header_main__logo">
+        <div class="head-logo">
+        <div class="head-logo-main">
+          <a href="/"><span class="head-logo-main_a">Ави</span>моторс</a>
+        </div>
+        </div>
+      </div>
+      <div class="header_main__nav">
+        <a href="/">Главная</a>
+        <%= link_to 'Автомобили',newauto_path, class:'nav__link',title:'Автомобили', itemprop:'url' %>
         <%= link_to 'Автокредит',credit_path, class:'nav__link',title:'Автокредит'%>
-      </li>
-      <li class="">
-        <%= link_to 'Трейд-ин',tradein_path, class:'nav__link',title:'Трейд-ин'%>
-      </li>
-      <%#= <li class="">%>
-      <%#= link_to 'Утилизация',utilizaciya_path, class:'nav__link',title:'Утилизация'%>
-      <%#= </li>%>
-      <%#= <li class="">%>
-      <%#= link_to 'Услуги и акции',stock_path, class:'nav__link',title:'Услуги',rel:"nofollow"%>
-      <%#=</li>%>
-      <li class="">
+        <%= link_to 'Trade-in',tradein_path, class:'nav__link',title:'Trade-in'%>
+        <%= link_to 'Акции',stock_path, class:'nav__link',title:'Акции'%>
+        <%= link_to 'Отзывы',reviews_path, class:'nav__link',title:'Отзывы', rel:'nofollow' %>
         <%= link_to 'Контакты',contacts_path, class:'nav__link',title:'Контакты', rel:'nofollow'%>
-      </li>
-    </ul>
-    <div class="mmb_cell">
-      <span>Москва, ул. Привольная, 70. Метро Котельники</span>
-      <a href="tel:88005052566" rel="nofollow" class="row"><span itemprop="telephone">8 800 500-03-23</span></a>
-      <a href="#" class="button sale_bn" data-show-new-ajax="car-credit-modal" data-eq_id="" rel="nofollow">Заказать обратный звонок</a>
+      </div>
     </div>
-  </nav>
+  </div>
+  <div class="mobile-header">
+    <div class="mobile-header__container">
+      <div class="mobile-header__logo">
+        <div class="head-logo">
+          <div class="head-logo-main">
+            <a href="/"><span class="head-logo-main_a" style="color: #dcb862">Ави</span>моторс</a>
+          </div>
+        </div>
+      </div>
+      <div class="mobile-header__menubtn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="mobile-menu">
+    <div class="mobile-menu__nav">
+      <nav>
+        <a href="/">Главная</a>
+        <%= link_to 'Автомобили',newauto_path, class:'nav__link',title:'Автомобили', itemprop:'url' %>
+        <%= link_to 'Автокредит',credit_path, class:'nav__link',title:'Автокредит'%>
+        <%= link_to 'Trade-in',tradein_path, class:'nav__link',title:'Trade-in'%>
+        <%= link_to 'Акции',stock_path, class:'nav__link',title:'Акции'%>
+        <%= link_to 'Отзывы',reviews_path, class:'nav__link',title:'Отзывы', rel:'nofollow' %>
+        <%= link_to 'Контакты',contacts_path, class:'nav__link',title:'Контакты', rel:'nofollow'%>
+      </nav>
+    </div>
+    <div class="mobile-menu__geo">
+      <i class="icon icon__geo"></i>
+      <span>Москва, ул. Привольная 70 к.1</span>
+    </div>
+    <div class="mobile-menu__phone">
+      <i class="icon icon__phone"></i>
+      <a href="tel:+74951168738">+7 (495) 116-87-38</a>
+    </div>
+    <div class="mobile-menu__worktime">Без выходных, <br>с 9:00 до 21:00</div>
+  </div>
 </div>
-<section class="head clearfix">
-  <div class="head-logo">
-    <div class="head-logo-main">
-      <a href="/"><span class="head-logo-main_a">Ави</span>моторс</a>
-    </div>
-    <div class="head-logo-side">
-      Официальный дилерский центр
-    </div>
-  </div>
-  <div class="burger-menu">
-    <a href="" class="burger-menu__button">
-      <span class="burger-menu__lines"></span>
-    </a>
-    <nav class="burger-menu__nav">
-      <b class="burger-menu__link">Автомобили</b>
-      <div class="cst_st">
-        <%= render partial:'partials/carso/brand_list', collection: @brands %>
-      </div>
 
-      <%= link_to 'Автокредит',credit_path, class:'burger-menu__link',title:'Автокредит'%>
+    <% if main_page? %><% else %>
+  <div class="main_breadcrumbs">
+    <div class="container">
+      <% crumb_position = 1 %>
+      <% breadcrumb_trail do |crumb| %>
 
-      <div class="cst_st">
-        <ul>
-          <li><%= link_to 'Первый автомобиль', first_auto_path %></li>
-          <li><%= link_to 'Семейный автомобиль', family_auto_path %></li>
-        </ul>
-
-      </div>
-
-      <%= link_to 'Контакты',contacts_path, class:'burger-menu__link',title:'Контакты', rel:'nofollow'%>
-
-      <div class="burger-menu__bar">
-        <div class="burger-menu__bar-item">+7 (495) 477-84-00</div>
-        <div class="burger-menu__bar-item">Москва, Привольная 70к1</div>
-      </div>
-    </nav>
-    <div class="burger-menu__overlay"></div>
-  </div>
-  <div class="main-menu-wrap">
-    <ul class="main-menu">
-      <li class="main-menu-item active"><a href="/newauto" class="b-link">Автомобили</a></li>
-      <li class="main-menu-item active">
-        <%= link_to 'Автокредит',credit_path, class:'b-link',title:'Автокредит'%>
-      </li>
-      <li class="main-menu-item active">
-        <%= link_to 'Трейд-ин',tradein_path, class:'b-link',title:'Трейд-ин'%>
-      </li>
-      <li class="main-menu-item active">
-        <%= link_to 'Контакты',contacts_path, class:'b-link',title:'Контакты', rel:'nofollow'%>
-      </li>
-    </ul>
-    <div class="main-adress-wrap">
-      <div class="main-adress-phone">+7 (495) 477-84-00</div>
-      <div class="main-adress-item">Москва, ул. Привольная 70к1</div>
-    </div>
-  </div>
-</section>
-<section class="catalog">
-  <div class="catalog_item">Каталог авто</div>
-  <div class="catalog-auto">
-    <div class="catalog-auto-wrap">
-      <%= render partial:'partials/carso/brand_list', collection: @brands %>
-    </div>
-  </div>
-</section>
-<ul id="breadcrumbs" class="container row breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
-  <% if main_page? %><% else %>
-    <% crumb_position = 1 %>
-    <% breadcrumb_trail do |crumb| %>
-      <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
         <% unless crumb.current? %>
-          <%= link_to "<span itemprop='name'>#{crumb.name}</span>".html_safe, crumb.url,itemprop:'item' %>
+          <%= link_to "#{crumb.name}".html_safe, crumb.url,itemprop:'item' %>
+          <i></i>
         <% else %>
           <%= link_to "<span itemprop='name'>#{crumb.name}</span>".html_safe, crumb.url,itemprop:'item',class:'active' %>
+
         <% end %>
-        <meta itemprop="position"  content="<%= crumb_position %>" />
-      </li>
-      <% crumb_position = crumb_position + 1 %>
+
+        <% crumb_position = crumb_position + 1 %>
+      <% end %>
+    </div>
+  </div>
     <% end %>
-  <% end %>
-</ul>

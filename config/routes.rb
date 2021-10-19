@@ -345,7 +345,7 @@ Rails.application.routes.draw do
   get '/pravila-provedeniya-akciy' => 'carso#akciy'
   #get '/korporativnym-klientam' => 'carso#corporate'
   #get '/utilizaciya' => 'carso#utilization'
-  # get '/stock' => 'carso#stock'
+   get '/stock' => 'carso#stock'
   get '/contacts' => 'carso#contacts'
   #get '/topsales' => 'carso#topsales'
   get '/credit' => 'carso#credit'

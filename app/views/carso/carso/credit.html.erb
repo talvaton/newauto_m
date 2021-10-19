@@ -1,170 +1,475 @@
-<% provide :title,"Автокредит в #{@current_region.sklon3} 🚗 купить авто в кредит без первоначального взноса — автосалон «Авимоторс»" %>
-<% provide :description,'Выгодные условия на покупку автомобиля в кредит под 1.9% 🚘 Купить машину в рассрочку 0% без первоначального взноса 🏦 Более 40 банков партнеров. — автосалон «Авимоторс» 8 (800) 500-03-23, ' + @current_region.sklon1 + '.' %>
-
-<section class="main-cont">
-  <section class="main-item">
-    <div class="main-item-wrap">
-      <div class="main-img">
-        <%= image_tag "carso/png/crt.png", alt:'', class: '' %>
-      </div>
-      <div class="main-brand-model">
-        <div class="main-model-name auto-credit">Автокредит</div>
-      </div>
-
-
-      <section class="main-offer">
-        <section class="main-offer-container">
-          <div class="main-offer-title">Заявка на покупку в кредит</div>
-          <div class="main-model-item">
-            <div class="main-model-item-green">1.9%</div>
-            <div class="main-model-item-text">годовых на срок до 7 лет</div>
+<div id="main">
+  <div class="finance_page">
+    <div class="finance_page_bg" data-aos="fade-down" data-aos-duration="1500" data-aos-delay="1000">
+      <div class="finance_page_bg__object__01 lazy rellax" data-rellax-speed="1" data-bg="img/credit_page_bg__01.png"></div>
+      <div class="finance_page_bg__object__02 lazy rellax" data-rellax-speed="3" data-bg="img/credit_page_bg__02.png"></div>
+      <div class="finance_page_bg__object__03 lazy rellax" data-rellax-speed="2" data-bg="img/credit_page_bg__03.png"></div>
+      <div class="finance_page_bg__object__04 lazy rellax" data-rellax-speed="2" data-bg="img/credit_page_bg__04.png"></div>
+      <div class="finance_page_bg__object__05 lazy rellax" data-rellax-speed="3" data-bg="img/credit_page_bg__05.png"></div>
+      <div class="finance_page_bg__object__06 lazy rellax" data-rellax-speed="3" data-bg="img/credit_page_bg__06.png"></div>
+      <div class="finance_page_bg__object__07 lazy rellax" data-rellax-speed="1" data-bg="img/credit_page_bg__07.png"></div>
+    </div>
+    <div class="container">
+      <div class="finance_page_title" data-aos="fade" data-aos-duration="800" data-aos-once="true">Автокредит</div>
+      <div class="main_catalog_count__data" data-aos="fade-down" data-aos-duration="600" data-aos-delay="400">Счастливых клиентов: <span>3 599</span></div>
+      <div class="row">
+        <div class="col-6">
+          <div class="credit_title" data-aos="fade" data-aos-duration="800" data-aos-once="true">
+            <div class="credit_title__01"><span>автомобиль</span> <br>в кредит</div>
+            <div class="credit_title__02">от <span>0%</span></div>
           </div>
-
-          <div class="main-offer-text">Оставьте заявку на сайте и получите скидку 70 000₽</div>
-
-
-          <%= form_for Ticket.new,url: {action:"create",controller:"tickets" },remote:true,validate:true,:html => {:class => "common-top__form-inner",:name=>"newcarreq"},:namespace => "creditpage" do |f| %>
+          <div class="finance_page_preview">
+            <div class="parallax_down_arrow" data-pda-start="400" data-pda-delay="0"></div>
+            <svg height="0" width="0">
+              <defs>
+                <clipPath id="parallax_down_arrow__path" clipPathUnits="userSpaceOnUse">
+                  <path d="M0 131.063V0L352.257 212.415L700 0V140.103L352.257 348L0 131.063Z"/>
+                </clipPath>
+              </defs>
+            </svg>
+            <div class="finance_page_preview__car" data-aos="fade-down" data-aos-duration="700" data-aos-delay="400" data-aos-once="true">
+              <img src="img/model_thumb.png">
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <%= form_for Ticket.new,url: {action:"create",controller:"tickets" },remote:true,validate:true,:html => {:class => "finance_page_form",:name=>"newcarreq"},:namespace => "creditpage" do |f| %>
             <%= f.hidden_field :form_name, value:'credit' %>
             <%= hidden_field_tag 'ticket[other][ttype]',1,id:'credit_ticket_other_ttype' %>
-            <div class="main-offer-form">
-              <%= f.text_field :name,class:"input main-offer-form_input",placeholder:"Ваше имя" %>
+
+            <form class="finance_page_form" data-aos="fade" data-aos-duration="1500" data-aos-delay="400" data-aos-once="true">
+            <div class="finance_page_form__title">Выберите ваш новый автомобиль</div>
+            <div class="row">
+              <div class="col-6">
+                <%= select_tag 'ticket[other][marka]', options_from_collection_for_select(@brands, 'id', 'title'), prompt: 'Марка', id:'credit_ticket_other_marka', class:'select2' %>
+              </div>
+              <div class="col-6">
+                <%= select_tag 'ticket[other][model]', raw('<option>Модель</option>'), id:'credit_ticket_other_model', class:'select2', disabled: 'true' %>
+              </div>
+              <div class="col-6">
+                <%= select_tag 'ticket[other][equipment]', raw('<option>Комплектация</option>'), id:'credit_ticket_other_complect', class:'select2', disabled: 'true' %>
+              </div>
+              <div class="col-6">
+                <div class="right_pinned_text" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
+                  <div class="right_pinned_text__title">Выгода</div>
+                  <div class="right_pinned_text__value">до 355 000 р.</div>
+                </div>
+              </div>
             </div>
-            <div class="main-offer-form">
-              <%= f.phone_field :phone,class:"input main-offer-form_input",data:{:role=>"phone"},placeholder:"Номер телефона"  %>
+            <div class="finance_page_form__title">Отправить заявку на АВТОКРЕДИТ</div>
+            <div class="row">
+              <div class="col-6">
+                <%= f.text_field :name,class:"input",placeholder:"Первоначальный взнос" %>
+              </div>
+              <div class="col-6">
+                <%= f.text_field :name,class:"input",placeholder:"ФИО" %>
+              </div>
+              <div class="col-6">
+                <%= f.text_field :name,class:"input",placeholder:"Регион регистрации" %>
+              </div>
+              <div class="col-6">
+                <%= f.phone_field :phone,class:"input",data:{:role=>"phone"},placeholder:"+7 (___) ___-__-__" %>
+              </div>
+              <div class="col-6">
+                <label class="main_checkbox">
+                  <span>Подтверждаю наличие паспорта РФ.</span>
+                  <input type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="main_checkbox">
+                  <span>Я понимаю, что автосалон <br>находится в Москве.</span>
+                  <input type="checkbox">
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+              <div class="col-6">
+                <div class="right_pinned_text" data-aos="fade-right" data-aos-duration="800" data-aos-delay="200" data-aos-once="true">
+                  <div class="right_pinned_text__title">В кредит</div>
+                  <div class="right_pinned_text__value">от 35 000 р./мес.</div>
+                </div>
+              </div>
             </div>
-            <%= f.button class: "button main-offer-button_item" do %><span>Получить условия</span><% end %>
+              <%= f.button class:'btn btn-blue' do %><span>Отправить заявку</span><% end %>
+          </form>
           <% end %>
 
 
 
-          <div class="main-offer-accept">ВНИМАНИЕ! К сожалению, банки не кредитуют регионы: Республика Кабардино-Балкария, Республика Чечня, Республика Дагестан, Республика Ингушетия, Республика Карачаево-Черкесия, Магадан.</div>
-        </section>
-      </section>
+        </div>
+      </div>
+      <div class="finance_terms">
+        <div class="finance_terms_heading">
+          <div class="finance_terms_heading__title">Преимущества автокредита</div>
+        </div>
+        <div class="finance_terms_list">
+          <div class="finance_terms_list_item">
+            <div class="finance_terms_list_item__arrow">
+              <svg width="40" height="20" viewBox="0 0 40 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 7.53186V-0.000488281L20.129 12.2073L40 -0.000488281V8.0514L20.129 19.9995L0 7.53186Z" fill="black"/>
+              </svg>
+            </div>
+            <div class="finance_terms_list_item__title">Рассмотрение заявки</div>
+            <div class="finance_terms_list_item__subtitle">от 30 до 60 минут</div>
+          </div>
+          <div class="finance_terms_list_item">
+            <div class="finance_terms_list_item__arrow">
+              <svg width="40" height="20" viewBox="0 0 40 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 7.53186V-0.000488281L20.129 12.2073L40 -0.000488281V8.0514L20.129 19.9995L0 7.53186Z" fill="black"/>
+              </svg>
+            </div>
+            <div class="finance_terms_list_item__title">Два документа:</div>
+            <div class="finance_terms_list_item__subtitle">паспорт и права</div>
+          </div>
+          <div class="finance_terms_list_item">
+            <div class="finance_terms_list_item__arrow">
+              <svg width="40" height="20" viewBox="0 0 40 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 7.53186V-0.000488281L20.129 12.2073L40 -0.000488281V8.0514L20.129 19.9995L0 7.53186Z" fill="black"/>
+              </svg>
+            </div>
+            <div class="finance_terms_list_item__title">Первоначальный</div>
+            <div class="finance_terms_list_item__subtitle">взнос от 0%</div>
+          </div>
+          <div class="finance_terms_list_item">
+            <div class="finance_terms_list_item__arrow">
+              <svg width="40" height="20" viewBox="0 0 40 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 7.53186V-0.000488281L20.129 12.2073L40 -0.000488281V8.0514L20.129 19.9995L0 7.53186Z" fill="black"/>
+              </svg>
+            </div>
+            <div class="finance_terms_list_item__title">Кредитных программ:</div>
+            <div class="finance_terms_list_item__subtitle">более 40</div>
+          </div>
+          <div class="finance_terms_list_item">
+            <div class="finance_terms_list_item__arrow">
+              <svg width="40" height="20" viewBox="0 0 40 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 7.53186V-0.000488281L20.129 12.2073L40 -0.000488281V8.0514L20.129 19.9995L0 7.53186Z" fill="black"/>
+              </svg>
+            </div>
+            <div class="finance_terms_list_item__title">Процентные</div>
+            <div class="finance_terms_list_item__subtitle">ставки от 0%</div>
+          </div>
+          <div class="finance_terms_list_item">
+            <div class="finance_terms_list_item__arrow">
+              <svg width="40" height="20" viewBox="0 0 40 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 7.53186V-0.000488281L20.129 12.2073L40 -0.000488281V8.0514L20.129 19.9995L0 7.53186Z" fill="black"/>
+              </svg>
+            </div>
+            <div class="finance_terms_list_item__title">Срок кредитования:</div>
+            <div class="finance_terms_list_item__subtitle">от 6 месяцев до 7 лет</div>
+          </div>
+          <div class="finance_terms_list_item">
+            <div class="finance_terms_list_item__arrow">
+              <svg width="40" height="20" viewBox="0 0 40 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 7.53186V-0.000488281L20.129 12.2073L40 -0.000488281V8.0514L20.129 19.9995L0 7.53186Z" fill="black"/>
+              </svg>
+            </div>
+            <div class="finance_terms_list_item__title">Оформление кредита:</div>
+            <div class="finance_terms_list_item__subtitle">день в день</div>
+          </div>
+          <div class="finance_terms_list_item">
+            <div class="finance_terms_list_item__arrow">
+              <svg width="40" height="20" viewBox="0 0 40 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 7.53186V-0.000488281L20.129 12.2073L40 -0.000488281V8.0514L20.129 19.9995L0 7.53186Z" fill="black"/>
+              </svg>
+            </div>
+            <div class="finance_terms_list_item__title">Досрочное погашение:</div>
+            <div class="finance_terms_list_item__subtitle">без штрафов и комиссий</div>
+          </div>
+          <div class="finance_terms_list_item">
+            <div class="finance_terms_list_item__arrow">
+              <svg width="40" height="20" viewBox="0 0 40 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 7.53186V-0.000488281L20.129 12.2073L40 -0.000488281V8.0514L20.129 19.9995L0 7.53186Z" fill="black"/>
+              </svg>
+            </div>
+            <div class="finance_terms_list_item__title">Размер кредита:</div>
+            <div class="finance_terms_list_item__subtitle">от 50 000 руб. до 3 500 000 руб.</div>
+          </div>
+        </div>
+      </div>
+      <div class="finance_banks_info">
+        <div class="finance_banks_info__title">К сожалению, банки не регистрируют регионы:</div>
+        <div class="finance_banks_info__description">Республика Кабардино-Балкария, Республика Чечня, Республика Дагестан, Республика Ингушетия, Республика Карачаево-Черкесия.</div>
+      </div>
     </div>
-  </section>
-  <section class="main-pic-list">
-    <div class="main-pic-list-cont">
-      <div class="main-pic-list-item img-2 gos">
-        <a href="/banks/programma-pervyy-avtomobil" title="" style="color: #FFFFFF">
-        <div class="main-pic-list-date">
-          <div class="main-pic-list-date-item">Госпрограмма</div>
-          <div class="main-pic-list-date-item">первый авто</div>
-          <div class="main-pic-list-date-item">Семейный авто</div>
-        </div>
-        </a>
-      </div>
-      <div class="main-pic-list-item img-1 casko">
-        <div class="main-pic-list-date">
-          <div class="main-pic-list-date-item">Каско</div>
-          <div class="main-pic-list-date-item">в подарок!</div>
-        </div>
-      </div>
-      <div class="main-pic-list-item img-3 pay_three">
-        <div class="main-pic-list-date">
-          <div class="main-pic-list-date-item">3</div>
-          <div class="main-pic-list-date-item">Платежа</div>
-          <div class="main-pic-list-date-item">за наш счёт</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <div class="main-model-name-side">Простые условия</div>
-  <div class="main-model-item">
-    <div class="main-model-item-list">Гражданство</div>
-    <div class="main-model-item-list">Россия</div>
   </div>
-  <div class="main-model-item">
-    <div class="main-model-item-list">Возраст</div>
-    <div class="main-model-item-list">от 21 до 60 лет</div>
+  <div class="main_heading">
+    <div class="container">Подарки <span>всем покупателям!</span></div>
   </div>
-  <div class="main-model-item">
-    <div class="main-model-item-list">Два документа:</div>
-    <div class="main-model-item-list">паспорт и права</div>
+  <div class="main_gifts">
+    <div class="container">
+      <div class="main_gifts_tabs_content mgtc__01">
+        <div class="main_gifts_content">
+          <div class="main_gifts_content__date">Только до <%= l(SALE_DATE, format: :next_monday) %>!</div>
+          <div class="main_gifts_content__title">Зимняя резина</div>
+          <div class="main_gifts_content__subtitle">В подарок!</div>
+          <div class="main_gifts_content__action">
+            <a href="#" class="btn btn-blue gifts_popup">Участвовать в акции</a>
+          </div>
+        </div>
+        <div class="main_gifts_images">
+          <div class="main_gifts_images__backimage lazy" data-bg="img/gifts_section_back_image_01.png"></div>
+          <div class="main_gifts_images__frontimage lazy" data-bg="img/gifts_section_front_image_01.png"></div>
+          <div class="main_gifts_images__smallimages_left lazy" data-bg="img/gifts_section_smallfront_left_01.png"></div>
+          <div class="main_gifts_images__smallimages_right lazy" data-bg="img/gifts_section_smallfront_right_01.png"></div>
+        </div>
+      </div>
+      <div class="main_gifts_tabs_content mgtc__02">
+        <div class="main_gifts_content">
+          <div class="main_gifts_content__date">Только до <%= l(SALE_DATE, format: :next_monday) %>!</div>
+          <div class="main_gifts_content__title">Страховка <br>КАСКО</div>
+          <div class="main_gifts_content__subtitle">В подарок!</div>
+          <div class="main_gifts_content__action">
+            <a href="#" class="btn btn-blue gifts_popup">Участвовать в акции</a>
+          </div>
+        </div>
+        <div class="main_gifts_images">
+          <div class="main_gifts_images__backimage lazy" data-bg="img/gifts_section_back_image_02.png"></div>
+          <div class="main_gifts_images__frontimage lazy" data-bg="img/gifts_section_front_image_02.png"></div>
+          <div class="main_gifts_images__smallimages_left lazy" data-bg="img/gifts_section_smallfront_left_02.png"></div>
+          <div class="main_gifts_images__smallimages_right lazy" data-bg="img/gifts_section_smallfront_right_02.png"></div>
+          <div class="main_gifts_images__smallimages_abs lazy" data-bg="img/gifts_section_smallfront_abs_02_01.png"></div>
+          <div class="main_gifts_images__smallimages_abs lazy" data-bg="img/gifts_section_smallfront_abs_02_02.png"></div>
+        </div>
+      </div>
+      <div class="main_gifts_tabs_content mgtc__03">
+        <div class="main_gifts_content">
+          <div class="main_gifts_content__date">Только до <%= l(SALE_DATE, format: :next_monday) %>!</div>
+          <div class="main_gifts_content__title">3 платежа <br>по кредиту</div>
+          <div class="main_gifts_content__subtitle">В подарок!</div>
+          <div class="main_gifts_content__action">
+            <a href="#" class="btn btn-blue gifts_popup">Участвовать в акции</a>
+          </div>
+        </div>
+        <div class="main_gifts_images">
+          <div class="main_gifts_images__backimage"></div>
+          <div class="main_gifts_images__frontimage lazy" data-bg="img/gifts_section_front_image_03.png"></div>
+          <div class="main_gifts_images__smallimages_left lazy" data-bg="img/gifts_section_smallfront_left_03.png"></div>
+          <div class="main_gifts_images__smallimages_right lazy" data-bg="img/gifts_section_smallfront_right_03.png"></div>
+        </div>
+      </div>
+      <div class="main_gifts_tabs_content mgtc__04">
+        <div class="main_gifts_content">
+          <div class="main_gifts_content__date">Только до <%= l(SALE_DATE, format: :next_monday) %>!</div>
+          <div class="main_gifts_content__title">200 литров топлива</div>
+          <div class="main_gifts_content__subtitle">В подарок!</div>
+          <div class="main_gifts_content__action">
+            <a href="#" class="btn btn-blue gifts_popup">Участвовать в акции</a>
+          </div>
+        </div>
+        <div class="main_gifts_images">
+          <div class="main_gifts_images__backimage lazy" data-bg="img/gifts_section_back_image_04.png"></div>
+          <div class="main_gifts_images__frontimage lazy" data-bg="img/gifts_section_front_image_04.png"></div>
+          <div class="main_gifts_images__smallimages_left lazy" data-bg="img/gifts_section_smallfront_left_04.png"></div>
+          <div class="main_gifts_images__smallimages_right lazy" data-bg="img/gifts_section_smallfront_right_04.png"></div>
+        </div>
+      </div>
+      <div class="main_gifts_tabs_nav">
+        <div class="main_gifts_tabs_nav__item">Зимняя резина <br><span>в подарок!</span></div>
+        <div class="main_gifts_tabs_nav__item">Страховка КАСКО <br><span>в подарок!</span></div>
+        <div class="main_gifts_tabs_nav__item">3 платежа по кредиту <br><span>в подарок!</span></div>
+        <div class="main_gifts_tabs_nav__item">200 литров топлива <br><span>в подарок!</span></div>
+      </div>
+    </div>
+    <svg height="0" width="0">
+      <defs>
+        <clipPath id="main_gifts_arrow_clip" clipPathUnits="userSpaceOnUse">
+          <path d="M0 131.063V0L352.257 212.415L700 0V140.103L352.257 348L0 131.063Z"/>
+        </clipPath>
+      </defs>
+    </svg>
   </div>
-
-  <section class="main-bullets">
-    <div class="main-bullets-cont">
-      <div class="main-bullets-item item-pay">
-        <div class="main-bullets-icon">
-
-        </div>
-        <div class="main-bullets-text">
-          <div class="main-bullets-text-item bullet-head">Первоначальный взнос</div>
-          <div class="main-bullets-text-item bullet-side">от 0₽</div>
-        </div>
-      </div>
-      <div class="main-bullets-item item-credit">
-        <div class="main-bullets-icon">
-
-        </div>
-        <div class="main-bullets-text">
-          <div class="main-bullets-text-item bullet-head">98%</div>
-          <div class="main-bullets-text-item bullet-side">одобрения по кредиту</div>
-        </div>
-      </div>
-      <div class="main-bullets-item item-max-pay">
-        <div class="main-bullets-icon">
-
-        </div>
-        <div class="main-bullets-text">
-          <div class="main-bullets-text-item bullet-head">3.5 млн</div>
-          <div class="main-bullets-text-item bullet-side">макс. сумма кредита</div>
-        </div>
-      </div>
-      <div class="main-bullets-item item-kasko">
-        <div class="main-bullets-icon">
-
-        </div>
-        <div class="main-bullets-text">
-          <div class="main-bullets-text-item bullet-head">Каско</div>
-          <div class="main-bullets-text-item bullet-side">В подарок</div>
-        </div>
+  <div class="main_benefit">
+    <div class="main_benefit_leftbg">
+      <div class="main_benefit_leftbg__image"></div>
+    </div>
+    <div class="main_benefit_rightbg">
+      <div class="main_benefit_rightbg__image"></div>
+    </div>
+    <div class="main_benefit_content">
+      <div class="container">
+        <div class="main_benefit_content__title">Выгода</div>
+        <div class="main_benefit_content__value">до <span>500 000</span> р.</div>
+        <div class="main_benefit_content__subtitle">При покупке автомобиля в кредит</div>
+        <%= form_for Ticket.new,url: {action:"create",controller:"tickets" },remote:true,validate:true,:html => {:class => "main_benefit_content__form",:name=>"newcarreq"},:namespace => "newcarreq" do |f| %>
+          <%= hidden_field_tag 'ticket[other][model]', id:'newcarreq_ticket_other_model' %>
+          <%= f.hidden_field :form_name, value:"benefit" %>
+          <div>
+            <%= f.text_field :name,class:"input",placeholder:"ФИО" %>
+            <%= f.phone_field :phone,class:"input",data:{:role=>"phone"},placeholder:"+7 (___) ___-__-__" %>
+          </div>
+          <%= f.button class: "btn btn-white" do %><span>Получить выгоду</span><% end %>
+        <% end %>
       </div>
     </div>
-  </section>
-  <section class="main-brand">
-    <section class="main-title-wrap">
-      <div class="main-title">
-        <div class="main-title-text">
-          Горячие предложения
+  </div>
+  <div class="main_seo_section">
+    <div class="container">
+      <p>Если Вы хотите купить автомобиль в кредит, то Вам нет необходимости тратить время на посещение банков и стоять в очередях. Наш автосалон является официальным дилером и успешно сотрудничает с более чем с 20 банками.</p>
+      <p>Благодаря долгому и надежному сотрудничеству с нашими банками-партнерами, наш автосалон предоставляет прозрачные условия кредитования. Мы точно сможем подобрать для вас  индивидуальную, оптимальную кредитную программу с выгодной процентной ставкой и комфортными платежами.</p>
+      <p>Оформить автокредит в <b>Авимоторс</b> можно за один час. После чего вы сможете выехать уже на своем автомобиле.</p>
+      <p>Для оформления кредита Вам потребуется минимальный пакет документов: паспорт и права. <br>Срок, длительности кредита, подбирается индивидуально под Вас и составляет в среднем от года до семи лет. Чем срок кредита больше, тем меньше ежемесячные выплаты.</p>
+      <p>Все наши машины перед продажей  проходят полный технический осмотр, это гарантия того, что Вы уедете на  автомобиле, который полностью отвечает требованиям безопасности и Вам не придется волноваться за его техническую и юридическую чистоту.</p>
+      <p>Купите автомобиль в кредит сегодня и получите КАСКО и резину в подарок.</p>
+    </div>
+  </div>
+  <div class="main_heading">
+    <div class="container">Наши <span>банки-партнеры</span></div>
+  </div>
+  <div class="finance_banks">
+    <div class="container">
+      <div class="finance_banks_item">
+        <img class="lazy" data-src="img/banks/bank_01.png" alt="Банки партнеры - " src="img/lazy_placeholder.png">
+      </div>
+      <div class="finance_banks_item">
+        <img class="lazy" data-src="img/banks/bank_02.png" alt="Банки партнеры - " src="img/lazy_placeholder.png">
+      </div>
+      <div class="finance_banks_item">
+        <img class="lazy" data-src="img/banks/bank_03.png" alt="Банки партнеры - " src="img/lazy_placeholder.png">
+      </div>
+      <div class="finance_banks_item">
+        <img class="lazy" data-src="img/banks/bank_04.png" alt="Банки партнеры - " src="img/lazy_placeholder.png">
+      </div>
+      <div class="finance_banks_item">
+        <img class="lazy" data-src="img/banks/bank_05.png" alt="Банки партнеры - " src="img/lazy_placeholder.png">
+      </div>
+      <div class="finance_banks_item">
+        <img class="lazy" data-src="img/banks/bank_06.png" alt="Банки партнеры - " src="img/lazy_placeholder.png">
+      </div>
+      <div class="finance_banks_item">
+        <img class="lazy" data-src="img/banks/bank_07.png" alt="Банки партнеры - " src="img/lazy_placeholder.png">
+      </div>
+      <div class="finance_banks_item">
+        <img class="lazy" data-src="img/banks/bank_08.png" alt="Банки партнеры - " src="img/lazy_placeholder.png">
+      </div>
+      <div class="finance_banks_item">
+        <img class="lazy" data-src="img/banks/bank_09.png" alt="Банки партнеры - " src="img/lazy_placeholder.png">
+      </div>
+      <div class="finance_banks_item">
+        <img class="lazy" data-src="img/banks/bank_10.png" alt="Банки партнеры - " src="img/lazy_placeholder.png">
+      </div>
+      <div class="finance_banks_item">
+        <img class="lazy" data-src="img/banks/bank_11.png" alt="Банки партнеры - " src="img/lazy_placeholder.png">
+      </div>
+      <div class="finance_banks_item">
+        <img class="lazy" data-src="img/banks/bank_12.png" alt="Банки партнеры - " src="img/lazy_placeholder.png">
+      </div>
+      <div class="finance_banks_item">
+        <img class="lazy" data-src="img/banks/bank_13.png" alt="Банки партнеры - " src="img/lazy_placeholder.png">
+      </div>
+      <div class="finance_banks_item">
+        <img class="lazy" data-src="img/banks/bank_14.png" alt="Банки партнеры - " src="img/lazy_placeholder.png">
+      </div>
+      <div class="finance_banks_item">
+        <img class="lazy" data-src="img/banks/bank_15.png" alt="Банки партнеры - " src="img/lazy_placeholder.png">
+      </div>
+    </div>
+  </div>
+  <div class="main_heading">
+    <div class="container">Бестселлеры <span>Авимоторс</span></div>
+  </div>
+  <div class="main_catalog">
+    <div class="container">
+      <div class="row">
+        <%= render partial:'new_cars/small_new_cars_main', collection: @hit.limit(20).where('`new_cars`.`hide` = 0').where('`new_cars`.`archive` = 0'), locals: {:show_brand => true, :credit_flag => false} %>
+      </div>
+      <div class="main_catalog_more">
+        <a href="/newauto" class="btn btn-black">Перейти в каталог</a>
+      </div>
+    </div>
+  </div>
+  <div class="main_help_find">
+    <div class="container">
+      <div class="main_help_find__title">Затрудняетесь с выбором автомобиля?</div>
+      <div class="main_help_find__subtitle">Мы вам поможем!</div>
+      <div class="main_help_find__clients" data-aos="fade-down" data-aos-duration="600" data-aos-delay="300" data-aos-once="true">Счастливых клиентов: <span>3 599</span></div>
+      <%= form_for Ticket.new,url: {action:"create",controller:"tickets" },remote:true,validate:true,:html => {:class => "main_help_find__form",:name=>"newcarreq"},:namespace => "newcarreq" do |f| %>
+        <%= hidden_field_tag 'ticket[other][model]', id:'newcarreq_ticket_other_model' %>
+        <%= f.hidden_field :form_name, value:"help_find" %>
+        <div>
+          <%= f.text_field :name,class:"input",placeholder:"ФИО" %>
+          <%= f.phone_field :phone,class:"input",data:{:role=>"phone"},placeholder:"+7 (___) ___-__-__" %>
+        </div>
+        <%= f.button class: "btn btn-blue" do %><span>Отправить запрос</span><% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="main_heading">
+    <div class="container">Отзывы клиентов <span>Авимоторс</span></div>
+  </div>
+  <div class="main_reviews">
+    <div class="container">
+      <div class="swiper main_reviews_slider">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="main_reviews_item">
+              <div class="main_reviews_item__photo lazy" data-bg="img/reviews_photo.png"></div>
+              <div class="main_reviews_item__content">
+                <div class="main_reviews_item__content__title">Елманова Марина Маихайловна</div>
+                <div class="main_reviews_item__content__description">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="main_reviews_item">
+              <div class="main_reviews_item__photo lazy" data-bg="img/reviews_photo.png"></div>
+              <div class="main_reviews_item__content">
+                <div class="main_reviews_item__content__title">Елманова Марина Маихайловна</div>
+                <div class="main_reviews_item__content__description">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="main_reviews_item">
+              <div class="main_reviews_item__photo lazy" data-bg="img/reviews_photo.png"></div>
+              <div class="main_reviews_item__content">
+                <div class="main_reviews_item__content__title">Елманова Марина Маихайловна</div>
+                <div class="main_reviews_item__content__description">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="main_reviews_item">
+              <div class="main_reviews_item__photo lazy" data-bg="img/reviews_photo.png"></div>
+              <div class="main_reviews_item__content">
+                <div class="main_reviews_item__content__title">Елманова Марина Маихайловна</div>
+                <div class="main_reviews_item__content__description">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="main_reviews_item">
+              <div class="main_reviews_item__photo lazy" data-bg="img/reviews_photo.png"></div>
+              <div class="main_reviews_item__content">
+                <div class="main_reviews_item__content__title">Елманова Марина Маихайловна</div>
+                <div class="main_reviews_item__content__description">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="main_reviews_item">
+              <div class="main_reviews_item__photo lazy" data-bg="img/reviews_photo.png"></div>
+              <div class="main_reviews_item__content">
+                <div class="main_reviews_item__content__title">Елманова Марина Маихайловна</div>
+                <div class="main_reviews_item__content__description">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
-    <div class="main-brand-item-cont">
-      <%= render partial:'new_cars/small_new_cars', collection: @hit.limit(6).where('`new_cars`.`hide` = 0'), locals: {:show_brand => true, :credit_flag => false} %>
-
-    </div>
-  </section>
-  <section class="main-banks">
-    <section class="main-title-wrap">
-      <div class="main-title">
-        <div class="main-title-text">
-          Банки-партнеры
+      <div class="main_reviews_slider_navigation">
+        <div class="swiper-button-prev swiper-button-prev--custom">
+          <svg width="30" height="52" viewBox="0 0 30 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M23.299 50.5227L1.02513 28.2489C-0.341707 26.882 -0.341707 24.6659 1.02513 23.2991L23.299 1.02525C24.6658 -0.341583 26.8819 -0.341583 28.2487 1.02525C29.6156 2.39208 29.6156 4.60816 28.2487 5.975L8.44975 25.774L28.2487 45.573C29.6156 46.9398 29.6156 49.1559 28.2487 50.5227C26.8819 51.8896 24.6658 51.8896 23.299 50.5227Z" fill="#9D9D9D"/>
+          </svg>
+        </div>
+        <div class="swiper-button-next swiper-button-next--custom">
+          <svg width="30" height="52" viewBox="0 0 30 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.97487 50.5227L28.2487 28.2489C29.6156 26.882 29.6156 24.6659 28.2487 23.2991L5.97487 1.02525C4.60804 -0.341583 2.39196 -0.341583 1.02513 1.02525C-0.341709 2.39208 -0.341709 4.60816 1.02513 5.975L20.8241 25.774L1.02513 45.573C-0.341709 46.9398 -0.341709 49.1559 1.02513 50.5227C2.39196 51.8896 4.60804 51.8896 5.97487 50.5227Z" fill="#9D9D9D"/>
+          </svg>
         </div>
       </div>
-    </section>
-    <div class="main-banks-cont">
-      <div class="main-banks-item rus-fin-bank"></div>
-      <div class="main-banks-item vtb-bank"></div>
-      <div class="main-banks-item gazprom-bank"></div>
-      <div class="main-banks-item svyaz-bank"></div>
-      <div class="main-banks-item rus-fin-bank"></div>
-      <div class="main-banks-item orange-bank"></div>
-      <div class="main-banks-item balt-invest-bank"></div>
-      <div class="main-banks-item sberbank"></div>
-      <div class="main-banks-item plus-bank"></div>
-      <div class="main-banks-item loko-bank"></div>
-      <div class="main-banks-item prom-svyaz-bank"></div>
-      <div class="main-banks-item ros-bank"></div>
-      <div class="main-banks-item prim-soc-bank"></div>
-      <div class="main-banks-item rn-bank"></div>
-      <div class="main-banks-item sovkom-bank"></div>
-      <div class="main-banks-item yuni-credit-bank"></div>
-      <div class="main-banks-item tinkoff-bank"></div>
-      <div class="main-banks-item ural-sib-bank"></div>
+      <div class="main_reviews_more">
+        <a href="/reviews" class="btn btn-black">Все отзывы</a>
+      </div>
     </div>
-  </section>
-
-</section>
+  </div>
+</div>

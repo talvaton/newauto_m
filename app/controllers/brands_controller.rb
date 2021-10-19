@@ -6,14 +6,23 @@ class BrandsController < ApplicationController
   #breadcrumb 'Каталог новых авто', :newauto_path, match: :exclusive,except: [:show_credit,:show_tradein]
 
   def index
-    @newauto_brands = Brand.where(hide: false).order(:title)
-
-    @icons = sidenav_icons(['Хиты продаж'])
+    @newcars = NewCar
+                 .joins(:equipments)
+                 .joins(:brand)
+                 .select('(min(equipment.price) - `new_cars`.`discount_3` - `new_cars`.`discount_credit_3` - `new_cars`.`discount_tradein_3` - 40000) as min_price,min(equipment.price) as min_price_no_discount,brands.url as brand_url,`new_cars`.*')
+                 .where(hide: false)
+                 .where('brands.hide = ?', false)
+                 .where('equipment.hide = ?', 0)
+                 .engine_type(params[:engine_type])
+                 .transmission(params[:transmission])
+                 .car_type(params[:type])
+                 .having_price_range(params[:price_min],params[:price_max])
+                 .group('new_cars.id')
+                 .order('brands.title')
+    @newauto_brands = Brand.find(@newcars.map{|d| d.brand_id}.uniq)
   end
 
   def show
-
-
     @brand = Brand.find_by(url: params[:brand])
     icons = ['Модельный ряд','Трейд-ин','Экспресс-кредит']
     if @current_region.id == 57
@@ -111,8 +120,8 @@ class BrandsController < ApplicationController
     @res = @res.where('`specifications`.`power` >= ?', params[:power_min].to_i) if params[:power_min].present?
     @res = @res.where('`specifications`.`power` <= ?', params[:power_max].to_i) if params[:power_max].present?
 
-    @res = @res.where("`price` - `new_cars`.`discount` - `new_cars`.`discount_credit` - `new_cars`.`discount_tradein` - 30000 - #{@region_discount} >= ?", params[:price_min].to_i) if params[:price_min].present?
-    @res = @res.where("`price` - `new_cars`.`discount` - `new_cars`.`discount_credit` - `new_cars`.`discount_tradein` - 30000 - #{@region_discount} <= ?", params[:price_max].to_i) if params[:price_max].present?
+    @res = @res.where("`price` - `new_cars`.`discount_3` - `new_cars`.`discount_credit_3` - `new_cars`.`discount_tradein_3` - 30000 - #{@region_discount} >= ?", params[:price_min].to_i) if params[:price_min].present?
+    @res = @res.where("`price` - `new_cars`.`discount_3` - `new_cars`.`discount_credit_3` - `new_cars`.`discount_tradein_3` - 30000 - #{@region_discount} <= ?", params[:price_max].to_i) if params[:price_max].present?
 
     @res = @res.order("RAND()").page(params[:page]).per(10)
     @total_pages = @res.total_pages

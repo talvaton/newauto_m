@@ -66,7 +66,7 @@
 }
 /****************************/
 .table--features .table__header th.table__header-title.t_m span{
-  display: block;
+  display: none;
   position: absolute;
   right: 30px;
   top: 35px;
@@ -195,7 +195,7 @@
 
 .table--features .table__header th.table__header-title span{
   @media all and (max-width: 600px) {
-    display: none;
+    /*display: none;*/
   }
 }
 .table--features .table__header th.table__header-title.t_m{
@@ -205,8 +205,14 @@
     background-color: #0551a1;
     min-width: 157px;
     position: absolute;
+    margin: 0 0 0 10px;
     z-index: 1;
   }
+}
+
+.table--features .table__header th.table__header-title.t_m div{
+  display: none;
+
 }
 
 .table--features .table__header th{
@@ -232,9 +238,6 @@
   }
   .table__cell--center {
     text-align: center;
-  }
-  @media #{$media_xl} {
-    font-size: 14px;
   }
 
   &:not(.table--compare) .table__cell {
@@ -274,7 +277,6 @@
   background-color: #F3F3F3;
   &::after {
     content: "+";
-    color: $contrast_main;
   }
 }
 .fi-minus::after {
@@ -284,9 +286,7 @@
 .fi-minus{
   &::after {
     font-size: 15px;
-    @media #{$media_xxl} {
-      font-size: 22px;
-    }
+
   }
 }
 .main .table-tab-title{

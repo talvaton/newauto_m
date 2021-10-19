@@ -1,16 +1,9 @@
 <% real_discount = @car.discount_count(@equipment) + @region_discount %>
 
-<div class="row cdc-h">
-  <span class="cdc-h-t">Комплектация <%= @equipment.equipment_description.name %> <%= @equipment.suffix %> <%= @equipment.specification.drive == 'Полный' ? '4WD' : '2WD' %> <%= @equipment.specification.power %> л.с, <%= @equipment.specification.shorttransmission %></span>
-  <div class="compl_d_pr">
-    <div>
-    <div><span>Стоимость:</span> <i><%= number_with_delimiter(@equipment.price,delimiter: ' ') %> ₽</i></div>
-    <div><span>Цена со скидкой:</span> <i><%= number_with_delimiter(@equipment.price - real_discount,delimiter: ' ') %> ₽</i></div>
-    </div>
-    <a href="#" class="main-equip-button_item" data-show-new-ajax="car-credit-modal" data-eq_id="<%= @equipment.id %>" rel="nofollow">Купить в кредит</a>
-  </div>
-</div>
-<div class="compl-des-col">
-  <span class="close-btn" data-action="hide-table-row-description">×</span>
+
+
+
+
+<div class="comp-wrapper">
   <%= @equipment.equipment_description.description.html_safe %>
 </div>

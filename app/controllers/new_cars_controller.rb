@@ -117,7 +117,7 @@ class NewCarsController < ApplicationController
 
     @icons = sidenav_icons(icons)
 
-    breadcrumb "Каталог новых авто#{" в " + @current_region.sklon3 unless @current_region.id === 57}", :newauto_path, match: :exclusive
+    breadcrumb "Автомобили#{" в " + @current_region.sklon3 unless @current_region.id === 57}", :newauto_path, match: :exclusive
     breadcrumb @brand.title, brand_path(@brand),match: :exclusive
     breadcrumb @car.name, new_car_path(@car.brand.url,@car.url)
   end
@@ -149,7 +149,7 @@ class NewCarsController < ApplicationController
     @prev_path= set_prev_path
 
     @icons = sidenav_icons(icons)
-    breadcrumb "Каталог новых авто#{" в " + @current_region.sklon3 unless @current_region.id === 57}", :newauto_path, match: :exclusive
+    breadcrumb "Автомобили#{" в " + @current_region.sklon3 unless @current_region.id === 57}", :newauto_path, match: :exclusive
     breadcrumb 'Кредит', credit_path, match: :exclusive
     breadcrumb @brand.title, brand_credit_path(@brand),match: :exclusive
     breadcrumb @car.name, new_car_credit_path(@car.brand.url,@car.url)
@@ -183,7 +183,7 @@ class NewCarsController < ApplicationController
     @prev_path= set_prev_path
 
     @icons = sidenav_icons(icons)
-    breadcrumb "Каталог новых авто#{" в " + @current_region.sklon3 unless @current_region.id === 57}", :newauto_path, match: :exclusive
+    breadcrumb "Автомобили#{" в " + @current_region.sklon3 unless @current_region.id === 57}", :newauto_path, match: :exclusive
     breadcrumb 'Трейд ин', tradein_path, match: :exclusive
     breadcrumb @brand.title, brand_tradein_path(@brand),match: :exclusive
     breadcrumb @car.name, new_car_tradein_path(@car.brand.url,@car.url)
@@ -231,7 +231,7 @@ class NewCarsController < ApplicationController
     @prev_path = set_prev_path
 
     @icons =  sidenav_icons(icons)
-    breadcrumb "Каталог новых авто#{" в " + @current_region.sklon3 unless @current_region.id === 57}", :newauto_path, match: :exclusive
+    breadcrumb "Автомобили#{" в " + @current_region.sklon3 unless @current_region.id === 57}", :newauto_path, match: :exclusive
     breadcrumb @brand.title, brand_path(@brand),match: :exclusive
     breadcrumb @car.name, new_car_path(@car.brand.url,@car.url),match: :exclusive
     breadcrumb @equip.name, new_car_equipment_path(@car.brand.url,@car.url, @equip.name.parameterize)
@@ -248,7 +248,7 @@ class NewCarsController < ApplicationController
       end
     end
     @prev_path = set_prev_path
-    breadcrumb "Каталог новых авто#{" в " + @current_region.sklon3 unless @current_region.id === 57}", :newauto_path, match: :exclusive
+    breadcrumb "Автомобили#{" в " + @current_region.sklon3 unless @current_region.id === 57}", :newauto_path, match: :exclusive
     breadcrumb @brand.title, brand_path(@brand),match: :exclusive
     breadcrumb @car.name, new_car_path(@car.brand.url,@car.url),match: :exclusive
   end
@@ -266,7 +266,7 @@ class NewCarsController < ApplicationController
     @prev_path = set_prev_path
 
     @icons =  sidenav_icons(icons)
-    breadcrumb "Каталог новых авто#{" в " + @current_region.sklon3 unless @current_region.id === 57}", :newauto_path, match: :exclusive
+    breadcrumb "Автомобили#{" в " + @current_region.sklon3 unless @current_region.id === 57}", :newauto_path, match: :exclusive
     breadcrumb @brand.title, brand_path(@brand),match: :exclusive
     breadcrumb @car.name, new_car_path(@car.brand.url,@car.url),match: :exclusive
     breadcrumb "Тех. характеристики", new_car_tth_path

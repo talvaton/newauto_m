@@ -263,7 +263,7 @@
       line-height: 24px;
     }
     @media all and (max-width: 500px) {
-      font-size: 12px;
+      font-size: 14px;
       line-height: 16px;
       padding: 5px 0 10px 0;
     }
@@ -300,7 +300,7 @@
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 19px;
     color: #35404B;
     padding: 5px 0 40px 0;
@@ -309,7 +309,7 @@
      display: block !important;
     }
     @media all and (max-width: 500px) {
-      padding: 0;
+      padding: 0 0 88px 0;
     }
   }
   .modal__inner .modal__title{

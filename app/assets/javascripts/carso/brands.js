@@ -106,6 +106,13 @@ var uploadCars = function(){
     });
 };
 uploadCars();
+
+
+$('#reset_filter').on('click', function(e){
+    $('#car_filter').trigger('reset');
+    // $('#car_filter').submit();
+})
+
 // var uploadCarsDebounce = debounce(uploadCars, 50);
 //
 // $(window).on('scroll', function(){

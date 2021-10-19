@@ -113,28 +113,37 @@ $(document).ready(function() {
 
   });
 });
-
-$(document).ready(function() {
+if ($(window).width() >= 700) {
+    $(document).ready(function () {
+        $('.colors-list').slick({
+            asNavFor: '[data-content=car-colors-list]',
+            dots: false,
+            arrows: false,
+            infinite: true,
+            //variableWidth: true,
+            // centerMode: true,
+            slidesToShow: 12,
+            slidesToScroll: 1,
+        });
+    });
+}
+if ($(window).width() <= 700) {
+$(document).ready(function () {
     $('.colors-list').slick({
         asNavFor: '[data-content=car-colors-list]',
         dots: false,
-        arrows: true,
-        //  infinite: false,
+        arrows: false,
+        infinite: true,
         //variableWidth: true,
-        slidesToShow: 1,
-        slidesToScroll: 1
+        // centerMode: true,
+        slidesToShow: 6,
+        slidesToScroll: 1,
     });
 });
+}
+
 $(document).ready(function() {
      if ($(window).width() <= BREAKPOINTS.M) {
     $('.mrr_bl').clone().prependTo('.sbcf');
       }
 });
-
-
-/************************/
-$('.vk_mp').on('click', function(){
-    $('.vk_mp_mn').toggleClass('on');
-});
-
-

@@ -1,61 +1,31 @@
-<aside class="modal modal--credit-car modal--credit-car-credit" id="car-credit-modal">
-<div class="modal__top">
-    <button type="button" class="modal__close-btn" data-fancybox-close>
-      <span class="close-btn cl_white" data-action="hide-table-row-description">×</span>
-    </button>
-  </div>
+<div class="main_carso_popup" id="special_credit">
+  <%= form_for Ticket.new,url: {action:'create',controller:'tickets' },remote:true,validate:true,:html => {:class => 'main_carso_popup_form',:name=>'new_credit_modal'},:namespace => 'new_credit_modal' do |f| %>
+    <%# f.invisible_captcha :ticket_text %>
+    <%= f.hidden_field :form_name, value:'pack' %>
 
+    <%= hidden_field_tag 'ticket[other][model]',@car.id, id:'new_credit_modal_ticket_other_model' %>
+    <%= hidden_field_tag 'ticket[other][equipment]',@equip.id, id:'new_credit_modal_ticket_other_equipment' %>
 
-  <div class="mod_circle cim_or">
-    <% if @car %>
+    <%= hidden_field_tag 'ticket[other][ttype]',1,id:'credit_ticket_other_ttype' %>
 
-      <% if @car.images_available.count >= 1 %>
-        <% @car.images_available[1.. 1].each do |image|%>
-          <%#= link_to image.url,class:'photo-link', data:{:fancybox => 'car-exterior'} do %>
-          <%= image_tag image.large.url, alt: '' %>
-          <%# end %>
-        <% end %>
-      <% else %>
-        <% if @car.images.present? %>
-          <% @car.images[1.. 1].each do |image| %>
-            <%#= link_to image.large.url, itemprop:'url' ,class:'photo-link',data:{:fancybox => 'car-exterior'} do %>
-            <%= image_tag image.large.url,alt: "#{@car.brand.title} #{@car.name}", class:'photo' %>
-            <%# end %>
-          <% end %>
-        <% end %>
-      <% end %>
-
-    <% end %>
-  </div>
-
-
-  <div class="modal__inner crtr">
-    <div class="modal__title">
-      <div class="modal__title-name">
-        Лучшее предложение <b>по Кредиту</b> на <span class="txt_dcol"><%= @car.menutitle %></span>
+    <div class="main_carso_popup_form_inner">
+      <div class="special_credit_text">
+        <div class="special_credit_text__title">Успейте купить <br><span><%= @car.menutitle %></span></div>
+        <div class="special_credit_text__subtitle">В кредит <br>на специальных <br>условиях!</div>
+      </div>
+      <div class="main_carso_popup_form__images">
+        <div class="mcpfi_image lazy entered loaded" style="background-image: url('/img/special_credit_popup_image_01.png');"></div>
+        <div class="mcpfi_image lazy entered loaded" style="background-image: url('<% if @car %><% if @car.colors.present? %><%= @car.colors[1] %><% end %><% end %>');"></div>
       </div>
     </div>
 
-    <div>
-      <%= form_for Ticket.new,url: {action:'create',controller:'tickets' },remote:true,validate:true,:html => {:class => 'form kredit_modal_new_ticket',:name=>'new_credit_modal'},:namespace => 'new_credit_modal' do |f| %>
-        <%# f.invisible_captcha :ticket_text %>
-        <%= f.hidden_field :form_name, value:'pack' %>
+    <div class="main_carso_popup_form_inputs">
 
-        <%= hidden_field_tag 'ticket[other][model]',@car.id, id:'new_credit_modal_ticket_other_model' %>
-        <%= hidden_field_tag 'ticket[other][equipment]',@equip.id, id:'new_credit_modal_ticket_other_equipment' %>
+      <%= f.text_field :name,class:'input', placeholder:'ФИО' %>
+      <%= f.phone_field :phone,class:'input',data:{:role=>'phone'}, placeholder:'+7 (___) ___-__-__' %>
+      <%= f.button 'Получить предложение', class: "btn btn-blue" %>
 
-        <%= hidden_field_tag 'ticket[other][ttype]',1,id:'credit_ticket_other_ttype' %>
-
-        <div class="form_input">
-          <%= f.text_field :name,class:'input', placeholder:'Ваше имя' %>
-        </div>
-        <div class="form_input">
-          <%= f.phone_field :phone,class:'input',data:{:role=>'phone'}, placeholder:'Номер телефона' %>
-        </div>
-
-        <%= f.button 'Отправить', class: "button" %>
-      <% end %>
     </div>
 
-  </div>
-</aside>
+<% end %>
+</div>

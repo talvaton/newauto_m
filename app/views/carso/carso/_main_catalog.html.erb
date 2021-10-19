@@ -5,7 +5,7 @@
     <% end %>
   </div>
   <ul>
-    <% main_catalog.new_cars.where(hide: 0).where(archive: 0).each do |car| %>
+    <% main_catalog.new_cars.where(hide: 0).each do |car| %>
       <li>
         <%= link_to car.name, new_car_path(car.brand.url,car.url) %>
       </li>

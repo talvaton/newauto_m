@@ -1,20 +1,355 @@
-<% provide :title,'Каталог новых автомобилей: цены, комплектации, характеристики, производители | Купить у официального дилера "Авимоторс" в ' + @current_region.sklon3 %>
-<% provide :description,'Каталог автомобилей в автосалоне официального дилера "Авимоторс" в ' + @current_region.sklon3 + ' - цены и комплектации, технические характеристики.' %>
-
-
-<h1>Каталог новых автомобилей</h1>
-
-    <ul class="big_cat_menu">
-      <%= render partial:'carso/main_catalog', collection: @newauto_brands %>
-    </ul>
-
-
-
-<div class="card__box">
-  <div>
-    <h2>Хиты продаж</h2>
+<div id="main">
+  <div class="main_heading">
+    <div class="container">Выберите ваш новый автомобиль в автоцентре <br><span>Авимоторс</span></div>
   </div>
-  <div class="card_box_slide row justify-content-between align-items-center">
-    <%= render partial:'new_cars/small_new_cars', collection: @hit.limit(6).where('`new_cars`.`hide` = 0'), locals: {:show_brand => true, :credit_flag => false} %>
+  <div class="main_catalog_count">
+    <div class="container">
+      <div class="main_catalog_count__data" data-aos="fade-down" data-aos-duration="600" data-aos-delay="300">В наличии: <span>9 999 авто</span></div>
+    </div>
+  </div>
+  <div id='brand_first'>
+    <%= render partial: 'carso/brands/brand_first', object: @newauto_brands.first, as: :brand %>
+  </div>
+
+  <div class="main_catalog_page">
+    <div class="container js_sidebar_container">
+      <div class="main_catalog_page__sidebar js_sidebar_global">
+        <div class="js_sidebar_inner">
+          <%= form_with url: newauto_path, method: :get,html:{id:'car_filter',:class => ''} do |f| %>
+          <div class="main_catalog_page_marks">
+            <div class="row">
+              <%= render partial:'brand_sidefilter', collection: @brands %>
+            </div>
+          </div>
+          <div class="main_catalog_page_filter">
+              <div class="main_filter_form_cats">
+                <label class="main_filter_cat_checkbox">
+                  <%= f.radio_button :type,'Седан' %>
+                  <span class="checkmark">
+								<span class="main_filter_cat_checkbox__icon">
+									<svg width="120" height="47" viewBox="0 0 120 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M8.1879 36.5594C8.1879 42.0505 12.6548 46.5184 18.1469 46.5184C23.639 46.5184 28.1082 42.0505 28.1082 36.5594C28.1082 31.0673 23.6393 26.5994 18.1469 26.5994C12.6545 26.5994 8.1879 31.0673 8.1879 36.5594ZM23.6018 36.5594C23.6018 39.5664 21.1549 42.012 18.1469 42.012C15.1412 42.012 12.6943 39.5664 12.6943 36.5594C12.6943 33.5524 15.1412 31.1058 18.1469 31.1058C21.1549 31.1058 23.6018 33.5527 23.6018 36.5594Z" fill="#D7AD48"/>
+										<path d="M91.3368 26.5994C85.8447 26.5994 81.3778 31.0673 81.3778 36.5594C81.3778 42.0505 85.8447 46.5184 91.3368 46.5184C96.829 46.5184 101.296 42.0505 101.296 36.5594C101.296 31.0673 96.8292 26.5994 91.3368 26.5994ZM91.3368 42.0122C88.3311 42.0122 85.8843 39.5666 85.8843 36.5597C85.8843 33.5527 88.3311 31.1061 91.3368 31.1061C94.3425 31.1061 96.7894 33.553 96.7894 36.5597C96.7896 39.5664 94.3428 42.0122 91.3368 42.0122Z" fill="#D7AD48"/>
+										<path d="M1.919 38.2607C3.17981 38.4455 4.29556 37.5961 4.48251 36.3661C5.05034 32.5914 6.90742 25.9285 9.47972 24.1197C11.6559 22.5895 16.4506 21.5397 20.682 20.6145C22.1455 20.2941 23.5731 19.9815 24.8954 19.6516L84.4918 19.3658C85.735 19.3604 86.7406 18.346 86.7341 17.1015C86.7274 15.8606 85.7197 14.8591 84.4809 14.8591C84.4765 14.8591 84.4742 14.8591 84.4698 14.8591L35.813 15.0926C40.5403 12.7342 46.2783 9.89708 50.3899 8.60576C50.4757 8.57938 50.5593 8.54628 50.6407 8.51008C61.9927 3.39185 87.2159 5.88503 91.8257 6.39649L100.48 14.636C100.827 14.9682 101.274 15.1795 101.752 15.24L111.781 16.5063L115.181 28.2587C114.087 31.4922 112.175 33.7796 110.507 33.7796H106.54C105.294 33.7796 104.287 34.7885 104.287 36.0328C104.287 37.2771 105.294 38.286 106.54 38.286H110.507C114.47 38.286 117.991 34.6993 119.696 28.9253C119.817 28.5127 119.819 28.0739 119.701 27.6612L115.698 13.8305C115.447 12.9658 114.708 12.3341 113.815 12.2209L103.05 10.8621L94.3872 2.61277C94.0373 2.2805 93.5905 2.06821 93.1132 2.00874C91.8699 1.85359 62.576 -1.71319 48.9114 4.34677C44.3346 5.80461 38.2371 8.84649 33.3281 11.2967C30.9647 12.4761 28.9228 13.4939 27.453 14.1398C25.7301 14.8966 22.81 15.5358 19.7185 16.2125C14.8446 17.2786 9.80578 18.3809 6.88802 20.434C1.90839 23.9359 0.203091 34.5067 0.024933 35.7005C-0.158397 36.9303 0.688956 38.0758 1.919 38.2607Z" fill="#D7AD48"/>
+										<path d="M33.6971 33.7793C32.4515 33.7793 31.4439 34.7883 31.4439 36.0325C31.4439 37.2768 32.4515 38.2857 33.6971 38.2857H75.956C77.2013 38.2857 78.2092 37.2768 78.2092 36.0325C78.2092 34.7883 77.2016 33.7793 75.956 33.7793H33.6971Z" fill="#D7AD48"/>
+									</svg>
+								</span>
+								<span class="main_filter_cat_checkbox__label">Седан</span>
+							</span>
+                </label>
+                <label class="main_filter_cat_checkbox">
+                  <%= f.radio_button :type,'Хэтчбек' %>
+                  <span class="checkmark">
+								<span class="main_filter_cat_checkbox__icon">
+									<svg width="110" height="46" viewBox="0 0 110 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M8.19037 35.7186C8.19037 41.2097 12.6572 45.6776 18.1494 45.6776C23.6415 45.6776 28.1084 41.2097 28.1084 35.7186C28.1084 30.2265 23.6415 25.7585 18.1494 25.7585C12.6572 25.7585 8.19037 30.2262 8.19037 35.7186ZM23.6019 35.7186C23.6019 38.7256 21.1551 41.1712 18.1494 41.1712C15.1437 41.1712 12.6968 38.7253 12.6968 35.7186C12.6968 32.7116 15.1437 30.265 18.1494 30.265C21.1551 30.265 23.6019 32.7116 23.6019 35.7186Z" fill="#D7AD48"/>
+										<path d="M90.9015 45.6776C96.3936 45.6776 100.86 41.2097 100.86 35.7186C100.86 30.2265 96.3936 25.7585 90.9015 25.7585C85.4093 25.7585 80.9424 30.2265 80.9424 35.7186C80.9422 41.2097 85.4091 45.6776 90.9015 45.6776ZM90.9015 30.2647C93.9071 30.2647 96.354 32.7116 96.354 35.7183C96.354 38.7253 93.9071 41.1709 90.9015 41.1709C87.8958 41.1709 85.4489 38.725 85.4489 35.7183C85.4489 32.7116 87.8955 30.2647 90.9015 30.2647Z" fill="#D7AD48"/>
+										<path d="M1.91913 37.4196C3.17994 37.6045 4.29569 36.7551 4.48264 35.525C5.05047 31.7503 6.90756 25.0874 9.47986 23.2786C11.656 21.7481 16.4508 20.6999 20.6821 19.7734C22.1461 19.4533 23.5743 19.1407 24.8969 18.8107L90.9102 18.5247C92.1558 18.5193 93.1591 17.506 93.1547 16.2617C93.1503 15.0208 92.1424 14.0183 90.9015 14.0183C90.8991 14.0183 90.8947 14.0183 90.8927 14.0183L35.9256 14.2565C40.6332 11.9626 46.3852 9.17235 50.4624 7.74063C64.3843 2.85563 92.3671 6.89224 92.6487 6.93077C92.7565 6.94732 92.8666 6.95508 92.9765 6.95508C97.659 6.95508 100.603 16.7282 101.263 20.1509C101.323 20.448 101.439 20.7319 101.606 20.9828L104.245 24.9072C105.015 29.3771 104.889 31.9342 103.809 34.2347C103.281 35.3613 103.765 36.7026 104.892 37.2316C105.202 37.3769 105.527 37.4462 105.847 37.4449C106.694 37.4449 107.506 36.9663 107.889 36.1489C109.673 32.35 109.482 28.5476 108.599 23.6463C108.544 23.3394 108.426 23.0467 108.252 22.7881L105.596 18.8384C104.951 15.7996 101.671 2.62808 93.1526 2.45096C90.6134 2.08689 63.5352 -1.62858 48.9707 3.48965C44.5457 5.04214 38.4814 7.99817 33.6075 10.3737C31.1717 11.5608 29.0043 12.6181 27.4529 13.2992C25.73 14.0561 22.8099 14.6953 19.7184 15.3719C14.8445 16.438 9.80566 17.5404 6.8879 19.5934C1.90827 23.0953 0.202968 33.6661 0.0248098 34.86C-0.158003 36.0895 0.689089 37.2347 1.91913 37.4196Z" fill="#D7AD48"/>
+										<path d="M77.7739 35.1917C77.7739 33.9474 76.766 32.9385 75.5207 32.9385H33.6996C32.4543 32.9385 31.4464 33.9474 31.4464 35.1917C31.4464 36.436 32.454 37.4449 33.6996 37.4449H75.5204C76.766 37.4449 77.7739 36.436 77.7739 35.1917Z" fill="#D7AD48"/>
+									</svg>
+								</span>
+								<span class="main_filter_cat_checkbox__label">Хэтчбек</span>
+							</span>
+                </label>
+                <label class="main_filter_cat_checkbox">
+                  <%= f.radio_button :type,'Универсал' %>
+                  <span class="checkmark">
+								<span class="main_filter_cat_checkbox__icon">
+									<svg width="124" height="46" viewBox="0 0 124 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M8.18823 35.7943C8.18823 41.2854 12.6551 45.7533 18.1472 45.7533C23.6394 45.7533 28.1086 41.2854 28.1086 35.7943C28.1086 30.3021 23.6396 25.8342 18.1472 25.8342C12.6549 25.8342 8.18823 30.3019 8.18823 35.7943ZM23.6021 35.7943C23.6021 38.8012 21.1552 41.2468 18.1472 41.2468C15.1416 41.2468 12.6947 38.801 12.6947 35.7943C12.6947 32.7873 15.1416 30.3407 18.1472 30.3407C21.1552 30.3404 23.6021 32.7873 23.6021 35.7943Z" fill="#D7AD48"/>
+										<path d="M81.3781 35.7943C81.3781 41.2854 85.845 45.7533 91.3371 45.7533C96.8293 45.7533 101.296 41.2854 101.296 35.7943C101.296 30.3021 96.8293 25.8342 91.3371 25.8342C85.845 25.8342 81.3781 30.3019 81.3781 35.7943ZM96.79 35.7943C96.79 38.8012 94.3431 41.2468 91.3374 41.2468C88.3317 41.2468 85.8848 38.801 85.8848 35.7943C85.8848 32.7873 88.3317 30.3407 91.3374 30.3407C94.3431 30.3407 96.79 32.7873 96.79 35.7943Z" fill="#D7AD48"/>
+										<path d="M27.4528 13.3743C25.7299 14.1311 22.8098 14.7703 19.7183 15.447C14.8444 16.5131 9.8056 17.6154 6.88784 19.6685C1.9082 23.1704 0.202903 33.7412 0.0247453 34.935C-0.157809 36.1651 0.689282 37.3103 1.91932 37.4952C3.18453 37.6811 4.29795 36.8306 4.48283 35.6006C5.05066 31.8257 6.90775 25.163 9.48006 23.3542C11.6562 21.8237 16.451 20.7742 20.6823 19.849C22.1453 19.5286 23.5724 19.216 24.8942 18.8866L105.908 18.5949C107.152 18.5905 108.157 17.5782 108.153 16.3339C108.148 15.0917 107.14 14.0885 105.9 14.0885C105.897 14.0885 105.895 14.0885 105.891 14.0885L36.021 14.3401C40.6862 12.1153 46.48 9.3506 50.5242 7.7932C62.5406 3.16575 102.331 6.30252 109.579 6.92181L115.986 17.6454L116.382 24.0276C116.407 24.4149 116.53 24.7901 116.743 25.1167L118.517 27.8452C117.408 30.8917 115.573 33.0138 113.967 33.0138H106.54C105.295 33.0138 104.287 34.0228 104.287 35.267C104.287 36.5113 105.295 37.5203 106.54 37.5203H113.967C117.929 37.5203 121.45 33.9336 123.156 28.1596C123.342 27.5281 123.243 26.846 122.883 26.2924L120.843 23.1557L120.451 16.8195C120.429 16.4609 120.321 16.1121 120.136 15.8041L115.08 7.34121C115.118 7.34328 115.157 7.34561 115.194 7.34561C116.363 7.34561 117.351 6.44344 117.439 5.25839C117.531 4.01749 116.6 2.93691 115.359 2.84563L111.121 2.53224C109.02 2.3365 63.034 -1.85293 48.9047 3.58723C44.691 5.21004 38.796 8.02334 34.0563 10.2841C31.4377 11.5348 29.0966 12.6526 27.4528 13.3743Z" fill="#D7AD48"/>
+										<path d="M33.6977 33.0139C32.4524 33.0139 31.4445 34.0229 31.4445 35.2671C31.4445 36.5114 32.4524 37.5204 33.6977 37.5204H75.9566C77.2019 37.5204 78.2098 36.5114 78.2098 35.2671C78.2098 34.0229 77.2019 33.0139 75.9566 33.0139H33.6977Z" fill="#D7AD48"/>
+									</svg>
+								</span>
+								<span class="main_filter_cat_checkbox__label">Универсал</span>
+							</span>
+                </label>
+                <label class="main_filter_cat_checkbox">
+                  <%= f.radio_button :type,'Кроссовер' %>
+                  <span class="checkmark">
+								<span class="main_filter_cat_checkbox__icon">
+									<svg width="119" height="53" viewBox="0 0 119 53" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M20.3383 30.2817C14.254 30.2817 9.30542 35.2316 9.30542 41.3167C9.30542 47.4017 14.254 52.3516 20.3383 52.3516C26.4223 52.3516 31.3732 47.4017 31.3732 41.3167C31.3732 35.2316 26.4223 30.2817 20.3383 30.2817ZM20.3383 47.8454C16.7405 47.8454 13.8119 44.9168 13.8119 41.3169C13.8119 37.7171 16.7405 34.7884 20.3383 34.7884C23.9382 34.7884 26.8668 37.7171 26.8668 41.3169C26.8668 44.9168 23.9379 47.8454 20.3383 47.8454Z" fill="#D7AD48"/>
+										<path d="M92.8568 30.2817C86.7726 30.2817 81.824 35.2316 81.824 41.3167C81.824 47.4017 86.7726 52.3516 92.8568 52.3516C98.9409 52.3516 103.892 47.4017 103.892 41.3167C103.892 35.2316 98.9411 30.2817 92.8568 30.2817ZM92.8568 47.8454C89.259 47.8454 86.3304 44.9168 86.3304 41.3169C86.3304 37.7171 89.2593 34.7884 92.8568 34.7884C96.4567 34.7884 99.3853 37.7171 99.3853 41.3169C99.3856 44.9168 96.4567 47.8454 92.8568 47.8454Z" fill="#D7AD48"/>
+										<path d="M117.378 27.7098L115.937 17.1004C115.895 16.8 115.794 16.5106 115.638 16.25C115.519 16.0486 113.295 12.3644 109.541 8.81803L110.331 8.87104C110.383 8.87544 110.434 8.87647 110.485 8.87647C111.66 8.87647 112.65 7.96448 112.731 6.77401C112.815 5.53181 111.875 4.45821 110.634 4.37547L100.561 3.70007C100.558 3.69981 100.555 3.70006 100.553 3.6998C88.3508 0.508211 61.3108 -0.630808 49.1945 4.03233C45.2999 5.53181 41.8342 8.36501 38.7778 10.8657C36.529 12.7052 34.4035 14.4436 32.6056 15.2335C30.8784 15.9917 26.9198 16.8036 23.0911 17.5879C16.8375 18.8706 10.3705 20.1964 7.45716 22.2461C2.58536 25.6732 0.411516 38.4499 0.0264984 40.977C-0.162778 42.207 0.682244 43.3566 1.91228 43.5439C3.15784 43.7386 4.29324 42.8871 4.48019 41.657C5.32082 36.1636 7.60248 27.6526 10.0494 25.9318C12.1971 24.4222 18.7388 23.0813 23.9977 22.003C26.4221 21.5063 28.6626 21.0463 30.552 20.5757L30.5528 20.7388C30.5528 20.7388 80.3701 20.4891 89.3367 20.4891C99.1176 20.4891 101.705 16.8253 102.126 16.0915C102.744 15.0112 102.368 13.6348 101.287 13.0176C100.203 12.3983 98.8295 12.7745 98.2133 13.8559C98.2001 13.8768 96.3055 15.9826 89.337 15.9826C82.7451 15.9826 54.0909 16.1174 39.3552 16.189C40.1038 15.603 40.8612 14.9838 41.632 14.3531C44.5629 11.9558 47.5929 9.47817 50.8142 8.23701C62.5168 3.73316 89.1849 5.25773 99.56 8.03379C99.7182 8.09817 99.8855 8.14497 100.06 8.17212C101.424 8.56282 102.468 8.97577 103.1 9.3988C107.561 12.3771 110.685 16.8845 111.537 18.1927L112.943 28.5367C112.963 28.6831 112.998 28.8271 113.046 28.967L114.364 32.7967C112.982 37.1304 111.31 39.0798 110.225 39.0798H108.322C107.076 39.0798 106.069 40.0888 106.069 41.333C106.069 42.5773 107.076 43.5863 108.322 43.5863H110.225C112.806 43.5863 116.406 41.8184 118.895 33.394C119.027 32.9451 119.018 32.4655 118.864 32.022L117.378 27.7098Z" fill="#D7AD48"/>
+										<path d="M77.1308 39.0637H35.8291C34.5838 39.0637 33.5759 40.0727 33.5759 41.3169C33.5759 42.5612 34.5838 43.5702 35.8291 43.5702H77.1308C78.3761 43.5702 79.384 42.5612 79.384 41.3169C79.384 40.0727 78.3763 39.0637 77.1308 39.0637Z" fill="#D7AD48"/>
+									</svg>
+								</span>
+								<span class="main_filter_cat_checkbox__label">Кроссовер</span>
+							</span>
+                </label>
+                <label class="main_filter_cat_checkbox">
+                  <%= f.radio_button :type,'Внедорожник' %>
+                  <span class="checkmark">
+								<span class="main_filter_cat_checkbox__icon">
+									<svg width="134" height="56" viewBox="0 0 134 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M23.6763 31.8992C17.0772 31.8992 11.7081 37.2672 11.7081 43.866C11.7081 50.4651 17.0772 55.8339 23.6763 55.8339C30.2754 55.8339 35.6421 50.4648 35.6421 43.866C35.6421 37.2672 30.2754 31.8992 23.6763 31.8992ZM23.6763 51.3277C19.5616 51.3277 16.2146 47.981 16.2146 43.866C16.2146 39.7523 19.5613 36.4056 23.6763 36.4056C27.7889 36.4056 31.1356 39.7523 31.1356 43.866C31.1356 47.981 27.7889 51.3277 23.6763 51.3277Z" fill="#D7AD48"/>
+										<path d="M104.887 31.8992C98.2876 31.8992 92.9209 37.2672 92.9209 43.866C92.9209 50.4651 98.2876 55.8339 104.887 55.8339C111.486 55.8339 116.855 50.4648 116.855 43.866C116.855 37.2672 111.486 31.8992 104.887 31.8992ZM104.887 51.3277C100.774 51.3277 97.4274 47.981 97.4274 43.866C97.4274 39.7523 100.774 36.4056 104.887 36.4056C109.001 36.4056 112.348 39.7523 112.348 43.866C112.348 47.981 109.001 51.3277 104.887 51.3277Z" fill="#D7AD48"/>
+										<path d="M133.125 25.6425L130.997 22.3705C129.991 17.4087 128.269 10.5045 125.788 5.87059L125.965 5.8861C126.031 5.89283 126.097 5.89489 126.163 5.89489C127.318 5.89489 128.301 5.01134 128.405 3.8387C128.513 2.59883 127.598 1.50635 126.356 1.39723L119.951 0.83613C119.883 0.829148 119.816 0.826562 119.749 0.826045C112.332 0.285365 65.884 -1.09645 55.6287 1.6703C51.2456 2.85405 46.6952 7.15596 42.6792 10.9516C40.1817 13.3126 37.6006 15.7541 35.9878 16.4626C34.2846 17.2106 28.9246 17.479 24.1937 17.7156C15.381 18.1557 9.40042 18.5891 6.66754 20.5114C3.66187 22.626 1.22608 33.3948 0.0399975 39.6262C-0.0985986 40.3503 0.127921 41.096 0.643002 41.6232L4.72046 45.794C5.58746 46.684 7.01765 46.7016 7.90663 45.8292C8.79561 44.9601 8.81319 43.533 7.94179 42.643L4.69177 39.3193C6.02524 32.6861 8.10676 25.3017 9.25974 24.1971C11.1323 22.8812 18.8118 22.4962 24.4205 22.2156C26.1106 22.1311 27.7339 22.0499 29.2481 21.9511C29.3492 21.9651 29.4516 21.9746 29.5563 21.9746H106.793C107.422 21.9746 108.023 21.7106 108.45 21.2473L115.243 13.8704C116.085 12.955 116.028 11.5303 115.113 10.6863C114.197 9.84694 112.774 9.90307 111.929 10.8184L105.805 17.4679H42.2598C43.3686 16.5001 44.5366 15.3973 45.7749 14.2267C49.4035 10.7962 53.5159 6.90825 56.8034 6.0203C66.1395 3.501 113.353 4.81845 119.434 5.30767C119.476 5.31362 119.517 5.32137 119.559 5.32499L119.906 5.35524C121.671 6.04615 124.89 14.7736 126.664 23.6773C126.719 23.9579 126.829 24.2253 126.985 24.4662L128.981 27.5358C128.926 34.7477 127.986 40.5566 127.058 41.965H121.757C120.511 41.965 119.504 42.974 119.504 44.2183C119.504 45.4625 120.511 46.4715 121.757 46.4715H127.495C128.979 46.4715 133.489 46.4715 133.489 26.8713C133.49 26.4358 133.362 26.0089 133.125 25.6425Z" fill="#D7AD48"/>
+										<path d="M87.6862 41.9651H40.7032C39.4579 41.9651 38.45 42.974 38.45 44.2183C38.45 45.4626 39.4576 46.4715 40.7032 46.4715H87.6862C88.9315 46.4715 89.9394 45.4626 89.9394 44.2183C89.9394 42.974 88.9315 41.9651 87.6862 41.9651Z" fill="#D7AD48"/>
+									</svg>
+								</span>
+								<span class="main_filter_cat_checkbox__label">Внедорожник</span>
+							</span>
+                </label>
+              </div>
+              <div class="row main_filter_form_additional">
+                <div class="col-6 form_input">
+                  <%#= label_tag :engine_type, 'Двигатель' %>
+                  <%= select_tag :engine_type, options_for_select(['Бензиновый','Дизель']), class:'select2',prompt: 'Двигатель', :include_blank => true %>
+                </div>
+                <div class="col-6 form_input">
+                  <%#= label_tag :transmission, 'Коробка' %>
+                  <%= select_tag :transmission, options_for_select(['АТ','МТ']), class:'select2',prompt: 'Коробка', :include_blank => true %>
+                </div>
+
+                <%#<div class="main_filter_form_additional__tags">%>
+<!--                  <label class="main_filter_tag_checkbox">-->
+                    <%#= check_box_tag 'tag[]','Бензин' %>
+<!--                    <span class="checkmark">Бензин</span>-->
+<!--                  </label>-->
+<!--                  <label class="main_filter_tag_checkbox">-->
+                    <%#= check_box_tag 'tag[]','Дизель' %>
+<!--                    <span class="checkmark">Дизель</span>-->
+<!--                  </label>-->
+<!--                  <label class="main_filter_tag_checkbox">-->
+                    <%#= check_box_tag 'tag[]','АКПП' %>
+<!--                    <span class="checkmark">АКПП</span>-->
+<!--                  </label>-->
+<!--                  <label class="main_filter_tag_checkbox">-->
+                    <%#= check_box_tag 'tag[]','МКПП' %>
+<!--                    <span class="checkmark">МКПП</span>-->
+<!--                  </label>-->
+                <%# </div>%>
+                <div class="col-6 form_input main_carso_popup_form_inputs">
+                  <%= text_field_tag :price_min,'', placeholder:'Цена от', class:'input' %>
+                </div>
+                <div class="col-6 form_input main_carso_popup_form_inputs">
+                  <%= text_field_tag :price_max,'', placeholder:'Цена до', class:'input' %>
+                </div>
+
+              </div>
+              <div class="main_filter_form_submit">
+                <div class="btn-reset">
+                <%= f.submit 'Сбросить фильтр',class:'btn btn-reset',id:'reset_filter' %>
+                </div>
+                  <!-- <button type='button' class="" id="reset_filter">Сбросить фильтр</button>-->
+                <%= f.submit 'Подобрать авто', class:'btn btn-blue' %>
+              </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="main_catalog_page__content">
+          <%= render partial: 'carso/brands/brand_first_card', object: @newauto_brands.first, as: :brand %>
+          <%= render partial: 'carso/brands/brand_card', collection: @newauto_brands[1..-1], as: :brand %>
+      </div>
+    </div>
+  </div>
+  <div class="car_slider">
+    <div class="car_slider__car">
+      <div class="car_slider__car__wheel"></div>
+      <div class="car_slider__car__wheel"></div>
+    </div>
+  </div>
+  <div class="main_benefit">
+    <div class="main_benefit_leftbg">
+      <div class="main_benefit_leftbg__image"></div>
+    </div>
+    <div class="main_benefit_rightbg">
+      <div class="main_benefit_rightbg__image"></div>
+    </div>
+    <div class="main_benefit_content">
+      <div class="container">
+        <div class="main_benefit_content__title">Выгода</div>
+        <div class="main_benefit_content__value">до <span>500 000</span> р.</div>
+        <div class="main_benefit_content__subtitle">При покупке автомобиля в кредит</div>
+        <form class="main_benefit_content__form">
+          <div>
+            <input type="text" placeholder="ФИО">
+            <input name="telephone" type="tel" onpaste="return false;" placeholder="+7 (___) ___-__-__" pattern="\d*" autocomplete="on">
+          </div>
+          <button class="btn btn-white" type="submit">Получить выгоду</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="main_gifts">
+    <div class="container">
+      <div class="main_gifts_tabs_content mgtc__01">
+        <div class="main_gifts_content">
+          <div class="main_gifts_content__date">Только до <%= l(SALE_DATE, format: :next_monday) %>!</div>
+          <div class="main_gifts_content__title">Зимняя резина</div>
+          <div class="main_gifts_content__subtitle">В подарок!</div>
+          <div class="main_gifts_content__action">
+            <a href="#" class="btn btn-blue">Участвовать в акции</a>
+          </div>
+        </div>
+        <div class="main_gifts_images">
+          <div class="main_gifts_images__backimage lazy" data-bg="img/gifts_section_back_image_01.png"></div>
+          <div class="main_gifts_images__frontimage lazy" data-bg="img/gifts_section_front_image_01.png"></div>
+          <div class="main_gifts_images__smallimages_left lazy" data-bg="img/gifts_section_smallfront_left_01.png"></div>
+          <div class="main_gifts_images__smallimages_right lazy" data-bg="img/gifts_section_smallfront_right_01.png"></div>
+        </div>
+      </div>
+      <div class="main_gifts_tabs_content mgtc__02">
+        <div class="main_gifts_content">
+          <div class="main_gifts_content__date">Только до <%= l(SALE_DATE, format: :next_monday) %>!</div>
+          <div class="main_gifts_content__title">Страховка <br>КАСКО</div>
+          <div class="main_gifts_content__subtitle">В подарок!</div>
+          <div class="main_gifts_content__action">
+            <a href="#" class="btn btn-blue">Участвовать в акции</a>
+          </div>
+        </div>
+        <div class="main_gifts_images">
+          <div class="main_gifts_images__backimage lazy" data-bg="img/gifts_section_back_image_02.png"></div>
+          <div class="main_gifts_images__frontimage lazy" data-bg="img/gifts_section_front_image_02.png"></div>
+          <div class="main_gifts_images__smallimages_left lazy" data-bg="img/gifts_section_smallfront_left_02.png"></div>
+          <div class="main_gifts_images__smallimages_right lazy" data-bg="img/gifts_section_smallfront_right_02.png"></div>
+          <div class="main_gifts_images__smallimages_abs lazy" data-bg="img/gifts_section_smallfront_abs_02_01.png"></div>
+          <div class="main_gifts_images__smallimages_abs lazy" data-bg="img/gifts_section_smallfront_abs_02_02.png"></div>
+        </div>
+      </div>
+      <div class="main_gifts_tabs_content mgtc__03">
+        <div class="main_gifts_content">
+          <div class="main_gifts_content__date">Только до <%= l(SALE_DATE, format: :next_monday) %>!</div>
+          <div class="main_gifts_content__title">3 платежа <br>по кредиту</div>
+          <div class="main_gifts_content__subtitle">В подарок!</div>
+          <div class="main_gifts_content__action">
+            <a href="#" class="btn btn-blue">Участвовать в акции</a>
+          </div>
+        </div>
+        <div class="main_gifts_images">
+          <div class="main_gifts_images__backimage"></div>
+          <div class="main_gifts_images__frontimage lazy" data-bg="img/gifts_section_front_image_03.png"></div>
+          <div class="main_gifts_images__smallimages_left lazy" data-bg="img/gifts_section_smallfront_left_03.png"></div>
+          <div class="main_gifts_images__smallimages_right lazy" data-bg="img/gifts_section_smallfront_right_03.png"></div>
+        </div>
+      </div>
+      <div class="main_gifts_tabs_content mgtc__04">
+        <div class="main_gifts_content">
+          <div class="main_gifts_content__date">Только до <%= l(SALE_DATE, format: :next_monday) %>!</div>
+          <div class="main_gifts_content__title">200 литров топлива</div>
+          <div class="main_gifts_content__subtitle">В подарок!</div>
+          <div class="main_gifts_content__action">
+            <a href="#" class="btn btn-blue">Участвовать в акции</a>
+          </div>
+        </div>
+        <div class="main_gifts_images">
+          <div class="main_gifts_images__backimage lazy" data-bg="img/gifts_section_back_image_04.png"></div>
+          <div class="main_gifts_images__frontimage lazy" data-bg="img/gifts_section_front_image_04.png"></div>
+          <div class="main_gifts_images__smallimages_left lazy" data-bg="img/gifts_section_smallfront_left_04.png"></div>
+          <div class="main_gifts_images__smallimages_right lazy" data-bg="img/gifts_section_smallfront_right_04.png"></div>
+        </div>
+      </div>
+      <div class="main_gifts_tabs_nav">
+        <div class="main_gifts_tabs_nav__item">Зимняя резина <br><span>в подарок!</span></div>
+        <div class="main_gifts_tabs_nav__item">Страховка КАСКО <br><span>в подарок!</span></div>
+        <div class="main_gifts_tabs_nav__item">3 платежа по кредиту <br><span>в подарок!</span></div>
+        <div class="main_gifts_tabs_nav__item">200 литров топлива <br><span>в подарок!</span></div>
+      </div>
+    </div>
+    <svg height="0" width="0">
+      <defs>
+        <clipPath id="main_gifts_arrow_clip" clipPathUnits="userSpaceOnUse">
+          <path d="M0 131.063V0L352.257 212.415L700 0V140.103L352.257 348L0 131.063Z"/>
+        </clipPath>
+      </defs>
+    </svg>
+  </div>
+  <div class="main_help_find">
+    <div class="container">
+      <div class="main_help_find__title">Затрудняетесь с выбором автомобиля?</div>
+      <div class="main_help_find__subtitle">Мы вам поможем!</div>
+      <div class="main_help_find__clients" data-aos="fade-down" data-aos-duration="600" data-aos-delay="300" data-aos-once="true">Счастливых клиентов: <span>3 599</span></div>
+      <form class="main_help_find__form">
+        <div>
+          <input type="text" placeholder="ФИО">
+          <input name="telephone" type="tel" onpaste="return false;" placeholder="+7 (___) ___-__-__" pattern="\d*" autocomplete="on">
+        </div>
+        <button class="btn btn-blue" type="submit">Отправить запрос</button>
+      </form>
+    </div>
+  </div>
+  <div class="main_heading">
+    <div class="container">Отзывы клиентов <span>Авимоторс</span></div>
+  </div>
+  <div class="main_reviews">
+    <div class="container">
+      <div class="swiper main_reviews_slider">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="main_reviews_item">
+              <div class="main_reviews_item__photo lazy" data-bg="img/reviews_photo.png"></div>
+              <div class="main_reviews_item__content">
+                <div class="main_reviews_item__content__title">Елманова Марина Маихайловна</div>
+                <div class="main_reviews_item__content__description">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="main_reviews_item">
+              <div class="main_reviews_item__photo lazy" data-bg="img/reviews_photo.png"></div>
+              <div class="main_reviews_item__content">
+                <div class="main_reviews_item__content__title">Елманова Марина Маихайловна</div>
+                <div class="main_reviews_item__content__description">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="main_reviews_item">
+              <div class="main_reviews_item__photo lazy" data-bg="img/reviews_photo.png"></div>
+              <div class="main_reviews_item__content">
+                <div class="main_reviews_item__content__title">Елманова Марина Маихайловна</div>
+                <div class="main_reviews_item__content__description">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="main_reviews_item">
+              <div class="main_reviews_item__photo lazy" data-bg="img/reviews_photo.png"></div>
+              <div class="main_reviews_item__content">
+                <div class="main_reviews_item__content__title">Елманова Марина Маихайловна</div>
+                <div class="main_reviews_item__content__description">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="main_reviews_item">
+              <div class="main_reviews_item__photo lazy" data-bg="img/reviews_photo.png"></div>
+              <div class="main_reviews_item__content">
+                <div class="main_reviews_item__content__title">Елманова Марина Маихайловна</div>
+                <div class="main_reviews_item__content__description">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="main_reviews_item">
+              <div class="main_reviews_item__photo lazy" data-bg="img/reviews_photo.png"></div>
+              <div class="main_reviews_item__content">
+                <div class="main_reviews_item__content__title">Елманова Марина Маихайловна</div>
+                <div class="main_reviews_item__content__description">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main_reviews_slider_navigation">
+        <div class="swiper-button-prev swiper-button-prev--custom">
+          <svg width="30" height="52" viewBox="0 0 30 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M23.299 50.5227L1.02513 28.2489C-0.341707 26.882 -0.341707 24.6659 1.02513 23.2991L23.299 1.02525C24.6658 -0.341583 26.8819 -0.341583 28.2487 1.02525C29.6156 2.39208 29.6156 4.60816 28.2487 5.975L8.44975 25.774L28.2487 45.573C29.6156 46.9398 29.6156 49.1559 28.2487 50.5227C26.8819 51.8896 24.6658 51.8896 23.299 50.5227Z" fill="#9D9D9D"/>
+          </svg>
+        </div>
+        <div class="swiper-button-next swiper-button-next--custom">
+          <svg width="30" height="52" viewBox="0 0 30 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.97487 50.5227L28.2487 28.2489C29.6156 26.882 29.6156 24.6659 28.2487 23.2991L5.97487 1.02525C4.60804 -0.341583 2.39196 -0.341583 1.02513 1.02525C-0.341709 2.39208 -0.341709 4.60816 1.02513 5.975L20.8241 25.774L1.02513 45.573C-0.341709 46.9398 -0.341709 49.1559 1.02513 50.5227C2.39196 51.8896 4.60804 51.8896 5.97487 50.5227Z" fill="#9D9D9D"/>
+          </svg>
+        </div>
+      </div>
+      <div class="main_reviews_more">
+        <a href="#" class="btn btn-black">Все отзывы</a>
+      </div>
+    </div>
   </div>
 </div>

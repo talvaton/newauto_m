@@ -1,163 +1,241 @@
-<%
-  region = false
-  unless @current_region.id == 57
-    region = true
-  end
-%>
-
-<%
-  if @brand.new_cars.where(hide: 0, archive: 0).present?
-    ordered_cars = @brand.new_cars.where(hide: 0, archive: 0).min_price_ordered
-  else
-    ordered_cars = @brand.new_cars.min_price_ordered
-  end
-
-    min_price = ordered_cars[0].equipments.where(hide:0).minimum(:price)
-
-  if (ordered_cars[0].discount_count + @region_discount) < min_price*4/10
-    min_discount_e = ordered_cars[0].discount_count + @region_discount
-  else
-    min_discount_e = min_price*4/10
-  end
-
-  max_price = ordered_cars.last.equipments.where(hide:0).maximum(:price)
-
-  max_discount = ordered_cars.last.discount.to_i + ordered_cars.last.discount_tradein.to_i + ordered_cars.last.discount_credit.to_i + 50000 + 30000 +(max_price * 0.1).to_i
-
-  if (max_discount + @region_discount) < max_price*4/10
-    max_discount_e = max_discount + @region_discount
-  else
-    max_discount_e = max_price*4/10
-  end
-%>
-
-
-
-<% t_mos = "Купить #{@brand.menutitle} в #{@current_region.sklon3} 🚗 цена на новый #{@brand.title} #{Time.current.year.to_s} в автосалоне у официального дилера — автосалон «Авимоторс»" %>
-<% t_reg = "Купить #{@brand.menutitle} в #{@current_region.sklon3}, комплектации и цены #{(Time.current - 1.year).year.to_s + '-' + Time.current.year.to_s} на #{@brand.title} у официального дилера, весь модельный ряд в автосалоне — автосалон «Авимоторс»" %>
-<% d_mos = "🚘 Каталог новых автомобилей #{@brand.title} у официального дилера в #{@current_region.sklon3} — Авимоторс 🚙 Модельный ряд и цены на #{@brand.menutitle} #{Time.current.year.to_s} года ❗ Скидки до #{number_with_delimiter(max_discount_e, delimiter: " ")} руб. 🎁 Подарки при покупке! ☎️ 8 (800) 707-53-51. — автосалон «Авимоторс»" %>
-<% d_reg = "Купить #{@brand.menutitle} в автосалоне 🚘 Trade-in ✅ Рассрочка 0% ✅ Экспресс кредит от 1.9% ✅ Цены и Комплектации ✅ Весь модельный ряд #{@brand.title} у официального дилера в #{@current_region.sklon3} 🎁 Бонусы и Подарки! — автосалон «Авимоторс»" %>
-
-
-<% unless region %>
-  <% provide :title,t_mos %>
-  <% provide :description,d_mos %>
-<% else %>
-  <% provide :title,t_reg %>
-  <% provide :description,d_reg %>
-<% end %>
-
-<%
-  #  if @brand.new_cars.where(hide: 0, archive: 0).present?
-  #    brand_img = @brand.new_cars.where(hide: 0, archive: 0).order(images: :desc)[0].images[0].large.url
-  #  else
-  #    brand_img = @brand.new_cars.where(hide: 0, archive: 1).order(images: :desc)[0].images[0].large.url
-  #  end
-%>
-
-
-<%
-  modelsCount = NewCar.where(brand_id: @brand.id, hide: 0, archive: 0).length;
-%>
-
-<section class="main-cont">
-
-  <section class="main-gifts">
-    <section class="main-gifts-cont">
-      <div class="main-gifts-item">
-        <div class="main-gifts-img umbrella">
-
+<div id="main">
+  <div class="main_catalog_heading main_catalog_heading--first without_lines">
+    <div class="container">
+      <div class="main_catalog_heading_content">
+        <div class="main_catalog_heading_content__icon">
+          <%#<img class="lazy" data-src="img/catalog_mark_icon.png" alt="Выберите ваш новый автомобиль LADA в автоцентре Авимоторс" src="img/lazy_placeholder.png">%>
         </div>
-        <div class="main-gifts-title snowflake">
-          Каско
-        </div>
-        <div class="main-gifts-text train">
-          покупателю в подарок
-        </div>
-      </div>
-      <div class="main-gifts-item">
-        <div class="main-gifts-img snowflake">
-
-        </div>
-        <div class="main-gifts-title">
-          Зимняя резина
-        </div>
-        <div class="main-gifts-text">
-          в подарок с автомобилем
-        </div>
-      </div>
-      <div class="main-gifts-item">
-        <div class="main-gifts-img train">
-
-        </div>
-        <div class="main-gifts-title">
-          Оплата проезда
-        </div>
-        <div class="main-gifts-text">
-          покупателя до автосалона
-        </div>
-      </div>
-    </section>
-  </section>
-
-
-
-  <section class="main-brand">
-    <section class="main-title-wrap">
-      <div class="main-title">
-        <div class="main-title-text">
-          Модельный ряд <%= @brand.title %>
-        </div>
-      </div>
-    </section>
-
-  </section>
-
-
-
-
-
-
-
-  <% if @brand.new_cars.where(hide: 0, archive: 0).present? %>
-    <% brand_car_types = NewCar.where(brand_id: @brand.id,hide: 0, archive: 0).distinct.pluck(:car_type) %>
-    <% brand_car_types.each do |t| %>
-
-      <div class="main-brand-item-cont">
-
-          <%= render partial:'new_cars/new_cars_brand', collection: @brand.new_cars.where(hide: 0, archive: 0, car_type: t).min_price_ordered %>
-
-      </div>
-      <% end %>
-  <% end %>
-
-
-
-
-
-
-  <section class="main-pic-list">
-    <div class="main-pic-list-cont">
-      <div class="main-pic-list-item img-1 casko">
-        <div class="main-pic-list-date">
-          <div class="main-pic-list-date-item">Каско</div>
-          <div class="main-pic-list-date-item">в подарок!</div>
-        </div>
-      </div>
-      <div class="main-pic-list-item img-2 gos">
-        <div class="main-pic-list-date">
-          <div class="main-pic-list-date-item">Госпрограмма</div>
-          <div class="main-pic-list-date-item">первый авто</div>
-          <div class="main-pic-list-date-item">Семейный авто</div>
-        </div>
-      </div>
-      <div class="main-pic-list-item img-3 pay_three">
-        <div class="main-pic-list-date">
-          <div class="main-pic-list-date-item">3</div>
-          <div class="main-pic-list-date-item">Платежа</div>
-          <div class="main-pic-list-date-item">за наш счёт</div>
-        </div>
+        <div class="main_catalog_heading_content__title"><%= @brand.title %></div>
       </div>
     </div>
-  </section>
-</section>
+  </div>
+  <div class="main_catalog_count">
+    <%#<div class="container">
+      <div class="main_catalog_count__data" data-aos="fade-down" data-aos-duration="600" data-aos-delay="300">В наличии: <span>115 авто</span></div>
+    </div>%>
+  </div>
+  <div class="main_catalog">
+    <div class="container">
+      <div class="row">
+        <% if @brand.new_cars.where(hide: 0, archive: 0).present? %>
+          <% brand_car_types = NewCar.where(brand_id: @brand.id,hide: 0, archive: 0).distinct.pluck(:car_type) %>
+          <% brand_car_types.each do |t| %>
+            <%= render partial:'new_cars/new_cars_brand', collection: @brand.new_cars.where(hide: 0, archive: 0, car_type: t).min_price_ordered %>
+           <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="car_slider">
+    <div class="car_slider__car">
+      <div class="car_slider__car__wheel"></div>
+      <div class="car_slider__car__wheel"></div>
+    </div>
+  </div>
+  <div class="main_benefit">
+    <div class="main_benefit_leftbg">
+      <div class="main_benefit_leftbg__image"></div>
+    </div>
+    <div class="main_benefit_rightbg">
+      <div class="main_benefit_rightbg__image"></div>
+    </div>
+    <div class="main_benefit_content">
+      <div class="container">
+        <div class="main_benefit_content__title">Выгода</div>
+        <div class="main_benefit_content__value">до <span>500 000</span> р.</div>
+        <div class="main_benefit_content__subtitle">При покупке автомобиля в кредит</div>
+
+        <%= form_for Ticket.new,url: {action:"create",controller:"tickets" },remote:true,validate:true,:html => {:class => "main_benefit_content__form",:name=>"newcarreq"},:namespace => "newcarreq" do |f| %>
+          <%= hidden_field_tag 'ticket[other][model]',@brand.id, id:'main_help_find__form' %>
+          <%= f.hidden_field :form_name, value:"express" %>
+          <div>
+            <%= f.text_field :name,class:"input",placeholder:"ФИО" %>
+            <%= f.phone_field :phone,class:"input",data:{:role=>"phone"},placeholder:"+7 (___) ___-__-__" %>
+          </div>
+          <%= f.button class: "btn btn-white" do %>Получить выгоду<% end %>
+          <%# end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="main_gifts">
+    <div class="container">
+      <div class="main_gifts_tabs_content mgtc__01">
+        <div class="main_gifts_content">
+          <div class="main_gifts_content__date">Только до <%= l(SALE_DATE, format: :next_monday) %>!</div>
+          <div class="main_gifts_content__title">Зимняя резина</div>
+          <div class="main_gifts_content__subtitle">В подарок!</div>
+          <div class="main_gifts_content__action">
+            <a href="#" class="btn btn-blue gifts_popup">Участвовать в акции</a>
+          </div>
+        </div>
+        <div class="main_gifts_images">
+          <div class="main_gifts_images__backimage lazy" data-bg="img/gifts_section_back_image_01.png"></div>
+          <div class="main_gifts_images__frontimage lazy" data-bg="img/gifts_section_front_image_01.png"></div>
+          <div class="main_gifts_images__smallimages_left lazy" data-bg="img/gifts_section_smallfront_left_01.png"></div>
+          <div class="main_gifts_images__smallimages_right lazy" data-bg="img/gifts_section_smallfront_right_01.png"></div>
+        </div>
+      </div>
+      <div class="main_gifts_tabs_content mgtc__02">
+        <div class="main_gifts_content">
+          <div class="main_gifts_content__date">Только до <%= l(SALE_DATE, format: :next_monday) %>!</div>
+          <div class="main_gifts_content__title">Страховка <br>КАСКО</div>
+          <div class="main_gifts_content__subtitle">В подарок!</div>
+          <div class="main_gifts_content__action">
+            <a href="#" class="btn btn-blue gifts_popup">Участвовать в акции</a>
+          </div>
+        </div>
+        <div class="main_gifts_images">
+          <div class="main_gifts_images__backimage lazy" data-bg="img/gifts_section_back_image_02.png"></div>
+          <div class="main_gifts_images__frontimage lazy" data-bg="img/gifts_section_front_image_02.png"></div>
+          <div class="main_gifts_images__smallimages_left lazy" data-bg="img/gifts_section_smallfront_left_02.png"></div>
+          <div class="main_gifts_images__smallimages_right lazy" data-bg="img/gifts_section_smallfront_right_02.png"></div>
+          <div class="main_gifts_images__smallimages_abs lazy" data-bg="img/gifts_section_smallfront_abs_02_01.png"></div>
+          <div class="main_gifts_images__smallimages_abs lazy" data-bg="img/gifts_section_smallfront_abs_02_02.png"></div>
+        </div>
+      </div>
+      <div class="main_gifts_tabs_content mgtc__03">
+        <div class="main_gifts_content">
+          <div class="main_gifts_content__date">Только до <%= l(SALE_DATE, format: :next_monday) %>!</div>
+          <div class="main_gifts_content__title">3 платежа <br>по кредиту</div>
+          <div class="main_gifts_content__subtitle">В подарок!</div>
+          <div class="main_gifts_content__action">
+            <a href="#" class="btn btn-blue gifts_popup">Участвовать в акции</a>
+          </div>
+        </div>
+        <div class="main_gifts_images">
+          <div class="main_gifts_images__backimage"></div>
+          <div class="main_gifts_images__frontimage lazy" data-bg="img/gifts_section_front_image_03.png"></div>
+          <div class="main_gifts_images__smallimages_left lazy" data-bg="img/gifts_section_smallfront_left_03.png"></div>
+          <div class="main_gifts_images__smallimages_right lazy" data-bg="img/gifts_section_smallfront_right_03.png"></div>
+        </div>
+      </div>
+      <div class="main_gifts_tabs_content mgtc__04">
+        <div class="main_gifts_content">
+          <div class="main_gifts_content__date">Только до <%= l(SALE_DATE, format: :next_monday) %>!</div>
+          <div class="main_gifts_content__title">200 литров топлива</div>
+          <div class="main_gifts_content__subtitle">В подарок!</div>
+          <div class="main_gifts_content__action">
+            <a href="#" class="btn btn-blue gifts_popup">Участвовать в акции</a>
+          </div>
+        </div>
+        <div class="main_gifts_images">
+          <div class="main_gifts_images__backimage lazy" data-bg="img/gifts_section_back_image_04.png"></div>
+          <div class="main_gifts_images__frontimage lazy" data-bg="img/gifts_section_front_image_04.png"></div>
+          <div class="main_gifts_images__smallimages_left lazy" data-bg="img/gifts_section_smallfront_left_04.png"></div>
+          <div class="main_gifts_images__smallimages_right lazy" data-bg="img/gifts_section_smallfront_right_04.png"></div>
+        </div>
+      </div>
+      <div class="main_gifts_tabs_nav">
+        <div class="main_gifts_tabs_nav__item">Зимняя резина <br><span>в подарок!</span></div>
+        <div class="main_gifts_tabs_nav__item">Страховка КАСКО <br><span>в подарок!</span></div>
+        <div class="main_gifts_tabs_nav__item">3 платежа по кредиту <br><span>в подарок!</span></div>
+        <div class="main_gifts_tabs_nav__item">200 литров топлива <br><span>в подарок!</span></div>
+      </div>
+    </div>
+    <svg height="0" width="0">
+      <defs>
+        <clipPath id="main_gifts_arrow_clip" clipPathUnits="userSpaceOnUse">
+          <path d="M0 131.063V0L352.257 212.415L700 0V140.103L352.257 348L0 131.063Z"/>
+        </clipPath>
+      </defs>
+    </svg>
+  </div>
+  <div class="main_help_find">
+    <div class="container">
+      <div class="main_help_find__title">Затрудняетесь с выбором автомобиля?</div>
+      <div class="main_help_find__subtitle">Мы вам поможем!</div>
+      <div class="main_help_find__clients" data-aos="fade-down" data-aos-duration="600" data-aos-delay="300" data-aos-once="true">Счастливых клиентов: <span>3 599</span></div>
+      <%= form_for Ticket.new,url: {action:"create",controller:"tickets" },remote:true,validate:true,:html => {:class => "main_help_find__form",:name=>"newcarreq"},:namespace => "newcarreq" do |f| %>
+        <%= hidden_field_tag 'ticket[other][model]',@brand.id, id:'main_help_find__form' %>
+        <%= f.hidden_field :form_name, value:"express" %>
+        <div>
+          <%= f.text_field :name,class:"input",placeholder:"ФИО" %>
+          <%= f.phone_field :phone,class:"input",data:{:role=>"phone"},placeholder:"+7 (___) ___-__-__" %>
+        </div>
+          <%= f.button class: "btn btn-blue" do %>Отправить запрос<% end %>
+        <%# end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="main_heading">
+    <div class="container">Отзывы клиентов <span>Авимоторс</span></div>
+  </div>
+  <div class="main_reviews">
+    <div class="container">
+      <div class="swiper main_reviews_slider">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="main_reviews_item">
+              <div class="main_reviews_item__photo lazy" data-bg="img/reviews_photo.png"></div>
+              <div class="main_reviews_item__content">
+                <div class="main_reviews_item__content__title">Елманова Марина Маихайловна</div>
+                <div class="main_reviews_item__content__description">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="main_reviews_item">
+              <div class="main_reviews_item__photo lazy" data-bg="img/reviews_photo.png"></div>
+              <div class="main_reviews_item__content">
+                <div class="main_reviews_item__content__title">Елманова Марина Маихайловна</div>
+                <div class="main_reviews_item__content__description">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="main_reviews_item">
+              <div class="main_reviews_item__photo lazy" data-bg="img/reviews_photo.png"></div>
+              <div class="main_reviews_item__content">
+                <div class="main_reviews_item__content__title">Елманова Марина Маихайловна</div>
+                <div class="main_reviews_item__content__description">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="main_reviews_item">
+              <div class="main_reviews_item__photo lazy" data-bg="img/reviews_photo.png"></div>
+              <div class="main_reviews_item__content">
+                <div class="main_reviews_item__content__title">Елманова Марина Маихайловна</div>
+                <div class="main_reviews_item__content__description">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="main_reviews_item">
+              <div class="main_reviews_item__photo lazy" data-bg="img/reviews_photo.png"></div>
+              <div class="main_reviews_item__content">
+                <div class="main_reviews_item__content__title">Елманова Марина Маихайловна</div>
+                <div class="main_reviews_item__content__description">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="main_reviews_item">
+              <div class="main_reviews_item__photo lazy" data-bg="img/reviews_photo.png"></div>
+              <div class="main_reviews_item__content">
+                <div class="main_reviews_item__content__title">Елманова Марина Маихайловна</div>
+                <div class="main_reviews_item__content__description">Приехали в автосалон, встретили менеджера Алексея, помог в выборе автомобиля, нам сделали скидку, подарили подарки. Покупкой очень довольны.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main_reviews_slider_navigation">
+        <div class="swiper-button-prev swiper-button-prev--custom">
+          <svg width="30" height="52" viewBox="0 0 30 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M23.299 50.5227L1.02513 28.2489C-0.341707 26.882 -0.341707 24.6659 1.02513 23.2991L23.299 1.02525C24.6658 -0.341583 26.8819 -0.341583 28.2487 1.02525C29.6156 2.39208 29.6156 4.60816 28.2487 5.975L8.44975 25.774L28.2487 45.573C29.6156 46.9398 29.6156 49.1559 28.2487 50.5227C26.8819 51.8896 24.6658 51.8896 23.299 50.5227Z" fill="#9D9D9D"/>
+          </svg>
+        </div>
+        <div class="swiper-button-next swiper-button-next--custom">
+          <svg width="30" height="52" viewBox="0 0 30 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.97487 50.5227L28.2487 28.2489C29.6156 26.882 29.6156 24.6659 28.2487 23.2991L5.97487 1.02525C4.60804 -0.341583 2.39196 -0.341583 1.02513 1.02525C-0.341709 2.39208 -0.341709 4.60816 1.02513 5.975L20.8241 25.774L1.02513 45.573C-0.341709 46.9398 -0.341709 49.1559 1.02513 50.5227C2.39196 51.8896 4.60804 51.8896 5.97487 50.5227Z" fill="#9D9D9D"/>
+          </svg>
+        </div>
+      </div>
+      <div class="main_reviews_more">
+        <a href="/reviews" class="btn btn-black">Все отзывы</a>
+      </div>
+    </div>
+  </div>
+</div>

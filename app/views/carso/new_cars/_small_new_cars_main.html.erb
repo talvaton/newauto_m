@@ -29,26 +29,24 @@
   end
 %>
 
-
-
-<div class="main-brand-item">
-  <%= link_to (taxi ? new_car_taxi_path("#{small_new_cars_main.brand.url}-#{ small_new_cars_main.url}") : new_car_path(small_new_cars_main.brand.url,small_new_cars_main.url)  ) do %>
-  <div class="main-brand-img-wrap">
-    <div class="main-brand-img">
-      <% if small_new_cars_main.colors[0].present? %>
-        <%= image_tag small_new_cars_main.colors[0].card.url, alt: '' %>
+<div class="col-3">
+  <div class="main_catalog_item">
+    <%= link_to (taxi ? new_car_taxi_path("#{small_new_cars_main.brand.url}-#{ small_new_cars_main.url}") : new_car_path(small_new_cars_main.brand.url,small_new_cars_main.url)  ), class:"main_catalog_item__baselink" do %>
+      <div class="main_catalog_item__name"><%= small_new_cars_main.brand.title %> <%= small_new_cars_main.name %></div>
+      <%#=<div class="main_catalog_item__count">Осталось в наличиии: <span>13 авто</span></div>%>
+      <div class="main_catalog_item__preview">
+        <%# if small_new_cars_main.colors[0].present? %>
+          <%= image_tag small_new_cars_main.colors[0].card.url, alt: '',class:'' %>
+        <%# end %>
+      </div>
+      <div class="main_catalog_item__price">от <b><span <%= credit ? "data-price=#{snc_price}" : '' %>><%= number_with_delimiter((credit ? count_price(snc_price,PERCENT,MONTH):snc_price  ), delimiter: " ") %></span> руб.</b></div>
+      <div class="main_catalog_item__discountprice">Цена без скидки: <span><%= number_with_delimiter(small_new_cars_main.equipments.where(hide:0).minimum(:price), delimiter: " ") %> руб.</span></div>
+      <div class="main_catalog_item__mouthprice">от <b><span><%= number_with_delimiter(count_price(snc_price,PERCENT,MONTH)) %></span> руб.</b> в месяц</div>
+    <% end %>
+    <div class="main_catalog_item__action">
+      <%= link_to (taxi ? new_car_taxi_path("#{small_new_cars_main.brand.url}-#{ small_new_cars_main.url}") : new_car_path(small_new_cars_main.brand.url,small_new_cars_main.url)  ), class:"btn btn-blue" do %>
+       Подробнее
       <% end %>
     </div>
   </div>
-  <div class="main-brand-price-text">
-    <div class="main-brand-model"><%= small_new_cars_main.brand.title %> <%= small_new_cars_main.name %></div>
-    <div class="main-brand-price-cont">
-      <div class="main-brand-price">
-        <div class="main-price-month">
-          <span class="main-price-month_green"><%= credit ? "data-price=#{snc_price}" : '' %> <%= number_with_delimiter((credit ? count_price(snc_price,PERCENT,MONTH):snc_price  ), delimiter: " ") %> ₽</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <% end %>
 </div>
