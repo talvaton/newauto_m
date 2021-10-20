@@ -283,13 +283,13 @@
       <p class="singlecar__form-text">Ваша выгода до</p>
       <%
         max_price_e = @car.equipments.where(hide:0).order(price: :desc).first
-        if (@car.discount_count(max_price_e) + @region_discount) < max_price_e.price*4/10
-          max_discount_e = @car.discount_count(max_price_e) + @region_discount
+        if (@car.discount_count + @region_discount) < max_price_e.price*4/10
+          max_discount_e = @car.discount_count + @region_discount
         else
           max_discount_e = max_price_e.price*4/10
         end
       %>
-      <span class="singlecar__form-discount" id="discount" data-real-discount="<%=@car.discount_count(max_price_e) + @region_discount %>">
+      <span class="singlecar__form-discount" id="discount" data-real-discount="<%=@car.discount_count + @region_discount %>">
       <%= "#{number_with_delimiter(max_discount_e,delimeter:' ')}" %> &#8381;
     </span>
       <p class="singlecar__form-text">Получите скидку на покупку

@@ -29,15 +29,16 @@ class NewCar < ApplicationRecord
     end
   end
 
-  def discount_count(e = self.equipments.where('equipment.hide = FALSE').order(price: :asc).first)
+  def discount_count
     #self.discount.to_i + self.discount_tradein_3.to_i + self.discount_credit_3.to_i + 50000 + 30000 +(e.price * 0.1).to_i
-    self.discount_3.to_i + self.discount_tradein_3.to_i + self.discount_credit_3.to_i + 40000
+    # self.discount_3.to_i + self.discount_tradein_3.to_i + self.discount_credit_3.to_i + 40000
+    self.discount_settings['autosalon']['discount'].to_i + self.discount_settings['autosalon']['tradein'].to_i + self.discount_settings['autosalon']['credit'].to_i + 40000
   end
 
   def count_price(e = self.equipments.where('`equipment`.`hide` = ?', 0).minimum(:price),reg_discount = 0)
     price = e
     #discount = self.discount.to_i + self.discount_tradein_3.to_i + self.discount_credit_3.to_i + 50000 + 30000 + (e * 0.1).to_i
-    discount = self.discount_3.to_i + self.discount_tradein_3.to_i + self.discount_credit_3.to_i + 40000
+    discount = self.discount_settings['autosalon']['discount'].to_i + self.discount_settings['autosalon']['tradein'].to_i + self.discount_settings['autosalon']['credit'].to_i + 40000
     if (discount + reg_discount) < price * 4/10
       min_discount_e = discount + reg_discount
     else
@@ -100,7 +101,7 @@ class NewCar < ApplicationRecord
   end
 
   scope :price_range, -> (range_lower,range_upper) do
-    select('(min(equipment.price) - `new_cars`.`discount_3` - `new_cars`.`discount_credit_3` - `new_cars`.`discount_tradein_3` - 30000) as min_price,`new_cars`.*')
+    select('(min(equipment.price) - `new_cars`.`discount_settings` -> "$.newauto.discount" - `new_cars`.`discount_settings` -> "$.newauto.credit" - `new_cars`.`discount_settings` -> "$.newauto.tradein" - 40000) as min_price,`new_cars`.*')
         .joins(:equipments).where('new_cars.hide = ?', 0).where('equipment.hide = ?', 0)
     .group('new_cars.id')
     .having('(min_price) BETWEEN (' + range_lower.to_s + ') AND (' + range_upper.to_s + ')')

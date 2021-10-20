@@ -1,6 +1,6 @@
 <% max_price_e = show_filter
-   if (@car.discount_count(max_price_e) + @region_discount) < max_price_e.price*4/10
-     max_discount_e = @car.discount_count(max_price_e) + @region_discount
+   if (@car.discount_count + @region_discount) < max_price_e.price*4/10
+     max_discount_e = @car.discount_count + @region_discount
    else
      max_discount_e = max_price_e.price*4/10
    end

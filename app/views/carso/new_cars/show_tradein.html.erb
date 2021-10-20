@@ -1,6 +1,6 @@
 <% max_price_e = @car.equipments.where(hide:0).order(price: :desc).first
-  if (@car.discount_count(max_price_e) + @region_discount) < max_price_e.price*4/10
-    max_discount_e = @car.discount_count(max_price_e) + @region_discount
+  if (@car.discount_count + @region_discount) < max_price_e.price*4/10
+    max_discount_e = @car.discount_count + @region_discount
   else
     max_discount_e = max_price_e.price*4/10
   end
@@ -171,7 +171,7 @@
     <div class="form_block credit">
       <span class="fprm_gos_pa">Госпрограмма -10%</span>
       <% unless @car.available %>
-        <span class="singlecar__form-discount" id="discount" data-real-discount="<%=@car.discount_count(max_price_e) + @region_discount %>">
+        <span class="singlecar__form-discount" id="discount" data-real-discount="<%=@car.discount_count + @region_discount %>">
           Скоро в продаже
         </span>
       <% else %>
@@ -291,9 +291,9 @@
                   <tr class="compl_gr_title"><td><% if cs.volume.present? %><%= "#{(cs.volume / 1000.to_f).round(1)} л. #{cs.drive == 'Полный' ? '4WD' : '2WD'} "%> <% end %> <% "#{cs.shorttransmission}" %></td></tr>
                   <% cs.equipment.where('`equipment`.`hide` = 0').order(:price).each_with_index do |e,index| %>
                     <%
-                      real_discount = @car.discount_count(e) + @region_discount
-                      if (@car.discount_count(e) + @region_discount) < e.price*4/10
-                        max_discount = @car.discount_count(e) + @region_discount
+                      real_discount = @car.discount_count + @region_discount
+                      if (@car.discount_count + @region_discount) < e.price*4/10
+                        max_discount = @car.discount_count + @region_discount
                       else
                         max_discount = e.price*4/10
                       end
@@ -440,7 +440,7 @@
       <div class="total__discount">
         <span>Сумма скидки:</span>
         <div class="row discount-pr-w">
-          <div id="discount-counted" data-real-discount="<%=@car.discount_count(max_price_e) + @region_discount %>" class="redtext"><%= "#{number_with_delimiter(max_discount_e,delimeter:' ')}" %></div>
+          <div id="discount-counted" data-real-discount="<%=@car.discount_count + @region_discount %>" class="redtext"><%= "#{number_with_delimiter(max_discount_e,delimeter:' ')}" %></div>
           <div class="discount-r">&nbsp;₽</div>
         </div>
       </div>
@@ -513,8 +513,8 @@
                       <% end %>
 
                       <%
-                      if (@car.discount_count(e) + @region_discount) < e.price*4/10
-                      e_discount = @car.discount_count(e) + @region_discount
+                      if (@car.discount_count + @region_discount) < e.price*4/10
+                      e_discount = @car.discount_count + @region_discount
                       else
                       e_discount = e.price*4/10
                       end
