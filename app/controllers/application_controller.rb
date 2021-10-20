@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
 
   def load_brands
     # allowed_ids = [4,10,13,14,15,16,18,21,22,23,25,26,27,28,32,36]
-    @brands = Brand.where(id: ALLOWED_BRANDS).where(menu_show: true).order(:title)
+    @brands = Brand.where("hide_settings -> '$.newauto' = ?", "false").where(menu_show: true).order(:title)
   end
 
   def load_hit
