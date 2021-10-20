@@ -1,6 +1,6 @@
 <% max_price_e = @car.equipments.where(hide:0).order(price: :desc).first
-   if (@car.discount_count(max_price_e) + @region_discount) < max_price_e.price*4/10
-     max_discount_e = @car.discount_count(max_price_e) + @region_discount
+   if (@car.discount_count + @region_discount) < max_price_e.price*4/10
+     max_discount_e = @car.discount_count + @region_discount
    else
      max_discount_e = max_price_e.price*4/10
    end
@@ -122,7 +122,7 @@
 
     <div class="">
       <p class="modal__inner-pricetext">Позвоните сейчас и узнайте как получить скидку до</p>
-      <span class="modal__inner-price" id="modal-discount" data-real-discount="<%=@car.discount_count(max_price_e) + @region_discount %>">
+      <span class="modal__inner-price" id="modal-discount" data-real-discount="<%= @car.discount_count + @region_discount %>">
         <%= "#{number_with_delimiter(max_discount_e,delimeter:' ')}" %> ₽
       </span>
     </div>

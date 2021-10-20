@@ -35,8 +35,8 @@
         <li class="singlecar__common-item">
           <span class="singlecar__common-item-text">Новая цена</span>
           <%
-            if (@car.discount_count(@equip) + @region_discount) < @equip.price*4/10
-              discount = @car.discount_count(@equip) + @region_discount
+            if (@car.discount_count + @region_discount) < @equip.price*4/10
+              discount = @car.discount_count + @region_discount
             else
               discount = @equip.price*4/10
             end

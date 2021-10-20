@@ -1,4 +1,4 @@
 "ID",Item title,Final URL,Image URL,Item category,Price,Sale price
-<% @new.where(hide: 0).each do |new_car| %>
+<% @newcars.where(hide: 0).each do |new_car| %>
 <%= "#{new_car.id}" %>,<%= new_car.menutitle %> в <%= @current_region.sklon3 %>,<%= request.base_url %>/<%= new_car.brand.url %>/<%= new_car.url %>,<% if new_car.colors.first.present? %><%= request.base_url %><%= new_car.colors.first.url %><% end %>,<%= new_car.car_type %>,"<%= new_car.equipments.where(hide:false).minimum(:price) %> RUB","<%= new_car.equipments.where(hide:false).minimum(:price) - new_car.discount_count %> RUB"
 <% end %>

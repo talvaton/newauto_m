@@ -7,9 +7,9 @@
         <div class="" id="filter-results">
           <% equipments.each do |e| %>
             <%
-              real_discount = @car.discount_count(e) + @region_discount
-              if (@car.discount_count(e) + @region_discount) < e.price*4/10
-                max_discount = @car.discount_count(e) + @region_discount
+              real_discount = @car.discount_count + @region_discount
+              if (@car.discount_count + @region_discount) < e.price*4/10
+                max_discount = @car.discount_count + @region_discount
               else
                 max_discount = e.price*4/10
               end

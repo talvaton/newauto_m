@@ -490,7 +490,7 @@ class NewCarsController < ApplicationController
   def print_equipment_id
     @e = Equipment.find(params['equip_id'])
     @car = NewCar.find_by url: params['car_url']
-    @real_discount = @car.discount_count(@e) + @region_discount
+    @real_discount = @car.discount_count + @region_discount
     respond_to do |format|
       format.html
       format.pdf do
