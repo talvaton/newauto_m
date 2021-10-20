@@ -337,6 +337,7 @@ Rails.application.routes.draw do
       get '/feeds/csv-google.csv' => 'feeds#csv_google',format: 'csv'
       get '/feeds/xml-target' => 'feeds#xml_target',format: 'xml'
       get '/feeds/yandex-feed-export' => 'feeds#xml_yandex',format: 'xml'
+      get '/feeds/yandex-feed-export-clone' => 'feeds#xml_yandex_clone',format: 'xml'
       get '/feeds/vk-feed-export' => 'feeds#xml_vk',format: 'xml'
 
   # Static pages

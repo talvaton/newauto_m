@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<yml_catalog date="2020-11-22T14:37:38+03:00">
+    <shop>
+        <name>Карсо</name>
+        <company>Карсо</company>
+        <url>https://www.carso.ru</url>
+        <currencies>
+            <currency id="RUR" rate="1"/>
+        </currencies>
+        <categories>
+             <% @brands.where(hide:false).each do |brand| %>
+               <category id="<%= brand.id %>" parentId="10003"><%= brand.title %></category>
+             <% end %>
+        </categories>
+        <offers>
+         <% @newcars.where(hide:false).each do |new_car| %>
+         <% e = new_car.equipments.where(hide:false).order(:price).first %>
+            <offer id="<%= new_car.id %>" available="true">
+                <name><%= new_car.menutitle %></name>
+                <categoryId><%= new_car.brand.id %></categoryId>
+                <url><%= request.base_url %>/<%= new_car.brand.url %>/<%= new_car.url %></url>
+                <picture><% if new_car.colors[0].present? %><%= request.base_url %><%= new_car.colors[0].feed.url %><% end %></picture>
+                <description> </description>
+                <price><%= e.price - new_car.discount_count %></price>
+                <currencyId>RUR</currencyId>
+            </offer>
+         <% end %>
+        </offers>
+    </shop>
+</yml_catalog>
