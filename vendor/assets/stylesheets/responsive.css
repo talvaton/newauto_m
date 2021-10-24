@@ -720,7 +720,7 @@
     display: block;
     width: 55px;
     height: 4px;
-    background: #D7AD48;
+    background: #00a3ff;
     margin: 4px 0;
     border-radius: 20px;
     -webkit-transition: all 0.22s ease;
@@ -790,7 +790,7 @@
   .mobile-menu.jw-visible {pointer-events: auto;left: 0;opacity: 1;}
 
   .mobile-header__logo svg path {
-    fill: #D7AD48;
+    fill: #00a3ff;
   }
 
   .mobile-header__logo svg {
@@ -1302,11 +1302,11 @@
   }
 
   .model_page_options_col:nth-of-type(4) {
-    display: none;
+    width: 50%;
   }
 
   .model_page_options_col:nth-of-type(6) {
-    display: none;
+    width: 100%;
   }
 
   .model_page_options_col:nth-of-type(1) {
@@ -1337,7 +1337,7 @@
   }
 
   .model_page_options_col:nth-of-type(5) {
-    width: 100%;
+    display: none;
   }
 
   .mpoc_actions {
@@ -1379,7 +1379,7 @@
   }
 
   .mpoc_name__data {
-    font-size: 11px;
+    font-size: 12px;
   }
 
   .model_page_options_item {
@@ -1527,432 +1527,439 @@
     right: -3%;
   }
 
-  .main_carso_popup:after {
+  .model_page_options_col:nth-of-type(7) {
     display: none;
   }
 
-  .main_carso_popup_form_inner {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
+  #tradein_popup {
+    width: 375px;
+    height: auto;
+    background-image: url(/img/tradein_popup_bg--mobile.png);
+    background-position: center top 50px;
+    background-size: unset;
+    background-repeat: no-repeat;
   }
 
-  .main_carso_popup_form__images {
-    position: relative;
-    background: #fff;
-    width: 100%;
-    height: 195px;
-    -webkit-box-ordinal-group: 2;
-    -ms-flex-order: 1;
-    order: 1;
-    border-radius: 20px;
-    margin-bottom: 20px;
-  }
-
-  .mcpfi_image {background-size: 200px;}
-
-  .special_credit_text {
-    -webkit-box-ordinal-group: 3;
-    -ms-flex-order: 2;
-    order: 2;
+  .main_popup__title {
+    font-size: 28px;
     text-align: center;
   }
 
-  #special_credit .mcpfi_image:first-child {
-    background-size: 156px;
-    background-position: center;
+  .tradein_popup_text {
+    text-align: center;
+    margin: 265px 0 30px;
   }
 
-  .special_credit_text br {
-    display: none;
-  }
-
-  .main_carso_popup {
-    min-width: auto;
-    padding: 20px;
-  }
-
-  .special_credit_text__title {
-    font-size: 25px;
-  }
-
-  .special_credit_text__subtitle {
-    font-size: 20px;
-    margin-bottom: 30px;
-  }
-
-  .main_carso_popup_form_inputs {
+  .main_popup__form {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
   }
 
-  .main_carso_popup_form_inputs * {
+  .main_popup__form * {
     -webkit-box-flex: unset;
     -ms-flex: unset;
     flex: unset;
     width: 100%;
   }
 
-  .main_carso_popup_form_inputs input {
+  .main_popup__form input {
     margin-right: 0;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
 
-  .carso_callback_text__title {
-    font-size: 28px;
-  }
-
-  .carso_callback_text {
-    text-align: center;
-  }
-
-  .carso_callback_text br {
-    display: none;
-  }
-
-  .carso_callback_text__subtitle {
-    font-size: 26px;
-  }
-
-  .carso_callback_text__bottomtitle {
-    font-size: 18px;
-    margin-bottom: 30px;
-  }
-
-  #carso_callback .main_carso_popup_form__images {
-    width: 100%;
-    display: none;
-  }
-
-  #carso_callback .mcpfi_image {
-    background-size: contain;
-    background-position: center right;
-  }
-
-  .special_tradein_text {
-    text-align: center;
-    -webkit-box-ordinal-group: 3;
-    -ms-flex-order: 2;
-    order: 2;
-  }
-
-  .main_carso_popup_form__images {
-    -webkit-box-ordinal-group: 2;
-    -ms-flex-order: 1;
-    order: 1;
-  }
-
-  .special_tradein_text__title {
-    font-size: 22px;
-  }
-
-  .special_tradein_text br {
-    display: none;
-  }
-
-  .special_tradein_text__subtitle {
-    font-size: 29px;
-    margin-bottom: 25px;
-  }
-
-  #special_tradein .mcpfi_image:first-child {
-    background-size: contain;
-    background-position: center;
-  }
-
-  .main_gifts_popup {
-    padding: 25px;
-    min-width: 305px;
-  }
-
-  .main_gifts_popup_content {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-  }
-
-  .main_gifts_popup:before {
-    display: none;
-  }
-
-  .main_gifts_popup_text {
-    text-align: center;
-    color: #000;
-    margin-bottom: 20px;
-    width: 100%;
-  }
-
-  .main_gifts_popup_box {
-    background-size: contain;
-    width: 170px;
-    height: 149px;
-    -webkit-transition: all 0.33s ease;
-    -o-transition: all 0.33s ease;
-    transition: all 0.33s ease;
-    -webkit-transform: scale(1);
-    -ms-transform: scale(1);
-    transform: scale(1);
-    opacity: 1;
-    margin-right: 0;
-  }
-
-  .main_gifts_popup_action {
-    margin-top: -80px;
-    z-index: 10;
-    width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    pointer-events: all;
-  }
-
-  .main_gifts_popup_action__btn svg {
-    -webkit-filter: drop-shadow(0px 4px 10px rgba(0,0,0,.5));
-    filter: drop-shadow(0px 4px 10px rgba(0,0,0,.5));
-    position: relative;
-    z-index: -1;
-  }
-
-  .main_gifts_popup_text__selected {
-    top: 0;
-  }
-
-  .main_gifts_popup_giftslisting_row {
-    padding-top: 7px;
-  }
-
-  .main_gifts_popup_giftslisting {
-    left: 0;
-    top: 80px;
-    height: 140px;
-    width: 250px;
-    background: #fff;
-    border: 1px solid #D7AD48;
-    border-radius: 10px;
-  }
-
-  .main_gifts_popup_giftslisting:after {content: "";position: absolute;left: -5%;top: 0;width: 20%;height: 100%;-webkit-transform: skewX(10deg);-ms-transform: skewX(10deg);transform: skewX(10deg);background: #D7AD48;}
-
-  .main_gifts_popup_giftslisting:before {
-    content: "";
-    position: absolute;
-    right: -5%;
-    top: 0;
-    width: 20%;
-    height: 100%;
-    -webkit-transform: skewX(
-            10deg);
-    -ms-transform: skewX(
-            10deg);
-    transform: skewX(
-            10deg);
-    background: #D7AD48;
-  }
-
-  .main_gifts_popup_text__title {
-    font-size: 32px;
-    line-height: 38px;
-  }
-
-  .main_gifts_popup_content.start .main_gifts_popup_box {
-    -webkit-transform: scale(0);
-    -ms-transform: scale(0);
-    transform: scale(0);
-    opacity: 0;
-  }
-
-  .main_gifts_popup_giftslisting_item {
-    width: 125px;
-    height: 125px;
-  }
-
-  @-webkit-keyframes gift_01 {
-    0% {
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0)
-    }
-
-    100% {
-      -webkit-transform: translate3d(-2612px, 0, 0);
-      transform: translate3d(-2612px, 0, 0);
-    }
-  }
-
-  @keyframes gift_01 {
-    0% {
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0)
-    }
-
-    100% {
-      -webkit-transform: translate3d(-2612px, 0, 0);
-      transform: translate3d(-2612px, 0, 0);
-    }
-  }
-
-  @-webkit-keyframes gift_02 {
-    0% {
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0)
-    }
-
-    100% {
-      -webkit-transform: translate3d(-2822px, 0, 0);
-      transform: translate3d(-2822px, 0, 0);
-    }
-  }
-
-  @keyframes gift_02 {
-    0% {
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0)
-    }
-
-    100% {
-      -webkit-transform: translate3d(-2822px, 0, 0);
-      transform: translate3d(-2822px, 0, 0);
-    }
-  }
-
-  @-webkit-keyframes gift_03 {
-    0% {
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0)
-    }
-
-    100% {
-      -webkit-transform: translate3d(-3033px, 0, 0);
-      transform: translate3d(-3033px, 0, 0);
-    }
-  }
-
-  @keyframes gift_03 {
-    0% {
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0)
-    }
-
-    100% {
-      -webkit-transform: translate3d(-3033px, 0, 0);
-      transform: translate3d(-3033px, 0, 0);
-    }
-  }
-
-  @-webkit-keyframes gift_04 {
-    0% {
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0)
-    }
-
-    100% {
-      -webkit-transform: translate3d(-3241px, 0, 0);
-      transform: translate3d(-3241px, 0, 0);
-    }
-  }
-
-  @keyframes gift_04 {
-    0% {
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0)
-    }
-
-    100% {
-      -webkit-transform: translate3d(-3241px, 0, 0);
-      transform: translate3d(-3241px, 0, 0);
-    }
-  }
-
-  .main_gifts_popup_form {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    width: 250px;
+  .main_popup__form {
+    max-width: 223px;
     margin: auto;
   }
 
-  .main_gifts_popup_form * {
+  .tradein_popup_text__01 {
+    font-size: 28px;
+  }
+
+  .tradein_popup_text__02 {
+    font-size: 22px;
+    margin: 5px 0;
+  }
+
+  .tradein_popup_text__03 {
+    font-size: 28px;
+  }
+
+  .main_popup__form input[type="text"], .main_popup__form input[type="tel"] {
+    height: 43px;
+  }
+
+  .main_popup__form .btn {
+    height: 48px;
+    font-size: 14px;
+  }
+
+  .main_popup {
+    padding: 28px;
+  }
+
+  #credit_popup {
+    width: 375px;
+    height: auto;
+    background-size: unset;
+    background-position: center top 90px;
+    background-repeat: no-repeat;
+    background-image: url(/img/credit_popup_bg--mobile.png);
+  }
+
+  .main_popup__subtitle {
+    text-align: center;
+    font-size: 22px;
+  }
+
+  .credit_popup_text {
+    text-align: center;
+    margin: 200px 0 20px;
+  }
+
+  .credit_popup_text__01 {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+
+  .credit_popup_text__01 br {
+    display: none;
+  }
+
+  .credit_popup_text__01 span {
+    font-size: 28px;
+    display: block;
+  }
+
+  .credit_popup_text__02 {
+    font-size: 22px;
+  }
+
+  .credit_popup_text__02 span {
+    font-size: 28px;
+    display: block;
+  }
+
+  #express_credit_popup .main_popup__title {
+    line-height: unset;
+  }
+
+  .express_popup_car {width: 80%;right: 0;left: 0;height: 235px;top: 142px;}
+
+  #express_credit_popup {
+    width: 375px;
+    background-image: url(/img/express_credit_popup_bg--mobile.png);
+    background-position: center top 141px;
+    background-repeat: no-repeat;
+    background-size: unset;
+    height: auto;
+  }
+
+  #express_credit_popup .main_popup__title br {
+    display: none;
+  }
+
+  .express_credit_popup_text {
+    text-align: center;
+    margin: 250px 0 20px;
+  }
+
+  .express_credit_popup_text__01 {
+    font-size: 22px;
+    margin-bottom: 5px;
+  }
+
+  .express_credit_popup_text__02 {
+    font-size: 28px;
+  }
+
+  #express_credit_popup .main_popup__subtitle {
+    min-height: 50px;
+  }
+
+  #express_credit_popup .main_popup__form .btn {
+    padding: 0;
+  }
+
+  #express_tradein_popup {
+    width: 375px;
+    height: auto;
+    background-image: url(/img/express_tradein_popup_bg--mobile.png);
+    background-position: center top 108px;
+    background-repeat: no-repeat;
+    background-size: unset;
+  }
+
+  #express_tradein_popup .main_popup__subtitle span {
+    max-height: 25px;
+  }
+
+  .express_tradein_popup_text {
+    margin: 290px 0 10px;
+    text-align: center;
+  }
+
+  .express_tradein_popup_text__01 {
+    font-size: 22px;
+    max-width: 180px;
+    margin: auto;
+  }
+
+  .express_tradein_popup_text__02 {
+    font-size: 28px;
+  }
+
+  #express_tradein_popup .main_popup__form .btn {
+    padding: 0;
+  }
+
+  #callback_popup {
+    width: 375px;
+    height: auto;
+    background-image: url(/img/callback_popup_bg--mobile.png);
+    background-position: center top 83px;
+    background-size: unset;
+    background-repeat: no-repeat;
+  }
+
+  .callback_popup_text {
+    text-align: center;
+    margin: 230px 0 20px;
+  }
+
+  .callback_popup_text__01 {
+    font-size: 22px;
+  }
+
+  .callback_popup_text__02 {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+
+  .callback_popup_text__03 {
+    font-size: 22px;
+  }
+
+  .callback_popup_text__04 {
+    font-size: 28px;
+  }
+
+  #callback_popup .main_popup__subtitle {
+    max-width: 200px;
+    margin: auto;
+  }
+
+  #callback_popup .main_popup__form .btn {
+    padding: 0;
+  }
+
+  #gifts_popup {
+    width: 375px;
+    height: auto;
+  }
+
+  .gifts_popup_state--default {
+    background-image: url(/img/gifts_popup_state_default_bg--mobile.png);
+    background-position: center top 65px;
+    background-size: unset;
+    background-repeat: no-repeat;
+  }
+
+  .main_popup_gifts_heading__title {
+    font-size: 28px;
+  }
+
+  .gifts_popup_state--default, .gifts_popup_state--success {
+    padding: 40px 20px 27px;
+  }
+
+  .main_popup_gifts_heading__subtitle {
+    font-size: 22px;
+  }
+
+  .main_popup_gifts_heading {
+    margin-bottom: 364px;
+  }
+
+  .main_popup_gifts_form {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    max-width: 223px;
+    margin: auto;
+    width: 100%;
+  }
+
+  .main_popup_gifts_form > * {
     -webkit-box-flex: unset;
     -ms-flex: unset;
     flex: unset;
     width: 100%;
   }
 
-  .main_gifts_popup_form input {
+  .main_popup_gifts_form__input {
     margin-right: 0;
-    margin-bottom: 10px;
+    margin-bottom: 25px;
   }
 
-  .main_gifts_popup_content.start + .main_gifts_popup_form {
-    height: 195px;
-    margin-top: -35px;
+  .main_popup_gifts_form .btn {
+    height: 48px;
+    font-size: 14px;
   }
 
-  .main_gifts_popup_text__selected > div:last-child {
-    font-size: 33px;
+  .main_popup_gifts_form__input > span {
+    height: auto;
+    line-height: unset;
+    padding: 0;
+    left: 10px;
+    top: 5px;
   }
 
-  .main_gifts_popup_text__selected > div:first-child {
-    font-size: 27px;
-    margin-bottom: 4px;
+  .main_popup_gifts_form__input > input[type="text"], .main_popup_gifts_form__input > input[type="tel"] {
+    padding-left: 10px;
+    padding-top: 13px;
   }
 
-  .express_credit_text__title {
-    font-size: 48px;
-    font-weight: bold;
-    text-transform: uppercase;
-    line-height: 50px;
-    margin-bottom: 30px;
+  .gpss_container {
+    width: 100%;
   }
 
-  .express_credit_text__subtitle {
-    font-size: 34px;
-    font-weight: 900;
-    text-transform: uppercase;
-    margin-bottom: 30px;
+  .gifts_popup_state--success {
+    background-image: url(/img/gifts_popup_state_success_bg--mobile.png);
+    background-position: center top;
+    background-size: unset;
+    background-repeat: no-repeat;
   }
 
-  #express_credit .mcpfi_image:first-child {
-    background-position: top left 20px;
+  .gpss_heading__title {
+    font-size: 14px;
   }
 
-  .express_credit_text__title {
-    font-size: 21px;
-    line-height: 29px;
+  .gpss_heading__subtitle {
+    font-size: 22px;
+  }
+
+  .gpss_heading__value {
+    font-size: 28px;
+  }
+
+  .gpss_heading {
+    margin: 223px 0 10px;
+  }
+
+  .gpss_heading__value {
+    min-height: 64px;
+  }
+
+  .gpss_description {
     text-align: center;
+    font-size: 13px;
+    max-width: 218px;
+    margin: 10px auto 0;
   }
 
-  .express_credit_text__subtitle {
-    font-size: 19px;
-    text-align: center;
+  .gifts_animation_container_inner__item {
+    width: 193px;
+    height: 193px;
   }
 
-  #express_credit .main_carso_popup_form__images {
-    display: none;
+  @-webkit-keyframes animation_gift_01 {
+    0% {
+      -webkit-transform: translate3d(400px, 0, 0);
+      transform: translate3d(400px, 0, 0);
+    }
+
+    100% {
+      -webkit-transform: translate3d(-3392px, 0, 0);
+      transform: translate3d(-3392px, 0, 0);
+    }
   }
 
-  .express_tradein_text__title {
-    font-size: 32px;
-    text-align: center;
-    margin: 20px 0;
-    line-height: 38px;
+  @keyframes animation_gift_01 {
+    0% {
+      -webkit-transform: translate3d(400px, 0, 0);
+      transform: translate3d(400px, 0, 0);
+    }
+
+    100% {
+      -webkit-transform: translate3d(-3392px, 0, 0);
+      transform: translate3d(-3392px, 0, 0);
+    }
   }
 
-  #express_tradein .main_carso_popup_form__images {
-    display: none;
+  @-webkit-keyframes animation_gift_02 {
+    0% {
+      -webkit-transform: translate3d(400px, 0, 0);
+      transform: translate3d(400px, 0, 0);
+    }
+
+    100% {
+      -webkit-transform: translate3d(-3681px, 0, 0);
+      transform: translate3d(-3681px, 0, 0);
+    }
+  }
+
+  @keyframes animation_gift_02 {
+    0% {
+      -webkit-transform: translate3d(400px, 0, 0);
+      transform: translate3d(400px, 0, 0);
+    }
+
+    100% {
+      -webkit-transform: translate3d(-3681px, 0, 0);
+      transform: translate3d(-3681px, 0, 0);
+    }
+  }
+
+  @-webkit-keyframes animation_gift_03 {
+    0% {
+      -webkit-transform: translate3d(400px, 0, 0);
+      transform: translate3d(400px, 0, 0);
+    }
+
+    100% {
+      -webkit-transform: translate3d(-3969px, 0, 0);
+      transform: translate3d(-3969px, 0, 0);
+    }
+  }
+
+  @keyframes animation_gift_03 {
+    0% {
+      -webkit-transform: translate3d(400px, 0, 0);
+      transform: translate3d(400px, 0, 0);
+    }
+
+    100% {
+      -webkit-transform: translate3d(-3969px, 0, 0);
+      transform: translate3d(-3969px, 0, 0);
+    }
+  }
+
+  @-webkit-keyframes animation_gift_04 {
+    0% {
+      -webkit-transform: translate3d(400px, 0, 0);
+      transform: translate3d(400px, 0, 0);
+    }
+
+    100% {
+      -webkit-transform: translate3d(-4256px, 0, 0);
+      transform: translate3d(-4256px, 0, 0);
+    }
+  }
+
+  @keyframes animation_gift_04 {
+    0% {
+      -webkit-transform: translate3d(400px, 0, 0);
+      transform: translate3d(400px, 0, 0);
+    }
+
+    100% {
+      -webkit-transform: translate3d(-4256px, 0, 0);
+      transform: translate3d(-4256px, 0, 0);
+    }
   }
 }
 
@@ -2770,7 +2777,7 @@
 
   .footer_top__callback a {
     font-size: 14px;
-    color: #D7AD48;
+    color: #00a3ff;
   }
 
   .model_page_price {
@@ -2831,7 +2838,7 @@
   .model_page_creditprice__title {
     font-size: 14px;
     font-weight: bold;
-    color: #D7AD48;
+    color: #00a3ff;
   }
 
   .model_page_creditprice__value {
@@ -2861,7 +2868,7 @@
     margin: 0 -10px;
   }
 
-  .model_page_options_heading .model_page_options_col:nth-of-type(2), .model_page_options_heading .model_page_options_col:nth-of-type(3) {
+  .model_page_options_heading .model_page_options_col:nth-of-type(2), .model_page_options_heading .model_page_options_col:nth-of-type(3), .model_page_options_heading .model_page_options_col:nth-of-type(4) {
     display: none;
   }
 
@@ -2875,11 +2882,12 @@
   }
 
   .model_page_options_col:nth-of-type(3) {
-    width: 50%;
+    display: none;
   }
 
   .mpoc_discountprice__data {
     font-size: 18px;
+    text-align: center;
   }
 
   .main_gifts_content__date {
@@ -2921,7 +2929,7 @@
     -ms-flex-order: 2;
     order: 2;
     font-weight: bold;
-    color: #D7AD48;
+    color: #00a3ff;
   }
 
   .main_gifts {
@@ -2982,134 +2990,6 @@
   .main_gifts_tabs_content.mgtc__04 .main_gifts_images__frontimage {
     height: 174px;
   }
-
-  .main_carso_popup {
-    background: #fff;
-    background-position: center top;
-    min-width: 100%;
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-
-  #express_tradein {
-    background-image: url(/img/express_tradein_popup_bg.png);
-  }
-
-  .fancybox-slide {padding: 0;}
-
-  .express_tradein_text {
-    margin: 62vw 0 45px;
-  }
-
-  .main_carso_popup_form_inputs {
-    max-width: 223px;
-    margin: auto;
-  }
-
-  .main_carso_popup_form_inputs .btn {
-    font-size: 14px;
-    padding: 0 5px;
-    height: 48px;
-    margin-top: 15px;
-  }
-
-  #express_credit {
-    background-image: url(/img/express_credit_popup_bg.png);
-  }
-
-  .express_credit_text {
-    margin: 54vw 0 20px;
-  }
-
-  .express_credit_text__title {
-    font-size: 28px;
-    margin-bottom: 24px;
-  }
-
-  .express_credit_text__subtitle {
-    font-size: 22px;
-    font-weight: normal;
-    margin-bottom: 18px;
-  }
-
-  #special_credit {
-    background-image: url(/img/special_credit_popup_bg.png);
-  }
-
-  .main_carso_popup_form__images {
-    background: none;
-  }
-
-  #special_credit .mcpfi_image:first-child {
-    display: none;
-  }
-
-  #carso_callback {
-    background-image: url(/img/carso_callback_popup_bg.png);
-  }
-
-  .carso_callback_text {
-    margin: 57vw 0 0;
-  }
-
-  #special_tradein {
-    background-image: url(/img/special_tradein_popup_bg.png);
-  }
-
-  #special_tradein .mcpfi_image:first-child {
-    display: none;
-  }
-
-  .mcpfi_image {
-    background-size: 270px;
-  }
-
-  .special_tradein_text {
-    margin: 8vw 0 0;
-  }
-
-  .main_gifts_popup {
-    min-width: 100%;
-    background-image: url(/img/main_gifts_popup_bg.png) !important;
-    background-size: contain;
-    background-position: center top 70px;
-    background-repeat: no-repeat;
-  }
-
-  .main_gifts_popup_box {
-    position: absolute;
-    top: 0;
-  }
-
-  .main_gifts_popup_text {
-    margin: 53vw 0 0;
-    color: #fff;
-  }
-
-  .main_gifts_popup_action {
-    margin: 30vw 0 0;
-  }
-
-  .main_gifts_popup_giftslisting {
-    top: 90vw;
-    border: none;
-    background: none;
-  }
-
-  .main_gifts_popup_giftslisting:after, .main_gifts_popup_giftslisting:before {
-    display: none;
-  }
-
-  .main_gifts_popup_content.start .main_gifts_popup_box {
-    -webkit-transform: scale(1);
-    -ms-transform: scale(1);
-    transform: scale(1);
-    opacity: 1;
-  }
-
-  .main_gifts_popup_text__selected {
-    right: 0;
-  }
 }
 
 @media (max-width: 415px) {
@@ -3161,12 +3041,275 @@
     top: -43px;
     left: -134px;
   }
+
+  .tradein_popup_text__03 {
+    font-size: 25px;
+  }
+
+  #credit_popup .main_popup__title {
+    font-size: 26px;
+  }
+
+  .credit_popup_text__01 {
+    font-size: 19px;
+  }
+
+  .credit_popup_text__02 {
+    font-size: 19px;
+  }
+
+  .credit_popup_text {
+    margin: 210px 0 20px;
+  }
+
+  #express_credit_popup .main_popup__title {
+    font-size: 23px;
+  }
+
+  .express_credit_popup_text {
+    margin: 260px 0 20px;
+  }
+
+  #express_tradein_popup .main_popup__title {
+    font-size: 25px;
+    margin-bottom: 5px;
+  }
+
+  #express_tradein_popup .main_popup__subtitle {
+    font-size: 18px;
+  }
+
+  #express_tradein_popup .main_popup__subtitle span {
+    max-height: 20px;
+  }
+
+  .express_tradein_popup_text {
+    margin: 300px 0 10px;
+  }
+
+  .callback_popup_text__04 {
+    font-size: 25px;
+  }
+
+  .callback_popup_text__02 {
+    font-size: 25px;
+  }
+
+  .main_popup_gifts_heading__title {
+    font-size: 23px;
+  }
+
+  .main_popup_gifts_heading__subtitle {
+    font-size: 17px;
+  }
+
+  .gifts_popup_state--default {
+    background-size: 99vw;
+  }
+
+  .main_popup_gifts_heading {
+    margin-bottom: 104vw;
+  }
+
+  .gpss_heading__value {
+    max-width: 260px;
+    margin: auto;
+  }
 }
 
-@media (max-width: 330px) {
-  .express_credit_text__title {
-    font-size: 21px;
-    line-height: 23px;
+@media (max-width: 361px) {
+  @-webkit-keyframes animation_gift_01 {
+    0% {
+      -webkit-transform: translate3d(400px, 0, 0);
+      transform: translate3d(400px, 0, 0);
+    }
+
+    100% {
+      -webkit-transform: translate3d(-3423px, 0, 0);
+      transform: translate3d(-3423px, 0, 0);
+    }
+  }
+
+  @keyframes animation_gift_01 {
+    0% {
+      -webkit-transform: translate3d(400px, 0, 0);
+      transform: translate3d(400px, 0, 0);
+    }
+
+    100% {
+      -webkit-transform: translate3d(-3423px, 0, 0);
+      transform: translate3d(-3400px, 0, 0);
+    }
+  }
+
+  @-webkit-keyframes animation_gift_02 {
+    0% {
+      -webkit-transform: translate3d(400px, 0, 0);
+      transform: translate3d(400px, 0, 0);
+    }
+
+    100% {
+      -webkit-transform: translate3d(-3710px, 0, 0);
+      transform: translate3d(-3710px, 0, 0);
+    }
+  }
+
+  @keyframes animation_gift_02 {
+    0% {
+      -webkit-transform: translate3d(400px, 0, 0);
+      transform: translate3d(400px, 0, 0);
+    }
+
+    100% {
+      -webkit-transform: translate3d(-3710px, 0, 0);
+      transform: translate3d(-3688px, 0, 0);
+    }
+  }
+
+  @-webkit-keyframes animation_gift_03 {
+    0% {
+      -webkit-transform: translate3d(400px, 0, 0);
+      transform: translate3d(400px, 0, 0);
+    }
+
+    100% {
+      -webkit-transform: translate3d(-3998px, 0, 0);
+      transform: translate3d(-3998px, 0, 0);
+    }
+  }
+
+  @keyframes animation_gift_03 {
+    0% {
+      -webkit-transform: translate3d(400px, 0, 0);
+      transform: translate3d(400px, 0, 0);
+    }
+
+    100% {
+      -webkit-transform: translate3d(-3998px, 0, 0);
+      transform: translate3d(-3975px, 0, 0);
+    }
+  }
+
+  @-webkit-keyframes animation_gift_04 {
+    0% {
+      -webkit-transform: translate3d(400px, 0, 0);
+      transform: translate3d(400px, 0, 0);
+    }
+
+    100% {
+      -webkit-transform: translate3d(-4286px, 0, 0);
+      transform: translate3d(-4286px, 0, 0);
+    }
+  }
+
+  @keyframes animation_gift_04 {
+    0% {
+      -webkit-transform: translate3d(400px, 0, 0);
+      transform: translate3d(400px, 0, 0);
+    }
+
+    100% {
+      -webkit-transform: translate3d(-4286px, 0, 0);
+      transform: translate3d(-4264px, 0, 0);
+    }
+  }
+}
+
+@media (max-width: 321px) {
+  @-webkit-keyframes animation_gift_01 {
+    0% {
+      -webkit-transform: translate3d(400px, 0, 0);
+      transform: translate3d(400px, 0, 0);
+    }
+
+    100% {
+      -webkit-transform: translate3d(-3423px, 0, 0);
+      transform: translate3d(-3423px, 0, 0);
+    }
+  }
+
+  @keyframes animation_gift_01 {
+    0% {
+      -webkit-transform: translate3d(400px, 0, 0);
+      transform: translate3d(400px, 0, 0);
+    }
+
+    100% {
+      -webkit-transform: translate3d(-3423px, 0, 0);
+      transform: translate3d(-3420px, 0, 0);
+    }
+  }
+
+  @-webkit-keyframes animation_gift_02 {
+    0% {
+      -webkit-transform: translate3d(400px, 0, 0);
+      transform: translate3d(400px, 0, 0);
+    }
+
+    100% {
+      -webkit-transform: translate3d(-3710px, 0, 0);
+      transform: translate3d(-3710px, 0, 0);
+    }
+  }
+
+  @keyframes animation_gift_02 {
+    0% {
+      -webkit-transform: translate3d(400px, 0, 0);
+      transform: translate3d(400px, 0, 0);
+    }
+
+    100% {
+      -webkit-transform: translate3d(-3710px, 0, 0);
+      transform: translate3d(-3709px, 0, 0);
+    }
+  }
+
+  @-webkit-keyframes animation_gift_03 {
+    0% {
+      -webkit-transform: translate3d(400px, 0, 0);
+      transform: translate3d(400px, 0, 0);
+    }
+
+    100% {
+      -webkit-transform: translate3d(-3998px, 0, 0);
+      transform: translate3d(-3998px, 0, 0);
+    }
+  }
+
+  @keyframes animation_gift_03 {
+    0% {
+      -webkit-transform: translate3d(400px, 0, 0);
+      transform: translate3d(400px, 0, 0);
+    }
+
+    100% {
+      -webkit-transform: translate3d(-3998px, 0, 0);
+      transform: translate3d(-3996px, 0, 0);
+    }
+  }
+
+  @-webkit-keyframes animation_gift_04 {
+    0% {
+      -webkit-transform: translate3d(400px, 0, 0);
+      transform: translate3d(400px, 0, 0);
+    }
+
+    100% {
+      -webkit-transform: translate3d(-4286px, 0, 0);
+      transform: translate3d(-4286px, 0, 0);
+    }
+  }
+
+  @keyframes animation_gift_04 {
+    0% {
+      -webkit-transform: translate3d(400px, 0, 0);
+      transform: translate3d(400px, 0, 0);
+    }
+
+    100% {
+      -webkit-transform: translate3d(-4286px, 0, 0);
+      transform: translate3d(-4284px, 0, 0);
+    }
   }
 }
 

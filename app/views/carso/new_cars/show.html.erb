@@ -273,18 +273,19 @@
 
         <% spec.each_with_index do |cs,index_spec| %>
 
-        <div class="model_page_options">
-          <div class="container">
-            <div class="model_page_options_heading">
-              <div class="model_page_options_row">
-                <div class="model_page_options_col"><% if cs.volume.present? %><%= "#{(cs.volume / 1000.to_f).round(1)}"%> <% end %> <% "#{cs.shorttransmission}" %> <% if cs.power.present? %>(<%= cs.power %> л.с.)<% end %> <%= cs.drive == 'Полный' ? '4WD' : '2WD' %></div>
-                <div class="model_page_options_col">Цена без скидки</div>
-                <div class="model_page_options_col">Цена со скидкой</div>
-                <div class="model_page_options_col">Кредит в месяц</div>
-                <div class="model_page_options_col"></div>
-                <div class="model_page_options_col"></div>
+          <div class="model_page_options">
+            <div class="container">
+              <div class="model_page_options_heading">
+                <div class="model_page_options_row">
+                  <div class="model_page_options_col"><% if cs.volume.present? %><%= "#{(cs.volume / 1000.to_f).round(1)}"%> <% end %> <% "#{cs.shorttransmission}" %> <% if cs.power.present? %>(<%= cs.power %> л.с.)<% end %> <%= cs.drive == 'Полный' ? '4WD' : '2WD' %></div>
+                  <div class="model_page_options_col">КПП</div>
+                  <div class="model_page_options_col">Цена без скидки</div>
+                  <div class="model_page_options_col">Цена со скидкой</div>
+                  <div class="model_page_options_col">Кредит в месяц</div>
+                  <div class="model_page_options_col"></div>
+                  <div class="model_page_options_col"></div>
+                </div>
               </div>
-            </div>
 
             <% cs.equipment.where('`equipment`.`hide` = 0').order(:price).each_with_index do |e,index| %>
               <%
@@ -306,6 +307,9 @@
                     <span class="checkmark"></span>
                   </label>%>
                   <div class="mpoc_name__data" data-show="mpohc_description"><%= e.equipment_description.name %> <%= e.suffix %></div>
+                </div>
+                <div class="model_page_options_col mpoc_specs">
+                  <div class="mpoc_specs__data"><%= e.specification.transmission.gsub('Механическая','Механика').gsub('5-ступенчатая механическая','Механика').gsub('5MT','').gsub('6МТ','').gsub('Автоматическая','Автомат').gsub('5-ступенчатая автоматическая','Автомат').gsub('4AT','') %> (<%= e.specification.shorttransmission %>)</div>
                 </div>
                 <div class="model_page_options_col mpoc_price">
                   <div class="mpoc_price__data">от <%= number_with_delimiter(e.price,delimiter: ' ') %> руб.</div>

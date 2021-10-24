@@ -2738,18 +2738,20 @@ form input[type="text"].error, form input[type="tel"].error {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  padding: 12px 20px;
 }
 
 .model_page_options_col:nth-of-type(1) {
-  width: 24%;
+  width: 17%;
 }
 
 .model_page_options_col:nth-of-type(2) {
-  width: 14%;
+  width: 13%;
+  text-align: center;
 }
 
 .model_page_options_col:nth-of-type(3) {
-  width: 14%;
+  width: 12%;
 }
 
 .model_page_options_col:nth-of-type(4) {
@@ -2757,19 +2759,22 @@ form input[type="text"].error, form input[type="tel"].error {
 }
 
 .model_page_options_col:nth-of-type(5) {
-  width: 25%;
+  width: 11%;
 }
 
 .model_page_options_col:nth-of-type(6) {
-  width: 9%;
+  width: 25%;
+}
+
+.model_page_options_col:nth-of-type(7) {
+  width: 8%;
 }
 
 .model_page_options_heading .model_page_options_col:nth-of-type(1) {
   font-size: 18px;
   font-weight: 900;
-  color: #D7AD48;
+  color: #00A3FF;
 }
-
 .mpoc_name {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2935,7 +2940,6 @@ form input[type="text"].error, form input[type="tel"].error {
 
 .model_page_options_item {
   border-radius: 10px;
-  padding: 12px 25px;
 }
 
 .model_page_options_heading {
