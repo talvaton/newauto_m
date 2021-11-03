@@ -345,11 +345,18 @@ function init_labels(item){
 });
 }
 
+Inputmask.extendDefinitions({
+    'x': {
+        validator: "[9]",
+        definitionSymbol: "i" //this allows shifting values from other definitions, with the same masksymbol or definitionSymbol
+    }
+})
+
 /* ининициализация маски телефона */
 function init_phone_mask(){
     // console.log('MASK OF SANITY');
     $('input[data-role="phone"]').inputmask({
-        mask: "+7 (999) 999-99-99",
+        mask: "+7 (x99) 999-99-99",
         showMaskOnHover: false,
         clearIncomplete: true
     });
