@@ -761,15 +761,7 @@
           </div>
           <% end %>
 
-<% if @car.reviews.present? %>
-  <div class="reviews_model row" id="reviews_model">
-    <h2>Отзывы клиентов</h2>
-    <div class="review_fc row justify-content-between">
-      <%= render partial:'new_cars/review', collection: @car.reviews.order(created_at: :desc).limit(6) %>
-    </div>
-    <%#= link_to 'Ещё отзывы', reviews_path,class:'btn-link',rel:'' %>
-  </div>
-<% end %>
+
 
           <%= render 'partials/carso/credit_form' %>
 
