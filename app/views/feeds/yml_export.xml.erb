@@ -17,7 +17,7 @@
       <% end %>
     </categories>
     <offers>
-      <% @new.each do |new_car| %>
+      <% @newcars.each do |new_car| %>
       <offer id="<%= new_car.id %>" available="true">
         <url><%= request.base_url %>/<%= new_car.brand.url %>/<%= new_car.url %></url>
         <currencyId>RUR</currencyId>

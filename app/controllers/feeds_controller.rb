@@ -1,4 +1,6 @@
 class FeedsController < ApplicationController
+  before_action :feeder
+
   def index
 
   end
@@ -28,21 +30,23 @@ class FeedsController < ApplicationController
   end
 
   def xml_target
-    @brands = Brand.where(id: ALLOWED_BRANDS).where(menu_show: true).order(:title)
-    @newcars = NewCar.where(feed: 1).where(hide: 0).where(available: 1).where(brand_id: ALLOWED_BRANDS).includes(:brand)
+
   end
 
   def xml_yandex
-    @brands = Brand.where(id: ALLOWED_BRANDS).where(menu_show: true).order(:title)
-    @newcars = NewCar.where(feed: 1).where(hide: 0).where(available: 1).where(brand_id: ALLOWED_BRANDS).includes(:brand)
-  end
-  def xml_yandex_clone
-    @brands = Brand.where(hide: 0).order(:title)
-    @newcars = NewCar.where(hide: 0).includes(:brand)
-  end
-  def xml_vk
-    @brands = Brand.where(id: ALLOWED_BRANDS).where(menu_show: true).order(:title)
-    @newcars = NewCar.where(feed: 1).where(hide: 0).where(available: 1).where(brand_id: ALLOWED_BRANDS).includes(:brand)
+
   end
 
+  def xml_yandex_clone
+
+  end
+
+  def xml_vk
+
+  end
+
+  def feeder
+    @brands = Brand.where("hide_settings -> '$.newauto' = ?", "false").where(menu_show: true).order(:title)
+    @newcars = NewCar.where("feed_settings -> '$.newauto' = ?", "true").where("new_cars.hide_settings -> '$.newauto' = ?", "false").where(available: 1).where(brand_id: @brands.ids).includes(:brand)
+  end
 end
