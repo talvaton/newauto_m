@@ -25,8 +25,8 @@
   t_mos = "#{@car.russian_name} в трейд-ин #{@car.old ? 'купить' : 'купить новый'} #{@car.menutitle} #{@car.old ? (Time.current - 2.year).year.to_s + '-' + (Time.current - 1.year).year.to_s : (Time.current - 1.year).year.to_s + '-' + Time.current.year.to_s} в рассрочку в автосалоне, #{@current_region.sklon1}"
   t_reg = "Трейд-ин на #{@car.menutitle} #{@car.old ? 'купить' : 'купить новый'} #{@car.russian_name} #{@car.old ? (Time.current - 2.year).year.to_s + '-' + (Time.current - 1.year).year.to_s : (Time.current - 1.year).year.to_s + '-' + Time.current.year.to_s} в рассрочку в #{@current_region.sklon3} (автосалон)"
 
-  d_mos = "Выгодные условия на покупку #{@car.menutitle} в трейд-ин в автосалоне Авимоторс #{@car.old ? 'купить' : 'купить новый'} #{@car.russian_name} в рассрочку под 0% у официального дилера в #{@current_region.sklon3}."
-  d_reg = "#{@car.old ? 'Купить' : 'Купить новый'} #{@car.russian_name} в рассрочку под 0% у официального дилера в #{@current_region.sklon3}. Выгодные условия на покупку #{@car.menutitle} в трейд-ин в автосалоне Авимоторс."
+  d_mos = "Выгодные условия на покупку #{@car.menutitle} в трейд-ин в автосалоне Vostok моторс #{@car.old ? 'купить' : 'купить новый'} #{@car.russian_name} в рассрочку под 0% у официального дилера в #{@current_region.sklon3}."
+  d_reg = "#{@car.old ? 'Купить' : 'Купить новый'} #{@car.russian_name} в рассрочку под 0% у официального дилера в #{@current_region.sklon3}. Выгодные условия на покупку #{@car.menutitle} в трейд-ин в автосалоне Vostok моторс."
 
   o_mos = "#{@car.russian_name} по цене от #{number_with_delimiter(@car.equipments.minimum(:price)  - min_discount_e,delimeter: ' ') } ₽. Все комплектации в наличии! Купить новый автомобиль #{@car.menutitle} #{@car.old ? (Time.current - 2.year).year.to_s : (Time.current - 1.year).year.to_s + '-' + Time.current.year.to_s} годов! Скидка до #{number_with_delimiter(max_discount_e,delimeter:' ')} ₽лей у официального дилера в #{@current_region.sklon3}. Бонусы и Подарки!"
   o_reg = "Продажа #{@car.russian_name} в #{@current_region.sklon3}. Скидка до #{number_with_delimiter(max_discount_e,delimeter:' ')} ₽лей! Экспресс кредит 1,9%, Рассрочка 0%, trade-in. Новый #{@car.menutitle} #{@car.old ? (Time.current - 2.year).year.to_s : (Time.current - 1.year).year.to_s + '-' + Time.current.year.to_s} всех комплектаций у официального дилера."
@@ -43,7 +43,7 @@
 
   provide :og_tags,
 "<meta property='og:type' content='article'>
-<meta property='og:site_name' content='Авимоторс'>
+<meta property='og:site_name' content='Vostok моторс'>
 <meta property='og:url' content='#{request.original_url}'>
 <meta property='og:title' content='#{@car.name}'>
 <meta property='og:description' content='#{ogdesc}'>
@@ -226,9 +226,9 @@
   <span class="tradein_tt on">Как купить новую машину по Трейд-Ин?</span>
   <div class="row credit_bp_txt on">
     <span class="col"><%= image_tag "carso/png/traidin_1.png", alt:'' %></span>
-    <div class="col"><p>В рамках системы, действующей в автосалоне Авимоторс, Вы можете сразу купить новый автомобиль, или же оплатить стоимостью старой машины первоначальный взнос для оформления автокредита.</p>
+    <div class="col"><p>В рамках системы, действующей в автосалоне Vostok моторс, Вы можете сразу купить новый автомобиль, или же оплатить стоимостью старой машины первоначальный взнос для оформления автокредита.</p>
       <p>Во время продажи мы можем заранее установить дополнительное оборудование, необходимое именно Вам. При необходимости, мы также поможем Вам в постановке нового автомобиля на учет в ГИБДД.</p>
-      <p>Система Трейд-Ин, действующая в автосалоне Авимоторс, позволяет любому автовладельцу сдать свою старую машину, а взамен получить новую модель на наиболее выгодных условиях. Таким образом Вам не нужно тратить время и силы на продажу автомобиля, ведь все это мы берем на себя.</p>
+      <p>Система Трейд-Ин, действующая в автосалоне Vostok моторс, позволяет любому автовладельцу сдать свою старую машину, а взамен получить новую модель на наиболее выгодных условиях. Таким образом Вам не нужно тратить время и силы на продажу автомобиля, ведь все это мы берем на себя.</p>
       <p>Данной услугой пользуются все больше и больше людей, и Вы можете оказаться в числе таких счастливчиков. Ведь Трейд-Ин позволяет в любое удобное время получить новенький автомобиль в необходимой комплектации и с максимальной финансовой выгодой.</div>
   </div>
 </div>
