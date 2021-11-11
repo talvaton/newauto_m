@@ -35,6 +35,9 @@ class TicketsController < ApplicationController
     end
 
     @ticket.save!
+
+    @tickets_per_day_count = Ticket.where(phone: @ticket.phone).where('DATE(created_at) = CURDATE()').count
+
     SendToCrmJob.perform_later @ticket
 
     if params['hide_popup'].present?

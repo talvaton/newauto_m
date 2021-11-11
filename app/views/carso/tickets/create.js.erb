@@ -3,6 +3,7 @@ reset_form($('input[value="<%= @ticket.form_name %>"]').closest('form'));
 $.fancybox.close();
 
 $.fancybox.open('<div><div>Ваша заявка принята</div><div>Наш менеджер свяжется с вами в ближайшее время.</div></div>', {
+    <% if @tickets_per_day_count <= 2 %>
     afterShow: function(){
 
         $('input[value="<%= @ticket.form_name %>"]').closest('form').find('button:submit').prop("disabled", false);
@@ -99,6 +100,7 @@ $.fancybox.open('<div><div>Ваша заявка принята</div><div>Наш
 
 
     }
+    <% end %>
 });
 
 $('[data-role="ny-dialog"]').fadeOut(200);
