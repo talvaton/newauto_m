@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   #layout 'rcar' if (Rails.env.rcar? || Rails.env.rcar_dev?)
   # include SessionsHelper
 
-  breadcrumb 'Авимоторс', :root_path
+  breadcrumb 'Vostok моторс', :root_path
 
   #def extract_region_from_subdomain 
     #parsed_locale = request.subdomains.first
