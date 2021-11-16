@@ -31,6 +31,16 @@ class BrandsController < ApplicationController
 
     @prev_path = set_prev_path
 
+    # SELECT MAX(CAST(JSON_EXTRACT(discount_settings, "$.newauto.credit") AS UNSIGNED) +
+    #   CAST(JSON_EXTRACT(discount_settings, "$.newauto.tradein") AS UNSIGNED) +
+    #   CAST(JSON_EXTRACT(discount_settings, "$.newauto.discount") AS UNSIGNED)) as discount,brand_id FROM `new_cars`
+    # WHERE brand_id = 15 AND archive = false AND hide = false
+
+    @max_brand_discount = NewCar.select('MAX(CAST(JSON_EXTRACT(discount_settings, "$.newauto.credit") AS UNSIGNED) +'+
+                                          'CAST(JSON_EXTRACT(discount_settings, "$.newauto.tradein") AS UNSIGNED) +'+
+                                          'CAST(JSON_EXTRACT(discount_settings, "$.newauto.discount") AS UNSIGNED)) as discount,brand_id')
+                                .where(brand_id: @brand.id).where(archive: false).where(hide: false).first.discount
+
     @icons = sidenav_icons(icons)
     breadcrumb "Каталог новых авто#{" в " + @current_region.sklon3 unless @current_region.id === 57}", :newauto_path, match: :exclusive
     breadcrumb @brand.title, brand_path(@brand)

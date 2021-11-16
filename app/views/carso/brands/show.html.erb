@@ -37,7 +37,7 @@
     <div class="main_benefit_content">
       <div class="container">
         <div class="main_benefit_content__title">Выгода</div>
-        <div class="main_benefit_content__value">до <span>500 000</span> р.</div>
+        <div class="main_benefit_content__value">до <span><%= number_with_delimiter(@max_brand_discount, delimiter: " ") %></span> р.</div>
         <div class="main_benefit_content__subtitle">При покупке автомобиля в кредит</div>
 
         <%= form_for Ticket.new,url: {action:"create",controller:"tickets" },remote:true,validate:true,:html => {:class => "main_benefit_content__form",:name=>"newcarreq"},:namespace => "newcarreq" do |f| %>
