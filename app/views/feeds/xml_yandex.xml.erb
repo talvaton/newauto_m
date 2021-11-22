@@ -19,7 +19,12 @@
                 <name><%= new_car.menutitle %></name>
                 <categoryId><%= new_car.brand.id %></categoryId>
                 <url><%= request.base_url %>/<%= new_car.brand.url %>/<%= new_car.url %></url>
-                <picture><% if new_car.colors[0].present? %><%= request.base_url %><%= new_car.colors[0].feed.url %><% end %></picture>
+
+           <% if new_car.colors.length > 2 %>
+            <picture><%= request.base_url %><%= new_car.colors[1].largecard.url %></picture>
+          <% else %>
+            <picture><%= request.base_url %><%= new_car.colors[0].largecard.url %></picture>
+          <% end %>
                 <description> </description>
                 <price><%= e.price - new_car.discount_count %></price>
                 <currencyId>RUR</currencyId>
