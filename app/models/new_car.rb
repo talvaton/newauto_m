@@ -61,6 +61,7 @@ class NewCar < ApplicationRecord
 
 
   def count_min_price(reg_discount = 0)
+    #min_price = self.equipments.where('`equipment`.`hide` = ?', false).minimum(:price)
     min_price = self.equipments.where('`equipment`.`hide` = ?', false).minimum(:price)
 
     min_price - discount_count

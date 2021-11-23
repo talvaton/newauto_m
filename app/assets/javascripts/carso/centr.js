@@ -1382,7 +1382,21 @@ $(document).ready(function() {
 });
 
 /*************************************************/
+$(".main_reviews").on("click", ".m_read_more", function() {
 
+    //  var tabs = $(".btn_group_info button"),
+    var cont = $(".hs_b");
+
+    //  tabs.removeClass("tab-active");
+    // cont.removeClass("sh");
+
+    // $(this).parent().parent().addClass("sh");
+    $(this).parent().addClass("sh");
+    //$(this).find(".rt_info_text").toggleClass("open_popup");
+    // cont.eq($(this).index()).addClass("sh1");
+    $(this).closest(".hs_b").addClass("sh");
+    return false;
+});
 
 $(".htab__box").on("click", ".htab__box-nav .htab__b_n-m", function() {
 
