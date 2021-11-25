@@ -37,6 +37,7 @@ class FeedsController < ApplicationController
   end
 
   def feeder
+    @brands_all = Brand.where(menu_show: true).order(:title)
     @brands = Brand.where("hide_settings -> '$.newauto' = ?", "false").where(menu_show: true).order(:title)
     @newcars = NewCar.where("feed_settings -> '$.newauto' = ?", "true").where("new_cars.hide_settings -> '$.newauto' = ?", "false").where(available: 1).where(brand_id: @brands.ids).includes(:brand)
   end
