@@ -28,6 +28,361 @@
 //@import 'main.css';
 
 
+/*************bnr******************/
+
+.bnr_tp{
+  background-color: #11110F;
+  height: 300px;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  cursor: pointer;
+  @media all and (max-width: 580px) {
+    height: 180px;
+  }
+}
+
+.bnr_bg_cnt{
+  background-image: url(/img/bnr/bnr_bg_cnt.png);
+  background-position: center top;
+  height: 300px;
+  display: block;
+  z-index: -1;
+  width: 100%;
+  margin: 0 auto;
+  @media all and (max-width: 1070px) {
+    background-position: -450px top;
+  }
+  @media all and (max-width: 870px) {
+    background-position: -450px 80px;
+    background-size: 180%;
+  }
+  @media all and (max-width: 680px) {
+    background-position: -450px 0;
+  }
+  @media all and (max-width: 580px) {
+    background-image: url(/img/bnr/bnr_bg_cnt_m.png);
+    background-position: center top;
+    background-size: 100%;
+  }
+}
+
+.l_car{
+  background-image: url(/img/bnr/l_car.png);
+  background-repeat: no-repeat;
+  width: 516px;
+  height: 306px;
+  z-index: 0;
+  position: absolute;
+  left: 0;
+  bottom: -45px;
+  @media all and (max-width: 1320px) {
+    left: -100px;
+  }
+  @media all and (max-width: 1070px) {
+    background-size: 80%;
+    bottom: -95px;
+  }
+  @media all and (max-width: 870px) {
+    background-size: 60%;
+    bottom: -145px;
+    left: -55px;
+  }
+  @media all and (max-width: 580px) {
+    display: none;
+  }
+}
+.r_car{
+  background-image: url(/img/bnr/r_car.png);
+  background-repeat: no-repeat;
+  width: 606px;
+  height: 407px;
+  z-index: 0;
+  position: absolute;
+  right: 0;
+  bottom: -115px;
+  @media all and (max-width: 1320px) {
+    right: -130px;
+  }
+  @media all and (max-width: 1070px) {
+    right: -230px;
+    background-size: 80%;
+    bottom: -180px;
+  }
+  @media all and (max-width: 870px) {
+    right: -295px;
+    background-size: 60%;
+    bottom: -225px;
+  }
+  @media all and (max-width: 580px) {
+    bottom: 0;
+    width: 220px;
+    right: -30px;
+    height: 118px;
+    background-size: 100%;
+  }
+}
+.bnr_ntxt{
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 33px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  padding: 59px 0 0 0;
+  @media all and (max-width: 1500px) {
+    padding: 10px 0 0 0;
+  }
+  @media all and (max-width: 680px) {
+    font-size: 20px;
+    line-height: 22px;
+    padding: 35px 0 0 0;
+  }
+  @media all and (max-width: 580px) {
+    padding: 35px 0 0 15px;
+    text-align: left;
+    font-size: 14px;
+  }
+}
+.bnr_ntxt div{
+  margin: 0 0 15px 0;
+  @media all and (max-width: 580px) {
+    margin: 0;
+  }
+}
+.tcp{
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 37px;
+  @media all and (max-width: 580px) {
+    font-size: 20px;
+    line-height: 37px;
+  }
+}
+.alcp{
+  font-weight: normal;
+  @media all and (max-width: 580px) {
+    font-weight: bold;
+  }
+}
+
+body #header {
+  top: 300px;
+}
+/***popup***/
+
+#pp_bnr_tp.pp_bnr_tp{
+  width: 951px;
+  min-width: 951px;
+  border-radius: 20px;
+  @media all and (max-width: 980px) {
+    width: 375px;
+    min-width: 375px;
+    border-radius: 0;
+    padding: 0;
+  }
+  @media all and (max-width: 390px) {
+    width: 345px;
+    min-width: 345px
+  }
+}
+.pp_bnr_tp_dt{
+  width: 447px;
+  @media all and (max-width: 980px) {
+    text-align: center;
+    width: 100%;
+    padding: 0 0 30px 0;
+    z-index: 10;
+    position: relative;
+  }
+}
+.pp_bnr_tp_dt h2{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 34px;
+  line-height: 50px;
+  text-transform: uppercase;
+  color: #000000;
+  @media all and (max-width: 980px) {
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 26px;
+    width: 330px;
+    margin: 0 auto;
+    color: #ffffff;
+  }
+}
+.pp_bnr_tp_dt p{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 42px;
+  line-height: 50px;
+  text-transform: uppercase;
+  color: #000000;
+  padding: 10px 0;
+  @media all and (max-width: 980px) {
+   display: none;
+  }
+}
+.pp_bnr_tp_dt b{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 50px;
+  text-transform: uppercase;
+  color: #D7AD48;
+  padding: 0 0 70px 0;
+  display: block;
+  @media all and (max-width: 980px) {
+    display: none;
+  }
+}
+.slmb{
+  display: none;
+  @media all and (max-width: 980px) {
+    display: block;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 33px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #ffffff;
+  }
+}
+.slmbchp{
+  display: none;
+  @media all and (max-width: 980px) {
+    display: block;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 33px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    z-index: 100;
+    position: absolute;
+    top: 20px;
+    width: 100%;
+  }
+}
+
+.pp_bnr_tp_dtbg{
+  background-color: #11110F;
+  height: 100%;
+  width: 394px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  @media all and (max-width: 980px) {
+    display: none;
+  }
+}
+.pp_bnr_tp_dtbgf{
+  background-image: url(/img/bnr/bnr_bg_cnt_mpp.png);
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 394px;
+  background-position: center top;
+  position: absolute;
+  right: 0;
+}
+
+.r_car_pp {
+  background-image: url(/img/bnr/r_car_pp.png);
+  background-repeat: no-repeat;
+  width: 467px;
+  height: 430px;
+  z-index: 0;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.pp_bnr_tp .main_callback_form {
+  max-width: 447px;
+  @media all and (max-width: 980px) {
+    z-index: 100;
+    position: relative;
+    padding: 0 70px 20px 70px;
+  }
+}
+
+.pp_bnr_tpfl{
+  display: flex;
+  @media all and (max-width: 980px) {
+    display: block;
+  }
+}
+.pp_bnr_tp_dtbg.pp_mbnr{
+  display: none;
+  @media all and (max-width: 980px) {
+    display: block;
+    height: 300px;
+    width: 100%;
+    position: relative;
+  }
+}
+
+.pp_mbnr_bnr_tp_dtbgf{
+  background-image: url(/img/bnr/bnr_bg_cnt_mpp.png);
+  background-repeat: no-repeat;
+  height: 300px;
+  width: 100%;
+  background-position: center top;
+}
+.pp_mbnr_r_car_pp{
+  background-image: url(/img/bnr/r_car_pp_m.png);
+  background-repeat: no-repeat;
+  width: 375px;
+  height: 328px;
+  background-size: 100%;
+  background-position: center center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+.car_pp_rtt{
+  position: absolute;
+  width: 724.84px;
+  height: 246.61px;
+  left: -176.43px;
+  top: 245px;
+  background: #D7AD48;
+  transform: rotate(-17.27deg);
+  z-index: 0;
+}
+
+#pp_bnr_tp form input[type="text"], #pp_bnr_tp form input[type="tel"]{
+  margin: 0 0 15px 15px;
+  @media all and (max-width: 980px) {
+    height: 43px;
+    margin: 0 0 15px 0;
+  }
+}
+
+#pp_bnr_tp .btn-blue {
+  @media all and (max-width: 980px) {
+    height: 48px;
+  }
+}
+
+#pp_bnr_tp .fancybox-close-small{
+  z-index: 1000;
+  color: #fff;
+  padding: 2px;
+}
+
+/*************bnr******************/
+
+
+
 
 
 .input--error{

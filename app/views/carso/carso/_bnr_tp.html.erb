@@ -1,0 +1,29 @@
+<div id="pp_bnr_tp" class="pp_bnr_tp">
+
+  <div class="pp_bnr_tp_dtbg pp_mbnr">
+    <div class="pp_mbnr_bnr_tp_dtbgf"></div>
+    <div class="pp_mbnr_r_car_pp"></div>
+    <div class="car_pp_rtt"></div>
+  </div>
+
+
+  <div class="slmbchp">Черная пятница!</div>
+  <div class="pp_bnr_tp_dt">
+    <div class="slmb">скидки до 50%</div>
+  <h2>Запишитесь на закрытую распродажу новых автомобилей</h2>
+  <p>В Черную пятницу!</p>
+  <b>скидки до 50%</b>
+  </div>
+  <%= form_for Ticket.new,url: {action:'create',controller:'tickets' },remote:true,validate:true,:html => {:class => 'main_callback_form',:name=>'callback'},:namespace => 'callback' do |f| %>
+    <%= f.hidden_field :form_name, value:'callback' %>
+    <div class="form__component pp_bnr_tpfl">
+      <%= f.text_field :name,class:'input', placeholder:'ФИО' %>
+      <%= f.phone_field :phone,class:'input',data:{:role=>'phone'}, placeholder:'+7 (___) ___-__-__' %>
+    </div>
+    <%= f.button 'Отправить заявку', class: "btn btn-blue" %>
+  <% end %>
+  <div class="pp_bnr_tp_dtbg">
+    <div class="pp_bnr_tp_dtbgf"></div>
+    <div class="r_car_pp"></div>
+  </div>
+</div>

@@ -555,6 +555,34 @@ $(".feed_b").on('click', function(){
         }
     })
 });
+
+$(".mbar_cr").on('click', function(){
+    $.ajax({
+        url: '/common_modal',
+        type: 'POST',
+        data: {
+            common_modal_type: 'mbar_cr',
+        },
+        error: function (e) {
+            console.log(e);
+        }
+    })
+});
+
+$(".bnr_tp").on('click', function(){
+    $.ajax({
+        url: '/common_modal',
+        type: 'POST',
+        data: {
+            common_modal_type: 'bnr_tp',
+        },
+        error: function (e) {
+            console.log(e);
+        }
+    })
+});
+
+
 $(".feed_sale").on('click', function(){
     $.ajax({
         url: '/common_modal',
