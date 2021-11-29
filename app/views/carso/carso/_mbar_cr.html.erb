@@ -1,0 +1,19 @@
+<div class="main_popup" id="express_credit_popup">
+  <div class="main_popup__subtitle"></div>
+  <div class="main_popup__title">в кредит <br>с выгодой <br>до 350 000 р.</div>
+  <div class="express_credit_popup_text">
+    <div class="express_credit_popup_text__01">платеж <br>по кредиту всего</div>
+    <div class="express_credit_popup_text__02"> р./мес.!</div>
+  </div>
+  <div class="express_popup_car"></div>
+  <%= form_for Ticket.new,url: {action:'create',controller:'tickets' },remote:true,validate:true,:html => {:class => 'main_popup__form',:name=>'new_credit_modal'},:namespace => 'new_credit_modal' do |f| %>
+    <%# f.invisible_captcha :ticket_text %>
+    <%= f.hidden_field :form_name, value:'pack' %>
+    <%= hidden_field_tag 'ticket[other][ttype]',1,id:'credit_ticket_other_ttype' %>
+
+    <%= f.text_field :name,class:'input', placeholder:'ФИО' %>
+    <%= f.phone_field :phone,class:'input',data:{:role=>'phone'}, placeholder:'+7 (___) ___-__-__' %>
+    <%= f.button 'Получить предложение', class: "btn btn-blue" %>
+  <% end %>
+
+</div>

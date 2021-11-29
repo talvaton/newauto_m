@@ -74,7 +74,7 @@
             <div class="finance_page_form__title">Выберите НОВЫЙ АВТОМОБИЛЬ</div>
             <div class="row">
               <div class="col-6">
-                <%= select_tag 'ticket[other][marka]', options_from_collection_for_select(@brands, 'id', 'title'), prompt: 'Марка', id:'credit_ticket_other_marka', class:'select2' %>
+                <%= select_tag 'ticket[other][marka]', options_from_collection_for_select(@brands, 'id', 'title'), prompt: 'Марка', id:'credit_ticket_other_marka', class:'select2 mrdsutm' %>
               </div>
               <div class="col-6">
                 <%= select_tag 'ticket[other][model]', raw('<option>Модель</option>'), id:'credit_ticket_other_model', class:'select2', disabled: 'true' %>

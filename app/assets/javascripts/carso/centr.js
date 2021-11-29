@@ -569,6 +569,19 @@ $(".mbar_cr").on('click', function(){
     })
 });
 
+$(".mbar_tr").on('click', function(){
+    $.ajax({
+        url: '/common_modal',
+        type: 'POST',
+        data: {
+            common_modal_type: 'mbar_tr',
+        },
+        error: function (e) {
+            console.log(e);
+        }
+    })
+});
+
 $(".bnr_tp").on('click', function(){
     $.ajax({
         url: '/common_modal',
