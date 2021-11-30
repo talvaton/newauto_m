@@ -7,12 +7,10 @@
   </div>
 
 
-  <div class="slmbchp">Черная пятница!</div>
+  <div class="slmbchp">НОВОГОДНИЕ СКИДКИ</div>
   <div class="pp_bnr_tp_dt">
-    <div class="slmb">скидки до 50%</div>
-  <h2>Запишитесь на закрытую распродажу новых автомобилей</h2>
-  <p>В Черную пятницу!</p>
-  <b>скидки до 50%</b>
+    <b>НОВОГОДНИЕ СКИДКИ</b>
+  <h2>скидки до 45% <br/> КАСКО в подарок <br/> зимняя Резина в подарок <br/> автомобили 2021 <br/> года распродажа</h2>
   </div>
   <%= form_for Ticket.new,url: {action:'create',controller:'tickets' },remote:true,validate:true,:html => {:class => 'main_callback_form',:name=>'callback'},:namespace => 'callback' do |f| %>
     <%= f.hidden_field :form_name, value:'callback' %>

@@ -265,15 +265,16 @@
 }
 .pp_bnr_tp_dt h2{
   font-style: normal;
-  font-weight: bold;
-  font-size: 34px;
-  line-height: 50px;
+  font-weight: 900;
+  font-size: 26px;
+  line-height: 190%;
   text-transform: uppercase;
   color: #000000;
+  margin: 0 0 50px 0;
   @media all and (max-width: 980px) {
     font-weight: bold;
-    font-size: 22px;
-    line-height: 26px;
+    font-size: 16px;
+    line-height: 190%;
     width: 330px;
     margin: 0 auto;
     color: #ffffff;
@@ -294,11 +295,11 @@
 .pp_bnr_tp_dt b{
   font-style: normal;
   font-weight: bold;
-  font-size: 48px;
+  font-size: 40px;
   line-height: 50px;
   text-transform: uppercase;
   color: #D7AD48;
-  padding: 0 0 70px 0;
+  padding: 0 0 10px 0;
   display: block;
   @media all and (max-width: 980px) {
     display: none;
@@ -346,7 +347,7 @@
   }
 }
 .pp_bnr_tp_dtbgf{
-  background-image: url(/img/bnr/bnr_bg_cnt_mpp.png);
+  background-image: url(/img/bnr/group_4759_m.png);
   background-repeat: no-repeat;
   height: 100%;
   width: 394px;
@@ -356,10 +357,10 @@
 }
 
 .r_car_pp {
-  background-image: url(/img/bnr/r_car_pp.png);
+  background-image: url(/img/bnr/santa-claus-bag_m.png);
   background-repeat: no-repeat;
-  width: 467px;
-  height: 430px;
+  width: 454px;
+  height: 503px;
   z-index: 0;
   position: absolute;
   right: 0;
@@ -392,19 +393,19 @@
 }
 
 .pp_mbnr_bnr_tp_dtbgf{
-  background-image: url(/img/bnr/bnr_bg_cnt_mpp.png);
+  background: linear-gradient(180deg, #3AB3F8 0%, #015585 100%);
   background-repeat: no-repeat;
   height: 300px;
   width: 100%;
   background-position: center top;
 }
 .pp_mbnr_r_car_pp{
-  background-image: url(/img/bnr/r_car_pp_m.png);
+  background-image: url(/img/bnr/santa-claus-bag_m_pp.png);
   background-repeat: no-repeat;
-  width: 375px;
-  height: 328px;
+  width: 269px;
+  height: 300px;
   background-size: 100%;
-  background-position: center center;
+  background-position: 0 64px;
   position: absolute;
   top: 0;
   right: 0;
