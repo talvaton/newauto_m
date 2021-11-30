@@ -31,7 +31,6 @@
 /*************bnr******************/
 
 .bnr_tp{
-  background-color: #11110F;
   height: 300px;
   display: block;
   position: relative;
@@ -47,7 +46,7 @@
 }
 
 .bnr_bg_cnt{
-  background-image: url(/img/bnr/bnr_bg_cnt.png);
+  background-image: url(/img/bnr/group_4758.png);
   background-position: center top;
   height: 300px;
   display: block;
@@ -55,70 +54,79 @@
   width: 100%;
   margin: 0 auto;
   @media all and (max-width: 1070px) {
-    background-position: -450px top;
+
   }
   @media all and (max-width: 870px) {
-    background-position: -450px 80px;
-    background-size: 180%;
+
   }
   @media all and (max-width: 680px) {
-    background-position: -450px 0;
+
   }
   @media all and (max-width: 580px) {
-    background-image: url(/img/bnr/bnr_bg_cnt_m.png);
-    background-position: center top;
-    background-size: 100%;
+    background-position: 980px 0px;
+  }
+  @media all and (max-width: 460px) {
+    background-position: 870px 0px;
   }
 }
 
 .l_car{
-  background-image: url(/img/bnr/l_car.png);
+  background-image: url(/img/bnr/santa-claus-g.png);
   background-repeat: no-repeat;
-  width: 516px;
-  height: 306px;
+  width: 555px;
+  height: 300px;
   z-index: 0;
   position: absolute;
   left: 0;
-  bottom: -45px;
-  @media all and (max-width: 1320px) {
+  bottom: 0;
+  @media all and (max-width: 1800px) {
     left: -100px;
   }
-  @media all and (max-width: 1070px) {
+  @media all and (max-width: 1320px) {
+    left: -150px;
+  }
+  @media all and (max-width: 1020px) {
+    left: -125px;
     background-size: 80%;
-    bottom: -95px;
+    height: 218px;
   }
   @media all and (max-width: 870px) {
-    background-size: 60%;
-    bottom: -145px;
-    left: -55px;
+
   }
   @media all and (max-width: 580px) {
-    display: none;
+    background-image: url(/img/bnr/santa-claus-g_m.png);
+    left: initial;
+    height: 132px;
+    right: 0;
+    width: 196px;
+    background-size: 100%;
   }
 }
 .r_car{
-  background-image: url(/img/bnr/r_car.png);
+  background-image: url(/img/bnr/santa-claus-bag.png);
   background-repeat: no-repeat;
-  width: 606px;
-  height: 407px;
+  width: 631px;
+  height: 300px;
   z-index: 0;
   position: absolute;
   right: 0;
-  bottom: -115px;
+  bottom: 0;
+  @media all and (max-width: 1800px) {
+    width: 400px;
+  }
   @media all and (max-width: 1320px) {
     right: -130px;
   }
-  @media all and (max-width: 1070px) {
-    right: -230px;
-    background-size: 80%;
-    bottom: -180px;
+  @media all and (max-width: 1020px) {
+    right: -130px;
+    background-size: 100%;
+    height: 190px;
   }
   @media all and (max-width: 870px) {
-    right: -295px;
-    background-size: 60%;
-    bottom: -225px;
+
   }
   @media all and (max-width: 580px) {
+    display: none;
     bottom: 0;
     width: 220px;
     right: -30px;
@@ -134,7 +142,7 @@
   text-align: center;
   text-transform: uppercase;
   color: #FFFFFF;
-  padding: 59px 0 0 0;
+  padding: 15px 0 0 0;
   @media all and (max-width: 1500px) {
     padding: 10px 0 0 0;
   }
@@ -144,17 +152,73 @@
     padding: 35px 0 0 0;
   }
   @media all and (max-width: 580px) {
-    padding: 35px 0 0 15px;
+    padding: 20px 0 0 15px;
     text-align: left;
     font-size: 14px;
   }
 }
-.bnr_ntxt div{
-  margin: 0 0 15px 0;
+.bnr_ntxt div.ng{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 160%;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  position: relative;
   @media all and (max-width: 580px) {
-    margin: 0;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 160%;
+    text-align: left;
+    padding: 0;
   }
 }
+.bnr_ntxt div{
+  font-style: normal;
+  font-weight: 900;
+  font-size: 26px;
+  line-height: 160%;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.32);
+  position: relative;
+  @media all and (max-width: 1240px) {
+    font-size: 20px;
+  }
+  @media all and (max-width: 580px) {
+    text-align: left;
+    font-weight: 900;
+    font-size: 12px;
+    line-height: 160%;
+    padding: 6px 0 0 20px;
+  }
+}
+
+
+.bnr_ntxt div.ng:after{
+  @media all and (max-width: 580px) {
+     display: none;
+  }
+}
+
+.bnr_ntxt div:after{
+  @media all and (max-width: 580px) {
+    content: '';
+    background-image: url(/img/bnr/str_santa.png);
+    width: 11px;
+    height: 18px;
+    position: absolute;
+    background-position: center center;
+    left: 0;
+    background-repeat: no-repeat;
+  }
+}
+
+
+
 .tcp{
   font-weight: bold;
   font-size: 32px;

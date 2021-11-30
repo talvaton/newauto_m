@@ -582,7 +582,7 @@ $(".mbar_tr").on('click', function(){
     })
 });
 
-$(".bnr_tp").on('click', function(){
+/*$(".bnr_tp").on('click', function(){
     $.ajax({
         url: '/common_modal',
         type: 'POST',
@@ -594,7 +594,7 @@ $(".bnr_tp").on('click', function(){
         }
     })
 });
-
+*/
 
 $(".feed_sale").on('click', function(){
     $.ajax({
